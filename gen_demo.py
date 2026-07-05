@@ -2,7 +2,7 @@
 # Standalone color-palette demo: /demo-colors/  — 5 palettes on real components.
 import os
 THEMES=[
- ("Ocean Blue","Текущий — универсальный, максимум доверия (как moving24).","#1968cd",{
+ ("Ocean Blue","Текущий синий — универсальный, максимум доверия.","#1968cd",{
    "--hero-bg":"#0b0f15","--hero-bg-2":"#101c2c","--hero-text-dim":"#9fb4c8",
    "--body-bg":"#fafbfc","--body-bg-2":"#edf3fa","--body-text":"#1c2330","--body-text-dim":"#4a5a6b",
    "--line":"#dde7f0","--line-strong":"#c2d3e2","--accent":"#1968cd","--accent-deep":"#1450a0","--accent-soft":"#e8f2fc","--accent-line":"#bdd5f5","--green":"#3e7a4a"}),
