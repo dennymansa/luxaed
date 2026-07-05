@@ -36,3 +36,13 @@ python3 -m http.server 8127
 ## SEO
 
 hreflang RU↔ET, JSON-LD (HomeAndConstructionBusiness, Service, FAQPage, BreadcrumbList), страницы под ключевые запросы (võrkaed, puitaed, liugvärav, väravaautomaatika и др.).
+
+## Деплой на GitHub Pages (подпапка /luxaed/)
+
+Пути на сайте корневые. Для проекта GitHub Pages (`dennymansa.github.io/luxaed/`) выполняется префикс:
+
+```bash
+python3 apply_base.py   # BASE="/luxaed" — добавляет префикс ко всем внутренним путям
+```
+
+Для деплоя на собственный домен `luxaed.ee` (корень) — оставить пути без префикса (BASE="").
