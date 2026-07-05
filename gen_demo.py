@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+# Standalone color-palette demo: /demo-colors/  — 5 palettes on real components.
+import os
+THEMES=[
+ ("Ocean Blue","Текущий — универсальный, максимум доверия (как moving24).","#1968cd",{
+   "--hero-bg":"#0b0f15","--hero-bg-2":"#101c2c","--hero-text-dim":"#9fb4c8",
+   "--body-bg":"#fafbfc","--body-bg-2":"#edf3fa","--body-text":"#1c2330","--body-text-dim":"#4a5a6b",
+   "--line":"#dde7f0","--line-strong":"#c2d3e2","--accent":"#1968cd","--accent-deep":"#1450a0","--accent-soft":"#e8f2fc","--accent-line":"#bdd5f5","--green":"#3e7a4a"}),
+ ("Graphite + Amber","Премиум: тёмный графит + тёплый янтарь. Под металл и дерево, дорого и солидно.","#c07a2c",{
+   "--hero-bg":"#17181c","--hero-bg-2":"#23262d","--hero-text-dim":"#a7adb8",
+   "--body-bg":"#faf9f7","--body-bg-2":"#f1ede7","--body-text":"#201d1a","--body-text-dim":"#5a5650",
+   "--line":"#e6e1d8","--line-strong":"#d3ccbe","--accent":"#c07a2c","--accent-deep":"#9a5f1f","--accent-soft":"#f6ecdc","--accent-line":"#e6cfa6","--green":"#3e7a4a"}),
+ ("Emerald","Изумруд — «aed» = сад. Природа, участок, зелень. Свежо и приятно.","#2f9e6a",{
+   "--hero-bg":"#0b1512","--hero-bg-2":"#10241c","--hero-text-dim":"#9fbcae",
+   "--body-bg":"#f8fbf9","--body-bg-2":"#e9f4ee","--body-text":"#16241d","--body-text-dim":"#486054",
+   "--line":"#d9ece2","--line-strong":"#bfdccd","--accent":"#2f9e6a","--accent-deep":"#237a52","--accent-soft":"#e4f4ec","--accent-line":"#b6e0c9","--green":"#237a52"}),
+ ("Warm Timber","Тёплая терракота — прямо под деревянные заборы, уют и «ручная работа».","#b5542e",{
+   "--hero-bg":"#1a1310","--hero-bg-2":"#2a1d16","--hero-text-dim":"#b8a89c",
+   "--body-bg":"#faf7f4","--body-bg-2":"#f1e8e1","--body-text":"#201812","--body-text-dim":"#5a4a40",
+   "--line":"#e7ddd3","--line-strong":"#d6c6b8","--accent":"#b5542e","--accent-deep":"#8f4022","--accent-soft":"#f6e8e0","--accent-line":"#ecccb9","--green":"#3e7a4a"}),
+ ("Onyx + Gold","Люкс: оникс + золото — обыгрывает само название «Lux»Aed. Статусно и премиально.","#c8a53a",{
+   "--hero-bg":"#101114","--hero-bg-2":"#1c1d21","--hero-text-dim":"#b3ac96",
+   "--body-bg":"#faf9f6","--body-bg-2":"#f1eee4","--body-text":"#1c1a15","--body-text-dim":"#57534a",
+   "--line":"#e8e3d6","--line-strong":"#d8d1bd","--accent":"#c8a53a","--accent-deep":"#a5851f","--accent-soft":"#f7f0d8","--accent-line":"#e6d59c","--green":"#3e7a4a"}),
+]
+
+def block(i,name,desc,hexc,v):
+    vars_str=";".join(f"{k}:{val}" for k,val in v.items())
+    swatches="".join(f'<span class="sw" style="background:{v[k]}"></span>' for k in ("--hero-bg","--accent","--accent-deep","--accent-soft","--accent-line"))
+    return f'''<section class="tblock" style="{vars_str}">
+  <div class="tmeta">
+    <div class="tnum">Вариант {i}</div>
+    <h2>{name}</h2>
+    <p>{desc}</p>
+    <div class="swatches">{swatches}</div>
+    <code>accent {hexc}</code>
+    <button class="pickbtn btn btn-accent" onclick="sendPick('{name}')">Выбрать этот →</button>
+  </div>
+  <div class="tprev">
+    <div class="tprev-hero">
+      <div class="tprev-nav"><span class="tlogo">Lux<b style="color:var(--accent)">Aed</b></span><span class="tnav-cta btn btn-accent" style="padding:7px 14px;font-size:12px;border-radius:30px">Оставить заявку</span></div>
+      <div class="hand" style="color:var(--accent-line);font-size:22px;margin:18px 0 8px">Нужен новый забор или ворота?</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><span style="color:#f4b429;font-size:15px">★★★★★</span><b style="font-size:14px">100%</b><span style="color:var(--hero-text-dim);font-size:13px">· 34 отзыва в Facebook</span></div>
+      <div class="thh">Заборы и ворота <em style="color:var(--accent);font-style:normal">в Таллинне</em></div>
+      <div class="tbtns"><span class="btn btn-accent">Оставить заявку →</span><span class="btn btn-ghost">Позвонить</span></div>
+    </div>
+    <div class="tprev-body">
+      <span class="tag">Наши услуги</span>
+      <div class="tchips"><span class="chip on">3D-сетка</span><span class="chip">Деревянный</span><span class="chip">Профнастил</span><span class="chip">Ворота</span></div>
+      <div class="tcards">
+        <div class="tcard"><div class="tic" style="background:var(--accent-soft);color:var(--accent)">▤</div><h4>Сетчатые/3D-заборы</h4><p>Сварные панели, антрацит RAL.</p></div>
+        <div class="thon">
+          <b style="color:var(--green)">Всегда входит</b>
+          <ul><li>Бесплатный замер</li><li>Расчёт до начала работ</li><li>Монтаж под ключ</li></ul>
+          <span class="btn btn-accent" style="margin-top:6px">Узнать стоимость →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>'''
+
+blocks="\n".join(block(i+1,*t) for i,t in enumerate(THEMES))
+html=f'''<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxAed — 5 вариантов цветовой палитры</title>
+<link rel="stylesheet" href="/assets/luxaed.css">
+<style>
+body{{background:#0e1116;color:#e7edf3;font-family:'Inter',system-ui,sans-serif;margin:0}}
+.demo-wrap{{max-width:1100px;margin:0 auto;padding:48px 24px 80px}}
+.demo-head h1{{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;margin:0 0 10px}}
+.demo-head p{{color:#9fb0c0;font-size:16px;max-width:680px;line-height:1.6}}
+.tblock{{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start;margin:34px 0;padding-top:34px;border-top:1px solid #222a33}}
+.tmeta .tnum{{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}}
+.tmeta h2{{font-family:'Plus Jakarta Sans',sans-serif;font-size:23px;margin:6px 0 8px}}
+.tmeta p{{color:#9fb0c0;font-size:14px;line-height:1.55;margin:0 0 14px}}
+.swatches{{display:flex;gap:6px;margin-bottom:10px}}
+.sw{{width:26px;height:26px;border-radius:7px;border:1px solid rgba(255,255,255,.15)}}
+.tmeta code{{font-size:12px;color:#8fa1b3;display:block;margin-bottom:14px}}
+.pickbtn{{cursor:pointer}}
+.tprev{{border-radius:20px;overflow:hidden;border:1px solid #222a33;box-shadow:0 20px 50px rgba(0,0,0,.4)}}
+.tprev-hero{{background:linear-gradient(160deg,var(--hero-bg),var(--hero-bg-2));color:#fff;padding:26px 30px 30px}}
+.tprev-nav{{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}}
+.tlogo{{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px}}
+.thh{{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:2px 0 0}}
+.tbtns{{display:flex;gap:10px;margin-top:18px}}
+.tbtns .btn{{padding:11px 20px;font-size:14px}}
+.tprev-body{{background:var(--body-bg);color:var(--body-text);padding:26px 30px 30px}}
+.tprev-body .tag{{margin-bottom:12px}}
+.tchips{{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}}
+.tchips .chip{{border:1px solid var(--line-strong);background:#fff;color:var(--body-text-dim);border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600}}
+.tchips .chip.on{{background:var(--accent);color:#fff;border-color:var(--accent)}}
+.tcards{{display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+.tcard,.thon{{background:var(--body-card,#fff);border:1px solid var(--line);border-radius:16px;padding:20px}}
+.thon{{border-top:4px solid var(--green)}}
+.tic{{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:19px;font-weight:800;margin-bottom:12px}}
+.tcard h4,.thon b{{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;margin:0 0 6px;display:block;color:var(--body-text)}}
+.tcard p{{font-size:13.5px;color:var(--body-text-dim);margin:0}}
+.thon ul{{list-style:none;padding:0;margin:8px 0 12px}}
+.thon li{{position:relative;padding-left:22px;font-size:13.5px;color:var(--body-text-dim);margin-bottom:6px}}
+.thon li::before{{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}}
+.thon .btn{{padding:9px 16px;font-size:13px}}
+@media(max-width:820px){{.tblock{{grid-template-columns:1fr}}.tcards{{grid-template-columns:1fr}}}}
+.note{{margin-top:40px;padding:18px 22px;background:#141a22;border:1px solid #222a33;border-radius:14px;color:#9fb0c0;font-size:14px;line-height:1.6}}
+</style></head>
+<body><div class="demo-wrap">
+<div class="demo-head"><h1>LuxAed — 5 вариантов цвета</h1>
+<p>Одна и та же вёрстка сайта в пяти палитрах — реальные компоненты (hero, кнопки, чипы, карточки). Дизайн-система на CSS-переменных, так что смена цвета — это правка одного блока `:root`. Нажмите «Выбрать этот», чтобы применить палитру ко всему сайту.</p></div>
+{blocks}
+<div class="note">💡 Все палитры используют одинаковую вёрстку и шрифты — меняется только набор цветов. Выбранную палитру я применю ко всем 22 страницам (RU + ET) одним изменением в <code>/assets/luxaed.css</code>.</div>
+</div>
+<script>
+function sendPick(name){{ try{{ if(window.sendPrompt) sendPrompt('Примени палитру: '+name+' ко всему сайту'); else alert('Выбрано: '+name+'. Напишите мне «примени '+name+'».'); }}catch(e){{}} }}
+</script>
+</body></html>'''
+os.makedirs("demo-colors",exist_ok=True)
+open("demo-colors/index.html","w",encoding="utf-8").write(html)
+print("wrote demo-colors/index.html", len(html),"bytes")

@@ -1,0 +1,7 @@
+.DS_Store
+.firecrawl/
+*.log
+__pycache__/
+*.pyc
+.claude/
+moving24-project-playbook.md
