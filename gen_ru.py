@@ -53,10 +53,10 @@ def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/
 def faq_html(faq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in faq)+'</div>'
 
 PROCESS='''<div class="hsteps">
-  <div class="hstep"><div class="hstep-num">1</div><h3>Заявка и замер</h3><p>Оставляете заявку или звоните — согласуем удобное время бесплатного выезда на участок.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>Расчёт и материалы</h3><p>Подбираем материал и конструкцию под задачу, называем стоимость до начала работ.</p></div>
-  <div class="hstep"><div class="hstep-num">3</div><h3>Монтаж на месте</h3><p>Устанавливаем и выравниваем столбы, монтируем секции, ворота и автоматику.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>Проверка и сдача</h3><p>Проверяем работу ворот и автоматики, сдаём готовый объект заказчику.</p></div>
+  <div class="hstep"><div class="hstep-num">1</div><h3>Вы оставляете заявку</h3><p>Один звонок или сообщение — и мы берём забор на себя. Приедем на бесплатный замер в удобное вам время.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>Подбираем и считаем</h3><p>Предложим материал и решение под ваш участок и бюджет и назовём честную цену — без сюрпризов в счёте.</p></div>
+  <div class="hstep"><div class="hstep-num">3</div><h3>Аккуратно ставим</h3><p>Устанавливаем столбы, секции, ворота и автоматику. Держим вас в курсе на каждом этапе.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>Сдаём под ключ</h3><p>Проверяем каждую деталь вместе с вами и сдаём готовый забор. Дальше — вы просто радуетесь результату.</p></div>
 </div>'''
 
 def related_html(cur):

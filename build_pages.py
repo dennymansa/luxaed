@@ -117,7 +117,7 @@ def footer(lang):
       <div class="foot-brand">
         <a class="nav-logo" href="{home}" aria-label="LuxAed">{logo_svg()}<span>Lux<b>Aed</b></span></a>
         <p>{tagline}</p>
-        <div class="foot-stats"><div><b>100%</b><span>{"soovitab" if lang=="et" else "рекомендуют"}</span></div><div><b>34</b><span>{"arvustust" if lang=="et" else "отзыва"}</span></div><div><b>6100+</b><span>{"jälgijat" if lang=="et" else "подписчиков"}</span></div></div>
+        <div class="foot-stats"><div><b>100%</b><span>{"soovitab" if lang=="et" else "рекомендуют"}</span></div><div><b>34</b><span>{"arvustust" if lang=="et" else "отзыва"}</span></div></div>
       </div>
       <div><h3>{h_s}</h3>{svc}</div>
       <div><h3>{h_c}</h3>{company}</div>

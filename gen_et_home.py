@@ -54,7 +54,7 @@ home_inner=f'''<section class="hero">
     <p class="hero-claim"><em>Üks mõõdistus</em><br>ja aed on valmis</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
-  <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>6100+</b><span>jälgijat Facebookis</span></div></div></div>
+  <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>5</b><span>aastat turul (al. 2021)</span></div></div></div>
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
@@ -77,7 +77,7 @@ home_inner=f'''<section class="hero">
       <div class="gbp-body">
         <div class="gbp-title-row"><h3 class="gbp-name">Aiad ja väravad LuxAed</h3>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></div>
-        <div class="gbp-rating-row"><span class="gbp-score">100%</span><span class="gbp-stars">★★★★★</span><a class="gbp-cnt" href="{FB}" target="_blank" rel="noopener">34 arvustust Facebookis</a></div>
+        <div class="gbp-rating-row"><span class="gbp-stars">★★★★★</span><a class="gbp-cnt" href="{FB}" target="_blank" rel="noopener">34 arvustust Facebookis</a></div>
         <p class="gbp-type">Aiad, väravad ja automaatika &middot; Tallinn</p>
         <div class="gbp-actions"><a class="gbp-btn" href="{FB}" target="_blank" rel="noopener">Facebook</a><a class="gbp-btn" href="tel:{TEL}">Helista</a></div>
         <div class="gbp-opts"><span><span class="gbp-check">&#10003;</span> Aiad</span><span><span class="gbp-check">&#10003;</span> Väravad</span><span><span class="gbp-check">&#10003;</span> Automaatika</span></div>
@@ -86,7 +86,7 @@ home_inner=f'''<section class="hero">
       </div>
     </div>
     <div class="gbp-reviews">
-      <div class="gbp-rev-hd"><span class="gbp-rev-score">100%</span><div class="gbp-rev-divider"></div><div class="gbp-rev-mid"><div class="gbp-rev-stars">★★★★★</div><div class="gbp-rev-cnt">34 arvustust · soovitavad</div></div><a class="gbp-rev-link" href="{FB}/reviews" target="_blank" rel="noopener">Kõik arvustused →</a></div>
+      <div class="gbp-rev-hd"><span class="gbp-rev-score">34</span><div class="gbp-rev-divider"></div><div class="gbp-rev-mid"><div class="gbp-rev-stars">★★★★★</div><div class="gbp-rev-cnt">arvustust Facebookis · soovitavad</div></div><a class="gbp-rev-link" href="{FB}/reviews" target="_blank" rel="noopener">Kõik arvustused →</a></div>
       <div class="gbp-rev-list">{rev_cards}</div>
     </div>
   </div></div></section>
@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
   <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid. Korralikult, ausa hinnaga ja arvestusega enne tööde algust.</p>
-  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>6100<small>+</small></b><div class="t">Jälgijat</div><p>Jälgivad meie töid</p></div><div class="num"><b>2</b><div class="t">Piirkonda</div><p>Tallinn ja kogu Harjumaa</p></div></div></div></section>
+  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>2</b><div class="t">Piirkonda</div><p>Tallinn ja kogu Harjumaa</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
   <div class="gal" id="gal">
@@ -121,13 +121,13 @@ page("/et/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","LuxAed — aed
 # ---------------- ET MEIST ----------------
 meist=f'''{hero("Ettevõttest","LuxAedist","Valmistame ja paigaldame aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal — puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.", crumb="Meist")}
 <section class="section"><div class="wrap"><span class="tag">Kes me oleme</span><h2 class="big">Aiad ja väravad — see, mida teeme iga päev</h2>
-<p class="lead">LuxAed paigaldab aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Meid usaldavad kliendid üle piirkonna ning meie Facebooki lehel on <b>34 arvustust, 100% soovitusi</b> ja üle 6100 jälgija.</p>
+<p class="lead">LuxAed paigaldab aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Meid usaldavad kliendid üle piirkonna ning meie Facebooki lehel on <b>34 arvustust ja 100% soovitusi</b>.</p>
 <p class="lead" style="margin-top:14px">Võtame kõik tööd enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Hoiame teid kursis, mis on tehtud ja mis järgmisena. Töötame korralikult, ausa hinnaga ja ütleme hinna enne algust. Ja erinevalt paljudest <b>töötame aastaringselt — ka talvel</b>.</p>
 <ul class="svc-bens"><li>Töötame alates 2021. aastast Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, automaatika ja domofonid</li><li>Materjalide ostu võtame enda peale</li><li>Hoiame kursis igal tööetapil</li><li>Tasuta mõõdistus, hind enne algust, garantii</li><li>Töötame aastaringselt, ka talvel</li><li>Olemasolevate konstruktsioonide remont</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
-<div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>6100<small>+</small></b><div class="t">Jälgijat</div><p>Jälgivad meie töid</p></div><div class="num"><b>2</b><div class="t">Piirkonda</div><p>Tallinn ja Harjumaa</p></div></div></div></section>
+<div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>2</b><div class="t">Piirkonda</div><p>Tallinn ja Harjumaa</p></div></div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage — tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/et/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 page("/et/meist/","LuxAedist — aiad ja väravad Tallinnas","LuxAed — aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist)
