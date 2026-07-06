@@ -51,7 +51,7 @@ home_inner=f'''<section class="hero">
     <div class="hero-kicker hand">Hi! A new fence coming up?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <h1>Fences & gates</h1>
-    <p class="hero-claim"><em>One call</em><br>and your fence is done</p>
+    <p class="hero-claim"><em>turnkey</em><br>from measurement to install</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>5</b><span>years in business (since 2021)</span></div></div></div>
@@ -59,11 +59,11 @@ home_inner=f'''<section class="hero">
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">What we do</span><h2 class="info-title">Fences and gates,<br>turnkey.</h2></div>
-  <div><p>LuxAed manufactures and installs <b>fences, gates and wickets</b> and fits <b>gate automation and intercoms</b>. We work with wood, profiled sheet and welded mesh in Tallinn and Harjumaa.</p></div>
+  <div><p>We design, manufacture and install <b>fences, gates and wickets</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">A solution for every plot</h2>
-  <p class="lead lead--lg">Choose a fence or gate type — we'll advise what fits, come for a free measurement and calculate the price.</p>
+  <p class="lead lead--lg">Choose a fence or gate type — we'll help you pick the right solution, come for a free measurement and calculate the price.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Not sure which fence suits you?</span>
@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>
-  <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa. Wood, profiled sheet, welded mesh, gate automation and intercoms. Neatly, at an honest price and with a quote before we start.</p>
+  <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa. Wood, profiled sheet, welded mesh, gate automation and intercoms. Neatly, at a price we name up front, before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>5</b><div class="t">Years</div><p>Building fences since 2021</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>
@@ -120,10 +120,10 @@ home_inner=f'''<section class="hero">
 page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","LuxAed — manufacture and installation of fences and gates in Tallinn and Harjumaa. Wooden, corrugated and mesh fences, gate automation and intercoms. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema)
 
 # ---------------- EN ABOUT ----------------
-about=f'''{hero("About us","About LuxAed","We build and install fences, gates and wickets in Tallinn and Harjumaa — wood, corrugated sheet, welded 3D mesh, gate automation and intercoms.", crumb="About")}
+about=f'''{hero("About us","About LuxAed","We design, manufacture and install fences, gates and wickets in Tallinn and Harjumaa — wood, corrugated sheet, welded 3D mesh, gate automation and intercoms.", crumb="About")}
 <section class="section"><div class="wrap"><span class="tag">Who we are</span><h2 class="big">Fences and gates — what we do every day</h2>
-<p class="lead">LuxAed has been installing fences, gates and wickets in Tallinn and Harjumaa <b>since 2021</b>. Customers across the region trust us, and our Facebook page has <b>34 reviews and 100% recommendations</b>.</p>
-<p class="lead" style="margin-top:14px">We take care of everything: we come for a free measurement, buy the materials, install and hand over the finished job. We keep you posted on what's done and what's next. We work neatly, at an honest price, and quote before we start. And unlike many, <b>we work year-round — even in winter</b>.</p>
+<p class="lead">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>since 2021</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. For every project we choose a solution based on the plot, budget and the client's wishes.</p>
+<p class="lead" style="margin-top:14px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We keep you posted. We name the price up front — no hidden extras or surprises on the invoice. And unlike many, <b>we work year-round, even in winter</b>.</p>
 <ul class="svc-bens"><li>In business since 2021 in Tallinn and Harjumaa</li><li>Fences from wood, profiled sheet and welded mesh</li><li>Sliding and swing gates, automation and intercoms</li><li>We handle buying the materials</li><li>We keep you posted at every stage</li><li>Free measurement and quote, warranty on the work</li><li>We work year-round, including winter</li><li>Repair and maintenance of existing structures</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
 <div class="wrap" style="position:relative"><span class="tag">Trusted by customers</span><h2 class="big big--xl">The reviews speak for us</h2>

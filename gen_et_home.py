@@ -51,7 +51,7 @@ home_inner=f'''<section class="hero">
     <div class="hero-kicker hand">Vajate uut aeda või väravat?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Aiad ja väravad</h1>
-    <p class="hero-claim"><em>Üks kõne</em><br>ja aed on valmis</p>
+    <p class="hero-claim"><em>võtmed kätte</em><br>mõõdistusest paigalduseni</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>5</b><span>aastat turul (al. 2021)</span></div></div></div>
@@ -59,11 +59,11 @@ home_inner=f'''<section class="hero">
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame, paigaldame.<br>Teie ei tõsta sõrmegi.</h2></div>
-  <div><p>LuxAed valmistab ja paigaldab <b>aedu, väravaid ja jalgväravaid</b> ning paigaldab <b>väravaautomaatikat ja domofone</b>. Töötame puidu, profiilpleki ja keevispaneeliga Tallinnas ja Harjumaal.</p></div>
+  <div><p>Projekteerime, valmistame ja paigaldame <b>aedu, väravaid ja jalgväravaid</b> era- ja ärikinnistutele Tallinnas ja Harjumaal. Samuti paigaldame <b>väravaautomaatikat</b> ja remondime olemasolevaid konstruktsioone.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Lahendus igale krundile</h2>
-  <p class="lead lead--lg">Valige aia või värava tüüp — soovitame, mis sobib, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
+  <p class="lead lead--lg">Valige aia või värava tüüp — aitame valida sobiva lahenduse, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Ei tea, milline aed sobib?</span>
@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
-  <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid. Korralikult, ausa hinnaga ja arvestusega enne tööde algust.</p>
+  <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid. Korralikult, täpse hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
@@ -120,10 +120,10 @@ home_inner=f'''<section class="hero">
 page("/et/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","LuxAed — aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puitaed, profiilplekk-aed, võrkaed, väravaautomaatika ja domofonid. Tasuta mõõdistus. 100% soovitab Facebookis.", home_inner, sch=lb_schema+home_faq_schema)
 
 # ---------------- ET MEIST ----------------
-meist=f'''{hero("Ettevõttest","LuxAedist","Valmistame ja paigaldame aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal — puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.", crumb="Meist")}
+meist=f'''{hero("Ettevõttest","LuxAedist","Projekteerime, valmistame ja paigaldame aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal — puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.", crumb="Meist")}
 <section class="section"><div class="wrap"><span class="tag">Kes me oleme</span><h2 class="big">Aiad ja väravad — see, mida teeme iga päev</h2>
-<p class="lead">LuxAed paigaldab aedu, väravaid ja jalgväravaid Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Meid usaldavad kliendid üle piirkonna ning meie Facebooki lehel on <b>34 arvustust ja 100% soovitusi</b>.</p>
-<p class="lead" style="margin-top:14px">Võtame kõik tööd enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Hoiame teid kursis, mis on tehtud ja mis järgmisena. Töötame korralikult, ausa hinnaga ja ütleme hinna enne algust. Ja erinevalt paljudest <b>töötame aastaringselt — ka talvel</b>.</p>
+<p class="lead">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Iga projekti jaoks valime lahenduse krundi, eelarve ja kliendi soovide järgi.</p>
+<p class="lead" style="margin-top:14px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Hoiame teid kursis. Ütleme hinna ette — ilma peidetud lisatasude ja üllatusteta. Ja erinevalt paljudest <b>töötame aastaringselt, ka talvel</b>.</p>
 <ul class="svc-bens"><li>Töötame alates 2021. aastast Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, automaatika ja domofonid</li><li>Materjalide ostu võtame enda peale</li><li>Hoiame kursis igal tööetapil</li><li>Tasuta mõõdistus, hind enne algust, garantii</li><li>Töötame aastaringselt, ka talvel</li><li>Olemasolevate konstruktsioonide remont</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>

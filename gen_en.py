@@ -29,15 +29,15 @@ def form_html():
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Attach a photo (optional)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Send request →</button>
     <p class="form-consent">By submitting you agree to our <a href="/en/privacy/">privacy policy</a> and <a href="/en/terms/">terms</a></p>
-    <div class="form-ok" id="formOk" role="status"><b>Thank you! Request received.</b><br>We'll get back to you shortly.</div>
+    <div class="form-ok" id="formOk" role="status"><b>Thank you, request received.</b><br>We'll get back to you shortly.</div>
   </form>
 </div></div>'''
 
 PROCESS='''<div class="hsteps">
   <div class="hstep"><div class="hstep-num">1</div><h3>You send a request</h3><p>One call or message — and we take the fence off your hands. We come for a free measurement at a time that suits you.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>We advise & quote</h3><p>We suggest the material and solution for your plot and budget and give an honest price — no surprises on the invoice.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>We advise & quote</h3><p>We suggest the material and solution for your plot and budget and give an exact price — no surprises on the invoice.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>We install with care</h3><p>We set the posts, sections, gates and automation. We keep you posted at every stage.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>We hand it over</h3><p>We check every detail together with you and hand over the finished fence. After that — you simply enjoy it.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>We hand it over</h3><p>When the work is done we review the result together with you and hand over the finished job — with care and maintenance tips.</p></div>
 </div>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'

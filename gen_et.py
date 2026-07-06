@@ -29,15 +29,15 @@ def form_html():
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Lisa foto (valikuline)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Saada päring →</button>
     <p class="form-consent">Vormi saates nõustud <a href="/et/privaatsus/">privaatsuspoliitikaga</a> ja <a href="/et/tingimused/">tingimustega</a></p>
-    <div class="form-ok" id="formOk" role="status"><b>Aitäh! Päring on vastu võetud.</b><br>Võtame teiega peagi ühendust.</div>
+    <div class="form-ok" id="formOk" role="status"><b>Aitäh, päring on vastu võetud.</b><br>Võtame teiega peagi ühendust.</div>
   </form>
 </div></div>'''
 
 PROCESS='''<div class="hsteps">
   <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum — ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>Valime ja arvutame</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme ausa hinna — ilma üllatusteta.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>Valime ja arvutame</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna — ilma üllatusteta.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>Paigaldame korralikult</h3><p>Paigaldame postid, sektsioonid, väravad ja automaatika. Hoiame teid kursis igal etapil.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>Anname võtmed kätte</h3><p>Kontrollime iga detaili koos teiega ja anname valmis aia üle. Edasi — lihtsalt nautige.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>Anname võtmed kätte</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle — koos hooldussoovitustega.</p></div>
 </div>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
