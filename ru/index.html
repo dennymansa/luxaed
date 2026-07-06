@@ -648,7 +648,7 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
     form.querySelector('button[type=submit]').disabled=true;
     ok.style.display='block';
     var data={};new FormData(form).forEach(function(v,k){if(k!=='photos')data[k]=v;});
-    fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+    fetch('/api/lead/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
     if(window.gtag)gtag('event','generate_lead',{form_service:data.service||''});
   });
 })();
