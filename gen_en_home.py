@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>
-  <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa. Wood, profiled sheet, welded mesh, gate automation and intercoms. Neatly, at a price we name up front, before the work begins.</p>
+  <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>5</b><div class="t">Years</div><p>Building fences since 2021</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>

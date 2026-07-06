@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
-  <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid. Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
+  <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>

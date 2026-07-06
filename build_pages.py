@@ -97,7 +97,7 @@ def partners_marquee(lang):
 
 def lang_switch(cur_path, lang):
     out=['<div class="lang-switch" role="navigation" aria-label="Keel / Language / Язык">']
-    for L,lbl in (("ru","RU"),("et","ET"),("en","EN")):
+    for L,lbl in (("et","ET"),("ru","RU"),("en","EN")):  # ET first (primary language)
         p=alt(cur_path, L)
         a=' is-active' if L==lang else ''
         cur=' aria-current="page"' if L==lang else ''
