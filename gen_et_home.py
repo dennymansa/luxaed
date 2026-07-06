@@ -93,6 +93,12 @@ home_inner=f'''<section class="hero">
 
 {partners_marquee("et")}
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
+<section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Mis kuulub hinna sisse ja mis sõltub projektist</h2>
+<p class="lead">Hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest — seepärast fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
+<div class="honest">
+  <div class="hon good"><h3>Alati hinna sees</h3><ul><li>Krundi mõõdistamine</li><li>Materjali ja konstruktsiooni konsultatsioon</li><li>Hinnaarvestus enne tööde algust</li><li>Postide ja sektsioonide paigaldus</li><li>Furnituuri ja vajadusel automaatika paigaldus</li><li>Väravate kontroll pärast paigaldust</li></ul></div>
+  <div class="hon bad"><h3>Sõltub projektist</h3><ul><li>Materjali valik (puit, profiilplekk, keevispaneel)</li><li>Aia pikkus ja kõrgus, väravate arv</li><li>Reljeefi keerukus ja aluse ettevalmistus</li><li>Väravaautomaatika ja domofon — soovi korral</li><li>Vana aia lammutus</li></ul></div>
+</div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>

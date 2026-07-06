@@ -93,6 +93,12 @@ home_inner=f'''<section class="hero">
 
 {partners_marquee("en")}
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
+<section class="section"><div class="wrap"><span class="tag">Honest about prices</span><h2 class="big">What's always included and what depends on the project</h2>
+<p class="lead">The price depends on the material, fence length, terrain and gate complexity — so there's no fixed price list. We give the exact price after a free measurement.</p>
+<div class="honest">
+  <div class="hon good"><h3>Always included</h3><ul><li>Site measurement</li><li>Advice on material and construction</li><li>A quote before the work begins</li><li>Installing posts and sections</li><li>Fitting the hardware and, if needed, automation</li><li>Checking the gates after installation</li></ul></div>
+  <div class="hon bad"><h3>Depends on the project</h3><ul><li>Choice of material (wood, corrugated sheet, 3D mesh)</li><li>Fence length and height, number of gates</li><li>Terrain complexity and base preparation</li><li>Gate automation and intercom — optional</li><li>Removing the old fence</li></ul></div>
+</div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>
