@@ -50,7 +50,7 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Vajad uut aeda või väravat?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
-    <h1>Aiad ja väravad Tallinnas</h1>
+    <h1>Aiad ja väravad</h1>
     <p class="hero-claim"><em>Üks mõõdistus</em><br>ja aed on valmis</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>

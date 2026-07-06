@@ -6,7 +6,7 @@ from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB
 def form_html():
     chips=[("aed","Aed"),("varav","Värav"),("automaatika","Automaatika"),("remont","Remont")]
     ov='<svg class="chip-oval" viewBox="0 0 220 64" preserveAspectRatio="none" aria-hidden="true"><path d="M40 16C92 5 158 6 196 18 215 24 210 49 172 56 110 66 48 64 20 50 7 43 12 17 50 11 78 7 104 9 126 13"/></svg>'
-    ch="".join(f'<button type="button" class="chip{" chip--full" if s=="remont" else ""}" data-svc="{s}">{ov}{t}<span class="chip-tick" aria-hidden="true">✓</span></button>' for s,t in chips)
+    ch="".join(f'<button type="button" class="chip" data-svc="{s}">{ov}{t}<span class="chip-tick" aria-hidden="true">✓</span></button>' for s,t in chips)
     return f'''<div class="form-slot"><div class="form-card" id="form">
   <span class="form-tag">Küsi pakkumist</span>
   <h2>Mida on vaja teha? <span class="pick-hint">(vali)</span></h2>

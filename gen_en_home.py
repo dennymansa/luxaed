@@ -50,7 +50,7 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Need a new fence or gate?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
-    <h1>Fences & gates in Tallinn</h1>
+    <h1>Fences & gates</h1>
     <p class="hero-claim"><em>One measurement</em><br>and your fence is done</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div>
