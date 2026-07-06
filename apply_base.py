@@ -24,15 +24,22 @@ def fix_css(s):
     return re.sub(r"url\((['\"]?)/(?!"+re.escape(b[1:])+r"/)(?!/)", r"url(\1"+b+"/", s)
 
 def main():
+    import hashlib
+    # content hash of CSS -> cache-busting version so browsers always fetch fresh CSS
+    ver=""
+    if os.path.exists("assets/luxaed.css"):
+        ver=hashlib.md5(open("assets/luxaed.css","rb").read()).hexdigest()[:8]
     n=0
     for f in glob.glob("**/*.html", recursive=True):
         s=open(f,encoding="utf-8").read(); t=fix_html(s)
+        if ver:  # version the stylesheet link (strip any old ?v= first)
+            t=re.sub(r'(assets/luxaed\.css)(\?v=[a-f0-9]+)?"', r'\1?v='+ver+'"', t)
         if t!=s: open(f,"w",encoding="utf-8").write(t); n+=1
     for f in ["assets/luxaed.css"]:
         if os.path.exists(f):
             s=open(f,encoding="utf-8").read(); t=fix_css(s)
             if t!=s: open(f,"w",encoding="utf-8").write(t); n+=1
-    print(f"BASE={BASE!r} applied to {n} files")
+    print(f"BASE={BASE!r} applied to {n} files | css v={ver}")
 
 if __name__=="__main__":
     main()
