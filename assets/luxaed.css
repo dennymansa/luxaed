@@ -392,7 +392,10 @@ a{color:inherit;text-decoration:none}
 /* -------- HERO -------- */
 .hero{background:linear-gradient(160deg,var(--hero-bg),var(--hero-bg-2));color:var(--hero-text);padding:0;overflow:hidden;position:relative;margin-top:-72px;min-height:100svh;display:flex;flex-direction:column}
 
-.hero-photo-bg{position:absolute;inset:0;background:url('/luxaed/img/luxaed-hero.webp') center 50%/cover no-repeat;z-index:0;transform:none}@media(max-width:760px){.hero-photo-bg{background-image:url('/luxaed/img/luxaed-hero.webp')}}
+/* bg pinned to viewport height (not hero height) so its zoom is CONSTANT regardless of
+   form/content height -> identical framing on every language + no jump when the smart form
+   grows/shrinks on chip switch. Same technique the mobile rule already used. */
+.hero-photo-bg{position:absolute;top:0;left:0;right:0;height:100svh;bottom:auto;background:url('/luxaed/img/luxaed-hero.webp') center 42%/cover no-repeat;z-index:0;transform:none}@media(max-width:760px){.hero-photo-bg{background-image:url('/luxaed/img/luxaed-hero.webp')}}
 /* lighter overlay */
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,11,17,.84) 0%,rgba(8,14,24,.52) 44%,rgba(6,10,18,.26) 100%);z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 80% 10%,rgba(181,84,46,.12),transparent 60%);pointer-events:none;z-index:1}
@@ -440,7 +443,8 @@ a{color:inherit;text-decoration:none}
 .section{padding:76px 0}
 .section--alt{background:var(--body-bg-2)}
 .section--dark{background:var(--hero-bg);color:var(--hero-text)}
-.tag{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:14px}
+.tag{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;display:block;margin-bottom:14px}
+.svc-hero .tag,.hero .tag{color:var(--accent-line)}
 h1,h2.big,.info-title,.cta-final h2{font-family:'Plus Jakarta Sans',system-ui,sans-serif}
 h2.big{font-size:clamp(30px,4.4vw,46px);font-weight:700;letter-spacing:-.015em;line-height:1.15;max-width:760px}
 h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02em;line-height:1.1;max-width:900px}

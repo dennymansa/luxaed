@@ -53,15 +53,12 @@ NAVLBL = {"ru":{"about":"О нас","faq":"Вопросы","contact":"Конта
                "cta":"Get a quote","cta_mini":"Quote","home":"Home"}}
 
 def logo_svg():
-    # clean picket fence: 5 even pointed pickets + 2 rails showing between them
-    return ('<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-            '<rect x="1.5" y="11" width="23" height="2.2" rx="1.1" fill="#ecccb9"/>'
-            '<rect x="1.5" y="16" width="23" height="2.2" rx="1.1" fill="#ecccb9"/>'
-            '<path d="M1.9 8 L3.3 5 L4.7 8 V22.5 H1.9 Z" fill="#b5542e"/>'
-            '<path d="M6.65 8 L8.05 5 L9.45 8 V22.5 H6.65 Z" fill="#b5542e"/>'
-            '<path d="M11.4 8 L12.8 5 L14.2 8 V22.5 H11.4 Z" fill="#b5542e"/>'
-            '<path d="M16.15 8 L17.55 5 L18.95 8 V22.5 H16.15 Z" fill="#b5542e"/>'
-            '<path d="M20.9 8 L22.3 5 L23.7 8 V22.5 H20.9 Z" fill="#b5542e"/></svg>')
+    # elegant arched gate — thin wrought-iron strokes (premium "Lux" feel), light & clean
+    return ('<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
+            'stroke="#b5542e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M4 22.5 V13 a9 9 0 0 1 18 0 V22.5"/>'
+            '<path d="M9 22.5 V13.5"/><path d="M13 22.5 V8.5"/><path d="M17 22.5 V13.5"/>'
+            '<path d="M2.5 22.5 H23.5"/></svg>')
 
 def partners_marquee(lang):
     # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
@@ -75,12 +72,17 @@ def partners_marquee(lang):
        "et":("Kliendid","Paigaldame aedu ka tuntud ettevõtetele"),
        "en":("Clients","We build fences for well-known companies too")}
     tag,h2=T.get(lang,T["ru"])
-    pills="".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in P)
+    def pills(items):
+        return "".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in items)
+    top=pills(P)                 # row 1 scrolls left
+    bot=pills(list(reversed(P))) # row 2 scrolls right (reversed order for variety)
     return (f'<section class="partners-marquee" aria-label="{tag}">'
             f'<div class="wrap"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>'
             f'<div class="pm-row" tabindex="0" role="group" aria-label="{tag}"><div class="pm-track">'
-            f'<div class="pm-set">{pills}</div><div class="pm-set" aria-hidden="true">{pills}</div>'
-            f'</div></div></section>')
+            f'<div class="pm-set">{top}</div><div class="pm-set" aria-hidden="true">{top}</div></div></div>'
+            f'<div class="pm-row pm-rev" aria-hidden="true"><div class="pm-track">'
+            f'<div class="pm-set">{bot}</div><div class="pm-set">{bot}</div></div></div>'
+            f'</section>')
 
 def lang_switch(cur_path, lang):
     out=['<div class="lang-switch" role="navigation" aria-label="Keel / Language / Язык">']
@@ -189,10 +191,11 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
             f'<link rel="alternate" hreflang="en" href="{DOMAIN}{en}">'
             f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}{ru}">')
     sb = "\n".join(schema_blocks or [])
-    fav = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E"
-           "%3Crect x='2' y='9' width='3' height='14' fill='%23b5542e'/%3E%3Crect x='8' y='6' width='3' height='17' fill='%23b5542e'/%3E"
-           "%3Crect x='14' y='9' width='3' height='14' fill='%23b5542e'/%3E%3Crect x='20' y='6' width='3' height='17' fill='%23b5542e'/%3E"
-           "%3Crect x='1' y='9' width='23' height='2.4' fill='%23ecccb9'/%3E%3C/svg%3E")
+    fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20"
+           "stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E"
+           "%3Cpath%20d%3D%27M4%2022.5%20V13%20a9%209%200%200%201%2018%200%20V22.5%27/%3E"
+           "%3Cpath%20d%3D%27M9%2022.5%20V13.5%27/%3E%3Cpath%20d%3D%27M13%2022.5%20V8.5%27/%3E%3Cpath%20d%3D%27M17%2022.5%20V13.5%27/%3E"
+           "%3Cpath%20d%3D%27M2.5%2022.5%20H23.5%27/%3E%3C/svg%3E")
     locale = {"et":"et_EE","en":"en_US"}.get(lang,"ru_RU")
     return f'''<!DOCTYPE html>
 <html lang="{lang}">

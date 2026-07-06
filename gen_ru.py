@@ -14,11 +14,11 @@ def form_html(lang="ru"):
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
     <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
-    <div class="ff" data-svc="zabor"><select name="material" class="form-select"><option value="">Материал забора</option><option>Дерево</option><option>Профнастил</option><option>3D-сетка (сварная)</option><option>Не знаю — подскажите</option></select></div>
-    <div class="ff form-grid2" data-svc="zabor"><input type="text" name="length" inputmode="numeric" placeholder="Длина, м"><select name="height" class="form-select"><option value="">Высота</option><option>до 1,5 м</option><option>1,5–2 м</option><option>выше 2 м</option></select></div>
-    <div class="ff" data-svc="vorota,avtomatika"><select name="gate_type" class="form-select"><option value="">Тип ворот</option><option>Откатные</option><option>Распашные</option><option>Не знаю</option></select></div>
-    <div class="ff" data-svc="vorota"><select name="automation" class="form-select"><option value="">Автоматика ворот?</option><option>Да, с автоматикой</option><option>Без автоматики</option><option>Не знаю</option></select></div>
-    <div class="ff form-grid2"><select name="plot" class="form-select"><option value="">Участок</option><option>Ровный</option><option>Со склоном</option><option>Есть старый забор (демонтаж)</option><option>Не знаю</option></select><select name="timeline" class="form-select"><option value="">Когда?</option><option>Как можно скорее</option><option>В течение 1–3 мес.</option><option>Просто узнать цену</option></select></div>
+    <div class="ff" data-svc="zabor"><select name="material" class="form-select" aria-label="Материал забора"><option value="">Материал забора</option><option>Дерево</option><option>Профнастил</option><option>3D-сетка (сварная)</option><option>Не знаю — подскажите</option></select></div>
+    <div class="ff form-grid2" data-svc="zabor"><input type="text" name="length" inputmode="numeric" placeholder="Длина, м"><select name="height" class="form-select" aria-label="Высота"><option value="">Высота</option><option>до 1,5 м</option><option>1,5–2 м</option><option>выше 2 м</option></select></div>
+    <div class="ff" data-svc="vorota,avtomatika"><select name="gate_type" class="form-select" aria-label="Тип ворот"><option value="">Тип ворот</option><option>Откатные</option><option>Распашные</option><option>Не знаю</option></select></div>
+    <div class="ff" data-svc="vorota"><select name="automation" class="form-select" aria-label="Автоматика ворот?"><option value="">Автоматика ворот?</option><option>Да, с автоматикой</option><option>Без автоматики</option><option>Не знаю</option></select></div>
+    <div class="ff form-grid2"><select name="plot" class="form-select" aria-label="Участок"><option value="">Участок</option><option>Ровный</option><option>Со склоном</option><option>Есть старый забор (демонтаж)</option><option>Не знаю</option></select><select name="timeline" class="form-select" aria-label="Когда?"><option value="">Когда?</option><option>Как можно скорее</option><option>В течение 1–3 мес.</option><option>Просто узнать цену</option></select></div>
     <div class="ff-base"><input type="text" name="address" placeholder="Адрес участка (город / район)"></div>
     <div class="form-grid">
       <input type="text" name="name" placeholder="Ваше имя *" required style="grid-column:1/-1">
@@ -65,7 +65,7 @@ def related_html(cur):
 
 def service_page(c):
     sb=schema_service(c["name"], c["desc"], c["path"], c["faq"])
-    H=head("ru", c["path"], c["title"], c["desc"], og_img=c.get("og","/img/luxaed-hero.jpg"), schema_blocks=sb)
+    H=head("ru", c["path"], c["title"], c["desc"], og_img=c.get("og",f'/img/{c["hero"]}.jpg'), schema_blocks=sb)
     body=f'''{nav("ru", c["path"])}
 <main id="main">
 <section class="svc-hero">
@@ -73,7 +73,6 @@ def service_page(c):
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="crumb"><a href="/">Главная</a><span>›</span><a href="/#uslugi">Услуги</a><span>›</span>{c["name"]}</div>
         <span class="tag">{c["kicker"]}</span>
         <h1>{c["h1"]}</h1>
         <p class="lead">{c["lead"]}</p>

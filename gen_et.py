@@ -14,11 +14,11 @@ def form_html():
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
     <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
-    <div class="ff" data-svc="aed"><select name="material" class="form-select"><option value="">Aia materjal</option><option>Puit</option><option>Profiilplekk</option><option>Võrkaed (keevispaneel)</option><option>Ei tea — soovitage</option></select></div>
-    <div class="ff form-grid2" data-svc="aed"><input type="text" name="length" inputmode="numeric" placeholder="Pikkus, m"><select name="height" class="form-select"><option value="">Kõrgus</option><option>kuni 1,5 m</option><option>1,5–2 m</option><option>üle 2 m</option></select></div>
-    <div class="ff" data-svc="varav,automaatika"><select name="gate_type" class="form-select"><option value="">Värava tüüp</option><option>Lükandvärav</option><option>Tiibvärav</option><option>Ei tea</option></select></div>
-    <div class="ff" data-svc="varav"><select name="automation" class="form-select"><option value="">Automaatika?</option><option>Automaatikaga</option><option>Ilma automaatikata</option><option>Ei tea</option></select></div>
-    <div class="ff form-grid2"><select name="plot" class="form-select"><option value="">Krunt</option><option>Tasane</option><option>Kaldega</option><option>Vana aed (lammutus)</option><option>Ei tea</option></select><select name="timeline" class="form-select"><option value="">Millal?</option><option>Võimalikult kiiresti</option><option>1–3 kuu jooksul</option><option>Lihtsalt hind teada</option></select></div>
+    <div class="ff" data-svc="aed"><select name="material" class="form-select" aria-label="Aia materjal"><option value="">Aia materjal</option><option>Puit</option><option>Profiilplekk</option><option>Võrkaed (keevispaneel)</option><option>Ei tea — soovitage</option></select></div>
+    <div class="ff form-grid2" data-svc="aed"><input type="text" name="length" inputmode="numeric" placeholder="Pikkus, m"><select name="height" class="form-select" aria-label="Kõrgus"><option value="">Kõrgus</option><option>kuni 1,5 m</option><option>1,5–2 m</option><option>üle 2 m</option></select></div>
+    <div class="ff" data-svc="varav,automaatika"><select name="gate_type" class="form-select" aria-label="Värava tüüp"><option value="">Värava tüüp</option><option>Lükandvärav</option><option>Tiibvärav</option><option>Ei tea</option></select></div>
+    <div class="ff" data-svc="varav"><select name="automation" class="form-select" aria-label="Automaatika?"><option value="">Automaatika?</option><option>Automaatikaga</option><option>Ilma automaatikata</option><option>Ei tea</option></select></div>
+    <div class="ff form-grid2"><select name="plot" class="form-select" aria-label="Krunt"><option value="">Krunt</option><option>Tasane</option><option>Kaldega</option><option>Vana aed (lammutus)</option><option>Ei tea</option></select><select name="timeline" class="form-select" aria-label="Millal?"><option value="">Millal?</option><option>Võimalikult kiiresti</option><option>1–3 kuu jooksul</option><option>Lihtsalt hind teada</option></select></div>
     <div class="ff-base"><input type="text" name="address" placeholder="Krundi aadress (linn / piirkond)"></div>
     <div class="form-grid">
       <input type="text" name="name" placeholder="Teie nimi *" required style="grid-column:1/-1">
@@ -59,13 +59,12 @@ def schema(name,desc,path,fq):
             j({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in fq]})]
 
 def service(c):
-    H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og","/img/luxaed-hero.jpg"),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
+    H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
     body=f'''{nav("et",c["path"])}
 <main id="main">
 <section class="svc-hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="crumb"><a href="/et/">Avaleht</a><span>›</span>{c["name"]}</div>
     <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1><p class="lead">{c["lead"]}</p>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>

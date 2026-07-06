@@ -19,7 +19,7 @@ def page(path,title,desc,inner,og="/img/luxaed-hero.jpg",sch=None):
     print("wrote", write(path,H+"\n"+body))
 
 def hero(kicker,h1,lead,img="luxaed-wide-wood",crumb=None):
-    cr=f'<div class="crumb"><a href="/en/">Home</a><span>›</span>{crumb}</div>' if crumb else ''
+    cr=''  # visible breadcrumbs removed per request (JSON-LD kept for SEO)
     return f'''<section class="svc-hero"><div class="hero-photo-bg" style="background:url('/img/{img}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap">{cr}<span class="tag">{kicker}</span><h1>{h1}</h1><p class="lead">{lead}</p>
   <div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''

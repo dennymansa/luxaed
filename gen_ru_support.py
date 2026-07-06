@@ -5,7 +5,7 @@ from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB
 from gen_ru import form_html, faq_html
 
 def hero(kicker, h1, lead, img="luxaed-wide-wood", crumb=None):
-    cr=f'<div class="crumb"><a href="/">Главная</a><span>›</span>{crumb}</div>' if crumb else ''
+    cr=''  # visible breadcrumbs removed per request (JSON-LD kept for SEO)
     return f'''<section class="svc-hero">
   <div class="hero-photo-bg" style="background:url('/img/{img}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap">{cr}

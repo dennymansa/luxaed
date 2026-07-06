@@ -14,11 +14,11 @@ def form_html():
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
     <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
-    <div class="ff" data-svc="fence"><select name="material" class="form-select"><option value="">Fence material</option><option>Wood</option><option>Corrugated sheet</option><option>Mesh (3D welded)</option><option>Not sure — advise me</option></select></div>
-    <div class="ff form-grid2" data-svc="fence"><input type="text" name="length" inputmode="numeric" placeholder="Length, m"><select name="height" class="form-select"><option value="">Height</option><option>up to 1.5 m</option><option>1.5–2 m</option><option>over 2 m</option></select></div>
-    <div class="ff" data-svc="gate,automation"><select name="gate_type" class="form-select"><option value="">Gate type</option><option>Sliding</option><option>Swing</option><option>Not sure</option></select></div>
-    <div class="ff" data-svc="gate"><select name="automation" class="form-select"><option value="">Automation?</option><option>With automation</option><option>Without automation</option><option>Not sure</option></select></div>
-    <div class="ff form-grid2"><select name="plot" class="form-select"><option value="">Site</option><option>Flat</option><option>Sloped</option><option>Old fence (removal)</option><option>Not sure</option></select><select name="timeline" class="form-select"><option value="">When?</option><option>As soon as possible</option><option>Within 1–3 months</option><option>Just a price</option></select></div>
+    <div class="ff" data-svc="fence"><select name="material" class="form-select" aria-label="Fence material"><option value="">Fence material</option><option>Wood</option><option>Corrugated sheet</option><option>Mesh (3D welded)</option><option>Not sure — advise me</option></select></div>
+    <div class="ff form-grid2" data-svc="fence"><input type="text" name="length" inputmode="numeric" placeholder="Length, m"><select name="height" class="form-select" aria-label="Height"><option value="">Height</option><option>up to 1.5 m</option><option>1.5–2 m</option><option>over 2 m</option></select></div>
+    <div class="ff" data-svc="gate,automation"><select name="gate_type" class="form-select" aria-label="Gate type"><option value="">Gate type</option><option>Sliding</option><option>Swing</option><option>Not sure</option></select></div>
+    <div class="ff" data-svc="gate"><select name="automation" class="form-select" aria-label="Automation?"><option value="">Automation?</option><option>With automation</option><option>Without automation</option><option>Not sure</option></select></div>
+    <div class="ff form-grid2"><select name="plot" class="form-select" aria-label="Site"><option value="">Site</option><option>Flat</option><option>Sloped</option><option>Old fence (removal)</option><option>Not sure</option></select><select name="timeline" class="form-select" aria-label="When?"><option value="">When?</option><option>As soon as possible</option><option>Within 1–3 months</option><option>Just a price</option></select></div>
     <div class="ff-base"><input type="text" name="address" placeholder="Site address (city / district)"></div>
     <div class="form-grid">
       <input type="text" name="name" placeholder="Your name *" required style="grid-column:1/-1">
@@ -59,13 +59,12 @@ def schema(name,desc,path,fq):
             j({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in fq]})]
 
 def service(c):
-    H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og","/img/luxaed-hero.jpg"),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
+    H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
     body=f'''{nav("en",c["path"])}
 <main id="main">
 <section class="svc-hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="crumb"><a href="/en/">Home</a><span>›</span>{c["name"]}</div>
     <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1><p class="lead">{c["lead"]}</p>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
