@@ -78,17 +78,21 @@ def partners_marquee(lang):
     T={"ru":("Клиенты","Ставим заборы и известным компаниям"),
        "et":("Kliendid","Paigaldame aedu ka tuntud ettevõtetele"),
        "en":("Clients","We build fences for well-known companies too")}
+    # 2nd row = smaller monogram+name pills, DIFFERENT companies (like moving24's bottom row).
+    # PLACEHOLDER names until LuxAed owner gives real client list.
+    B=[("Kodukoda","#b5542e","K"),("Aiameister","#3e7a4a","A"),("Roheline Õu","#2f9e6a","RÕ"),
+       ("Maja & Aed","#7c3aed","MA"),("Terrass24","#1968cd","T"),("Väravakoda","#8f4022","V"),
+       ("Piirdeprofi","#0ea5a3","P"),("Ehituspartner","#e2731d","E"),("Krundihaldus","#c8a53a","KH"),
+       ("Metssepp","#57534a","M"),("Aiaabi","#2563eb","AA"),("Hoovimeister","#188038","H")]
     tag,h2=T.get(lang,T["ru"])
-    def pills(items):
-        return "".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in items)
-    top=pills(P)                 # row 1 scrolls left
-    bot=pills(list(reversed(P))) # row 2 scrolls right (reversed order for variety)
+    logos="".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in P)
+    monos="".join(f'<span class="pm-pill"><span class="pm-mono" style="background:{c}" aria-hidden="true">{i}</span><b>{n}</b></span>' for n,c,i in B)
     return (f'<section class="partners-marquee" aria-label="{tag}">'
             f'<div class="wrap"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>'
             f'<div class="pm-row" tabindex="0" role="group" aria-label="{tag}"><div class="pm-track">'
-            f'<div class="pm-set">{top}</div><div class="pm-set" aria-hidden="true">{top}</div></div></div>'
+            f'<div class="pm-set">{logos}</div><div class="pm-set" aria-hidden="true">{logos}</div></div></div>'
             f'<div class="pm-row pm-rev" aria-hidden="true"><div class="pm-track">'
-            f'<div class="pm-set">{bot}</div><div class="pm-set">{bot}</div></div></div>'
+            f'<div class="pm-set">{monos}</div><div class="pm-set">{monos}</div></div></div>'
             f'</section>')
 
 def lang_switch(cur_path, lang):
