@@ -13,7 +13,7 @@ def page(path,title,desc,inner,og="/img/luxaed-hero.jpg",sch=None):
 </main>
 <div class="lb" id="lb"><button class="lb-x" aria-label="Sulge">&times;</button><img src="" alt="" id="lbImg"></div>
 {footer("et")}
-<div class="mob-bar"><a href="tel:{TEL}" class="btn btn-ghost">Helista</a><a href="/et/kontakt/#form" class="btn btn-accent">Päring</a></div>
+<div class="mob-bar"><a class="btn btn-accent mob-call" href="tel:{TEL}"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Helista</a></div>
 {SCRIPTS}
 </body></html>'''
     print("wrote", write(path,H+"\n"+body))
@@ -96,7 +96,7 @@ home_inner=f'''<section class="hero">
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
   <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid. Korralikult, ausa hinnaga ja arvestusega enne tööde algust.</p>
-  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>2</b><div class="t">Piirkonda</div><p>Tallinn ja kogu Harjumaa</p></div></div></div></section>
+  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
   <div class="gal" id="gal">

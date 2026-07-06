@@ -24,7 +24,7 @@ def page(path, title, desc, inner, og="/img/luxaed-hero.jpg", schema=None):
 </main>
 <div class="lb" id="lb"><button class="lb-x" aria-label="Закрыть">&times;</button><img src="" alt="" id="lbImg"></div>
 {footer("ru")}
-<div class="mob-bar"><a href="tel:{TEL}" class="btn btn-ghost">Позвонить</a><a href="/kontakty/#form" class="btn btn-accent">Заявка</a></div>
+<div class="mob-bar"><a class="btn btn-accent mob-call" href="tel:{TEL}"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Позвонить</a></div>
 {SCRIPTS}
 </body></html>'''
     print("wrote", write(path, H+"\n"+body))
@@ -53,7 +53,7 @@ about_inner=f'''{hero("О компании","О компании LuxAed","Мы �
     <div class="num"><b>100<small>%</small></b><div class="t">Рекомендуют</div><p>По отзывам в Facebook</p></div>
     <div class="num"><b>34</b><div class="t">Отзыва</div><p>Реальные отзывы клиентов</p></div>
     <div class="num"><b>5</b><div class="t">Лет на рынке</div><p>Устанавливаем заборы с 2021 года</p></div>
-    <div class="num"><b>2</b><div class="t">Региона</div><p>Таллинн и вся Харьюмаа</p></div>
+    <div class="num"><b>300</b><div class="t">Объектов</div><p>Установленных заборов и ворот</p></div>
   </div></div>
 </section>
 <section class="cta-final"><div class="wrap"><h2>Обсудим <em>ваш забор или ворота</em>?</h2>
