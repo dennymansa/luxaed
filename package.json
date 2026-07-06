@@ -1,0 +1,10 @@
+{
+  "name": "luxaed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "LuxAed static site (Vercel) + /api/lead serverless mailer",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

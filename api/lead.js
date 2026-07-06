@@ -1,13 +1,16 @@
-// LuxAed lead handler — Vercel serverless (Node 18+, zero deps: global fetch).
-// Receives the site form as JSON, emails the owner with a company label + Google
-// Maps / Waze links to the client's address. Sends via Resend (RESEND_API_KEY).
+// LuxAed lead handler — Vercel serverless (Node). Sends the site form to the owner's
+// inbox via Gmail SMTP + App Password — the SAME method moving24 uses (PHPMailer/smtp.gmail.com).
+// Email carries a company label + Google Maps / Waze links to the client's address.
 //
-// ENV (set in Vercel → Project → Settings → Environment Variables):
-//   RESEND_API_KEY  — from resend.com (required to actually send; without it the form
-//                     still succeeds, email is just skipped so you can test the flow)
-//   LEAD_TO         — recipient (default iamdenisg@gmail.com; change to luxaed9@gmail.com later)
-//   LEAD_FROM       — sender (default "LuxAed <onboarding@resend.dev>"; use a verified
-//                     luxaed.ee sender once the domain is verified in Resend)
+// ENV (Vercel → Project → Settings → Environment Variables):
+//   GMAIL_USER          — the Gmail that SENDS (e.g. luxaed9@gmail.com)
+//   GMAIL_APP_PASSWORD  — 16-char App Password from Google Account → Security → App passwords
+//                         (needs 2-Step Verification on). NOT the normal Gmail password.
+//   LEAD_TO             — recipient inbox (default iamdenisg@gmail.com for testing;
+//                         later set to luxaed9@gmail.com). If unset, sends to GMAIL_USER.
+// Without GMAIL_USER/APP_PASSWORD the form still succeeds (email is just skipped).
+
+import nodemailer from 'nodemailer';
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
@@ -15,11 +18,11 @@ export default async function handler(req, res){
   if(req.method!=='POST'){ res.status(405).json({error:'Method not allowed'}); return; }
   try{
     const d = (req.body && typeof req.body==='object') ? req.body : JSON.parse(req.body||'{}');
-    if(d._gotcha){ res.status(200).json({ok:true}); return; }          // honeypot → silently ok
+    if(d._gotcha){ res.status(200).json({ok:true}); return; }              // honeypot → silently ok
 
-    const TO   = process.env.LEAD_TO   || 'iamdenisg@gmail.com';
-    const FROM = process.env.LEAD_FROM || 'LuxAed <onboarding@resend.dev>';
-    const KEY  = process.env.RESEND_API_KEY;
+    const USER = process.env.GMAIL_USER;
+    const PASS = process.env.GMAIL_APP_PASSWORD;
+    const TO   = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
     const LABEL = 'Заявка с сайта LuxAed';
 
     const f = k => (d[k]==null ? '' : String(d[k]).trim());
@@ -51,19 +54,19 @@ export default async function handler(req, res){
       ${f('phone')?`<p style="margin:16px 0 0"><a href="tel:${esc(f('phone'))}">📞 Позвонить клиенту</a></p>`:''}
     </div>`;
 
-    if(!KEY){ res.status(200).json({ok:true, note:'RESEND_API_KEY not set — email skipped (form flow still works)'}); return; }
+    if(!USER || !PASS){ res.status(200).json({ok:true, note:'GMAIL_USER/APP_PASSWORD not set — email skipped (form flow still works)'}); return; }
 
-    const r = await fetch('https://api.resend.com/emails',{
-      method:'POST',
-      headers:{'Authorization':`Bearer ${KEY}`,'Content-Type':'application/json'},
-      body: JSON.stringify({
-        from: FROM, to: [TO],
-        reply_to: f('email') || undefined,
-        subject: `${LABEL} — ${f('name') || f('service') || 'без имени'}`,
-        html
-      })
+    const transport = nodemailer.createTransport({
+      host:'smtp.gmail.com', port:465, secure:true,
+      auth:{ user:USER, pass:PASS }
     });
-    if(!r.ok){ const t = await r.text(); res.status(502).json({error:'send failed', detail:t}); return; }
+    await transport.sendMail({
+      from: `LuxAed <${USER}>`,
+      to: TO,
+      replyTo: f('email') || undefined,
+      subject: `${LABEL} — ${f('name') || f('service') || 'без имени'}`,
+      html
+    });
     res.status(200).json({ok:true});
   }catch(e){ res.status(500).json({error:String(e && e.message || e)}); }
 }
