@@ -46,7 +46,7 @@ home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"h
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB]},ensure_ascii=False)+'</script>']
 
 home_inner=f'''<section class="hero">
-  <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 55%/cover no-repeat"></div>
+  <div class="hero-photo-bg"></div>
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Need a new fence or gate?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
