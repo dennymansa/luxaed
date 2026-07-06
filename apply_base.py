@@ -31,7 +31,7 @@ def main():
         ver=hashlib.md5(open("assets/luxaed.css","rb").read()).hexdigest()[:8]
     n=0
     for f in glob.glob("**/*.html", recursive=True):
-        if f.startswith("moving24-template"): continue
+        if f.startswith("reference-kit"): continue
         s=open(f,encoding="utf-8").read(); t=fix_html(s)
         if ver:  # version the stylesheet link (strip any old ?v= first)
             t=re.sub(r'(assets/luxaed\.css)(\?v=[a-f0-9]+)?"', r'\1?v='+ver+'"', t)

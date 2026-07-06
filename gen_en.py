@@ -65,7 +65,7 @@ def service(c):
 <section class="svc-hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1><p class="lead">{c["lead"]}</p>
+    <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div></div>

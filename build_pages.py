@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# LuxAed static page generator. Shared blue moving24 chrome + per-page content.
+# LuxAed static page generator. Shared shared site chrome + per-page content.
 # Run:  python3 build_pages.py
 import os, html
 
@@ -69,17 +69,17 @@ def logo_svg():
             '<path d="M13 22 V10 M17 22 V10 M15 22 V9"/></g></svg>')
 
 def partners_marquee(lang):
-    # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
+    # PLACEHOLDER partners (placeholders) until LuxAed owner provides real ones
     P=[("Bolt","bolt.svg"),("LHV","lhv.svg"),("Wallester","wallester.svg"),("Bauhof","bauhof.svg"),
        ("Mapon","mapon.svg"),("Pakendikeskus","pakendikeskus-132.webp"),("Põhjala","pohjala.svg"),
        ("Placet Group","placet.svg"),("Inter Cars","intercars.svg"),("Olerex","olerex.webp"),
        ("Alexela","alexela.webp"),("Admirals","admirals-132.webp"),("AD Baltic","adbaltic.svg")]
-    # framing follows live moving24: tag "Kliendid" (not "Partnerid"), punchy native h2
-    # (moving24 ET: "Kolime ka Eesti tuntud ettevõtteid" / RU: "Наши клиенты и партнёры")
+    # framing follows the reference layout: tag "Kliendid" (not "Partnerid"), punchy native h2
+    # 
     T={"ru":("Клиенты","Ставим заборы и известным компаниям"),
        "et":("Kliendid","Paigaldame aedu ka tuntud ettevõtetele"),
        "en":("Clients","We build fences for well-known companies too")}
-    # 2nd row = smaller monogram+name pills, DIFFERENT companies (like moving24's bottom row).
+    # 2nd row = smaller monogram+name pills, DIFFERENT companies (like the reference bottom row).
     # PLACEHOLDER names until LuxAed owner gives real client list.
     B=[("Kodukoda","#b5542e","K"),("Aiameister","#3e7a4a","A"),("Roheline Õu","#2f9e6a","RÕ"),
        ("Maja & Aed","#7c3aed","MA"),("Terrass24","#1968cd","T"),("Väravakoda","#8f4022","V"),

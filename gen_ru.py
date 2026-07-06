@@ -75,7 +75,6 @@ def service_page(c):
       <div>
         <span class="tag">{c["kicker"]}</span>
         <h1>{c["h1"]}</h1>
-        <p class="lead">{c["lead"]}</p>
         <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 отзыва в Facebook · рекомендуют</span></div>
         <div class="hero-btns"><a class="btn btn-accent" href="#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div>
       </div>

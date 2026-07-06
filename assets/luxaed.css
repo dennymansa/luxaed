@@ -403,16 +403,16 @@ a{color:inherit;text-decoration:none}
 .hero .wrap{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding-top:calc(72px + 36px);width:min(96vw,1140px);padding-left:6px;padding-right:6px}
 .hero-grid{display:grid;grid-template-columns:1fr .68fr;gap:88px;align-items:center;flex:1;padding-bottom:40px;padding-top:0}
 /* homepage hero (desktop): take the smart form OUT of flow so it overflows downward
-   without growing the hero — the stats and hero text stay put (moving24 behaviour).
+   without growing the hero — the stats and hero text stay put (the intended behaviour).
    Mobile keeps the form in normal flow (stacked). */
 @media(min-width:761px){
   /* row fills the grid height so align-items:center vertically centres the hero text
-     (the absolute form no longer collapses the row to the top) — matches moving24 */
-  .hero>.wrap>.hero-grid{grid-template-rows:1fr}
+     (the absolute form no longer collapses the row to the top) — matches the reference */
+  .hero>.wrap>.hero-grid,.svc-hero>.wrap>.hero-grid{grid-template-rows:1fr}
   /* text column starts a bit lower under the nav; the form stays high (top of row) */
   .hero>.wrap>.hero-grid>div:first-child{align-self:start;padding-top:52px}
-  .hero>.wrap>.hero-grid>.form-slot{position:relative;align-self:start}
-  .hero>.wrap>.hero-grid>.form-slot .form-card{position:absolute;top:0;left:0;right:0}
+  .hero>.wrap>.hero-grid>.form-slot,.svc-hero>.wrap>.hero-grid>.form-slot{position:relative;align-self:start}
+  .hero>.wrap>.hero-grid>.form-slot .form-card,.svc-hero>.wrap>.hero-grid>.form-slot .form-card{position:absolute;top:0;left:0;right:0}
 }
 .hero-grid>*{min-width:0}
 .hero-kicker{font-size:33px;color:#e8c4a0;margin-bottom:17px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
@@ -873,9 +873,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .pak-ic{display:flex;justify-content:center;margin-bottom:12px}.pak-ic img{width:96px;height:96px;object-fit:cover;border-radius:12px;display:block}@media(max-width:760px){.pak-ic img{width:84px;height:84px}}
 
 /* ===== Service / inner page additions ===== */
-.svc-hero{position:relative;background:linear-gradient(160deg,var(--hero-bg),var(--hero-bg-2));color:#fff;overflow:hidden;margin-top:-72px;padding:calc(72px + 60px) 0 64px}
+.svc-hero{position:relative;background:linear-gradient(160deg,var(--hero-bg),var(--hero-bg-2));color:#fff;overflow:visible;margin-top:-72px;min-height:80svh;display:flex;flex-direction:column;padding:calc(72px + 28px) 0 44px}
+.svc-hero>.wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
 .svc-hero .hero-photo-bg{opacity:.9}
-.svc-hero .hero-grid{align-items:start}
+.svc-hero .hero-grid{align-items:center}
 .hero-grid{transition:none}
 .svc-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(165deg,rgba(6,10,16,.82) 0%,rgba(8,14,24,.7) 55%,rgba(6,10,18,.9) 100%);z-index:1}
 .svc-hero .wrap{position:relative;z-index:2}

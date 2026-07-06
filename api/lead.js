@@ -1,6 +1,6 @@
 // LuxAed lead handler — Vercel serverless (Node). Sends the site form to the owner's
-// inbox via Gmail SMTP + App Password — the SAME method moving24 uses (PHPMailer/smtp.gmail.com).
-// Email carries a company label + Google Maps / Waze links to the client's address.
+// inbox via Gmail SMTP + App Password. Email carries a company label + Google Maps /
+// Waze links to the client's address.
 //
 // ENV (Vercel → Project → Settings → Environment Variables):
 //   GMAIL_USER          — the Gmail that SENDS (e.g. luxaed9@gmail.com)
