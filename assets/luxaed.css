@@ -865,6 +865,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .svc-hero .wrap{position:relative;z-index:2}
 .svc-hero .tag{color:var(--accent-line)}
 .svc-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,4.6vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.12;max-width:840px;margin:4px 0 0}
+.svc-hero h1 em{color:var(--accent);font-style:normal}
 .svc-hero .lead{color:var(--hero-text-dim);max-width:660px;margin-top:16px}
 .svc-hero .hero-btns{margin-top:28px}
 .svc-hero .hero-trust{margin-top:22px}

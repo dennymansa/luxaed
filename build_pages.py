@@ -53,12 +53,18 @@ NAVLBL = {"ru":{"about":"О нас","faq":"Вопросы","contact":"Конта
                "cta":"Get a quote","cta_mini":"Quote","home":"Home"}}
 
 def logo_svg():
-    # elegant arched gate — thin wrought-iron strokes (premium "Lux" feel), light & clean
-    return ('<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
-            'stroke="#b5542e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'
-            '<path d="M4 22.5 V13 a9 9 0 0 1 18 0 V22.5"/>'
-            '<path d="M9 22.5 V13.5"/><path d="M13 22.5 V8.5"/><path d="M17 22.5 V13.5"/>'
-            '<path d="M2.5 22.5 H23.5"/></svg>')
+    # flanking fence (subtle, adapts to bg via currentColor) + monumental arched gate in
+    # brand colour at the centre — "castle entrance" mark, elegant thin strokes
+    return ('<svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
+            'stroke-linecap="round" stroke-linejoin="round">'
+            '<g stroke="currentColor" stroke-width="1.4" opacity=".8">'
+            '<path d="M2 22.5 H28"/>'
+            '<path d="M4.2 22.5 V16 M7 22.5 V16 M23 22.5 V16 M25.8 22.5 V16"/>'
+            '<path d="M3 16 H8.2 M21.8 16 H27"/></g>'
+            '<g stroke="#b5542e" stroke-width="1.6">'
+            '<path d="M10.5 22.5 V6.5 M19.5 22.5 V6.5"/>'
+            '<path d="M10.5 6.5 Q15 0.8 19.5 6.5"/>'
+            '<path d="M15 22.5 V7.6"/><path d="M12.6 22.5 V9 M17.4 22.5 V9"/></g></svg>')
 
 def partners_marquee(lang):
     # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
@@ -193,9 +199,8 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
     sb = "\n".join(schema_blocks or [])
     fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20"
            "stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E"
-           "%3Cpath%20d%3D%27M4%2022.5%20V13%20a9%209%200%200%201%2018%200%20V22.5%27/%3E"
-           "%3Cpath%20d%3D%27M9%2022.5%20V13.5%27/%3E%3Cpath%20d%3D%27M13%2022.5%20V8.5%27/%3E%3Cpath%20d%3D%27M17%2022.5%20V13.5%27/%3E"
-           "%3Cpath%20d%3D%27M2.5%2022.5%20H23.5%27/%3E%3C/svg%3E")
+           "%3Cpath%20d%3D%27M7%2023%20V6.5%20M19%2023%20V6.5%27/%3E%3Cpath%20d%3D%27M7%206.5%20Q13%200.6%2019%206.5%27/%3E"
+           "%3Cpath%20d%3D%27M13%2023%20V7.6%27/%3E%3Cpath%20d%3D%27M10%2023%20V9%20M16%2023%20V9%27/%3E%3Cpath%20d%3D%27M4%2023%20H22%27/%3E%3C/svg%3E")
     locale = {"et":"et_EE","en":"en_US"}.get(lang,"ru_RU")
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
