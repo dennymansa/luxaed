@@ -59,13 +59,13 @@ def logo_svg():
     return ('<svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
             'stroke-linecap="round" stroke-linejoin="round">'
             '<g stroke="currentColor" stroke-width="1.4" opacity=".8">'
-            '<path d="M2 22.5 H28"/>'
-            '<path d="M4.2 22.5 V16 M7 22.5 V16 M23 22.5 V16 M25.8 22.5 V16"/>'
-            '<path d="M3 16 H8.2 M21.8 16 H27"/></g>'
+            '<path d="M2 22 H28"/>'
+            '<path d="M4 22 V11 M6.5 22 V11 M23.5 22 V11 M26 22 V11"/>'
+            '<path d="M3 11 H7.5 M22.5 11 H27"/></g>'
             '<g stroke="#b5542e" stroke-width="1.6">'
-            '<path d="M10.5 22.5 V6.5 M19.5 22.5 V6.5"/>'
-            '<path d="M10.5 6.5 Q15 0.8 19.5 6.5"/>'
-            '<path d="M15 22.5 V7.6"/><path d="M12.6 22.5 V9 M17.4 22.5 V9"/></g></svg>')
+            '<path d="M10 22 V8 M20 22 V8"/>'
+            '<path d="M10 8 Q15 4 20 8"/>'
+            '<path d="M13 22 V10 M17 22 V10 M15 22 V9"/></g></svg>')
 
 def partners_marquee(lang):
     # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
@@ -198,10 +198,7 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
             f'<link rel="alternate" hreflang="en" href="{DOMAIN}{en}">'
             f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}{ru}">')
     sb = "\n".join(schema_blocks or [])
-    fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20"
-           "stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E"
-           "%3Cpath%20d%3D%27M7%2023%20V6.5%20M19%2023%20V6.5%27/%3E%3Cpath%20d%3D%27M7%206.5%20Q13%200.6%2019%206.5%27/%3E"
-           "%3Cpath%20d%3D%27M13%2023%20V7.6%27/%3E%3Cpath%20d%3D%27M10%2023%20V9%20M16%2023%20V9%27/%3E%3Cpath%20d%3D%27M4%2023%20H22%27/%3E%3C/svg%3E")
+    fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M4%2022%20H22%27/%3E%3Cpath%20d%3D%27M8%2022%20V9%20M18%2022%20V9%27/%3E%3Cpath%20d%3D%27M8%209%20Q13%204.5%2018%209%27/%3E%3Cpath%20d%3D%27M11%2022%20V11%20M15%2022%20V11%20M13%2022%20V10%27/%3E%3C/svg%3E")
     locale = {"et":"et_EE","en":"en_US"}.get(lang,"ru_RU")
     return f'''<!DOCTYPE html>
 <html lang="{lang}">

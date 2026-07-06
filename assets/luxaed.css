@@ -621,7 +621,7 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .foot h3{color:var(--hero-text);font-size:14px;font-weight:700;margin-bottom:16px}
 .foot a{display:block;padding:5px 0;transition:color .15s}
 .foot a:hover{color:var(--hero-text)}
-.foot-brand .nav-logo{margin-bottom:14px}
+.foot-brand .nav-logo{margin-bottom:14px;display:flex;padding:0}
 .foot-brand p{max-width:300px;margin-bottom:18px}
 .foot-stats{display:flex;gap:24px;margin:18px 0}
 .foot-stats div b{color:var(--hero-text);font-size:20px;font-weight:800;display:block}
