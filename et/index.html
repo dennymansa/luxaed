@@ -49,10 +49,10 @@
 <section class="hero">
   <div class="hero-photo-bg"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="hero-kicker hand">Vajad uut aeda või väravat?</div>
+    <div class="hero-kicker hand">Vajate uut aeda või väravat?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Aiad ja väravad</h1>
-    <p class="hero-claim"><em>Üks mõõdistus</em><br>ja aed on valmis</p>
+    <p class="hero-claim"><em>Üks kõne</em><br>ja aed on valmis</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:+37256958285">Helista +372 5695 8285</a></div>
   </div><div class="form-slot"><div class="form-card" id="form">
   <span class="form-tag">Küsi pakkumist</span>
@@ -83,7 +83,7 @@
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Aiad ja väravad<br>võtmed kätte.</h2></div>
+  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame, paigaldame.<br>Teie ei tõsta sõrmegi.</h2></div>
   <div><p>LuxAed valmistab ja paigaldab <b>aedu, väravaid ja jalgväravaid</b> ning paigaldab <b>väravaautomaatikat ja domofone</b>. Töötame puidu, profiilpleki ja keevispaneeliga Tallinnas ja Harjumaal.</p></div>
 </div></div></section>
 
@@ -120,7 +120,7 @@
     </div>
   </div></div></section>
 
-<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli sammu uue aiani</h2><div class="hsteps">
+<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2><div class="hsteps">
   <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum — ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
   <div class="hstep"><div class="hstep-num">2</div><h3>Valime ja arvutame</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme ausa hinna — ilma üllatusteta.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>Paigaldame korralikult</h3><p>Paigaldame postid, sektsioonid, väravad ja automaatika. Hoiame teid kursis igal etapil.</p></div>
@@ -177,6 +177,6 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
 (function(){var form=document.getElementById('leadForm'),ok=document.getElementById('formOk');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(form._gotcha&&form._gotcha.value)return;ok.style.display='block';form.querySelector('button[type=submit]').disabled=true;});})();
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',function(){var o=item.classList.contains('open');items.forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});})();
 (function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg');document.querySelectorAll('#gal a[data-lb]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();im.src=a.getAttribute('href');var g=a.querySelector('img');im.alt=g?g.alt:'';lb.classList.add('on');});});lb.querySelector('.lb-x').addEventListener('click',function(){lb.classList.remove('on')});lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});})();
-(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var els=document.querySelectorAll(".hero-stats .hstat b,.nums .num b");var it=[];els.forEach(function(el){var n=el.firstChild;if(!n||n.nodeType!==3)return;var m=n.nodeValue.match(/^(\d+)(.*)$/);if(!m)return;var t=parseInt(m[1],10);if(t<10)return;it.push({el:el,node:n,t:t,s:m[2]||"",d:false});});if(!it.length)return;function run(x){if(x.d)return;x.d=true;var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);x.node.nodeValue=Math.round(x.t*e)+x.s;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;it.forEach(function(x){if(x.el===e.target)run(x);});io.unobserve(e.target);});},{threshold:.4});it.forEach(function(x){io.observe(x.el)});})();
+(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var els=document.querySelectorAll(".__no_anim__");var it=[];els.forEach(function(el){var n=el.firstChild;if(!n||n.nodeType!==3)return;var m=n.nodeValue.match(/^(\d+)(.*)$/);if(!m)return;var t=parseInt(m[1],10);if(t<10)return;it.push({el:el,node:n,t:t,s:m[2]||"",d:false});});if(!it.length)return;function run(x){if(x.d)return;x.d=true;var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);x.node.nodeValue=Math.round(x.t*e)+x.s;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;it.forEach(function(x){if(x.el===e.target)run(x);});io.unobserve(e.target);});},{threshold:.4});it.forEach(function(x){io.observe(x.el)});})();
 </script>
 </body></html>

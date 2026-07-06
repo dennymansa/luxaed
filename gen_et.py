@@ -78,7 +78,7 @@ def service(c):
   <p class="lead">Fikseeritud hinnakirja ei ole — täpse hinna ütleme pärast tasuta mõõdistust.</p>
   <div class="honest"><div class="hon good"><h3>Alati sisaldub</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>Töötame aastaringselt, ka talvel</li><li>Garantii tehtud töödele</li></ul></div>
   <div class="hon bad"><h3>Mõjutab hinda</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
-<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli sammu valmis tulemuseni</h2>{PROCESS}</div></section>
+<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>

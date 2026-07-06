@@ -146,7 +146,7 @@
           <span class="ht-label">34 отзыва в Facebook · рекомендуют</span>
         </div>
         <h1>Заборы и ворота</h1>
-        <p class="hero-claim"><em>Один замер</em><br>и забор готов</p>
+        <p class="hero-claim"><em>Один звонок</em><br>и забор готов</p>
         <div class="hero-btns">
           <a class="btn btn-accent" href="#form">Оставить заявку →</a>
           <a class="btn btn-ghost" href="tel:+37256958285">Позвонить +372 5695 8285</a>
@@ -686,7 +686,7 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
 // Animated stat counters
 (function(){
   if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-  var els=document.querySelectorAll(".hero-stats .hstat b,.nums .num b");
+  var els=document.querySelectorAll(".__no_anim__");
   var items=[];
   els.forEach(function(el){var node=el.firstChild;if(!node||node.nodeType!==3)return;var m=node.nodeValue.match(/^(\d+)(.*)$/);if(!m)return;var target=parseInt(m[1],10);if(target<10)return;items.push({el:el,node:node,target:target,suffix:m[2]||"",done:false});});
   if(!items.length)return;

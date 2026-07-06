@@ -48,17 +48,17 @@ lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https:/
 home_inner=f'''<section class="hero">
   <div class="hero-photo-bg"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="hero-kicker hand">Vajad uut aeda või väravat?</div>
+    <div class="hero-kicker hand">Vajate uut aeda või väravat?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Aiad ja väravad</h1>
-    <p class="hero-claim"><em>Üks mõõdistus</em><br>ja aed on valmis</p>
+    <p class="hero-claim"><em>Üks kõne</em><br>ja aed on valmis</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>5</b><span>aastat turul (al. 2021)</span></div></div></div>
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Aiad ja väravad<br>võtmed kätte.</h2></div>
+  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame, paigaldame.<br>Teie ei tõsta sõrmegi.</h2></div>
   <div><p>LuxAed valmistab ja paigaldab <b>aedu, väravaid ja jalgväravaid</b> ning paigaldab <b>väravaautomaatikat ja domofone</b>. Töötame puidu, profiilpleki ja keevispaneeliga Tallinnas ja Harjumaal.</p></div>
 </div></div></section>
 
@@ -91,7 +91,7 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli sammu uue aiani</h2>{PROCESS}</div></section>
+<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>

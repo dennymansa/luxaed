@@ -48,10 +48,10 @@ lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https:/
 home_inner=f'''<section class="hero">
   <div class="hero-photo-bg"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="hero-kicker hand">Need a new fence or gate?</div>
+    <div class="hero-kicker hand">Hi! A new fence coming up?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <h1>Fences & gates</h1>
-    <p class="hero-claim"><em>One measurement</em><br>and your fence is done</p>
+    <p class="hero-claim"><em>One call</em><br>and your fence is done</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>5</b><span>years in business (since 2021)</span></div></div></div>
@@ -91,7 +91,7 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four steps to a new fence</h2>{PROCESS}</div></section>
+<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>

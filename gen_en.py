@@ -78,7 +78,7 @@ def service(c):
   <p class="lead">There is no fixed price list — we quote after a free on-site measurement. Here's what's always included and what affects the total.</p>
   <div class="honest"><div class="hon good"><h3>Always included</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>We work year-round, including winter</li><li>Warranty on completed work</li></ul></div>
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
-<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four steps to a finished result</h2>{PROCESS}</div></section>
+<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
