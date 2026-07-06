@@ -400,7 +400,7 @@ a{color:inherit;text-decoration:none}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,11,17,.84) 0%,rgba(8,14,24,.52) 44%,rgba(6,10,18,.26) 100%);z-index:1}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 80% 10%,rgba(181,84,46,.12),transparent 60%);pointer-events:none;z-index:1}
 .hero .wrap{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;padding-top:calc(72px + 36px);width:min(96vw,1140px);padding-left:6px;padding-right:6px}
-.hero-grid{display:grid;grid-template-columns:1fr .68fr;gap:88px;align-items:center;flex:1;padding-bottom:40px;padding-top:0}
+.hero-grid{display:grid;grid-template-columns:1fr .68fr;gap:88px;align-items:start;flex:1;padding-bottom:40px;padding-top:96px}
 .hero-grid>*{min-width:0}
 .hero-kicker{font-size:33px;color:#e8c4a0;margin-bottom:17px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .hero-trust{display:flex;align-items:center;gap:7px;margin-bottom:28px;flex-wrap:wrap}

@@ -35,9 +35,9 @@ def form_html():
 
 PROCESS='''<div class="hsteps">
   <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum — ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>Valime ja arvutame</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna — ilma üllatusteta.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>Leiame sobiva lahenduse</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna — ilma üllatusteta.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>Paigaldame korralikult</h3><p>Paigaldame postid, sektsioonid, väravad ja automaatika. Hoiame teid kursis igal etapil.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>Anname võtmed kätte</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle — koos hooldussoovitustega.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>Anname töö üle</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle — koos hooldussoovitustega.</p></div>
 </div>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'

@@ -56,7 +56,7 @@ NAVLBL = {"ru":{"about":"О нас","faq":"Вопросы","contact":"Конта
 def logo_svg():
     # flanking fence (subtle, adapts to bg via currentColor) + monumental arched gate in
     # brand colour at the centre — "castle entrance" mark, elegant thin strokes
-    return ('<svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
+    return ('<svg width="39" height="34" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
             'stroke-linecap="round" stroke-linejoin="round">'
             '<g stroke="currentColor" stroke-width="1.4" opacity=".8">'
             '<path d="M2 22 H28"/>'
