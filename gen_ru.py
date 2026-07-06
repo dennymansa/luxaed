@@ -28,7 +28,7 @@ def form_html(lang="ru"):
     <div class="ff"><textarea name="msg" placeholder="Комментарий: детали, пожелания, что отремонтировать..."></textarea></div>
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Прикрепить фото (необязательно)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Отправить заявку →</button>
-    <p class="form-consent">Отправляя форму, вы соглашаетесь с <a href="/privaatsus/">политикой конфиденциальности</a> и <a href="/tingimused/">условиями</a></p>
+    <p class="form-consent">Отправляя форму, вы соглашаетесь с <a href="/ru/privaatsus/">политикой конфиденциальности</a> и <a href="/ru/tingimused/">условиями</a></p>
     <div class="form-ok" id="formOk" role="status"><b>Спасибо, заявка принята.</b><br>Мы свяжемся с вами в ближайшее время.</div>
   </form>
 </div></div>'''
@@ -36,11 +36,11 @@ def form_html(lang="ru"):
 def schema_service(name, desc, path, faq):
     svc={"@context":"https://schema.org","@type":"Service","serviceType":name,
          "provider":{"@type":"HomeAndConstructionBusiness","name":"LuxAed","telephone":PHONE,"email":EMAIL,
-                     "areaServed":["Tallinn","Harjumaa","Estonia"],"url":DOMAIN+"/"},
+                     "areaServed":["Tallinn","Harjumaa","Estonia"],"url":DOMAIN+"/ru/"},
          "areaServed":["Tallinn","Harjumaa"],"description":desc,"url":DOMAIN+path}
     crumb={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Главная","item":DOMAIN+"/"},
-        {"@type":"ListItem","position":2,"name":"Услуги","item":DOMAIN+"/#uslugi"},
+        {"@type":"ListItem","position":1,"name":"Главная","item":DOMAIN+"/ru/"},
+        {"@type":"ListItem","position":2,"name":"Услуги","item":DOMAIN+"/ru/#uslugi"},
         {"@type":"ListItem","position":3,"name":name,"item":DOMAIN+path}]}
     faqs={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
@@ -136,7 +136,7 @@ def service_page(c):
 # ---------------- RU SERVICE CONTENT ----------------
 SERVICES=[
 {
- "path":"/uslugi/setka-3d/","name":"Сетчатые и 3D-заборы","hero":"luxaed-svc-mesh","og":"/img/luxaed-svc-mesh.jpg",
+ "path":"/ru/uslugi/setka-3d/","name":"Сетчатые и 3D-заборы","hero":"luxaed-svc-mesh","og":"/img/luxaed-svc-mesh.jpg",
  "title":"Сетчатые и 3D-заборы (сварные панели) в Таллинне — LuxAed",
  "desc":"Установка сетчатых и 3D-заборов из сварных панелей в Таллинне и Харьюмаа. Оцинковка + порошковая окраска, антрацит RAL 7016, столбы и монтаж под ключ. Бесплатный замер.",
  "kicker":"3D-сетка · сварные панели","h1":"Сетчатые<br><em>и 3D-заборы</em><br>в Таллинне",
@@ -158,7 +158,7 @@ SERVICES=[
         ("Можно ли поставить ворота в тон забору?","Да, делаем откатные и распашные ворота с заполнением сварной панелью в тот же цвет.")],
 },
 {
- "path":"/uslugi/derevyannye-zabory/","name":"Деревянные заборы","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
+ "path":"/ru/uslugi/derevyannye-zabory/","name":"Деревянные заборы","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Деревянные заборы и ворота в Таллинне — LuxAed",
  "desc":"Производство и установка деревянных заборов и ворот в Таллинне и Харьюмаа. Горизонтальный забор, штакетник, жалюзи, стальной каркас, обработка дерева. Бесплатный замер и расчёт.",
  "kicker":"Дерево · стальной каркас","h1":"Деревянные<br><em>заборы</em><br>в Таллинне",
@@ -180,7 +180,7 @@ SERVICES=[
         ("Нужен ли уход за забором?","Периодически рекомендуется обновлять защитное покрытие дерева — расскажем, как ухаживать.")],
 },
 {
- "path":"/uslugi/profnastil/","name":"Заборы из профнастила","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
+ "path":"/ru/uslugi/profnastil/","name":"Заборы из профнастила","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
  "title":"Заборы из профнастила в Таллинне — LuxAed",
  "desc":"Установка заборов из профнастила в Таллинне и Харьюмаа. Оцинкованный профлист, разные цвета, глухой забор для приватности. Практично и доступно. Бесплатный замер.",
  "kicker":"Профнастил · профлист","h1":"Заборы<br><em>из профнастила</em><br>в Таллинне",
@@ -202,7 +202,7 @@ SERVICES=[
         ("Профнастил дешевле дерева и 3D-сетки?","Как правило да — это одно из самых доступных решений. Точную цену назовём после замера.")],
 },
 {
- "path":"/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
+ "path":"/ru/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
  "title":"Ворота, калитки и автоматика в Таллинне — LuxAed",
  "desc":"Откатные и распашные ворота, калитки, автоматика ворот и домофоны в Таллинне и Харьюмаа. Установка приводов, пультов и домофонов под ключ. Бесплатный замер.",
  "kicker":"Ворота · автоматика · домофоны","h1":"Ворота, калитки<br><em>и автоматика</em><br>в Таллинне",
@@ -224,7 +224,7 @@ SERVICES=[
         ("Что с безопасностью автоматики?","Ставим фотоэлементы и сигнальную лампу, чтобы ворота не закрывались на автомобиль или человека.")],
 },
 {
- "path":"/uslugi/remont-zaborov/","name":"Ремонт заборов и ворот","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
+ "path":"/ru/uslugi/remont-zaborov/","name":"Ремонт заборов и ворот","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Ремонт заборов и ворот в Таллинне — LuxAed",
  "desc":"Ремонт заборов и ворот в Таллинне и Харьюмаа: замена секций и столбов, ремонт откатных и распашных ворот, автоматики и фурнитуры. Диагностика и расчёт. Звоните LuxAed.",
  "kicker":"Ремонт · обслуживание","h1":"Ремонт заборов<br><em>и ворот</em><br>в Таллинне",

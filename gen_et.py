@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Estonian tree: /et/ home, service pages, support pages. Targets ET keywords.
+# Estonian tree: / home, service pages, support pages. Targets ET keywords.
 import json, html
 from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC
 
@@ -28,7 +28,7 @@ def form_html():
     <div class="ff"><textarea name="msg" placeholder="Kommentaar: detailid, soovid, mida remontida..."></textarea></div>
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Lisa foto (valikuline)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Saada päring →</button>
-    <p class="form-consent">Vormi saates nõustud <a href="/et/privaatsus/">privaatsuspoliitikaga</a> ja <a href="/et/tingimused/">tingimustega</a></p>
+    <p class="form-consent">Vormi saates nõustud <a href="/privaatsus/">privaatsuspoliitikaga</a> ja <a href="/tingimused/">tingimustega</a></p>
     <div class="form-ok" id="formOk" role="status"><b>Aitäh, päring on vastu võetud.</b><br>Võtame teiega peagi ühendust.</div>
   </form>
 </div></div>'''
@@ -51,10 +51,10 @@ def related(cur):
 def schema(name,desc,path,fq):
     j=lambda o:'<script type="application/ld+json">'+json.dumps(o,ensure_ascii=False)+'</script>'
     return [j({"@context":"https://schema.org","@type":"Service","serviceType":name,"description":desc,"url":DOMAIN+path,
-              "provider":{"@type":"HomeAndConstructionBusiness","name":"LuxAed","telephone":PHONE,"email":EMAIL,"url":DOMAIN+"/et/"},
+              "provider":{"@type":"HomeAndConstructionBusiness","name":"LuxAed","telephone":PHONE,"email":EMAIL,"url":DOMAIN+"/"},
               "areaServed":["Tallinn","Harjumaa"]}),
             j({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-              {"@type":"ListItem","position":1,"name":"Avaleht","item":DOMAIN+"/et/"},
+              {"@type":"ListItem","position":1,"name":"Avaleht","item":DOMAIN+"/"},
               {"@type":"ListItem","position":2,"name":name,"item":DOMAIN+path}]}),
             j({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in fq]})]
 
@@ -93,7 +93,7 @@ def service(c):
     print("wrote", write(c["path"],H+"\n"+body))
 
 ETSERV=[
-{"path":"/et/aiad/vorkaed/","name":"Võrkaed ja paneelaed","hero":"luxaed-svc-mesh","og":"/img/luxaed-svc-mesh.jpg",
+{"path":"/aiad/vorkaed/","name":"Võrkaed ja paneelaed","hero":"luxaed-svc-mesh","og":"/img/luxaed-svc-mesh.jpg",
  "title":"Võrkaed ja keevispaneelaed Tallinnas — LuxAed","desc":"Võrkaia ja keevispaneelaia (3D aiapaneelid) paigaldus Tallinnas ja Harjumaal. Tsingitud ja pulbervärvitud paneelid, antratsiit RAL 7016, postid ja paigaldus. Tasuta mõõdistus.",
  "kicker":"Võrkaed · keevispaneelaed","h1":"Võrk- ja<br><em>paneelaed</em><br>Tallinnas",
  "lead":"Kaasaegsed keevispaneelaiad (3D aiapaneelid) jäikusribidega: tugev, korralik ja hea läbipaistvusega piire. Tsingitud ja pulbervärvitud — peab aastakümneid.",
@@ -111,7 +111,7 @@ ETSERV=[
         ("Millised kõrgused on?","Tavaliselt 1.23–2.03 m. Valime kõrguse vajaduse järgi."),
         ("Milline värv valida?","Populaarseimad on antratsiit RAL 7016 ja roheline RAL 6005."),
         ("Kas saab värava samas toonis?","Jah, teeme lük- ja tiibväravaid sama paneeliga samas värvis.")]},
-{"path":"/et/aiad/puitaed/","name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
+{"path":"/aiad/puitaed/","name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Puitaed ja puitväravad Tallinnas — LuxAed","desc":"Puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
  "kicker":"Puit · teraskarkass","h1":"<em>Puitaed</em><br>Tallinnas",
  "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil — loodusliku puidu ja vastupidava metalli kombinatsioon.",
@@ -129,7 +129,7 @@ ETSERV=[
         ("Kas saab horisontaallauad?","Jah, horisontaalne puitaed teraskarkassil on üks populaarsemaid."),
         ("Kas teete väravad samas stiilis?","Jah, valmistame lük- ja tiibväravaid puidutäitega ühises disainis."),
         ("Kas puitaed vajab hooldust?","Perioodiliselt tasub uuendada puidu kaitsekihti — selgitame, kuidas hooldada.")]},
-{"path":"/et/aiad/metallaed/","name":"Metallaed ja profiilplekk-aed","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
+{"path":"/aiad/metallaed/","name":"Metallaed ja profiilplekk-aed","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
  "title":"Metallaed ja profiilplekk-aed Tallinnas — LuxAed","desc":"Metall- ja profiilplekk-aedade paigaldus Tallinnas ja Harjumaal. Tsingitud profiilplekk, erinevad värvid, kinnine aed privaatsuseks. Soodne ja kiire. Tasuta mõõdistus.",
  "kicker":"Metall · profiilplekk","h1":"Metall- ja<br><em>profiilplekk-aed</em><br>Tallinnas",
  "lead":"Praktiline ja soodne lahendus: kinnine aed tsingitud profiilplekist. Täielik privaatsus, tuule- ja tolmukaitse, erinevad värvid.",
@@ -147,7 +147,7 @@ ETSERV=[
         ("Milline kõrgus on võimalik?","Tavaliselt 1.5–2.0 m ja kõrgem — valime privaatsuse ja tuulekoormuse järgi."),
         ("Kas saab kombineerida kivipostidega?","Jah, teeme kombineeritud aedu: plekk kivi- või plokkpostide vahel."),
         ("Kas profiilplekk on odavam kui puit ja võrkaed?","Reeglina jah — üks soodsamaid lahendusi. Täpse hinna ütleme pärast mõõdistust.")]},
-{"path":"/et/varavad/","name":"Väravad ja automaatika","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
+{"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
  "title":"Väravad, jalgväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, jalgväravad, väravaautomaatika ja fonolukud Tallinnas ja Harjumaal. Ajamite, pultide ja domofonide paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · domofon","h1":"Väravad ja<br><em>automaatika</em><br>Tallinnas",
  "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame — sõidate õue ühe nupuvajutusega.",
@@ -165,7 +165,7 @@ ETSERV=[
         ("Kas saab automaatika olemasolevale väravale?","Enamasti jah — hindame konstruktsiooni ja valime sobiva ajami."),
         ("Kas paigaldate domofone?","Jah, paigaldame ja ühendame domofonid ning kutsepaneelid värava avamisega."),
         ("Kuidas on automaatika ohutusega?","Paigaldame fotoelemendid ja signaallambi, et värav ei sulguks auto või inimese peale.")]},
-{"path":"/et/aia-remont/","name":"Aia ja värava remont","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
+{"path":"/aia-remont/","name":"Aia ja värava remont","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Aia ja värava remont Tallinnas — LuxAed","desc":"Aedade ja väravate remont Tallinnas ja Harjumaal: sektsioonide ja postide vahetus, lük- ja tiibväravate ning automaatika remont. Diagnostika ja hinnapakkumine.",
  "kicker":"Remont · hooldus","h1":"Aia ja värava<br><em>remont</em><br>Tallinnas",
  "lead":"Taastame aedu, väravaid ja automaatikat: sektsioonide ja postide vahetus, tiibade reguleerimine, ajamite ja furnituuri remont. Teeme diagnostika ja ütleme hinna.",

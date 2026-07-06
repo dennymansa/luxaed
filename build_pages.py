@@ -10,17 +10,17 @@ GA_ID = ""  # set to "G-XXXXXXXXXX" to switch on GA4 (fires 'generate_lead' on f
 
 # 3-language path map (page key -> {ru, et, en}) for hreflang + language switch
 PAGES = [
- {"ru":"/","et":"/et/","en":"/en/"},
- {"ru":"/uslugi/setka-3d/","et":"/et/aiad/vorkaed/","en":"/en/services/mesh-fence/"},
- {"ru":"/uslugi/derevyannye-zabory/","et":"/et/aiad/puitaed/","en":"/en/services/wooden-fence/"},
- {"ru":"/uslugi/profnastil/","et":"/et/aiad/metallaed/","en":"/en/services/metal-fence/"},
- {"ru":"/uslugi/vorota-kalitki/","et":"/et/varavad/","en":"/en/services/gates-automation/"},
- {"ru":"/uslugi/remont-zaborov/","et":"/et/aia-remont/","en":"/en/services/fence-repair/"},
- {"ru":"/o-nas/","et":"/et/meist/","en":"/en/about/"},
- {"ru":"/faq/","et":"/et/kkk/","en":"/en/faq/"},
- {"ru":"/kontakty/","et":"/et/kontakt/","en":"/en/contact/"},
- {"ru":"/privaatsus/","et":"/et/privaatsus/","en":"/en/privacy/"},
- {"ru":"/tingimused/","et":"/et/tingimused/","en":"/en/terms/"},
+ {"ru":"/ru/","et":"/","en":"/en/"},
+ {"ru":"/ru/uslugi/setka-3d/","et":"/aiad/vorkaed/","en":"/en/services/mesh-fence/"},
+ {"ru":"/ru/uslugi/derevyannye-zabory/","et":"/aiad/puitaed/","en":"/en/services/wooden-fence/"},
+ {"ru":"/ru/uslugi/profnastil/","et":"/aiad/metallaed/","en":"/en/services/metal-fence/"},
+ {"ru":"/ru/uslugi/vorota-kalitki/","et":"/varavad/","en":"/en/services/gates-automation/"},
+ {"ru":"/ru/uslugi/remont-zaborov/","et":"/aia-remont/","en":"/en/services/fence-repair/"},
+ {"ru":"/ru/o-nas/","et":"/meist/","en":"/en/about/"},
+ {"ru":"/ru/faq/","et":"/kkk/","en":"/en/faq/"},
+ {"ru":"/ru/kontakty/","et":"/kontakt/","en":"/en/contact/"},
+ {"ru":"/ru/privaatsus/","et":"/privaatsus/","en":"/en/privacy/"},
+ {"ru":"/ru/tingimused/","et":"/tingimused/","en":"/en/terms/"},
 ]
 def _row(path):
     for r in PAGES:
@@ -30,16 +30,16 @@ def alt(path, lang):
     return _row(path).get(lang, "/")
 
 SVC = {  # per-language service dropdown / footer list
- "ru": [("/uslugi/derevyannye-zabory/","Деревянные заборы"),
-        ("/uslugi/profnastil/","Заборы из профнастила"),
-        ("/uslugi/setka-3d/","Сетчатые/3D-заборы"),
-        ("/uslugi/vorota-kalitki/","Ворота, калитки и автоматика"),
-        ("/uslugi/remont-zaborov/","Ремонт заборов")],
- "et": [("/et/aiad/puitaed/","Puitaiad"),
-        ("/et/aiad/metallaed/","Metallaed"),
-        ("/et/aiad/vorkaed/","Võrkaed / paneelaed"),
-        ("/et/varavad/","Väravad ja automaatika"),
-        ("/et/aia-remont/","Aia remont")],
+ "ru": [("/ru/uslugi/derevyannye-zabory/","Деревянные заборы"),
+        ("/ru/uslugi/profnastil/","Заборы из профнастила"),
+        ("/ru/uslugi/setka-3d/","Сетчатые/3D-заборы"),
+        ("/ru/uslugi/vorota-kalitki/","Ворота, калитки и автоматика"),
+        ("/ru/uslugi/remont-zaborov/","Ремонт заборов")],
+ "et": [("/aiad/puitaed/","Puitaiad"),
+        ("/aiad/metallaed/","Metallaed"),
+        ("/aiad/vorkaed/","Võrkaed / paneelaed"),
+        ("/varavad/","Väravad ja automaatika"),
+        ("/aia-remont/","Aia remont")],
  "en": [("/en/services/wooden-fence/","Wooden fences"),
         ("/en/services/metal-fence/","Corrugated (metal) fences"),
         ("/en/services/mesh-fence/","Mesh / 3D fences"),
@@ -103,7 +103,7 @@ def lang_switch(cur_path, lang):
 
 def nav(lang, cur_path):
     L = NAVLBL[lang]
-    home = alt("/", lang); about = alt("/o-nas/", lang); faq = alt("/faq/", lang); contact = alt("/kontakty/", lang)
+    home = alt("/", lang); about = alt("/meist/", lang); faq = alt("/kkk/", lang); contact = alt("/kontakt/", lang)
     dd = "".join(f'<a href="{u}">{t}</a>' for u,t in SVC[lang])
     ddm = "".join(f'<a class="nm-sub" href="{u}" onclick="closeMob()">{t}</a>' for u,t in SVC[lang])
     return f'''<header class="nav-wrap">
@@ -137,9 +137,9 @@ def footer(lang):
     if lang=="et":
         tagline="Aiad ja väravad Tallinnas ja Harjumaal. Tootmine, paigaldus, automaatika ja remont."
         h_s,h_c,h_k,h_hours="Teenused","Ettevõte","Kontakt","Lahtiolekuajad"
-        comp=[("/et/meist/","Meist"),("/et/kkk/","KKK"),("/et/kontakt/","Kontakt"),("/et/privaatsus/","Privaatsus"),("/et/tingimused/","Tingimused")]
+        comp=[("/meist/","Meist"),("/kkk/","KKK"),("/kontakt/","Kontakt"),("/privaatsus/","Privaatsus"),("/tingimused/","Tingimused")]
         hours=[("E–R","09–18"),("L","kokkuleppel"),("P","—")]
-        rights="Kõik õigused kaitstud."; legal=[("/et/privaatsus/","Privaatsuspoliitika"),("/et/tingimused/","Kasutustingimused")]
+        rights="Kõik õigused kaitstud."; legal=[("/privaatsus/","Privaatsuspoliitika"),("/tingimused/","Kasutustingimused")]
         addr="Kesklinn, Tallinn,<br>Harjumaa, Eesti"
     elif lang=="en":
         tagline="Fences and gates in Tallinn and Harjumaa. Manufacturing, installation, automation and repair."
@@ -151,9 +151,9 @@ def footer(lang):
     else:
         tagline="Заборы и ворота в Таллинне и Харьюмаа. Производство, установка, автоматика и ремонт."
         h_s,h_c,h_k,h_hours="Услуги","Компания","Контакты","Время работы"
-        comp=[("/o-nas/","О нас"),("/faq/","Вопросы и ответы"),("/kontakty/","Контакты"),("/privaatsus/","Конфиденциальность"),("/tingimused/","Условия")]
+        comp=[("/ru/o-nas/","О нас"),("/ru/faq/","Вопросы и ответы"),("/ru/kontakty/","Контакты"),("/ru/privaatsus/","Конфиденциальность"),("/ru/tingimused/","Условия")]
         hours=[("Пн–Пт","09–18"),("Сб","по записи"),("Вс","—")]
-        rights="Все права защищены."; legal=[("/privaatsus/","Политика конфиденциальности"),("/tingimused/","Условия обслуживания")]
+        rights="Все права защищены."; legal=[("/ru/privaatsus/","Политика конфиденциальности"),("/ru/tingimused/","Условия обслуживания")]
         addr="Kesklinn, Tallinn,<br>Harjumaa, Estonia"
     svc="".join(f'<a href="{u}">{t}</a>' for u,t in SVC[lang])
     company="".join(f'<a href="{u}">{t}</a>' for u,t in comp)
@@ -196,7 +196,7 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
     alts = (f'<link rel="alternate" hreflang="ru" href="{DOMAIN}{ru}">'
             f'<link rel="alternate" hreflang="et" href="{DOMAIN}{et}">'
             f'<link rel="alternate" hreflang="en" href="{DOMAIN}{en}">'
-            f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}{ru}">')
+            f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}{et}">')
     sb = "\n".join(schema_blocks or [])
     fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M4%2022%20H22%27/%3E%3Cpath%20d%3D%27M8%2022%20V9%20M18%2022%20V9%27/%3E%3Cpath%20d%3D%27M8%209%20Q13%204.5%2018%209%27/%3E%3Cpath%20d%3D%27M11%2022%20V11%20M15%2022%20V11%20M13%2022%20V10%27/%3E%3C/svg%3E")
     locale = {"et":"et_EE","en":"en_US"}.get(lang,"ru_RU")
