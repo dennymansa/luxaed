@@ -53,10 +53,15 @@ NAVLBL = {"ru":{"about":"О нас","faq":"Вопросы","contact":"Конта
                "cta":"Get a quote","cta_mini":"Quote","home":"Home"}}
 
 def logo_svg():
+    # clean picket fence: 5 even pointed pickets + 2 rails showing between them
     return ('<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-            '<rect x="2" y="9" width="3" height="14" fill="#b5542e"/><rect x="8" y="6" width="3" height="17" fill="#b5542e"/>'
-            '<rect x="14" y="9" width="3" height="14" fill="#b5542e"/><rect x="20" y="6" width="3" height="17" fill="#b5542e"/>'
-            '<rect x="1" y="9" width="23" height="2.4" fill="#ecccb9"/></svg>')
+            '<rect x="1.5" y="11" width="23" height="2.2" rx="1.1" fill="#ecccb9"/>'
+            '<rect x="1.5" y="16" width="23" height="2.2" rx="1.1" fill="#ecccb9"/>'
+            '<path d="M1.9 8 L3.3 5 L4.7 8 V22.5 H1.9 Z" fill="#b5542e"/>'
+            '<path d="M6.65 8 L8.05 5 L9.45 8 V22.5 H6.65 Z" fill="#b5542e"/>'
+            '<path d="M11.4 8 L12.8 5 L14.2 8 V22.5 H11.4 Z" fill="#b5542e"/>'
+            '<path d="M16.15 8 L17.55 5 L18.95 8 V22.5 H16.15 Z" fill="#b5542e"/>'
+            '<path d="M20.9 8 L22.3 5 L23.7 8 V22.5 H20.9 Z" fill="#b5542e"/></svg>')
 
 def partners_marquee(lang):
     # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
@@ -64,9 +69,11 @@ def partners_marquee(lang):
        ("Mapon","mapon.svg"),("Pakendikeskus","pakendikeskus-132.webp"),("Põhjala","pohjala.svg"),
        ("Placet Group","placet.svg"),("Inter Cars","intercars.svg"),("Olerex","olerex.webp"),
        ("Alexela","alexela.webp"),("Admirals","admirals-132.webp"),("AD Baltic","adbaltic.svg")]
-    T={"ru":("Партнёры","С нами работают"),
-       "et":("Partnerid","Meiega töötavad"),
-       "en":("Partners","Working with us")}
+    # framing follows live moving24: tag "Kliendid" (not "Partnerid"), punchy native h2
+    # (moving24 ET: "Kolime ka Eesti tuntud ettevõtteid" / RU: "Наши клиенты и партнёры")
+    T={"ru":("Клиенты","Ставим заборы и известным компаниям"),
+       "et":("Kliendid","Paigaldame aedu ka tuntud ettevõtetele"),
+       "en":("Clients","We build fences for well-known companies too")}
     tag,h2=T.get(lang,T["ru"])
     pills="".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in P)
     return (f'<section class="partners-marquee" aria-label="{tag}">'
@@ -192,6 +199,7 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canon}">
