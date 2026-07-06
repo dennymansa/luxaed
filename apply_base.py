@@ -5,7 +5,7 @@
 # For a real root domain (luxaed.ee) deploy: set BASE="" (this becomes a no-op).
 import re, glob, os
 
-BASE = "/luxaed"   # <-- github.io project subpath; set "" for root-domain deploy
+BASE = ""   # root-domain deploy (luxaed.ee via Vercel); was "/luxaed" for github.io project path
 
 def fix_html(s):
     if not BASE: return s
