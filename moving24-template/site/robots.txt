@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Privacy pages are crawlable but carry <meta name="robots" content="noindex">
+
+Sitemap: https://moving24.ee/sitemap.xml

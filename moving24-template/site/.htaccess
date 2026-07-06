@@ -1,0 +1,71 @@
+# Apache config for zone.ee (Apache). GitHub Pages ignores this file.
+# When moved to moving24.ee root, the site lives at "/" (not "/"),
+# so absolute paths must be re-pointed at migration time.
+
+ErrorDocument 404 /404.html
+
+# --- 301 redirects: old WordPress URLs -> new equivalents (from GSC, SEO preservation) ---
+<IfModule mod_alias.c>
+  # old WordPress (Yoast) sitemaps -> new sitemap
+  RedirectMatch 301 ^/sitemap_index\.xml$ /sitemap.xml
+  RedirectMatch 301 ^/page-sitemap\.xml$  /sitemap.xml
+  RedirectMatch 301 ^/post-sitemap\.xml$  /sitemap.xml
+  # EN
+  RedirectMatch 301 ^/en/service/garbage-collection/?$          /en/service/junk-removal/
+  RedirectMatch 301 ^/en/service/moving-for-business/?$         /en/service/business-move/
+  RedirectMatch 301 ^/en/service/corporate-services/?$          /en/service/business-move/
+  RedirectMatch 301 ^/en/service/moving-for-individuals/?$      /en/service/home-move/
+  RedirectMatch 301 ^/en/service/moving-heavy-objects/?$        /en/service/oversized/
+  RedirectMatch 301 ^/en/service/moving-services/?$             /en/
+  RedirectMatch 301 ^/en/service/about-us/?$                    /en/about/
+  RedirectMatch 301 ^/en/mission-and-values-of-moving24/?$      /en/about/
+  RedirectMatch 301 ^/en/contact/?$                             /en/
+  RedirectMatch 301 ^/en/service/?$                             /en/
+  # RU
+  RedirectMatch 301 ^/ru/uslugi/chastnye-uslugi-pereezda/?$     /ru/uslugi/chastnyj-pereezd/
+  RedirectMatch 301 ^/ru/uslugi/perevozka-tyazhelyh-predmetov/?$ /ru/uslugi/krupnogabaritnyj/
+  RedirectMatch 301 ^/ru/uslugi/korporativnye-uslugi/?$         /ru/uslugi/biznes-pereezd/
+  RedirectMatch 301 ^/ru/uslugi/biznes-pereezdy/?$              /ru/uslugi/biznes-pereezd/
+  RedirectMatch 301 ^/ru/uslugi/uslugi-po-pereezdu/?$           /ru/
+  RedirectMatch 301 ^/ru/kontakty/?$                            /ru/
+  RedirectMatch 301 ^/ru/uslugi/?$                              /ru/
+  # ET
+  RedirectMatch 301 ^/teenused/raskete-esemete-teisaldamine/?$  /teenused/suuregabariidiline/
+  RedirectMatch 301 ^/teenused/kolimisteenus-eraisikule/?$      /teenused/erakolimine/
+  RedirectMatch 301 ^/teenused/kolimisteenus-arikliendile/?$    /teenused/arikolimine/
+  RedirectMatch 301 ^/teenused/ettevotte-teenused/?$            /teenused/arikolimine/
+  RedirectMatch 301 ^/teenused/meist/?$                         /meist/
+  RedirectMatch 301 ^/teenused/kolimisteenus/?$                 /
+  RedirectMatch 301 ^/teenused/?$                               /
+  RedirectMatch 301 ^/kontaktid/?$                              /
+</IfModule>
+
+# --- Security headers (impossible on GitHub Pages, available here) ---
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  # !!! STAGING ONLY - REMOVE THIS LINE AT moving24.ee CUTOVER (blocks ALL indexing, PSI SEO=69 is caused by this) !!!
+  Header always set X-Robots-Tag "noindex, nofollow"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Enable HSTS only once HTTPS is confirmed stable on the domain:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Cache static assets (fingerprint with ?v= when updating) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
