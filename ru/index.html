@@ -645,9 +645,11 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(form._gotcha&&form._gotcha.value)return;
-    ok.style.display='block';
     form.querySelector('button[type=submit]').disabled=true;
-    if(window.gtag)gtag('event','generate_lead',{form_service:(form.service&&form.service.value)||''});
+    ok.style.display='block';
+    var data={};new FormData(form).forEach(function(v,k){if(k!=='photos')data[k]=v;});
+    fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+    if(window.gtag)gtag('event','generate_lead',{form_service:data.service||''});
   });
 })();
 
