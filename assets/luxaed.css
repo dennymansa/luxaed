@@ -667,6 +667,9 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
   .nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--hero-bg);z-index:99;padding:86px 22px 20px;overflow:auto}
   .nav-mobile.on{display:block}
   .nav-mobile a{display:block;padding:8px 4px;font-size:15px;font-weight:600;color:var(--hero-text);border-bottom:1px solid var(--line-hero)}
+  .nav-mobile-lang{display:flex;gap:6px;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line-hero)}
+  .nav-mobile-lang a{flex:1;display:inline-block;border:1px solid var(--line-hero);border-radius:9px;padding:10px 4px;font-size:13.5px;font-weight:700;text-align:center;color:var(--hero-text)}
+  .nav-mobile-lang a.is-active{background:var(--accent);border-color:var(--accent);color:#fff}
   .hero .wrap{padding-top:calc(64px + 44px)}
   .hero-photo-bg{bottom:auto;height:100svh;background-size:cover;background-position:center 48%;background-repeat:no-repeat;transform:none}.hero::before{background:linear-gradient(165deg,rgba(6,10,16,.62),rgba(8,14,24,.46) 50%,rgba(6,10,18,.8))}
   .hero h1{min-height:0}

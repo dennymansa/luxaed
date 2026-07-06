@@ -110,6 +110,9 @@ def nav(lang, cur_path):
     home = alt("/", lang); about = alt("/meist/", lang); faq = alt("/kkk/", lang); contact = alt("/kontakt/", lang)
     dd = "".join(f'<a href="{u}">{t}</a>' for u,t in SVC[lang])
     ddm = "".join(f'<a class="nm-sub" href="{u}" onclick="closeMob()">{t}</a>' for u,t in SVC[lang])
+    mlang = '<div class="nav-mobile-lang">'+"".join(
+        f'<a href="{alt(cur_path,L)}" lang="{L}" hreflang="{L}"'+(' aria-current="page" class="is-active"' if L==lang else '')+f'>{lbl}</a>'
+        for L,lbl in (("et","ET"),("ru","RU"),("en","EN")))+'</div>'
     return f'''<header class="nav-wrap">
   <nav class="nav-pill">
     <a class="nav-logo" href="{home}" aria-label="LuxAed">{logo_svg()}<span>Lux<b>Aed</b></span></a>
@@ -128,6 +131,7 @@ def nav(lang, cur_path):
   </nav>
 </header>
 <div class="nav-mobile" id="navMobile">
+  {mlang}
   <a href="{home}" onclick="closeMob()">{L["home"]}</a>
   {ddm}
   <a href="{about}" onclick="closeMob()">{L["about"]}</a>
@@ -192,10 +196,14 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
 (function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var els=document.querySelectorAll(".__no_anim__");var it=[];els.forEach(function(el){var n=el.firstChild;if(!n||n.nodeType!==3)return;var m=n.nodeValue.match(/^(\\d+)(.*)$/);if(!m)return;var t=parseInt(m[1],10);if(t<10)return;it.push({el:el,node:n,t:t,s:m[2]||"",d:false});});if(!it.length)return;function run(x){if(x.d)return;x.d=true;var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);x.node.nodeValue=Math.round(x.t*e)+x.s;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;it.forEach(function(x){if(x.el===e.target)run(x);});io.unobserve(e.target);});},{threshold:.4});it.forEach(function(x){io.observe(x.el)});})();
 (function(){var bar=document.querySelector(".mob-bar");if(!bar)return;var vv=window.visualViewport,typing=false;function pin(){if(!vv)return;var o=window.innerHeight-vv.height-vv.offsetTop;bar.style.bottom=(o>0?o:0)+"px";}function fld(el){return el&&/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)&&el.type!=="hidden";}function refresh(){var kb=vv&&(window.innerHeight-vv.height)>140;if(typing||kb){bar.style.display="none";}else{bar.style.display="";pin();}}document.addEventListener("focusin",function(e){if(fld(e.target)){typing=true;refresh();}});document.addEventListener("focusout",function(e){if(fld(e.target)){setTimeout(function(){if(!fld(document.activeElement)){typing=false;refresh();}},120);}});if(vv){vv.addEventListener("resize",refresh);vv.addEventListener("scroll",refresh);}refresh();})();
 (function(){document.querySelectorAll('.pm-row').forEach(function(row){function setRate(r){row.querySelectorAll('.pm-set').forEach(function(set){set.getAnimations().forEach(function(a){a.playbackRate=r;});});}row.addEventListener('mouseenter',function(){setRate(3);});row.addEventListener('mouseleave',function(){setRate(1);});});})();
+(function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>'''
 
 def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=None):
     ru = alt(path,"ru"); et = alt(path,"et"); en = alt(path,"en")
+    # preload the handwritten Caveat weight the hero kicker uses (per-language script) so it
+    # doesn't flash a fallback font on load (kills the FOUT swap on the above-the-fold kicker)
+    caveat = "caveat-700-cyrillic.woff2" if lang=="ru" else "caveat-700-latin.woff2"
     canon = DOMAIN + path
     alts = (f'<link rel="alternate" hreflang="ru" href="{DOMAIN}{ru}">'
             f'<link rel="alternate" hreflang="et" href="{DOMAIN}{et}">'
@@ -221,6 +229,7 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 {sb}
 <link rel="icon" href="{fav}">
 <link rel="preload" as="image" href="{og_img.replace('.jpg','.webp')}" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/{caveat}" crossorigin>
 <link rel="stylesheet" href="/assets/luxaed.css">
 { f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag("js",new Date());gtag("config","{GA_ID}");</script>' if GA_ID else '' }
 </head>

@@ -87,7 +87,11 @@ home_inner=f'''<section class="hero">
     </div>
     <div class="gbp-reviews">
       <div class="gbp-rev-hd"><span class="gbp-rev-score">34</span><div class="gbp-rev-divider"></div><div class="gbp-rev-mid"><div class="gbp-rev-stars">★★★★★</div><div class="gbp-rev-cnt">arvustust Facebookis · soovitavad</div></div><a class="gbp-rev-link" href="{FB}/reviews" target="_blank" rel="noopener">Kõik arvustused →</a></div>
-      <div class="gbp-rev-list">{rev_cards}</div>
+      <div class="rev-carousel" role="region" aria-label="Klientide arvustused Facebookis">
+        <button class="rev-arrow rev-prev" type="button" aria-label="Eelmine arvustus">‹</button>
+        <div class="rev-viewport"><div class="gbp-rev-list rev-track">{rev_cards}</div></div>
+        <button class="rev-arrow rev-next" type="button" aria-label="Järgmine arvustus">›</button>
+      </div>
     </div>
   </div></div></section>
 
