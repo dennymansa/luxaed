@@ -649,6 +649,7 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
     if(form._gotcha&&form._gotcha.value)return;
     ok.style.display='block';
     form.querySelector('button[type=submit]').disabled=true;
+    if(window.gtag)gtag('event','generate_lead',{form_service:(form.service&&form.service.value)||''});
   });
 })();
 
