@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # ET home + ET support pages (meist, kkk, kontakt, privaatsus, tingimused)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee
 from gen_et import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -91,6 +91,7 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
+{partners_marquee("et")}
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>

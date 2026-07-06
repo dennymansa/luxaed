@@ -58,6 +58,23 @@ def logo_svg():
             '<rect x="14" y="9" width="3" height="14" fill="#b5542e"/><rect x="20" y="6" width="3" height="17" fill="#b5542e"/>'
             '<rect x="1" y="9" width="23" height="2.4" fill="#ecccb9"/></svg>')
 
+def partners_marquee(lang):
+    # PLACEHOLDER partners (copied from moving24) until LuxAed owner provides real ones
+    P=[("Bolt","bolt.svg"),("LHV","lhv.svg"),("Wallester","wallester.svg"),("Bauhof","bauhof.svg"),
+       ("Mapon","mapon.svg"),("Pakendikeskus","pakendikeskus-132.webp"),("Põhjala","pohjala.svg"),
+       ("Placet Group","placet.svg"),("Inter Cars","intercars.svg"),("Olerex","olerex.webp"),
+       ("Alexela","alexela.webp"),("Admirals","admirals-132.webp"),("AD Baltic","adbaltic.svg")]
+    T={"ru":("Партнёры","С нами работают"),
+       "et":("Partnerid","Meiega töötavad"),
+       "en":("Partners","Working with us")}
+    tag,h2=T.get(lang,T["ru"])
+    pills="".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in P)
+    return (f'<section class="partners-marquee" aria-label="{tag}">'
+            f'<div class="wrap"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>'
+            f'<div class="pm-row" tabindex="0" role="group" aria-label="{tag}"><div class="pm-track">'
+            f'<div class="pm-set">{pills}</div><div class="pm-set" aria-hidden="true">{pills}</div>'
+            f'</div></div></section>')
+
 def lang_switch(cur_path, lang):
     out=['<div class="lang-switch" role="navigation" aria-label="Keel / Language / Язык">']
     for L,lbl in (("ru","RU"),("et","ET"),("en","EN")):
@@ -154,6 +171,7 @@ function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList
 (function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg');document.querySelectorAll('#gal a[data-lb]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();im.src=a.getAttribute('href');var g=a.querySelector('img');im.alt=g?g.alt:'';lb.classList.add('on');});});lb.querySelector('.lb-x').addEventListener('click',function(){lb.classList.remove('on')});lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});})();
 (function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var els=document.querySelectorAll(".__no_anim__");var it=[];els.forEach(function(el){var n=el.firstChild;if(!n||n.nodeType!==3)return;var m=n.nodeValue.match(/^(\\d+)(.*)$/);if(!m)return;var t=parseInt(m[1],10);if(t<10)return;it.push({el:el,node:n,t:t,s:m[2]||"",d:false});});if(!it.length)return;function run(x){if(x.d)return;x.d=true;var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);x.node.nodeValue=Math.round(x.t*e)+x.s;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;it.forEach(function(x){if(x.el===e.target)run(x);});io.unobserve(e.target);});},{threshold:.4});it.forEach(function(x){io.observe(x.el)});})();
 (function(){var bar=document.querySelector(".mob-bar");if(!bar)return;var vv=window.visualViewport,typing=false;function pin(){if(!vv)return;var o=window.innerHeight-vv.height-vv.offsetTop;bar.style.bottom=(o>0?o:0)+"px";}function fld(el){return el&&/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)&&el.type!=="hidden";}function refresh(){var kb=vv&&(window.innerHeight-vv.height)>140;if(typing||kb){bar.style.display="none";}else{bar.style.display="";pin();}}document.addEventListener("focusin",function(e){if(fld(e.target)){typing=true;refresh();}});document.addEventListener("focusout",function(e){if(fld(e.target)){setTimeout(function(){if(!fld(document.activeElement)){typing=false;refresh();}},120);}});if(vv){vv.addEventListener("resize",refresh);vv.addEventListener("scroll",refresh);}refresh();})();
+(function(){document.querySelectorAll('.pm-row').forEach(function(row){function setRate(r){row.querySelectorAll('.pm-set').forEach(function(set){set.getAnimations().forEach(function(a){a.playbackRate=r;});});}row.addEventListener('mouseenter',function(){setRate(3);});row.addEventListener('mouseleave',function(){setRate(1);});});})();
 </script>'''
 
 def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=None):
