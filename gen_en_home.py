@@ -117,7 +117,8 @@ home_inner=f'''<section class="hero">
     <a href="/img/luxaed-g4.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g4.webp"><img src="/img/luxaed-g4.jpg" alt="Mesh gate with automation" loading="lazy"></picture></a>
     <a href="/img/luxaed-g3.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g3.webp"><img src="/img/luxaed-g3.jpg" alt="Metal fence in the evening" loading="lazy"></picture></a>
     <a href="/img/luxaed-g6.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g6.webp"><img src="/img/luxaed-g6.jpg" alt="Gate automation" loading="lazy"></picture></a>
-  </div></div></section>
+  </div>
+  <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 
 <section class="section section--alt svc-hide" id="piirkonnad" aria-label="Service area"><div class="wrap"><span class="tag">Service area</span><h2 class="big">Where we work</h2>
   <p class="lead">Fences, gates and automation in Tallinn and all of Harjumaa.</p><div class="area-pills">{areas_html}</div></div></section>

@@ -117,7 +117,8 @@ home_inner=f'''<section class="hero">
     <a href="/img/luxaed-g4.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g4.webp"><img src="/img/luxaed-g4.jpg" alt="Võrkvärav automaatikaga" loading="lazy"></picture></a>
     <a href="/img/luxaed-g3.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g3.webp"><img src="/img/luxaed-g3.jpg" alt="Metallaed õhtul" loading="lazy"></picture></a>
     <a href="/img/luxaed-g6.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g6.webp"><img src="/img/luxaed-g6.jpg" alt="Väravaautomaatika" loading="lazy"></picture></a>
-  </div></div></section>
+  </div>
+  <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Rohkem fotosid meie Facebookis →</a></div></div></section>
 
 <section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Kus me töötame</h2>
   <p class="lead">Aiad, väravad ja automaatika Tallinnas ja kogu Harjumaal.</p><div class="area-pills">{areas_html}</div></div></section>
