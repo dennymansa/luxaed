@@ -62,13 +62,15 @@ def service(c):
     H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
     body=f'''{nav("et",c["path"])}
 <main id="main">
-<section class="svc-hero">
+<section class="hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1>
+    <div class="hero-kicker hand">Vajate uut aeda või väravat?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
+    <h1>{c["h1"]}</h1>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
-  </div>{form_html()}</div></div>
+  </div>{form_html()}</div>
+  <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>5</b><span>aastat turul (al. 2021)</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><span class="tag">Mida saate</span><h2 class="big">{c["intro_h"]}</h2><p class="lead">{c["intro_p"]}</p>{bens(c["bens"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Valikud</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
@@ -152,6 +154,24 @@ ETSERV=[
         ("Kas valate ka betoon- või plokkaeda?","Jah, ehitame massiivseid betoon- ja plokkmüüre ning kombineerime neid metalli, pleki või sepisega."),
         ("Kas saab kombineerida kivipostidega?","Jah, teeme kombineeritud aedu: plekk või lippaed kivi- või plokkpostide vahel."),
         ("Kas profiilplekk on odavam kui puit ja võrkaed?","Reeglina jah — üks soodsamaid lahendusi. Täpse hinna ütleme pärast mõõdistust.")]},
+{"path":"/aiad/lippaed/","name":"Metall-lippaed","hero":"luxaed-metal","og":"/img/luxaed-metal.jpg",
+ "title":"Metall-lippaed (metallaed) Tallinnas — LuxAed","desc":"Metallist lippaed ehk metallpiire Tallinnas ja Harjumaal: kaasaegne läbipaistev aed valitava vahega, tsingitud ja pulbervärvitud. Aed ja väravad ühes stiilis. Tasuta mõõdistus.",
+ "kicker":"Metall-lippaed · štaketnik","h1":"Metallist<br><em>lippaed</em><br>Tallinnas",
+ "lead":"Kaasaegne metallist lippaed (euro-lippaed): läbipaistev, korralik ja pika elueaga. Tsingitud ja pulbervärvitud lamellid valitava vahega.",
+ "intro_h":"Miks metall-lippaed","intro_p":"Metall-lippaed näeb kerge ja kaasaegne välja, laseb valgust läbi ja peab aastakümneid. Sobib eramutele ja ettevõtetele — aia ja väravad teeme ühes stiilis.",
+ "bens":["Kaasaegne läbipaistev lippaed","Valitav vahe lamellide vahel","Tsingitud ja pulbervärvitud — ei roosteta","RAL-värvid, ka antratsiit RAL 7016","Aed ja väravad ühes stiilis","Ühe- või kahepoolne lamell"],
+ "variants_h":"Lippaia valikud",
+ "variants":[("▤","Ühepoolne lippaed","Lamellid ühel pool — soodne ja kaasaegne."),
+             ("▥","Kahepoolne lippaed","Lamellid mõlemal pool (žalusii-efekt) — privaatsem, mõlemalt poolt korralik."),
+             ("◧","RAL-värvid","Antratsiit RAL 7016, must, pruun ja teised toonid."),
+             ("⛩","Lippaed-väravad","Lük- ja tiibväravad sama lippaia lamelliga.")],
+ "cta_band":"Arvutame metall-lippaia teie krundile","incl":["Krundi mõõdistus","Metallpostide paigaldus","Lamellide montaaž valitud vahega","Loodimine reljeefi järgi","Kontroll pärast paigaldust"],
+ "factors":["Aia pikkus ja kõrgus","Lamelli vahe ja tüüp (ühe-/kahepoolne)","Värv (RAL)","Väravate ja jalgvärava arv","Reljeef ja alus"],
+ "gallery":[("luxaed-metal","Metallaed väravaga"),("luxaed-g3","Metallaed õhtul"),("luxaed-profnastil-2","Metallaed (näide)")],
+ "faq":[("Mis on metall-lippaed (štaketnik)?","Kaasaegne metallist lippaed — vertikaalsed lamellid valitava vahega, tsingitud ja pulbervärvitud. Läbipaistvam kui plekk-aed, korralik ja pika elueaga."),
+        ("Kas lippaed on läbipaistev?","Vahe lamellide vahel valite ise: tihedam privaatsuseks või hõredam kergema ilme jaoks. Kahepoolne lippaed on privaatsem."),
+        ("Millised värvid on?","Populaarseim on antratsiit RAL 7016, samuti must ja pruun. Teeme teisi RAL-toone tellimusel."),
+        ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme sama lippaia lamelliga ühes stiilis.")]},
 {"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
  "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, aiaväravad, jalgväravad, väravaautomaatika, tõkkepuud ja fonolukud Tallinnas ja Harjumaal. Ajamite, pultide ja domofonide paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · tõkkepuu","h1":"Väravad ja<br><em>automaatika</em><br>Tallinnas",

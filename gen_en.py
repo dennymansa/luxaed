@@ -62,13 +62,15 @@ def service(c):
     H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
     body=f'''{nav("en",c["path"])}
 <main id="main">
-<section class="svc-hero">
+<section class="hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <span class="tag">{c["kicker"]}</span><h1>{c["h1"]}</h1>
+    <div class="hero-kicker hand">Hi! A new fence coming up?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
+    <h1>{c["h1"]}</h1>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
-  </div>{form_html()}</div></div>
+  </div>{form_html()}</div>
+  <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>5</b><span>years in business (since 2021)</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><span class="tag">What you get</span><h2 class="big">{c["intro_h"]}</h2><p class="lead">{c["intro_p"]}</p>{bens(c["bens"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Options</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
@@ -152,6 +154,24 @@ ENSERV=[
         ("Do you also pour concrete or block walls?","Yes, we build solid concrete and block walls and combine them with metal, sheet or wrought iron."),
         ("Can it be combined with brick posts?","Yes, we build combined fences: sheet or picket between brick or block posts."),
         ("Is profiled sheet cheaper than wood and mesh?","Usually yes — it's one of the most affordable options. We'll give an exact price after the measurement.")]},
+{"path":"/en/services/steel-picket/","name":"Steel picket fence","hero":"luxaed-metal","og":"/img/luxaed-metal.jpg",
+ "title":"Steel picket (euro-picket) fences in Tallinn — LuxAed","desc":"Steel picket (euro-picket) fences in Tallinn and Harjumaa: a modern fence with an adjustable gap, galvanised and powder-coated. Fence and gates in one style. Free measurement.",
+ "kicker":"Steel picket · metal","h1":"Steel<br><em>picket fences</em><br>in Tallinn",
+ "lead":"A modern steel picket (euro-picket): light, tidy and long-lasting. Galvanised and powder-coated slats with an adjustable gap.",
+ "intro_h":"Why a steel picket","intro_p":"A steel picket looks light and modern, lets light through and lasts for decades. It suits homes and businesses — and we make the fence and gates in one style.",
+ "bens":["A modern semi-open fence","Adjustable gap between the slats","Galvanised + powder-coated — no rust","RAL colours, incl. anthracite RAL 7016","Fence and gates in one style","Single- or double-sided slats"],
+ "variants_h":"Steel picket options",
+ "variants":[("▤","Single-sided","Slats on one side — affordable and modern."),
+             ("▥","Double-sided","Slats on both sides (louvre effect) — more privacy, neat from both sides."),
+             ("◧","RAL colours","Anthracite RAL 7016, black, brown and other shades."),
+             ("⛩","Picket gates","Sliding and swing gates from the same slat.")],
+ "cta_band":"Let's price a steel picket fence","incl":["On-site measurement","Installing steel posts","Mounting the slats at the chosen gap","Levelling","Post-installation check"],
+ "factors":["Fence length and height","Gap and type (single-/double-sided)","Colour (RAL)","Gates and wickets","Terrain and groundwork"],
+ "gallery":[("luxaed-metal","Metal fence with gates"),("luxaed-g3","Metal fence in the evening"),("luxaed-profnastil-2","Metal fence (example)")],
+ "faq":[("What is a steel picket (euro-picket) fence?","A modern fence of vertical metal slats with an adjustable gap, galvanised and powder-coated. More open than solid sheet, tidy and long-lasting."),
+        ("Is a picket fence see-through?","You choose the gap between slats: tighter for privacy or wider for a light look. A double-sided picket is more private."),
+        ("Which colours are available?","The most popular is anthracite RAL 7016, plus black and brown. Other RAL shades to order."),
+        ("Can the gates match?","Yes, we make sliding and swing gates from the same picket slat in one design.")]},
 {"path":"/en/services/gates-automation/","name":"Gates & automation","hero":"luxaed-svc-gates","og":"/img/luxaed-svc-gates.jpg",
  "title":"Gates, automation & barriers in Tallinn — LuxAed","desc":"Sliding and swing gates, wickets, gate automation, barriers and intercoms in Tallinn and Harjumaa. Turnkey installation of drives, remotes and intercoms. Free measurement.",
  "kicker":"Gates · automation · barriers","h1":"Gates &amp;<br><em>automation</em><br>in Tallinn",
