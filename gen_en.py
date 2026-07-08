@@ -40,6 +40,17 @@ PROCESS='''<div class="hsteps">
   <div class="hstep"><div class="hstep-num">4</div><h3>We hand it over</h3><p>When the work is done we review the result together with you and hand over the finished job — with care and maintenance tips.</p></div>
 </div>'''
 
+VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed — fence and gate installation" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Post auger and rammer</b> — posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b> — steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b> — sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b> — set up and connected turnkey</li>
+    <li><b>Clean site</b> — we clean up after ourselves and hand the plot over tidy</li>
+  </ul></div></div></div></section>'''
+
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h4>{n}</h4><p>{d}</p></div>' for i,n,d in cc)+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -80,6 +91,7 @@ def service(c):
   <div class="honest"><div class="hon good"><h3>Always included</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>We work year-round, including winter</li><li>Warranty on completed work</li></ul></div>
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
+{VARUSTUS}
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>

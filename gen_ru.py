@@ -47,6 +47,17 @@ def schema_service(name, desc, path, faq):
     j=lambda o: '<script type="application/ld+json">'+json.dumps(o,ensure_ascii=False)+'</script>'
     return [j(svc), j(crumb), j(faqs)]
 
+VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Оснащение</span><h2 class="big">Правильная техника, опытная бригада, аккуратный результат.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed — установка заборов и ворот" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Бур для столбов и трамбовка</b> — столбы встают прочно и по уровню</li>
+    <li><b>Сварка и резка на месте</b> — стальные каркасы и рамы ворот</li>
+    <li><b>Нивелир и замер</b> — секции в одну линию, даже на склоне</li>
+    <li><b>Автоматика и домофоны</b> — настраиваем и подключаем под ключ</li>
+    <li><b>Чистый объект</b> — убираем за собой и сдаём участок в порядке</li>
+  </ul></div></div></div></section>'''
+
 def bens_html(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards_html(cards): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{ic}</div><h4>{n}</h4><p>{d}</p></div>' for ic,n,d in cards)+'</div>'
 def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -101,7 +112,7 @@ def service_page(c):
 <section class="section section--alt">
   <div class="wrap"><span class="tag">Как мы работаем</span><h2 class="big">Четыре шага до готового результата</h2>{PROCESS}</div>
 </section>
-
+{VARUSTUS}
 <section class="section">
   <div class="wrap"><span class="tag">Галерея</span><h2 class="big">Примеры работ</h2><p class="lead">Реальные фотографии выполненных конструкций.</p>{gal_html(c["gallery"])}</div>
 </section>

@@ -40,6 +40,17 @@ PROCESS='''<div class="hsteps">
   <div class="hstep"><div class="hstep-num">4</div><h3>Anname töö üle</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle — koos hooldussoovitustega.</p></div>
 </div>'''
 
+VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b> — sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b> — seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b> — koristame enda järelt ja anname krundi korras üle</li>
+  </ul></div></div></div></section>'''
+
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h4>{n}</h4><p>{d}</p></div>' for i,n,d in cc)+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -80,6 +91,7 @@ def service(c):
   <div class="honest"><div class="hon good"><h3>Alati sisaldub</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>Töötame aastaringselt, ka talvel</li><li>Garantii tehtud töödele</li></ul></div>
   <div class="hon bad"><h3>Mõjutab hinda</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
+{VARUSTUS}
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>

@@ -109,6 +109,17 @@ home_inner=f'''<section class="hero">
   <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>5</b><div class="t">Years</div><p>Building fences since 2021</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
 
+<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed — fence and gate installation" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Post auger and rammer</b> — posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b> — steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b> — sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b> — set up and connected turnkey</li>
+    <li><b>Clean site</b> — we clean up after ourselves and hand the plot over tidy</li>
+  </ul></div></div></div></section>
+
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>
   <div class="gal" id="gal">
     <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Wooden fence on a steel frame" loading="lazy"></picture></a>

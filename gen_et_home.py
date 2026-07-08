@@ -109,6 +109,17 @@ home_inner=f'''<section class="hero">
   <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>5</b><div class="t">Aastat turul</div><p>Paigaldame aedu alates 2021</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
 
+<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b> — sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b> — seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b> — koristame enda järelt ja anname krundi korras üle</li>
+  </ul></div></div></div></section>
+
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
   <div class="gal" id="gal">
     <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Puitaed teraskarkassil" loading="lazy"></picture></a>
