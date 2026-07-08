@@ -79,7 +79,7 @@ export default async function handler(req, res){
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 6px 28px rgba(40,20,10,.12)">
         <tr><td style="background:linear-gradient(135deg,${AC},#9a4526);padding:20px 26px">
           <div style="font-size:23px;font-weight:800;letter-spacing:-.5px;color:#ffffff">Lux<span style="color:#f4cdb6">Aed</span></div>
-          <div style="color:#f3d9cc;font-size:13px;margin-top:2px">Новая заявка с сайта luxaed.ee</div>
+          <div style="color:#f3d9cc;font-size:13px;margin-top:2px">Работаем, Артурик, работаем!</div>
         </td></tr>
         <tr><td style="padding:18px 26px 2px">
           <div style="display:inline-block;background:#f7e7dd;color:${AC};font-size:13px;font-weight:800;padding:6px 14px;border-radius:20px">🔔 ${esc(need)}</div>
