@@ -142,7 +142,7 @@ home_inner=f'''<section class="hero">
 page("/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","LuxAed — aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puitaed, profiilplekk-aed, võrkaed, väravaautomaatika ja domofonid. Tasuta mõõdistus. 100% soovitab Facebookis.", home_inner, sch=lb_schema+home_faq_schema)
 
 # ---------------- ET MEIST ----------------
-meist=f'''<section class="hero">
+meist=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>

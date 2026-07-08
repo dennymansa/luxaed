@@ -142,7 +142,7 @@ home_inner=f'''<section class="hero">
 page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","LuxAed — manufacture and installation of fences and gates in Tallinn and Harjumaa. Wooden, corrugated and mesh fences, gate automation and intercoms. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema)
 
 # ---------------- EN ABOUT ----------------
-about=f'''<section class="hero">
+about=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>

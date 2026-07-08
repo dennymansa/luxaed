@@ -30,7 +30,7 @@ def page(path, title, desc, inner, og="/img/luxaed-hero.jpg", schema=None):
     print("wrote", write(path, H+"\n"+body))
 
 # ---------- О НАС ----------
-about_inner=f'''<section class="hero">
+about_inner=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 отзыва в Facebook · рекомендуют</span></div>
