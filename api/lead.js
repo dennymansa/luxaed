@@ -15,7 +15,7 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','
 
 // smart-form chip codes → readable label + "needs …" headline
 const SVC  = { aed:'Забор', varav:'Ворота / калитка', automaatika:'Автоматика', remont:'Ремонт' };
-const NEED = { aed:'Нужен забор', varav:'Нужны ворота', automaatika:'Нужна автоматика', remont:'Нужен ремонт' };
+const NEED = { aed:'Забор ннада?', varav:'Ворота ннада?', automaatika:'Автоматика ннада?', remont:'Ремонт ннада?' };
 
 export default async function handler(req, res){
   if(req.method!=='POST'){ res.status(405).json({error:'Method not allowed'}); return; }
