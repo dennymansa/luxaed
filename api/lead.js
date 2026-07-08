@@ -74,7 +74,8 @@ export default async function handler(req, res){
     const rowsBlock = rows ? `<tr><td style="padding:4px 26px 14px">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table></td></tr>` : '';
 
-    const html = `<div style="background:#f1e8e1;padding:26px 10px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+    const html = `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"><style>:root{color-scheme:light only;supported-color-schemes:light}body{margin:0}</style></head>
+      <body style="margin:0;background:#f1e8e1;padding:26px 10px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color-scheme:light only">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 6px 28px rgba(40,20,10,.12)">
         <tr><td style="background:linear-gradient(135deg,${AC},#9a4526);padding:20px 26px">
           <div style="font-size:23px;font-weight:800;letter-spacing:-.5px;color:#ffffff">Lux<span style="color:#f4cdb6">Aed</span></div>
@@ -94,7 +95,7 @@ export default async function handler(req, res){
           ${page?`Со страницы: <a href="${esc(page)}" style="color:${AC};font-weight:600;text-decoration:none">${esc(page)}</a><br>`:''}
           Ответьте на это письмо, чтобы связаться с клиентом.
         </td></tr>
-      </table></div>`;
+      </table></body></html>`;
 
     if(!USER || !PASS){ res.status(200).json({ok:true, note:'GMAIL_USER/APP_PASSWORD not set — email skipped (form flow still works)'}); return; }
 
