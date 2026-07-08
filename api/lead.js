@@ -93,7 +93,7 @@ export default async function handler(req, res){
         ${msgBlock}
         <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
           ${page?`Со страницы: <a href="${esc(page)}" style="color:${AC};font-weight:600;text-decoration:none">${esc(page)}</a><br>`:''}
-          Ответьте на это письмо, чтобы связаться с клиентом.
+          Ответьте на это письмо, чтобы пояснить типу, кто здесь папа.
         </td></tr>
       </table></body></html>`;
 
