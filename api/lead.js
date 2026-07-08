@@ -13,8 +13,9 @@ import nodemailer from 'nodemailer';
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
-// smart-form chip codes → readable label
-const SVC = { aed:'Забор / Aed', varav:'Ворота / Värav', automaatika:'Автоматика', remont:'Ремонт' };
+// smart-form chip codes → readable label + "needs …" headline
+const SVC  = { aed:'Забор', varav:'Ворота / калитка', automaatika:'Автоматика', remont:'Ремонт' };
+const NEED = { aed:'Нужен забор', varav:'Нужны ворота', automaatika:'Нужна автоматика', remont:'Нужен ремонт' };
 
 export default async function handler(req, res){
   if(req.method!=='POST'){ res.status(405).json({error:'Method not allowed'}); return; }
@@ -25,7 +26,6 @@ export default async function handler(req, res){
     const USER = process.env.GMAIL_USER;
     const PASS = process.env.GMAIL_APP_PASSWORD;
     const TO   = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
-    const LABEL = 'Заявка с сайта LuxAed';
     const AC = '#b5542e';   // brand terracotta
 
     const f = k => (d[k]==null ? '' : String(d[k]).trim());
@@ -34,13 +34,17 @@ export default async function handler(req, res){
     const enc  = encodeURIComponent(addr);
     const gmaps = addr ? `https://www.google.com/maps/search/?api=1&query=${enc}` : '';
     const waze  = addr ? `https://waze.com/ul?q=${enc}&navigate=yes` : '';
-    const svc  = SVC[f('service')] || f('service');
+    const sc    = f('service');
+    const svc   = SVC[sc] || sc;
+    const need  = NEED[sc] || (svc ? ('Заявка: '+svc) : 'Новая заявка');
+    const msg   = f('msg');
+    const page  = f('page');
 
-    // detail rows (client name/phone/email + address shown separately, above)
+    // detail rows (name/phone/email/address/comment shown separately)
     const fields = [
-      ['Услуга', svc], ['Материал', f('material')], ['Длина, м', f('length')],
-      ['Высота', f('height')], ['Тип ворот', f('gate_type')], ['Автоматика', f('automation')],
-      ['Участок', f('plot')], ['Когда', f('timeline')], ['Комментарий', f('msg')],
+      ['Материал', f('material')], ['Длина, м', f('length')], ['Высота', f('height')],
+      ['Тип ворот', f('gate_type')], ['Автоматика', f('automation')],
+      ['Участок', f('plot')], ['Когда', f('timeline')],
     ].filter(([,v])=>v);
 
     const rows = fields.map(([k,v],i)=>{
@@ -49,35 +53,46 @@ export default async function handler(req, res){
              `<td style="padding:9px 0;color:#201812;font-size:14px;font-weight:600;${bd}">${esc(v)}</td></tr>`;
     }).join('');
 
-    const btn = (href,bg,fg,txt)=>`<a href="${href}" style="display:inline-block;background:${bg};color:${fg};font-size:13px;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:10px;margin:0 8px 8px 0">${txt}</a>`;
+    const btn = (href,bg,fg,extra,txt)=>`<a href="${href}" style="display:inline-block;background:${bg};color:${fg};font-size:13px;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:10px;margin:0 8px 8px 0;${extra}">${txt}</a>`;
 
     const contactBtns =
-      (phone?btn('tel:'+esc(phone),AC,'#ffffff','📞&nbsp;'+esc(phone)):'')+
-      (email?btn('mailto:'+esc(email),'#ffffff',AC,'✉&nbsp;'+esc(email)).replace('border-radius:10px','border-radius:10px;border:1.5px solid #e6bda9'):'');
+      (phone?btn('tel:'+esc(phone),AC,'#ffffff','','📞&nbsp;'+esc(phone)):'')+
+      (email?btn('mailto:'+esc(email),'#ffffff',AC,'border:1.5px solid #e6bda9','✉&nbsp;'+esc(email)):'');
 
-    const addrBlock = addr ? `<tr><td style="padding:4px 26px 6px">
+    const addrBlock = addr ? `<tr><td style="padding:2px 26px 8px">
         <div style="background:#faf5f1;border:1px solid #f0e2d8;border-radius:12px;padding:14px 16px">
           <div style="color:#201812;font-size:15px;font-weight:700">📍 ${esc(addr)}</div>
-          <div style="margin-top:10px">${btn(gmaps,'#1a73e8','#ffffff','🗺 Google Maps →')}${btn(waze,'#33ccff','#062a3a','Waze →')}</div>
+          <div style="margin-top:10px">${btn(gmaps,'#1a73e8','#ffffff','','🗺 Google Maps →')}${btn(waze,'#33ccff','#062a3a','','Waze →')}</div>
         </div></td></tr>` : '';
 
-    const page = f('page');
+    const msgBlock = msg ? `<tr><td style="padding:2px 26px 10px">
+        <div style="background:#fff7f2;border-left:4px solid ${AC};border-radius:0 12px 12px 0;padding:13px 16px">
+          <div style="color:${AC};font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px">💬 Комментарий клиента</div>
+          <div style="color:#201812;font-size:15px;line-height:1.55">${esc(msg)}</div>
+        </div></td></tr>` : '';
+
+    const rowsBlock = rows ? `<tr><td style="padding:4px 26px 14px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table></td></tr>` : '';
+
     const html = `<div style="background:#f1e8e1;padding:26px 10px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 6px 28px rgba(40,20,10,.12)">
-        <tr><td style="background:linear-gradient(135deg,${AC},#9a4526);padding:22px 26px">
-          <div style="color:#ffffff;font-size:20px;font-weight:800">🌿 ${LABEL}</div>
-          <div style="color:#f3d9cc;font-size:13px;margin-top:3px">Новая заявка с формы luxaed.ee</div>
+        <tr><td style="background:linear-gradient(135deg,${AC},#9a4526);padding:20px 26px">
+          <div style="font-size:23px;font-weight:800;letter-spacing:-.5px;color:#ffffff">Lux<span style="color:#f4cdb6">Aed</span></div>
+          <div style="color:#f3d9cc;font-size:13px;margin-top:2px">Новая заявка с сайта luxaed.ee</div>
         </td></tr>
-        <tr><td style="padding:20px 26px 4px">
+        <tr><td style="padding:18px 26px 2px">
+          <div style="display:inline-block;background:#f7e7dd;color:${AC};font-size:13px;font-weight:800;padding:6px 14px;border-radius:20px">🔔 ${esc(need)}</div>
+        </td></tr>
+        <tr><td style="padding:12px 26px 4px">
           <div style="font-size:22px;font-weight:800;color:#201812">${esc(name)||'Без имени'}</div>
           <div style="margin-top:11px">${contactBtns||'<span style="color:#8a7a6c;font-size:13px">контакты не указаны</span>'}</div>
         </td></tr>
         ${addrBlock}
-        <tr><td style="padding:6px 26px 18px">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
-        </td></tr>
+        ${rowsBlock}
+        ${msgBlock}
         <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
-          ${page?`Страница: <b style="color:#5a4a40">${esc(page)}</b> · `:''}Ответьте на это письмо, чтобы связаться с клиентом.
+          ${page?`Со страницы: <a href="${esc(page)}" style="color:${AC};font-weight:600;text-decoration:none">${esc(page)}</a><br>`:''}
+          Ответьте на это письмо, чтобы связаться с клиентом.
         </td></tr>
       </table></div>`;
 
@@ -91,7 +106,7 @@ export default async function handler(req, res){
       from: `LuxAed <${USER}>`,
       to: TO,
       replyTo: email || undefined,
-      subject: `${LABEL} — ${name || svc || 'без имени'}`,
+      subject: `${need} — ${name || 'заявка с сайта'}`,
       html
     });
     res.status(200).json({ok:true});
