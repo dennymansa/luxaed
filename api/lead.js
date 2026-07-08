@@ -1,18 +1,20 @@
 // LuxAed lead handler — Vercel serverless (Node). Sends the site form to the owner's
-// inbox via Gmail SMTP + App Password. Email carries a company label + Google Maps /
-// Waze links to the client's address.
+// inbox via Gmail SMTP + App Password, as a polished HTML email with the client's
+// details + Google Maps / Waze links to the site address.
 //
 // ENV (Vercel → Project → Settings → Environment Variables):
-//   GMAIL_USER          — the Gmail that SENDS (e.g. luxaed9@gmail.com)
+//   GMAIL_USER          — the Gmail that SENDS (e.g. operationsatljc@gmail.com)
 //   GMAIL_APP_PASSWORD  — 16-char App Password from Google Account → Security → App passwords
 //                         (needs 2-Step Verification on). NOT the normal Gmail password.
-//   LEAD_TO             — recipient inbox (default iamdenisg@gmail.com for testing;
-//                         later set to luxaed9@gmail.com). If unset, sends to GMAIL_USER.
+//   LEAD_TO             — recipient inbox (default iamdenisg@gmail.com for testing).
 // Without GMAIL_USER/APP_PASSWORD the form still succeeds (email is just skipped).
 
 import nodemailer from 'nodemailer';
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+// smart-form chip codes → readable label
+const SVC = { aed:'Забор / Aed', varav:'Ворота / Värav', automaatika:'Автоматика', remont:'Ремонт' };
 
 export default async function handler(req, res){
   if(req.method!=='POST'){ res.status(405).json({error:'Method not allowed'}); return; }
@@ -24,35 +26,60 @@ export default async function handler(req, res){
     const PASS = process.env.GMAIL_APP_PASSWORD;
     const TO   = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
     const LABEL = 'Заявка с сайта LuxAed';
+    const AC = '#b5542e';   // brand terracotta
 
     const f = k => (d[k]==null ? '' : String(d[k]).trim());
+    const name = f('name'), phone = f('phone'), email = f('email');
     const addr = f('address');
     const enc  = encodeURIComponent(addr);
     const gmaps = addr ? `https://www.google.com/maps/search/?api=1&query=${enc}` : '';
     const waze  = addr ? `https://waze.com/ul?q=${enc}&navigate=yes` : '';
+    const svc  = SVC[f('service')] || f('service');
 
+    // detail rows (client name/phone/email + address shown separately, above)
     const fields = [
-      ['Услуга', f('service')], ['Материал', f('material')], ['Длина, м', f('length')],
+      ['Услуга', svc], ['Материал', f('material')], ['Длина, м', f('length')],
       ['Высота', f('height')], ['Тип ворот', f('gate_type')], ['Автоматика', f('automation')],
-      ['Участок', f('plot')], ['Когда', f('timeline')], ['Адрес', addr],
-      ['Имя', f('name')], ['Телефон', f('phone')], ['Email', f('email')], ['Комментарий', f('msg')],
+      ['Участок', f('plot')], ['Когда', f('timeline')], ['Комментарий', f('msg')],
     ].filter(([,v])=>v);
 
-    const rows = fields.map(([k,v])=>
-      `<tr><td style="padding:7px 14px;color:#5a4a40;white-space:nowrap;border-bottom:1px solid #efe6dd">${esc(k)}</td>`+
-      `<td style="padding:7px 14px;font-weight:600;color:#201812;border-bottom:1px solid #efe6dd">${esc(v)}</td></tr>`).join('');
+    const rows = fields.map(([k,v],i)=>{
+      const bd = i<fields.length-1 ? 'border-bottom:1px solid #f0e7de' : '';
+      return `<tr><td style="padding:9px 0;color:#8a7a6c;font-size:13px;width:130px;vertical-align:top;${bd}">${esc(k)}</td>`+
+             `<td style="padding:9px 0;color:#201812;font-size:14px;font-weight:600;${bd}">${esc(v)}</td></tr>`;
+    }).join('');
 
-    const maps = addr ? `<p style="margin:16px 0 4px">📍 <b>${esc(addr)}</b></p>`+
-      `<p style="margin:0"><a href="${gmaps}" style="display:inline-block;background:#1a73e8;color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;margin-right:8px">Google Maps →</a>`+
-      `<a href="${waze}" style="display:inline-block;background:#33ccff;color:#062a3a;text-decoration:none;padding:9px 16px;border-radius:8px">Waze →</a></p>` : '';
+    const btn = (href,bg,fg,txt)=>`<a href="${href}" style="display:inline-block;background:${bg};color:${fg};font-size:13px;font-weight:700;text-decoration:none;padding:10px 16px;border-radius:10px;margin:0 8px 8px 0">${txt}</a>`;
 
-    const html = `<div style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:580px;color:#201812">
-      <h2 style="color:#b5542e;margin:0 0 2px">🌿 ${LABEL}</h2>
-      <p style="color:#5a4a40;margin:0 0 16px">Новая заявка с формы luxaed.ee</p>
-      <table style="border-collapse:collapse;width:100%;border:1px solid #e7ddd3;border-radius:10px;overflow:hidden">${rows}</table>
-      ${maps}
-      ${f('phone')?`<p style="margin:16px 0 0"><a href="tel:${esc(f('phone'))}">📞 Позвонить клиенту</a></p>`:''}
-    </div>`;
+    const contactBtns =
+      (phone?btn('tel:'+esc(phone),AC,'#ffffff','📞&nbsp;'+esc(phone)):'')+
+      (email?btn('mailto:'+esc(email),'#ffffff',AC,'✉&nbsp;'+esc(email)).replace('border-radius:10px','border-radius:10px;border:1.5px solid #e6bda9'):'');
+
+    const addrBlock = addr ? `<tr><td style="padding:4px 26px 6px">
+        <div style="background:#faf5f1;border:1px solid #f0e2d8;border-radius:12px;padding:14px 16px">
+          <div style="color:#201812;font-size:15px;font-weight:700">📍 ${esc(addr)}</div>
+          <div style="margin-top:10px">${btn(gmaps,'#1a73e8','#ffffff','🗺 Google Maps →')}${btn(waze,'#33ccff','#062a3a','Waze →')}</div>
+        </div></td></tr>` : '';
+
+    const page = f('page');
+    const html = `<div style="background:#f1e8e1;padding:26px 10px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 6px 28px rgba(40,20,10,.12)">
+        <tr><td style="background:linear-gradient(135deg,${AC},#9a4526);padding:22px 26px">
+          <div style="color:#ffffff;font-size:20px;font-weight:800">🌿 ${LABEL}</div>
+          <div style="color:#f3d9cc;font-size:13px;margin-top:3px">Новая заявка с формы luxaed.ee</div>
+        </td></tr>
+        <tr><td style="padding:20px 26px 4px">
+          <div style="font-size:22px;font-weight:800;color:#201812">${esc(name)||'Без имени'}</div>
+          <div style="margin-top:11px">${contactBtns||'<span style="color:#8a7a6c;font-size:13px">контакты не указаны</span>'}</div>
+        </td></tr>
+        ${addrBlock}
+        <tr><td style="padding:6px 26px 18px">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
+        </td></tr>
+        <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
+          ${page?`Страница: <b style="color:#5a4a40">${esc(page)}</b> · `:''}Ответьте на это письмо, чтобы связаться с клиентом.
+        </td></tr>
+      </table></div>`;
 
     if(!USER || !PASS){ res.status(200).json({ok:true, note:'GMAIL_USER/APP_PASSWORD not set — email skipped (form flow still works)'}); return; }
 
@@ -63,8 +90,8 @@ export default async function handler(req, res){
     await transport.sendMail({
       from: `LuxAed <${USER}>`,
       to: TO,
-      replyTo: f('email') || undefined,
-      subject: `${LABEL} — ${f('name') || f('service') || 'без имени'}`,
+      replyTo: email || undefined,
+      subject: `${LABEL} — ${name || svc || 'без имени'}`,
       html
     });
     res.status(200).json({ok:true});
