@@ -139,7 +139,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Ready to discuss <em>a fence or gate</em>?</h2>
   <p>Leave a request or call — we'll come for a free measurement and give an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","LuxAed — manufacture and installation of fences and gates in Tallinn and Harjumaa. Wooden, corrugated and mesh fences, gate automation and intercoms. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema)
+page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, 3D mesh panels, gate automation. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema)
 
 # ---------------- EN ABOUT ----------------
 about=f'''<section class="hero hero--compact">
@@ -212,7 +212,7 @@ contact=f'''{hero("Contact","Get in touch with LuxAed","Fences, gates and automa
     <p class="lead">The fastest way is to call or leave a request in the form. We'll call back, clarify the details and arrange a free measurement.</p></div>
   <div class="equip-img">{form_html().replace('<div class="form-slot">','').replace('</div></div>','</div>')}</div>
 </div></div></section>'''
-page("/en/contact/","Contact — LuxAed fences and gates in Tallinn","LuxAed contact: phone "+PHONE+", email "+EMAIL+", Facebook. Fences, gates and automation in Tallinn and Harjumaa. Leave a request for a free measurement.", contact)
+page("/en/contact/","Contact — LuxAed fences and gates in Tallinn","LuxAed contact: phone "+PHONE+", email "+EMAIL+". Fences and gates in Tallinn and Harjumaa. Free measurement.", contact)
 
 # ---------------- EN LEGAL ----------------
 def legal(path,title,h1,kicker,blocks):
