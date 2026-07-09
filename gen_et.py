@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Estonian tree: / home, service pages, support pages. Targets ET keywords.
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC, reel_strip
 
 def form_html():
     chips=[("aed","Aed"),("varav","Värav"),("automaatika","Automaatika"),("remont","Remont")]
@@ -92,6 +92,7 @@ def service(c):
   <div class="hon bad"><h3>Mõjutab hinda</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 {VARUSTUS}
+{reel_strip(c["videos"],"Videod","Automaatika töös") if c.get("videos") else ""}
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Vaata rohkem fotosid Facebookis →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>
@@ -183,12 +184,12 @@ ETSERV=[
         ("Kas lippaed on läbipaistev?","Vahe lamellide vahel valite ise: tihedam privaatsuseks või hõredam kergema ilme jaoks. Kahepoolne lippaed on privaatsem."),
         ("Millised värvid on?","Populaarseim on antratsiit RAL 7016, samuti must ja pruun. Teeme teisi RAL-toone tellimusel."),
         ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme sama lippaia lamelliga ühes stiilis.")]},
-{"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg",
+{"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Hikvisioni domofon väraval"),("luxaed-reel-varav-oht","Lükandvärav automaatikaga"),("luxaed-video-puitvarav","Lükandvärav ühe nupuvajutusega"),("luxaed-reel-montaaz","Paigaldus objektil")],
  "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, aiaväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · tõkkepuu","h1":"Väravate ja automaatika<br><em>paigaldus</em>",
  "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
- "intro_h":"Väravad automaatikaga võtmed kätte","intro_p":"Valime väravatüübi ja ajami teie sissesõidu, laiuse ja reljeefi järgi. Paigaldame automaatika, pultid, fotoelemendid ja domofonid, samuti tõkkepuud, ning hooldame olemasolevaid.",
- "bens":["Lükandväravad (liugväravad)","Tiibväravad ja aiaväravad","Automaatika: ajamid, pultid, fotoelemendid","Domofonid ja kutsepaneelid","Tõkkepuud parklatesse ja territooriumidele","Olemasolevate väravate hooldus ja remont"],
+ "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaautomaatikat igas mahus: ühest jalgväravast kuni suure territooriumi täieliku sissesõidusüsteemini. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil; avamine käib puldist, telefonikõnega, rakendusest või koodiga. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid. Paigaldame ujuva (rolling) koodiga ajamid. Need on kaitstud tavaliste skannerite-«grabberite» pealtkuulamise eest. Hooldame ja uuendame olemasolevaid süsteeme.",
+ "bens":["Mis tahes mahus projektid: jalgväravast terve territooriumini","Üks pult kõigi väravate ja tõkkepuude jaoks","Juhtimine: pult, telefonikõne, rakendus või kood","Ujuv (rolling) kood: kaitse puldi pealtkuulamise eest","Numbrite lisamine ja eemaldamine igal ajal","Domofonid ja videopaneelid","Olemasolevate süsteemide hooldus ja uuendus"],
  "variants_h":"Väravate ja automaatika tüübid",
  "variants":[("⇄","Lükandvärav","Liugvärav ilma alumise siinita. Mugav, ei võta avades ruumi."),
              ("⛩","Tiibvärav","Klassikaline kahe tiivaga värav ajamitega."),

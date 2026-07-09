@@ -103,16 +103,16 @@ def partners_marquee(lang):
 
 def video_block(lang):
     # self-hosted work videos (downloaded from LuxAed FB, re-encoded); click-to-play, preload=none
-    T = {"et": ("Videod", "Vaadake videoid meie töödest!",
-                "Päris objektid: paigaldus, väravaautomaatika ja valmis tööd.",
+    T = {"et": ("Videod", "Tahad näha, kuidas meistrid töötavad?",
+                "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
                 "Rohkem videoid meie Facebookis →",
                 "Soovite unistuste aeda?", "Helistage kohe", f"Helista {PHONE}", "Küsi pakkumist →"),
-         "ru": ("Видео", "Смотрите видео наших работ!",
-                "Реальные объекты: монтаж, автоматика ворот и готовые работы.",
+         "ru": ("Видео", "Хотите посмотреть, как работают мастера?",
+                "Живые кадры с наших объектов: монтаж, автоматика и готовые работы.",
                 "Больше видео в нашем Facebook →",
                 "Хотите забор мечты?", "Звоните прямо сейчас", f"Позвонить {PHONE}", "Оставить заявку →"),
-         "en": ("Videos", "Watch videos of our work!",
-                "Real projects: installation, gate automation and finished work.",
+         "en": ("Videos", "Want to see how the masters work?",
+                "Real footage from our sites: installation, automation and finished work.",
                 "More videos on our Facebook →",
                 "Want your dream fence?", "Call us right away", f"Call {PHONE}", "Get a quote →")}
     tag, h2, lead, fb, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
@@ -150,19 +150,46 @@ def video_block(lang):
                 f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
                 f'<figcaption>{c}</figcaption></figure>')
     cards = "".join(card(v) for v in ORDER)
-    scroll = "this.closest('.reelwrap').querySelector('.reelrow').scrollBy"
-    return (f'<section class="section"><div class="wrap"><span class="tag">{tag}</span>'
-            f'<h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
-            f'<div class="wrap"><div class="reelwrap">'
-            f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-380,behavior:\'smooth\'}})">‹</button>'
-            f'<div class="reelrow">{cards}</div>'
-            f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:380,behavior:\'smooth\'}})">›</button>'
-            f'</div>'
-            f'<div style="text-align:center;margin-top:20px"><a class="gal-fb" href="{FB}/reels" '
+    scroll = "this.closest('.vidsec').querySelector('.reelrow').scrollBy"
+    nav = (f'<div class="reel-nav-top">'
+           f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
+           f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
+           f'</div>')
+    return (f'<section class="section vidsec"><div class="wrap"><div class="vidsec-head">'
+            f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
+            f'{nav}</div></div>'
+            f'<div class="wrap"><div class="reelwrap"><div class="reelrow">{cards}</div></div>'
+            f'<div style="text-align:center;margin-top:24px"><a class="gal-fb" href="{FB}/reels" '
             f'target="_blank" rel="noopener">{fb}</a></div></div></section>'
             f'<div class="mini-cta mini-cta--dream"><div class="wrap"><span>{cta_h} <b>{cta_sub}!</b></span>'
             f'<div class="mini-cta-btns"><a class="btn btn-accent" href="tel:{TEL}">{cta_call}</a>'
             f'<a class="btn btn-ghost" href="#form">{cta_quote}</a></div></div></div>')
+
+def reel_strip(items, tag, h2):
+    # compact reels carousel for a service page (no CTA); items: list of (video, caption)
+    def dims(v):
+        try:
+            from PIL import Image
+            return Image.open(os.path.join(SITE, "img", v + "-poster.jpg")).size
+        except Exception:
+            return (400, 700)
+    def card(v, c):
+        w, h = dims(v)
+        return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
+                f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
+                f'<img class="vid-poster" loading="lazy" decoding="async" width="{w}" height="{h}" '
+                f'src="/img/{v}-poster.jpg" alt="{c}">'
+                f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
+                f'<figcaption>{c}</figcaption></figure>')
+    cards = "".join(card(v, c) for v, c in items)
+    scroll = "this.closest('.vidsec').querySelector('.reelrow').scrollBy"
+    nav = (f'<div class="reel-nav-top">'
+           f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
+           f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
+           f'</div>')
+    return (f'<section class="section vidsec"><div class="wrap"><div class="vidsec-head">'
+            f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>{nav}</div></div>'
+            f'<div class="wrap"><div class="reelwrap"><div class="reelrow">{cards}</div></div></div></section>')
 
 def lang_switch(cur_path, lang):
     out=['<div class="lang-switch" role="navigation" aria-label="Keel / Language / Язык">']
@@ -272,7 +299,8 @@ function down(){hold=true;if(rt){clearTimeout(rt);rt=null;}}function up(){if(rt)
 row.addEventListener('touchstart',down,{passive:true});row.addEventListener('touchend',up,{passive:true});row.addEventListener('touchcancel',up,{passive:true});
 function init(){if(mob.matches&&rev){var ww=w();if(ww>0&&row.scrollLeft<=0)row.scrollLeft=ww;}if(!on){on=true;requestAnimationFrame(tick);}}
 setTimeout(init,350);window.addEventListener('load',init);});})();
-function playReel(fig){if(fig.dataset.on)return;fig.dataset.on='1';var img=fig.querySelector('.vid-poster');var v=document.createElement('video');v.controls=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('preload','auto');v.poster=img?img.currentSrc||img.src:'';var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);if(img)img.replaceWith(v);var b=fig.querySelector('.vid-play');if(b)b.remove();var p=v.play();if(p&&p.catch)p.catch(function(){});}
+function playReel(fig){if(fig.dataset.on)return;fig.dataset.on='1';var img=fig.querySelector('.vid-poster');var v=document.createElement('video');v.controls=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('preload','auto');v.poster=img?img.currentSrc||img.src:'';var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);if(img)img.replaceWith(v);var b=fig.querySelector('.vid-play');if(b)b.remove();var fs=document.createElement('button');fs.type='button';fs.className='vid-fs';fs.setAttribute('aria-label','Fullscreen');fs.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>';fs.onclick=function(e){e.stopPropagation();try{if(v.requestFullscreen)v.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();else if(v.webkitRequestFullscreen)v.webkitRequestFullscreen();}catch(_){}};fig.appendChild(fs);var p=v.play();if(p&&p.catch)p.catch(function(){});}
+document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t)all[i].pause();}}},true);
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>'''
 SCRIPTS = SCRIPTS.replace('__AW_LEAD_LABEL__', AW_LEAD_LABEL)

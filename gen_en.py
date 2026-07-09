@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # English tree: /en/ service pages. Mirrors gen_et structure.
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC, reel_strip
 
 def form_html():
     chips=[("fence","Fence"),("gate","Gate"),("automation","Automation"),("repair","Repair")]
@@ -92,6 +92,7 @@ def service(c):
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 {VARUSTUS}
+{reel_strip(c["videos"],"Videos","Automation in action") if c.get("videos") else ""}
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
@@ -183,12 +184,12 @@ ENSERV=[
         ("Is a picket fence see-through?","You choose the gap between slats: tighter for privacy or wider for a light look. A double-sided picket is more private."),
         ("Which colours are available?","The most popular is anthracite RAL 7016, plus black and brown. Other RAL shades to order."),
         ("Can the gates match?","Yes, we make sliding and swing gates from the same picket slat in one design.")]},
-{"path":"/en/services/gates-automation/","name":"Gates & automation","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg",
+{"path":"/en/services/gates-automation/","name":"Gates & automation","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Hikvision intercom on the gate"),("luxaed-reel-varav-oht","Sliding gate with automation"),("luxaed-video-puitvarav","Sliding gate at one button press"),("luxaed-reel-montaaz","Installation on site")],
  "title":"Gates, automation & barriers in Tallinn — LuxAed","desc":"Sliding and swing gates, automation, barriers and intercoms in Tallinn and Harjumaa. Turnkey installation. Free measurement.",
  "kicker":"Gates · automation · barriers","h1":"<em>Gate &amp; automation</em><br>installation",
  "lead":"Turnkey sliding and swing gates with automation and intercoms. We manufacture, install and connect everything. You drive into your yard at the press of a button.",
- "intro_h":"Turnkey gates with automation","intro_p":"We choose the gate type and drive for your entrance, width and terrain. We install automation, remotes, photocells, intercoms and barriers, and service existing systems too.",
- "bens":["Sliding (cantilever) gates","Swing gates","Automation: drives, remotes, photocells","Intercoms and call panels","Barriers for car parks and grounds","Servicing and repair of existing gates"],
+ "intro_h":"Gate automation at any scale","intro_p":"We design and install gate automation at any scale: from a single wicket to a full entry system for a large property. One remote or key fob controls every gate and barrier on the plot; open it from the remote, a phone call, an app or a code. We add and remove numbers at any time and connect intercoms and video call panels. We fit drives with rolling-code encryption, protected against interception by common code-grabber scanners. We also service and upgrade existing systems.",
+ "bens":["Projects of any scale: from a wicket to a whole property","One remote for every gate and barrier on the plot","Control: remote, phone call, app or code","Rolling-code encryption: protected against remote grabbers","Add and remove numbers at any time","Intercoms and video call panels","Service and upgrade of existing systems"],
  "variants_h":"Gate and automation types",
  "variants":[("⇄","Sliding gate","A cantilever gate with no bottom track. Convenient and takes no space when opening."),
              ("⛩","Swing gate","A classic two-leaf gate with a drive on each leaf."),

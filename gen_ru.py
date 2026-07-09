@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Generates RU service pages + support pages, using build_pages lib.
 import json, html
-from build_pages import (head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC)
+from build_pages import (head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, SVC, reel_strip)
 
 def form_html(lang="ru"):
     chips=[("zabor","Забор"),("vorota","Ворота/калитка"),("avtomatika","Автоматика"),("remont","Ремонт")]
@@ -113,6 +113,7 @@ def service_page(c):
   <div class="wrap"><span class="tag">Как мы работаем</span><h2 class="big">Четыре шага до готового результата</h2>{PROCESS}</div>
 </section>
 {VARUSTUS}
+{reel_strip(c["videos"],"Видео","Автоматика в работе") if c.get("videos") else ""}
 <section class="section">
   <div class="wrap"><span class="tag">Галерея</span><h2 class="big">Примеры работ</h2><p class="lead">Реальные фотографии выполненных конструкций.</p>{gal_html(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Больше фото в нашем Facebook →</a></div></div>
 </section>
@@ -233,13 +234,13 @@ SERVICES=[
         ("Ворота сделаете в том же стиле?","Да, откатные и распашные ворота изготавливаем из той же ламели штакетника в едином дизайне.")],
 },
 {
- "path":"/ru/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg",
+ "path":"/ru/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Домофон Hikvision на калитке"),("luxaed-reel-varav-oht","Откатные ворота с автоматикой"),("luxaed-video-puitvarav","Откатные ворота одним нажатием"),("luxaed-reel-montaaz","Монтаж на объекте")],
  "title":"Ворота, калитки и автоматика в Таллинне — LuxAed",
  "desc":"Откатные и распашные ворота, автоматика, шлагбаумы и домофоны в Таллинне и Харьюмаа. Монтаж под ключ. Бесплатный замер.",
  "kicker":"Ворота · автоматика · шлагбаумы","h1":"Установка<br><em>ворот и автоматики</em>",
  "lead":"Откатные и распашные ворота под ключ с автоматикой и домофонами. Изготавливаем, устанавливаем и подключаем. Заезжаете во двор одним нажатием кнопки.",
- "intro_h":"Ворота с автоматикой под ключ","intro_p":"Подбираем тип ворот и привод под ваш въезд, ширину и рельеф. Устанавливаем автоматику, пульты, фотоэлементы, домофоны и шлагбаумы, а также обслуживаем существующие системы.",
- "bens":["Откатные (сдвижные) ворота","Распашные ворота","Автоматика: приводы, пульты, фотоэлементы","Домофоны и вызывные панели","Шлагбаумы для парковок и территорий","Обслуживание и ремонт существующих ворот"],
+ "intro_h":"Автоматика ворот любого масштаба","intro_p":"Проектируем и монтируем автоматику любого масштаба: от одной калитки до полной системы въезда на большой территории. Один пульт или брелок управляет всеми воротами и шлагбаумами на участке. Открытие: с пульта, звонком с телефона, из приложения или по коду. Номера добавляем и удаляем в любой момент, подключаем домофоны и вызывные видеопанели. Ставим приводы с плавающим (rolling) кодом. Они защищены от перехвата типовыми сканерами-«грабберами». Обслуживаем и модернизируем существующие системы.",
+ "bens":["Проекты любого масштаба: от калитки до всей территории","Один пульт на все ворота и шлагбаумы участка","Управление: пульт, звонок с телефона, приложение или код","Плавающий (rolling) код: защита от перехвата пультов","Добавление и удаление номеров в любой момент","Домофоны и вызывные видеопанели","Обслуживание и модернизация существующих систем"],
  "variants_h":"Типы ворот и автоматики",
  "variants":[("⇄","Откатные ворота","Сдвижные ворота без нижней направляющей. Удобно, не занимают место при открытии."),
              ("⛩","Распашные ворота","Классические двустворчатые ворота с приводами на каждую створку."),
