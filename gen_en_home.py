@@ -57,13 +57,14 @@ home_inner=f'''<section class="hero">
     <h1>Fences & gates</h1>
     <p class="hero-claim"><em>turnkey</em><br>from measurement to install</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
+    <p class="hero-reassure">Leave a request and get a preliminary estimate for your plot. No sales pressure.</p>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>15</b><span>years of craft experience</span></div></div></div>
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">What we do</span><h2 class="info-title">Fences and gates,<br>turnkey.</h2></div>
-  <div><p>We design, manufacture and install <b>fences, gates and pedestrian gates</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
+  <div><p>We help choose, build and install <b>fences, gates and pedestrian gates</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">A solution for every plot</h2>
