@@ -73,7 +73,7 @@ about_inner=f'''<section class="hero hero--compact">
     <li>Работаем круглый год, включая зиму</li>
   </ul>
 </div></section>
-<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
+<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.95) 0%, rgba(10,12,20,.82) 40%, rgba(12,10,16,.9) 100%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">Нам доверяют</span><h2 class="big big--xl">Отзывы говорят за нас</h2>
   <p class="lead lead--lg">Клиенты рекомендуют LuxAed за скорость, качество и профессиональный подход.<br>Смотрите отзывы на нашей странице в <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a>.</p>
   </div>
