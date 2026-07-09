@@ -392,6 +392,7 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{html.escape(title)}"><meta name="twitter:image" content="{DOMAIN}{og_img}">
 {sb}
 <link rel="icon" href="{fav}">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {pre_img}
 <link rel="preload" as="font" type="font/woff2" href="/fonts/{caveat}" crossorigin>
 {('<link rel="preload" as="font" type="font/woff2" href="/fonts/'+caveat2+'" crossorigin>') if caveat2 else ''}
