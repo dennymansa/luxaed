@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # EN home + EN support pages (about, faq, contact, privacy, terms)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block
 from gen_en import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -130,6 +130,8 @@ home_inner=f'''<section class="hero">
     <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed crew on site" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
+
+{video_block("en")}
 
 <section class="section section--alt svc-hide" id="piirkonnad" aria-label="Service area"><div class="wrap"><span class="tag">Service area</span><h2 class="big">Where we work</h2>
   <p class="lead">Fences, gates and automation in Tallinn and all of Harjumaa.</p><div class="area-pills">{areas_html}</div></div></section>

@@ -101,6 +101,33 @@ def partners_marquee(lang):
             f'<div class="pm-set">{monos}</div><div class="pm-set">{monos}</div></div></div>'
             f'</section>')
 
+def video_block(lang):
+    # self-hosted work videos (downloaded from LuxAed FB, re-encoded); click-to-play, preload=none
+    T = {"et": ("Videod", "Vaata, kuidas me töötame",
+                "Päris objektid: paigaldus, väravaautomaatika ja valmis tööd.",
+                "Rohkem videoid meie Facebookis →"),
+         "ru": ("Видео", "Смотрите, как мы работаем",
+                "Реальные объекты: монтаж, автоматика ворот и готовые работы.",
+                "Больше видео в нашем Facebook →"),
+         "en": ("Videos", "See how we work",
+                "Real projects: installation, gate automation and finished work.",
+                "More videos on our Facebook →")}
+    tag, h2, lead, fb = T.get(lang, T["et"])
+    caps = {"et": "Puidust lükandvärav automaatikaga — valmis objekt",
+            "ru": "Деревянные откатные ворота с автоматикой — готовый объект",
+            "en": "Wooden sliding gate with automation — finished project"}
+    cap = caps.get(lang, caps["et"])
+    VIDEOS = [("luxaed-video-puitvarav", cap)]
+    cards = "".join(
+        f'<figure class="vidcard"><video controls preload="none" playsinline '
+        f'poster="/img/{v}-poster.jpg"><source src="/img/{v}.mp4" type="video/mp4"></video>'
+        f'<figcaption>{c}</figcaption></figure>' for v, c in VIDEOS)
+    return (f'<section class="section"><div class="wrap"><span class="tag">{tag}</span>'
+            f'<h2 class="big">{h2}</h2><p class="lead">{lead}</p>'
+            f'<div class="vidgrid">{cards}</div>'
+            f'<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/videos" '
+            f'target="_blank" rel="noopener">{fb}</a></div></div></section>')
+
 def lang_switch(cur_path, lang):
     out=['<div class="lang-switch" role="navigation" aria-label="Keel / Language / Язык">']
     for L,lbl in (("et","ET"),("ru","RU"),("en","EN")):  # ET first (primary language)

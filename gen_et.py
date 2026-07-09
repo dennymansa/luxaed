@@ -92,7 +92,7 @@ def service(c):
   <div class="hon bad"><h3>Mõjutab hinda</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 {VARUSTUS}
-<section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Vaata rohkem fotosid Facebookis →</a></div></div></section>
+<section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\"><video controls preload=\"none\" playsinline poster=\"/img/"+c["video"][0]+"-poster.jpg\"><source src=\"/img/"+c["video"][0]+".mp4\" type=\"video/mp4\"></video><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Vaata rohkem fotosid Facebookis →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>{c["name"].lower()}</em> teie krundile?</h2>
@@ -129,7 +129,7 @@ ETSERV=[
         ("Kas müüte ka aiaposte eraldi?","Jah, müüme ja paigaldame tsingitud aiaposte (metallist aiapostid) koos kübarate ja kinnitusklambritega. Nii paneelaia kui muude aedade jaoks."),
         ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomataru. Tugevad, turvalised ja pika elueaga."),
         ("Kas saab värava samas toonis?","Jah, teeme lük- ja tiibväravaid sama paneeliga samas värvis.")]},
-{"path":"/aiad/puitaed/","name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
+{"path":"/aiad/puitaed/","video":("luxaed-video-puitvarav","Puidust lükandvärav automaatikaga — valmis objekt"),"name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Puitaed ja puitväravad Tallinnas — LuxAed","desc":"Puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
  "kicker":"Puit · teraskarkass","h1":"Puitaedade<br><em>paigaldus</em>",
  "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil. Loodusliku puidu ja vastupidava metalli kombinatsioon.",

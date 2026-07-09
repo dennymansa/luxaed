@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # ET home + ET support pages (meist, kkk, kontakt, privaatsus, tingimused)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block
 from gen_et import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -130,6 +130,8 @@ home_inner=f'''<section class="hero">
     <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed meeskond objektil" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Rohkem fotosid meie Facebookis →</a></div></div></section>
+
+{video_block("et")}
 
 <section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Kus me töötame</h2>
   <p class="lead">Aiad, väravad ja automaatika Tallinnas ja kogu Harjumaal.</p><div class="area-pills">{areas_html}</div></div></section>

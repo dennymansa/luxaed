@@ -92,7 +92,7 @@ def service(c):
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 {VARUSTUS}
-<section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
+<section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\"><video controls preload=\"none\" playsinline poster=\"/img/"+c["video"][0]+"-poster.jpg\"><source src=\"/img/"+c["video"][0]+".mp4\" type=\"video/mp4\"></video><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>{c["name"].lower()}</em> for your property?</h2>
@@ -129,7 +129,7 @@ ENSERV=[
         ("Do you sell fence posts separately?","Yes, we supply and install galvanised fence posts with caps and clips. For panel fences and other fence types."),
         ("Do you build dog runs?","Yes, we build dog runs and animal enclosures from welded panels. Strong, safe and long-lasting."),
         ("Can I get a matching gate?","Yes, we make sliding and swing gates filled with welded panel in the same colour.")]},
-{"path":"/en/services/wooden-fence/","name":"Wooden fences","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
+{"path":"/en/services/wooden-fence/","video":("luxaed-video-puitvarav","Wooden sliding gate with automation — finished project"),"name":"Wooden fences","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Wooden fences and gates in Tallinn — LuxAed","desc":"Manufacture and installation of wooden fences and gates in Tallinn and Harjumaa. Horizontal fence, steel frame, timber treatment. Free measurement and quote.",
  "kicker":"Wood · steel frame","h1":"<em>Wooden fence</em><br>installation",
  "lead":"A warm, tidy look for your plot. We build fences and gates from treated timber on a sturdy steel frame. Natural wood combined with reliable metal.",
