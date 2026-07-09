@@ -92,7 +92,7 @@ def service(c):
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 {VARUSTUS}
-<section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}</div></section>
+<section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>{c["name"].lower()}</em> for your property?</h2>
@@ -121,7 +121,7 @@ ENSERV=[
              ("◧","RAL colours","Anthracite RAL 7016, green RAL 6005, black and other coating colours.")],
  "cta_band":"Let's price a mesh fence for your plot","incl":["On-site measurement","Installation of galvanised posts","Mounting of welded panels and fixings","Levelling to the terrain","Post-installation check"],
  "factors":["Fence length and panel height (1.23–2.03 m)","Panel type (2D/3D) and colour","Number and type of fence posts","Gates, wickets and dog runs","Terrain and removal of the old fence"],
- "gallery":[("luxaed-w-mesh-2","Green 3D welded-panel fence"),("luxaed-w-mesh-gate","Wicket from welded panel"),("luxaed-w-gates-green","Swing gates from panels"),("luxaed-w-mesh-detail","Panel fixing on the post"),("luxaed-w-panels","2D panels before installation"),("luxaed-w-mesh-1","Anthracite panel fence")],
+ "gallery":[("luxaed-w-mesh-1","Anthracite 3D panel fence"),("luxaed-w-mesh-2","Green 3D welded-panel fence"),("luxaed-w-mesh-gate","Wicket from welded panel"),("luxaed-w-gates-green","Swing gates from panels"),("luxaed-w-mesh-detail","Panel fixing on the post"),("luxaed-w-panels","2D panels before installation"),("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-night","Panel gates in the evening"),("luxaed-mesh-2","Mesh fence along the plot"),("luxaed-w-van","LuxAed crew on site")],
  "faq":[("Chain-link mesh or welded panels — which to choose?","Rolled chain-link is cheaper, but it stretches and sags over time. We recommend a welded 3D panel: the same visibility, but rigid and neat — it lasts far longer. We'll price both and help you decide."),
         ("How long does a 3D fence last?","When galvanised and powder-coated, welded panels last for decades and don't rust."),
         ("What heights are available?","Usually 1.23–2.03 m. We pick the height for your goal — privacy or marking the boundary."),
@@ -142,7 +142,7 @@ ENSERV=[
              ("⛩","Wooden gates","Sliding and swing gates with timber infill and automation.")],
  "cta_band":"Let's pick a wooden fence for your home","incl":["On-site measurement","Making the sections and steel frame","Installing posts and mounting sections","Timber treatment and coating","Post-installation check"],
  "factors":["Fence length and height","Type (horizontal, vertical, louvre)","Timber species and treatment","Gates and automation","Terrain and groundwork"],
- "gallery":[("luxaed-svc-wood","Wooden fence on a steel frame"),("luxaed-g1","Wooden fence and sliding gate"),("luxaed-wood-2","Wooden fence on a plot"),("luxaed-wood-3","Wooden fence and gate")],
+ "gallery":[("luxaed-svc-wood","Wooden fence on a steel frame"),("luxaed-g1","Wooden fence and sliding gate"),("luxaed-wood-2","Wooden fence on a plot"),("luxaed-wood-3","Wooden fence and gate"),("luxaed-g2","Wooden swing gates"),("luxaed-g7","Wooden fence by the path"),("luxaed-wood-sliding-gate-1","Wooden sliding gate"),("luxaed-wood-swing-gate-1","Wooden swing gate"),("luxaed-w-crew","Craftsman installing"),("luxaed-w-van","LuxAed on site")],
  "faq":[("Won't the wood rot?","We use treated timber and coating, and the frame is steel. With proper care the fence lasts for many years."),
         ("Can I have horizontal boards?","Yes, a horizontal fence on a steel frame is one of the most popular options."),
         ("Will you make a matching gate?","Yes, we make sliding and swing gates with timber infill in the same design."),
@@ -160,7 +160,7 @@ ENSERV=[
              ("▣","Concrete & block","A solid wall for privacy, with brick or block posts.")],
  "cta_band":"Let's price a corrugated fence","incl":["On-site measurement","Installing steel posts and rails","Mounting the profiled sheet","Levelling","Post-installation check"],
  "factors":["Fence length and height","Sheet grade and colour","Post type (metal, brick, block)","Gates and wickets","Terrain and groundwork"],
- "gallery":[("luxaed-svc-profnastil","Corrugated sheet gate"),("luxaed-metal","Metal fence with gates"),("luxaed-profnastil-2","Corrugated metal fence (type example)")],
+ "gallery":[("luxaed-svc-profnastil","Corrugated sheet gate"),("luxaed-metal","Metal fence with gates"),("luxaed-profnastil-2","Corrugated metal fence"),("luxaed-profnastil-gate","Swing gates from profiled sheet"),("luxaed-w-lippaed-1","Graphite steel picket"),("luxaed-w-lippaed-2","Grey steel picket"),("luxaed-w-lippaed-3","Brown picket"),("luxaed-w-lock-brown","Gate lock"),("luxaed-w-crew","Craftsman installing"),("luxaed-w-van","LuxAed on site")],
  "faq":[("Won't the sheet fade?","Quality sheet with a polymer coating keeps its colour for a long time. We use proven materials."),
         ("Do you also pour concrete or block walls?","Yes, we build solid concrete and block walls and combine them with metal, sheet or wrought iron."),
         ("Can it be combined with brick posts?","Yes, we build combined fences: sheet between brick or block posts."),
@@ -178,7 +178,7 @@ ENSERV=[
              ("⛩","Picket gates","Sliding and swing gates from the same slat.")],
  "cta_band":"Let's price a steel picket fence","incl":["On-site measurement","Installing steel posts","Mounting the slats at the chosen gap","Levelling","Post-installation check"],
  "factors":["Fence length and height","Gap and type (single-/double-sided)","Colour (RAL)","Gates and wickets","Terrain and groundwork"],
- "gallery":[("luxaed-w-lippaed-2","Grey steel picket by the house"),("luxaed-w-lippaed-3","Brown picket close-up"),("luxaed-w-gates-picket","Sliding gate from picket"),("luxaed-w-lock-brown","Locinox lock on the wicket")],
+ "gallery":[("luxaed-w-lippaed-1","Graphite steel picket fence"),("luxaed-w-lippaed-2","Grey picket by the house"),("luxaed-w-lippaed-3","Brown picket close-up"),("luxaed-w-gates-picket","Sliding gate from picket"),("luxaed-w-lock-brown","Locinox lock on the wicket"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-mesh-detail","Fixing on the post"),("luxaed-w-crew","Craftsman installing"),("luxaed-w-van","LuxAed van on site")],
  "faq":[("What is a steel picket (euro-picket) fence?","A modern fence of vertical metal slats with an adjustable gap, galvanised and powder-coated. More open than solid sheet, tidy and long-lasting."),
         ("Is a picket fence see-through?","You choose the gap between slats: tighter for privacy or wider for a light look. A double-sided picket is more private."),
         ("Which colours are available?","The most popular is anthracite RAL 7016, plus black and brown. Other RAL shades to order."),
@@ -197,7 +197,7 @@ ENSERV=[
              ("🔔","Intercom","Call panels and intercoms that open the gate and wicket.")],
  "cta_band":"Let's pick gates and automation for your entrance","incl":["Measurement of the entrance","Making the gate and wicket","Installation and levelling","Automation mounting and setup","Intercom connection, function check"],
  "factors":["Gate type (sliding / swing)","Leaf width and weight","Automation drive brand","Intercom, barrier and extra options","Infill (wood, sheet, mesh panel)"],
- "gallery":[("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate — winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle")],
+ "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate — winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel wicket"),("luxaed-auto-2","Sliding gate drive"),("luxaed-w-van","LuxAed on site")],
  "faq":[("Sliding or swing — which to choose?","Sliding is handy when there's little space in front of the entrance. Swing is simpler and cheaper. We'll help you choose at the measurement."),
         ("Can automation be fitted to existing gates?","In most cases yes — we assess the structure and pick a suitable drive."),
         ("Do you install intercoms?","Yes, we install and connect intercoms and call panels that open the gate and wicket."),
@@ -216,7 +216,7 @@ ENSERV=[
              ("⚙","Automation","Diagnostics and repair of drives, remotes and photocells.")],
  "cta_band":"We'll run diagnostics and fix your fence","incl":["Visit and diagnostics","A price before work starts","Replacing sections, posts or hardware","Adjusting gates and automation","Function check after the repair"],
  "factors":["Extent and type of damage","Fence and gate type","Need to replace materials","Automation repair","Access to the site"],
- "gallery":[("luxaed-w-gates-winter","We work in winter too"),("luxaed-w-mesh-detail","Checking and replacing fixings"),("luxaed-w-lock-black","Lock replacement"),("luxaed-g6","Gate drive and post")],
+ "gallery":[("luxaed-w-gates-winter","We work in winter too"),("luxaed-w-mesh-detail","Checking the fixings"),("luxaed-w-lock-black","Lock replacement"),("luxaed-g6","Gate drive and post"),("luxaed-g8","Sliding gate automation"),("luxaed-g9","Gate drive"),("luxaed-auto-2","Drive repair"),("luxaed-w-lock-brown","Lock replacement"),("luxaed-w-crew","Craftsman at work"),("luxaed-w-van","LuxAed on site")],
  "faq":[("Can it be repaired instead of replacing the whole fence?","Often yes — we replace only the damaged sections or posts. At the diagnostics we assess what's more cost-effective."),
         ("Do you repair gate automation?","Yes, we diagnose and repair drives, remotes and photocells, replacing them if needed."),
         ("Do you repair gates you didn't install?","Yes, we work with other builders' structures too — we assess on site."),

@@ -43,7 +43,7 @@ SVC = {  # per-language service dropdown / footer list
  "et": [("/aiad/puitaed/","Puitaiad"),
         ("/aiad/metallaed/","Metallaed"),
         ("/aiad/lippaed/","Metall-lippaed"),
-        ("/aiad/vorkaed/","Võrkaed / paneelaed"),
+        ("/aiad/vorkaed/","Võrkaed / 3D paneelaed"),
         ("/varavad/","Väravad ja automaatika"),
         ("/aia-remont/","Aia remont")],
  "en": [("/en/services/wooden-fence/","Wooden fences"),

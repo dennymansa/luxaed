@@ -166,9 +166,20 @@ meist=f'''<section class="hero hero--compact">
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aiad ja väravad</p></div></div></div></section>
+<section class="section section--alt"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin — meister, kes teab aedadest kõike.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="Artur Mustafin — LuxAed meister objektil" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud — sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
+    <li><b>15 aastat kogemust</b> — puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
+    <li><b>Sajad paigaldatud objektid</b> — eramud, ridaelamud ja territooriumid</li>
+    <li><b>Tunneb kõiki pinnaseid</b> — savi, liiv või turvas, postid seisavad loodis</li>
+    <li><b>Tunneb tarnijaid</b> — õiged materjalid õige hinnaga, ilma vahendajateta</li>
+    <li><b>Iga objekt tema silma all</b> — kvaliteedi eest vastutab meister ise</li>
+  </ul></div>
+</div></div></section>
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed — väravate ja aedade paigaldus" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed — väravate ja aedade paigaldus" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
     <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
     <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
