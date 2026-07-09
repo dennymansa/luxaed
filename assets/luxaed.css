@@ -740,6 +740,8 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
   .nav-mobile-lang a.is-active{background:var(--accent);border-color:var(--accent);color:#fff}
   .hero .wrap{padding-top:calc(64px + 44px)}
   .hero-photo-bg{bottom:auto;height:100svh;background-size:300% auto;background-position:center 20%;background-repeat:no-repeat;background-color:var(--hero-bg);transform:none}.hero::before{background:linear-gradient(165deg,rgba(6,10,16,.62),rgba(8,14,24,.46) 50%,rgba(6,10,18,.8))}
+  /* about hero (compact, long text): photo covers the FULL height so text never sits on plain black */
+  .hero--compact .hero-photo-bg{height:100%;bottom:0;background-size:cover;background-position:center 30%}
   .hero h1{min-height:0}
   .nav-wrap{position:sticky;top:8px;padding-top:10px}
   .hero-grid{grid-template-columns:1fr;gap:32px;padding-bottom:32px}
@@ -787,6 +789,10 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .cc-text a{color:var(--accent);text-decoration:none}
 .cc-actions{display:flex;gap:8px;flex-wrap:wrap}
 .cc-actions button{font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;border:1px solid var(--line-strong);transition:background .15s,border-color .15s}
+.cc-banner .cc-dec{background:#f2ece6;color:var(--ink);border:1px solid var(--line-strong)}
+.cc-banner .cc-dec:hover{background:#e7ddd3;border-color:var(--accent)}
+.cc-banner .cc-acc{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.cc-banner .cc-acc:hover{background:var(--accent-deep)}
 .cc-decline{background:#fff;color:var(--body-text-dim)}
 .cc-decline:hover{background:#f4f7fb}
 .cc-accept{background:var(--accent);color:#fff;border-color:var(--accent)}

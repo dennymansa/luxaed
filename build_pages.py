@@ -238,6 +238,16 @@ def nav(lang, cur_path):
   <div class="lang-phones"><a href="tel:{TEL}"><span class="lp-fl">📞</span> {PHONE}</a></div>
 </div>'''
 
+def cookie_banner(lang):
+    T={"et":("Kasutame küpsiseid saidi toimimiseks ning analüütika ja reklaami jaoks.","Loe lähemalt","Nõustun","Ainult vajalikud","/privaatsus/"),
+       "ru":("Мы используем файлы cookie для работы сайта, аналитики и рекламы.","Подробнее","Принять","Только необходимые","/ru/privaatsus/"),
+       "en":("We use cookies for the site, analytics and ads.","Learn more","Accept","Only necessary","/en/privacy/")}
+    txt,more,acc,dec,priv=T.get(lang,T["et"])
+    return (f'<div class="cc-banner" id="ccBanner" role="dialog" aria-label="Cookies">'
+            f'<div class="cc-text">{txt} <a href="{priv}">{more}</a></div>'
+            f'<div class="cc-actions"><button type="button" class="cc-dec" onclick="ccChoose(0)">{dec}</button>'
+            f'<button type="button" class="cc-acc" onclick="ccChoose(1)">{acc}</button></div></div>')
+
 def footer(lang):
     if lang=="et":
         tagline="Aiad ja väravad Tallinnas ja Harjumaal. Tootmine, paigaldus, automaatika ja remont."
@@ -281,7 +291,8 @@ def footer(lang):
     <div class="foot-bottom"><span>&copy; 2026 LuxAed. {rights}</span><div class="foot-legal">{leg}<a href="mailto:{EMAIL}">{EMAIL}</a></div></div>
     <div class="foot-wordmark">LUX<span>AED</span></div>
   </div>
-</footer>'''
+</footer>
+{cookie_banner(lang)}'''
 
 SCRIPTS = '''<script>
 function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList.remove('on');var b=document.querySelector('.burger');if(b)b.setAttribute('aria-expanded','false');}
@@ -322,6 +333,8 @@ function playReel(fig){
  var p=v.play();if(p&&p.catch)p.catch(function(){});
 }
 document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t){try{all[i].pause();}catch(_){}}}}},true);
+function ccChoose(all){try{localStorage.setItem('cc',all?'all':'necessary');}catch(e){}if(all&&window.gtag){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}var b=document.getElementById('ccBanner');if(b)b.classList.remove('on');}
+(function(){var b=document.getElementById('ccBanner');if(!b)return;var c=null;try{c=localStorage.getItem('cc');}catch(e){}if(!c)setTimeout(function(){b.classList.add('on');},600);})();
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>'''
 SCRIPTS = SCRIPTS.replace('__AW_LEAD_LABEL__', AW_LEAD_LABEL)
@@ -361,7 +374,10 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 <link rel="stylesheet" href="/assets/luxaed.css">
 { (lambda _ids=[i for i in (GA_ID, AW_ID) if i]: (
     f'<script async src="https://www.googletagmanager.com/gtag/js?id={_ids[0]}"></script>'
-    '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());'
+    '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+    'gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});'
+    'try{if(localStorage.getItem("cc")==="all"){gtag("consent","update",{ad_storage:"granted",analytics_storage:"granted",ad_user_data:"granted",ad_personalization:"granted"});}}catch(e){}'
+    'gtag("js",new Date());'
     + "".join(f'gtag("config","{i}");' for i in _ids) + '</script>'
   ) if _ids else '')() }
 </head>
