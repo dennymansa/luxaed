@@ -115,7 +115,7 @@ VIDEO_ORDER = ["luxaed-reel-valmis","luxaed-reel-montaaz","luxaed-reel-varav-oht
 VIDEO_DUR = {"luxaed-reel-domofon":15,"luxaed-reel-metallaed":31,"luxaed-reel-montaaz":64,"luxaed-reel-postid":36,
              "luxaed-reel-puitaed":29,"luxaed-reel-puitvarav2":63,"luxaed-reel-remont":57,"luxaed-reel-valmis":19,
              "luxaed-reel-varav-oht":50,"luxaed-reel-vorkaed":36,"luxaed-reel-vorkaed2":70,"luxaed-video-puitvarav":59}
-VIDEO_UPLOADED = "2025-08-01"
+VIDEO_UPLOADED = "2025-08-01T09:00:00+03:00"
 
 def _reelcard(v, lang):
     import json as _j
