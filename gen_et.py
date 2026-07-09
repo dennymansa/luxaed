@@ -76,7 +76,7 @@ def service(c):
 <section class="hero">
   <div class="hero-photo-bg" style="background:url('/img/{c["hero"]}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="hero-kicker hand">Vajate uut aeda või väravat?</div>
+    <div class="hero-kicker hand">Hei! Vajad uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>{c["h1"]}</h1>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
