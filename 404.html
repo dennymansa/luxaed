@@ -8,12 +8,15 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#0a1016;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
-.b{max-width:520px}
-.mark{font-size:64px;font-weight:800;letter-spacing:-.03em;color:#b5542e;margin:0 0 6px}
-h1{font-size:26px;font-weight:800;margin:0 0 10px}
+.b{max-width:560px}
+.mark{font-size:64px;font-weight:800;letter-spacing:-.03em;color:#b5542e;margin:0 0 2px}
+h1{font-size:27px;font-weight:800;margin:14px 0 8px;line-height:1.25}
+h1 em{font-style:normal;color:#b5542e}
 p{color:#aab3bd;line-height:1.6;margin:0 0 6px;font-size:15px}
+.fence{margin:6px auto 0;display:block}
 .btns{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 a.btn{display:inline-flex;align-items:center;font-weight:700;font-size:15px;border-radius:12px;padding:12px 24px;text-decoration:none;color:#fff;background:#b5542e}
+a.btn:hover{background:#93401f}
 a.btn.g{background:transparent;border:1.5px solid rgba(255,255,255,.25)}
 .langs{margin-top:22px;font-size:13.5px}
 .langs a{color:#aab3bd;text-decoration:none;margin:0 8px}
@@ -23,14 +26,43 @@ a.btn.g{background:transparent;border:1.5px solid rgba(255,255,255,.25)}
 <body>
 <div class="b">
   <p class="mark">404</p>
-  <h1>Lehte ei leitud</h1>
-  <p>Страница не найдена · Page not found</p>
-  <p>Võib-olla on aadress muutunud. Alustage avalehelt või helistage meile.</p>
+  <svg class="fence" width="240" height="72" viewBox="0 0 240 72" fill="none" aria-hidden="true">
+    <g stroke="#b5542e" stroke-width="5" stroke-linecap="round">
+      <path d="M10 62 H230"/>
+      <path d="M30 62 V22 M60 62 V16 M90 62 V22 M120 62 V12 M150 62 V22 M180 62 V16 M210 62 V22"/>
+      <path d="M14 34 H226 M14 50 H226" stroke-width="4" opacity=".85"/>
+      <path d="M30 22 l0 0 M60 16 l0 0 M120 12 l0 0" stroke-width="7"/>
+    </g>
+    <circle cx="120" cy="8" r="3.4" fill="#e8a24a"/>
+  </svg>
+  <h1 id="t">Lehte ei leitud. <em>Aga aed on leitud!</em></h1>
+  <p id="d">Kus iganes see leht ka poleks, meie aia taha ta ei jää. Alustage avalehelt või helistage: paigaldame teile lehe asemel korraliku aia.</p>
   <div class="btns">
-    <a class="btn" href="/">Avalehele →</a>
+    <a class="btn" id="home" href="/">Avalehele →</a>
     <a class="btn g" href="tel:+37256958285">+372 5695 8285</a>
   </div>
   <div class="langs"><a href="/">Eesti</a>·<a href="/ru/">Русский</a>·<a href="/en/">English</a></div>
 </div>
+<script>
+(function(){
+  var p=location.pathname||'';
+  var L=p.indexOf('/ru/')===0?'ru':(p.indexOf('/en/')===0?'en':'et');
+  var T={
+    ru:{h:'Страница не найдена. <em>Зато забор найден!</em>',
+        d:'Куда бы ни делась эта страница, за наш забор она не убежала. Начните с главной или позвоните: вместо страницы поставим вам отличный забор.',
+        b:'На главную →', u:'/ru/', l:'ru'},
+    en:{h:'Page not found. <em>But hey, the fence is found!</em>',
+        d:'Wherever this page went, it did not get past our fence. Start from the homepage or give us a call: we install fences far more reliably than URLs.',
+        b:'To the homepage →', u:'/en/', l:'en'},
+    et:{h:'Lehte ei leitud. <em>Aga aed on leitud!</em>',
+        d:'Kus iganes see leht ka poleks, meie aia taha ta ei jää. Alustage avalehelt või helistage: paigaldame teile lehe asemel korraliku aia.',
+        b:'Avalehele →', u:'/', l:'et'}
+  }[L];
+  document.documentElement.lang=T.l;
+  document.getElementById('t').innerHTML=T.h;
+  document.getElementById('d').textContent=T.d;
+  var h=document.getElementById('home'); h.textContent=T.b; h.href=T.u;
+})();
+</script>
 </body>
 </html>
