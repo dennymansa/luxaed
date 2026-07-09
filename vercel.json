@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/kontakt", "destination": "/", "permanent": true },
+    { "source": "/kontakt/", "destination": "/", "permanent": true },
+    { "source": "/ru/kontakty", "destination": "/ru/", "permanent": true },
+    { "source": "/ru/kontakty/", "destination": "/ru/", "permanent": true },
+    { "source": "/en/contact", "destination": "/en/", "permanent": true },
+    { "source": "/en/contact/", "destination": "/en/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

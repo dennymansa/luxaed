@@ -12,7 +12,7 @@ def hero(kicker, h1, lead, img="luxaed-wide-wood", crumb=None):
     <span class="tag">{kicker}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
-    <div class="hero-btns"><a class="btn btn-accent" href="/ru/kontakty/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div>
+    <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div>
   </div>
 </section>'''
 
@@ -42,14 +42,15 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Оснащение</span><h2 class="big">Правильная техника, опытная бригада, аккуратный результат.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="Бригада LuxAed и фирменный бус на объекте" loading="lazy"></picture></div>
-  <div class="equip-body"><ul class="spec">
-    <li><b>Бур для столбов и трамбовка</b>: столбы встают прочно и по уровню</li>
-    <li><b>Сварка и резка на месте</b>: стальные каркасы и рамы ворот</li>
-    <li><b>Нивелир и замер</b>: секции в одну линию, даже на склоне</li>
-    <li><b>Автоматика и домофоны</b>: настраиваем и подключаем под ключ</li>
-    <li><b>Чистый объект</b>: убираем за собой и сдаём участок в порядке</li>
+  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Мастер, который знает о заборах всё.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин, мастер LuxAed" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b>: сотни объектов по Таллинну и Харьюмаа.</p><ul class="spec">
+    <li><b>15 лет опыта</b>: дерево, профнастил, панели, ворота и автоматика</li>
+    <li><b>Видел всё</b>: любые типы заборов, грунтов и водоотвода</li>
+    <li><b>Знает поставщиков</b>: правильные материалы по правильной цене</li>
+    <li><b>Полное решение под ключ</b>: не просто установка, а решение под ваши пожелания</li>
+    <li><b>Забор вашей мечты</b>: мастер сразу видит, как он встанет и каким будет</li>
+    <li><b>Каждый объект под его контролем</b>: за качество мастер отвечает лично</li>
   </ul></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap">
@@ -83,20 +84,19 @@ about_inner=f'''<section class="hero hero--compact">
   </div></div>
 </section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Мастер, который знает о заборах всё.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин, мастер LuxAed" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b>: сотни объектов по Таллинну и Харьюмаа.</p><ul class="spec">
-    <li><b>15 лет опыта</b>: дерево, профнастил, панели, ворота и автоматика</li>
-    <li><b>Видел всё</b>: любые типы заборов, грунтов и водоотвода</li>
-    <li><b>Знает поставщиков</b>: правильные материалы по правильной цене</li>
-    <li><b>Полное решение под ключ</b>: не просто установка, а решение под ваши пожелания</li>
-    <li><b>Забор вашей мечты</b>: мастер сразу видит, как он встанет и каким будет</li>
-    <li><b>Каждый объект под его контролем</b>: за качество мастер отвечает лично</li>
+  <div class="equip-head"><span class="tag">Оснащение</span><h2 class="big">Правильная техника, опытная бригада, аккуратный результат.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="Бригада LuxAed и фирменный бус на объекте" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Бур для столбов и трамбовка</b>: столбы встают прочно и по уровню</li>
+    <li><b>Сварка и резка на месте</b>: стальные каркасы и рамы ворот</li>
+    <li><b>Нивелир и замер</b>: секции в одну линию, даже на склоне</li>
+    <li><b>Автоматика и домофоны</b>: настраиваем и подключаем под ключ</li>
+    <li><b>Чистый объект</b>: убираем за собой и сдаём участок в порядке</li>
   </ul></div>
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Обсудим <em>ваш забор или ворота</em>?</h2>
   <p>Оставьте заявку или позвоните. Приедем на бесплатный замер и назовём точную стоимость.</p>
-  <div class="hero-btns"><a class="btn btn-accent" href="/ru/kontakty/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
+  <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
 page("/ru/o-nas/","О компании LuxAed. Заборы и ворота в Таллинне","LuxAed. Заборы и ворота в Таллинне и Харьюмаа. Дерево, профнастил, 3D-сетка, автоматика. 100% рекомендуют в Facebook.", about_inner)
 
 # ---------- FAQ ----------
@@ -112,28 +112,10 @@ faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https:
 faq_inner=f'''{hero("Вопросы и ответы","Частые вопросы о заборах и воротах","Собрали ответы на вопросы, которые чаще всего задают перед заказом забора или ворот.", crumb="Вопросы")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Что спрашивают перед заказом</h2>{faq_html(FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Не нашли ответ?</h2><p>Позвоните или напишите. Подскажем и приедем на бесплатный замер.</p>
-<div class="hero-btns"><a class="btn btn-accent" href="/ru/kontakty/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
+<div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
 page("/ru/faq/","Вопросы и ответы о заборах и воротах — LuxAed","Частые вопросы о заборах, воротах и автоматике в Таллинне: цена, материалы, сроки, автоматика, ремонт. Ответы от LuxAed.", faq_inner, schema=faq_schema)
 
 # ---------- КОНТАКТЫ ----------
-contacts_inner=f'''{hero("Контакты","Свяжитесь с LuxAed","Заборы, ворота и автоматика в Таллинне и Харьюмаа. Позвоните, напишите или оставьте заявку. Приедем на бесплатный замер.", crumb="Контакты")}
-<section class="section"><div class="wrap">
-  <div class="equip">
-    <div class="equip-head"><span class="tag">Контакты</span><h2 class="big">Как с нами связаться</h2></div>
-    <div class="equip-body">
-      <ul class="spec">
-        <li><span>Телефон</span><span><a href="tel:{TEL}" style="color:var(--accent);font-weight:700">{PHONE}</a></span></li>
-        <li><span>Email</span><span><a href="mailto:{EMAIL}" style="color:var(--accent);font-weight:700">{EMAIL}</a></span></li>
-        <li><span>Facebook</span><span><a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Заборы и ворота LuxAed</a></span></li>
-        <li><span>Регион</span><span>Таллинн, Харьюмаа, Эстония</span></li>
-        <li><span>Время работы</span><span>Пн–Пт 09–18, Сб по записи</span></li>
-      </ul>
-      <p class="lead">Быстрее всего. Позвонить или оставить заявку в форме. Мы перезвоним, уточним детали и согласуем бесплатный замер.</p>
-    </div>
-    <div class="equip-img">{form_html().replace('<div class="form-slot">','').replace('</div></div>','</div>')}</div>
-  </div>
-</div></section>'''
-page("/ru/kontakty/","Контакты LuxAed. Заборы и ворота в Таллинне","Контакты LuxAed: телефон "+PHONE+", email "+EMAIL+", Facebook. Заборы, ворота и автоматика в Таллинне и Харьюмаа. Оставьте заявку на бесплатный замер.", contacts_inner)
 
 # ---------- LEGAL ----------
 def legal_page(path, title, h1, kicker, blocks):

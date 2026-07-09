@@ -22,7 +22,7 @@ def hero(kicker,h1,lead,img="luxaed-wide-wood",crumb=None):
     cr=''  # visible breadcrumbs removed per request (JSON-LD kept for SEO)
     return f'''<section class="svc-hero"><div class="hero-photo-bg" style="background:url('/img/{img}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap">{cr}<span class="tag">{kicker}</span><h1>{h1}</h1><p class="lead">{lead}</p>
-  <div class="hero-btns"><a class="btn btn-accent" href="/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
+  <div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 
 # ---------------- ET HOME ----------------
 rev_cards="".join(revcard(i,n,t,meta="Arvustus Facebookis",date="soovitab",more="Vaata Facebookis →") for i,(n,t) in enumerate(ALLREV[:9]))
@@ -154,14 +154,15 @@ meist=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed, väravate ja aedade paigaldus" loading="lazy"></picture></div>
-  <div class="equip-body"><ul class="spec">
-    <li><b>Postiaugupuur ja rammer</b>: postid saavad kindlalt ja loodi maasse</li>
-    <li><b>Keevis- ja lõiketööd kohapeal</b>: teraskarkassid ja väravaraamid</li>
-    <li><b>Loodimine ja mõõtmine</b>: sektsioonid ühes joones, ka kaldega krundil</li>
-    <li><b>Automaatika ja domofonid</b>: seadistame ja ühendame võtmed kätte</li>
-    <li><b>Puhas objekt</b>: koristame enda järelt ja anname krundi korras üle</li>
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kes teab aedadest kõike.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. Sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
+    <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
+    <li><b>Näinud kõike</b>: kõik aiatüübid, pinnased ja vee äravoolud</li>
+    <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>
+    <li><b>Terviklahendus võtmed kätte</b>: mitte ainult paigaldus, vaid lahendus teie soovide järgi</li>
+    <li><b>Teie unistuste aed</b>: meister näeb kohe, kuidas aed paigaldatakse ja milline see saab olema</li>
+    <li><b>Iga objekt tema silma all</b>: kvaliteedi eest vastutab meister ise</li>
   </ul></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Põhimõtted</span><h2 class="big">Meie jaoks oluline</h2>
@@ -178,42 +179,28 @@ meist=f'''<section class="hero hero--compact">
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aiad ja väravad</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kes teab aedadest kõike.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. Sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
-    <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
-    <li><b>Näinud kõike</b>: kõik aiatüübid, pinnased ja vee äravoolud</li>
-    <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>
-    <li><b>Terviklahendus võtmed kätte</b>: mitte ainult paigaldus, vaid lahendus teie soovide järgi</li>
-    <li><b>Teie unistuste aed</b>: meister näeb kohe, kuidas aed paigaldatakse ja milline see saab olema</li>
-    <li><b>Iga objekt tema silma all</b>: kvaliteedi eest vastutab meister ise</li>
+  <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed, väravate ja aedade paigaldus" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Postiaugupuur ja rammer</b>: postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b>: teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b>: sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b>: seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b>: koristame enda järelt ja anname krundi korras üle</li>
   </ul></div>
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage. Tuleme tasuta mõõdistusele.</p>
-<div class="hero-btns"><a class="btn btn-accent" href="/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
+<div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 page("/meist/","LuxAedist. Aiad ja väravad Tallinnas","LuxAed. Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist)
 
 # ---------------- ET KKK ----------------
 kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Kogusime vastused küsimustele, mida enne aia või värava tellimist kõige sagedamini küsitakse.", crumb="KKK")}
 <section class="section"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage. Soovitame ja tuleme tasuta mõõdistusele.</p>
-<div class="hero-btns"><a class="btn btn-accent" href="/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
+<div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 page("/kkk/","KKK. Aiad ja väravad — LuxAed","Korduma kippuvad küsimused aedade, väravate ja automaatika kohta Tallinnas: hind, materjalid, tähtajad, automaatika, remont. LuxAed.", kkk_inner, sch=home_faq_schema)
 
 # ---------------- ET KONTAKT ----------------
-kontakt=f'''{hero("Kontakt","Võtke LuxAediga ühendust","Aiad, väravad ja automaatika Tallinnas ja Harjumaal. Helistage, kirjutage või jätke päring. Tuleme tasuta mõõdistusele.", crumb="Kontakt")}
-<section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Kontakt</span><h2 class="big">Kuidas meiega ühendust võtta</h2></div>
-  <div class="equip-body"><ul class="spec">
-    <li><span>Telefon</span><span><a href="tel:{TEL}" style="color:var(--accent);font-weight:700">{PHONE}</a></span></li>
-    <li><span>E-post</span><span><a href="mailto:{EMAIL}" style="color:var(--accent);font-weight:700">{EMAIL}</a></span></li>
-    <li><span>Facebook</span><span><a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Aiad ja väravad LuxAed</a></span></li>
-    <li><span>Piirkond</span><span>Tallinn, Harjumaa, Eesti</span></li>
-    <li><span>Lahtiolekuajad</span><span>E–R 09–18, L kokkuleppel</span></li></ul>
-    <p class="lead">Kõige kiiremini. Helistage või jätke päring vormis. Helistame tagasi, täpsustame detailid ja lepime kokku tasuta mõõdistuse.</p></div>
-  <div class="equip-img">{form_html().replace('<div class="form-slot">','').replace('</div></div>','</div>')}</div>
-</div></div></section>'''
-page("/kontakt/","Kontakt — LuxAed aiad ja väravad Tallinnas","LuxAedi kontakt: telefon "+PHONE+", e-post "+EMAIL+", Facebook. Aiad, väravad ja automaatika Tallinnas ja Harjumaal. Jätke päring tasuta mõõdistuseks.", kontakt)
 
 # ---------------- ET LEGAL ----------------
 def legal(path,title,h1,kicker,blocks):

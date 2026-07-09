@@ -22,7 +22,7 @@ def hero(kicker,h1,lead,img="luxaed-wide-wood",crumb=None):
     cr=''  # visible breadcrumbs removed per request (JSON-LD kept for SEO)
     return f'''<section class="svc-hero"><div class="hero-photo-bg" style="background:url('/img/{img}.webp') center 55%/cover no-repeat"></div>
   <div class="wrap">{cr}<span class="tag">{kicker}</span><h1>{h1}</h1><p class="lead">{lead}</p>
-  <div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
+  <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
 
 # ---------------- EN HOME ----------------
 rev_cards="".join(revcard(i,n,t,meta="Facebook review",date="recommends",more="View on Facebook →") for i,(n,t) in enumerate(ALLREV[:9]))
@@ -154,14 +154,15 @@ about=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>
-  <div class="equip-body"><ul class="spec">
-    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
-    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
-    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
-    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
-    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
+  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A craftsman who knows fences inside out.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: hundreds of projects across Tallinn and Harjumaa.</p><ul class="spec">
+    <li><b>15 years of experience</b>: wood, sheet, panels, gates and automation</li>
+    <li><b>Seen it all</b>: every fence type, soil and drainage setup</li>
+    <li><b>Knows the suppliers</b>: the right materials at the right price</li>
+    <li><b>A complete turnkey solution</b>: not just installation, a solution built around your wishes</li>
+    <li><b>Your dream fence</b>: the master sees at once how it will stand and how it will look</li>
+    <li><b>Every job under his eye</b>: the master answers for quality personally</li>
   </ul></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
@@ -178,42 +179,28 @@ about=f'''<section class="hero hero--compact">
 <p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach. See the reviews on our Facebook page.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A craftsman who knows fences inside out.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: hundreds of projects across Tallinn and Harjumaa.</p><ul class="spec">
-    <li><b>15 years of experience</b>: wood, sheet, panels, gates and automation</li>
-    <li><b>Seen it all</b>: every fence type, soil and drainage setup</li>
-    <li><b>Knows the suppliers</b>: the right materials at the right price</li>
-    <li><b>A complete turnkey solution</b>: not just installation, a solution built around your wishes</li>
-    <li><b>Your dream fence</b>: the master sees at once how it will stand and how it will look</li>
-    <li><b>Every job under his eye</b>: the master answers for quality personally</li>
+  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
+    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
   </ul></div>
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
-<div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
+<div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
 page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Manufacture and installation of fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Over 15 years of experience.", about)
 
 # ---------------- EN FAQ ----------------
 faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write. We'll advise and come for a free measurement.</p>
-<div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
+<div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
 page("/en/faq/","FAQ. Fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, sch=home_faq_schema)
 
 # ---------------- EN CONTACT ----------------
-contact=f'''{hero("Contact","Get in touch with LuxAed","Fences, gates and automation in Tallinn and Harjumaa. Call, write or leave a request. We'll come for a free measurement.", crumb="Contact")}
-<section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Contact</span><h2 class="big">How to reach us</h2></div>
-  <div class="equip-body"><ul class="spec">
-    <li><span>Phone</span><span><a href="tel:{TEL}" style="color:var(--accent);font-weight:700">{PHONE}</a></span></li>
-    <li><span>Email</span><span><a href="mailto:{EMAIL}" style="color:var(--accent);font-weight:700">{EMAIL}</a></span></li>
-    <li><span>Facebook</span><span><a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Fences and gates LuxAed</a></span></li>
-    <li><span>Area</span><span>Tallinn, Harjumaa, Estonia</span></li>
-    <li><span>Opening hours</span><span>Mon–Fri 09–18, Sat by appointment</span></li></ul>
-    <p class="lead">The fastest way is to call or leave a request in the form. We'll call back, clarify the details and arrange a free measurement.</p></div>
-  <div class="equip-img">{form_html().replace('<div class="form-slot">','').replace('</div></div>','</div>')}</div>
-</div></div></section>'''
-page("/en/contact/","Contact — LuxAed fences and gates in Tallinn","LuxAed contact: phone "+PHONE+", email "+EMAIL+". Fences and gates in Tallinn and Harjumaa. Free measurement.", contact)
 
 # ---------------- EN LEGAL ----------------
 def legal(path,title,h1,kicker,blocks):

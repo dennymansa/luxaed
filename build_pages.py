@@ -22,7 +22,6 @@ PAGES = [
  {"ru":"/ru/uslugi/remont-zaborov/","et":"/aia-remont/","en":"/en/services/fence-repair/"},
  {"ru":"/ru/o-nas/","et":"/meist/","en":"/en/about/"},
  {"ru":"/ru/faq/","et":"/kkk/","en":"/en/faq/"},
- {"ru":"/ru/kontakty/","et":"/kontakt/","en":"/en/contact/"},
  {"ru":"/ru/privaatsus/","et":"/privaatsus/","en":"/en/privacy/"},
  {"ru":"/ru/tingimused/","et":"/tingimused/","en":"/en/terms/"},
 ]
@@ -114,7 +113,7 @@ def lang_switch(cur_path, lang):
 
 def nav(lang, cur_path):
     L = NAVLBL[lang]
-    home = alt("/", lang); about = alt("/meist/", lang); faq = alt("/kkk/", lang); contact = alt("/kontakt/", lang)
+    home = alt("/", lang); about = alt("/meist/", lang); faq = alt("/kkk/", lang)
     dd = "".join(f'<a href="{u}">{t}</a>' for u,t in SVC[lang])
     ddm = "".join(f'<a class="nm-sub" href="{u}" onclick="closeMob()">{t}</a>' for u,t in SVC[lang])
     mlang = '<div class="nav-mobile-lang">'+"".join(
@@ -127,12 +126,11 @@ def nav(lang, cur_path):
       <div><button>{L["services"]}</button><div class="dd">{dd}</div></div>
       <a href="{about}">{L["about"]}</a>
       <a href="{faq}">{L["faq"]}</a>
-      <a href="{contact}">{L["contact"]}</a>
     </div>
     <div class="nav-cta">
       {lang_switch(cur_path, lang)}
       <a class="nav-tel" href="tel:{TEL}">{PHONE}</a>
-      <a class="btn btn-accent navcta" href="{contact}#form"><span class="cta-full">{L["cta"]}</span><span class="cta-mini">{L["cta_mini"]}</span> →</a>
+      <a class="btn btn-accent navcta" href="{home}#form"><span class="cta-full">{L["cta"]}</span><span class="cta-mini">{L["cta_mini"]}</span> →</a>
       <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile" onclick="var n=document.querySelector('.nav-mobile');var o=n.classList.toggle('on');this.setAttribute('aria-expanded',o);">☰</button>
     </div>
   </nav>
@@ -143,8 +141,7 @@ def nav(lang, cur_path):
   {ddm}
   <a href="{about}" onclick="closeMob()">{L["about"]}</a>
   <a href="{faq}" onclick="closeMob()">{L["faq"]}</a>
-  <a href="{contact}" onclick="closeMob()">{L["contact"]}</a>
-  <a href="{contact}#form" onclick="closeMob()">{L["cta"]} →</a>
+  <a href="{home}#form" onclick="closeMob()">{L["cta"]} →</a>
   <div class="lang-phones"><a href="tel:{TEL}"><span class="lp-fl">📞</span> {PHONE}</a></div>
 </div>'''
 
@@ -152,21 +149,21 @@ def footer(lang):
     if lang=="et":
         tagline="Aiad ja väravad Tallinnas ja Harjumaal. Tootmine, paigaldus, automaatika ja remont."
         h_s,h_c,h_k,h_hours="Teenused","Ettevõte","Kontakt","Lahtiolekuajad"
-        comp=[("/meist/","Meist"),("/kkk/","KKK"),("/kontakt/","Kontakt"),("/privaatsus/","Privaatsus"),("/tingimused/","Tingimused")]
+        comp=[("/meist/","Meist"),("/kkk/","KKK"),("/privaatsus/","Privaatsus"),("/tingimused/","Tingimused")]
         hours=[("E–R","09–18"),("L","kokkuleppel"),("P","—")]
         rights="Kõik õigused kaitstud."; legal=[("/privaatsus/","Privaatsuspoliitika"),("/tingimused/","Kasutustingimused")]
         addr="Kesklinn, Tallinn,<br>Harjumaa, Eesti"
     elif lang=="en":
         tagline="Fences and gates in Tallinn and Harjumaa. Manufacturing, installation, automation and repair."
         h_s,h_c,h_k,h_hours="Services","Company","Contact","Opening hours"
-        comp=[("/en/about/","About"),("/en/faq/","FAQ"),("/en/contact/","Contact"),("/en/privacy/","Privacy"),("/en/terms/","Terms")]
+        comp=[("/en/about/","About"),("/en/faq/","FAQ"),("/en/privacy/","Privacy"),("/en/terms/","Terms")]
         hours=[("Mon–Fri","09–18"),("Sat","by appointment"),("Sun","—")]
         rights="All rights reserved."; legal=[("/en/privacy/","Privacy policy"),("/en/terms/","Terms of service")]
         addr="Kesklinn, Tallinn,<br>Harjumaa, Estonia"
     else:
         tagline="Заборы и ворота в Таллинне и Харьюмаа. Производство, установка, автоматика и ремонт."
         h_s,h_c,h_k,h_hours="Услуги","Компания","Контакты","Время работы"
-        comp=[("/ru/o-nas/","О нас"),("/ru/faq/","Вопросы и ответы"),("/ru/kontakty/","Контакты"),("/ru/privaatsus/","Конфиденциальность"),("/ru/tingimused/","Условия")]
+        comp=[("/ru/o-nas/","О нас"),("/ru/faq/","Вопросы и ответы"),("/ru/privaatsus/","Конфиденциальность"),("/ru/tingimused/","Условия")]
         hours=[("Пн–Пт","09–18"),("Сб","по записи"),("Вс","—")]
         rights="Все права защищены."; legal=[("/ru/privaatsus/","Политика конфиденциальности"),("/ru/tingimused/","Условия обслуживания")]
         addr="Kesklinn, Tallinn,<br>Harjumaa, Estonia"
