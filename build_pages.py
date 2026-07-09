@@ -109,8 +109,8 @@ VIDEO_CAPS = {
   "luxaed-reel-varav-oht":{"et":"Lükandväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
   "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
 }
-VIDEO_ORDER = ["luxaed-reel-montaaz","luxaed-reel-varav-oht","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
-               "luxaed-reel-puitaed","luxaed-reel-valmis","luxaed-reel-vorkaed","luxaed-reel-vorkaed2",
+VIDEO_ORDER = ["luxaed-reel-valmis","luxaed-reel-montaaz","luxaed-reel-varav-oht","luxaed-reel-postid","luxaed-video-puitvarav",
+               "luxaed-reel-puitvarav2","luxaed-reel-puitaed","luxaed-reel-vorkaed","luxaed-reel-vorkaed2",
                "luxaed-reel-metallaed","luxaed-reel-domofon","luxaed-reel-remont"]
 VIDEO_DUR = {"luxaed-reel-domofon":15,"luxaed-reel-metallaed":31,"luxaed-reel-montaaz":64,"luxaed-reel-postid":36,
              "luxaed-reel-puitaed":29,"luxaed-reel-puitvarav2":63,"luxaed-reel-remont":57,"luxaed-reel-valmis":19,
