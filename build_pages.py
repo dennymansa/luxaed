@@ -74,31 +74,23 @@ def logo_svg():
             '<path d="M13 22 V10 M17 22 V10 M15 22 V9"/></g></svg>')
 
 def partners_marquee(lang):
-    # PLACEHOLDER partners (placeholders) until LuxAed owner provides real ones
-    P=[("Bolt","bolt.svg"),("LHV","lhv.svg"),("Wallester","wallester.svg"),("Bauhof","bauhof.svg"),
-       ("Mapon","mapon.svg"),("Pakendikeskus","pakendikeskus-132.webp"),("Põhjala","pohjala.svg"),
-       ("Placet Group","placet.svg"),("Inter Cars","intercars.svg"),("Olerex","olerex.webp"),
-       ("Alexela","alexela.webp"),("Admirals","admirals-132.webp"),("AD Baltic","adbaltic.svg")]
-    # framing follows the reference layout: tag "Kliendid" (not "Partnerid"), punchy native h2
-    # 
-    T={"ru":("Клиенты","Ставим заборы и известным компаниям"),
-       "et":("Kliendid","Paigaldame aedu ka tuntud ettevõtetele"),
-       "en":("Clients","We build fences for well-known companies too")}
-    # 2nd row = smaller monogram+name pills, DIFFERENT companies (like the reference bottom row).
-    # PLACEHOLDER names until LuxAed owner gives real client list.
-    B=[("Kodukoda","#b5542e","K"),("Aiameister","#3e7a4a","A"),("Roheline Õu","#2f9e6a","RÕ"),
-       ("Maja & Aed","#7c3aed","MA"),("Terrass24","#1968cd","T"),("Väravakoda","#8f4022","V"),
-       ("Piirdeprofi","#0ea5a3","P"),("Ehituspartner","#e2731d","E"),("Krundihaldus","#c8a53a","KH"),
-       ("Metssepp","#57534a","M"),("Aiaabi","#2563eb","AA"),("Hoovimeister","#188038","H")]
-    tag,h2=T.get(lang,T["ru"])
-    logos="".join(f'<span class="pm-pill pm-logo"><img src="/img/partners/{img}" height="42" alt="{n}" decoding="async" loading="lazy"></span>' for n,img in P)
-    monos="".join(f'<span class="pm-pill"><span class="pm-mono" style="background:{c}" aria-hidden="true">{i}</span><b>{n}</b></span>' for n,c,i in B)
+    # Real fence/gate-industry brands whose equipment & materials LuxAed installs (honest,
+    # referential use — not a client claim). Wordmark pills, two scrolling rows.
+    ROW1 = ["BFT","Nice","CAME","Locinox","Hörmann","Hikvision"]
+    ROW2 = ["Makita","DoorHan","Stihl","RAL","Bosch","DEA System"]
+    T={"ru":("Партнёры","Работаем с оборудованием и материалами ведущих брендов"),
+       "et":("Partnerid","Töötame juhtivate brändide seadmete ja materjalidega"),
+       "en":("Partners","We work with equipment and materials from leading brands")}
+    tag,h2=T.get(lang,T["et"])
+    def pills(names):
+        return "".join(f'<span class="pm-pill pm-brand">{n}</span>' for n in names)
+    r1,r2=pills(ROW1),pills(ROW2)
     return (f'<section class="partners-marquee" aria-label="{tag}">'
             f'<div class="wrap"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>'
             f'<div class="pm-row" tabindex="0" role="group" aria-label="{tag}"><div class="pm-track">'
-            f'<div class="pm-set">{logos}</div><div class="pm-set" aria-hidden="true">{logos}</div></div></div>'
+            f'<div class="pm-set">{r1}</div><div class="pm-set" aria-hidden="true">{r1}</div></div></div>'
             f'<div class="pm-row pm-rev" aria-hidden="true"><div class="pm-track">'
-            f'<div class="pm-set">{monos}</div><div class="pm-set">{monos}</div></div></div>'
+            f'<div class="pm-set">{r2}</div><div class="pm-set">{r2}</div></div></div>'
             f'</section>')
 
 # ---- work videos (self-hosted, downloaded from LuxAed FB) ----
@@ -116,9 +108,9 @@ VIDEO_CAPS = {
   "luxaed-reel-varav-oht":{"et":"Lükandväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
   "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
 }
-VIDEO_ORDER = ["luxaed-reel-montaaz","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
+VIDEO_ORDER = ["luxaed-reel-montaaz","luxaed-reel-varav-oht","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
                "luxaed-reel-puitaed","luxaed-reel-valmis","luxaed-reel-vorkaed","luxaed-reel-vorkaed2",
-               "luxaed-reel-metallaed","luxaed-reel-domofon","luxaed-reel-varav-oht","luxaed-reel-remont"]
+               "luxaed-reel-metallaed","luxaed-reel-domofon","luxaed-reel-remont"]
 VIDEO_DUR = {"luxaed-reel-domofon":15,"luxaed-reel-metallaed":31,"luxaed-reel-montaaz":64,"luxaed-reel-postid":36,
              "luxaed-reel-puitaed":29,"luxaed-reel-puitvarav2":63,"luxaed-reel-remont":57,"luxaed-reel-valmis":19,
              "luxaed-reel-varav-oht":50,"luxaed-reel-vorkaed":36,"luxaed-reel-vorkaed2":70,"luxaed-video-puitvarav":59}
@@ -310,22 +302,26 @@ function down(){hold=true;if(rt){clearTimeout(rt);rt=null;}}function up(){if(rt)
 row.addEventListener('touchstart',down,{passive:true});row.addEventListener('touchend',up,{passive:true});row.addEventListener('touchcancel',up,{passive:true});
 function init(){if(mob.matches&&rev){var ww=w();if(ww>0&&row.scrollLeft<=0)row.scrollLeft=ww;}if(!on){on=true;requestAnimationFrame(tick);}}
 setTimeout(init,350);window.addEventListener('load',init);});})();
-function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}fig.classList.remove('playing');}
+function fsReq(v){try{if(v.requestFullscreen){v.requestFullscreen();}else if(v.webkitEnterFullscreen){v.webkitEnterFullscreen();}else if(v.webkitRequestFullscreen){v.webkitRequestFullscreen();}else if(v.msRequestFullscreen){v.msRequestFullscreen();}}catch(e){}}
+function closeVlb(){var lb=document.getElementById('vlb');if(lb){var v=lb.querySelector('video');try{v.pause();}catch(e){}v.removeAttribute('src');try{v.load();}catch(e){}lb.classList.remove('on');}}
+function openVlb(src,poster){var lb=document.getElementById('vlb');if(!lb){lb=document.createElement('div');lb.id='vlb';lb.className='vlb';lb.innerHTML='<button class="vlb-x" aria-label="Close">&times;</button><video class="vlb-video" controls playsinline preload="auto"></video>';document.body.appendChild(lb);lb.querySelector('.vlb-x').addEventListener('click',closeVlb);lb.addEventListener('click',function(e){if(e.target===lb)closeVlb();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVlb();});}var v=lb.querySelector('video');v.src=src;if(poster)v.poster=poster;lb.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){});}
+function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}var b=fig.querySelector('.vid-fs');if(b)b.remove();fig.classList.remove('playing');}
 function playReel(fig){
+ if(window.matchMedia&&window.matchMedia('(min-width:761px)').matches){var im=fig.querySelector('.vid-poster');openVlb(fig.dataset.src,im?(im.currentSrc||im.src):'');return;}
  var others=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<others.length;i++){if(others[i]!==fig)resetReel(others[i]);}
  var v=fig._v;
- if(v){v.play().catch(function(){});if(v.requestFullscreen)v.requestFullscreen().catch(function(){});else if(v.webkitEnterFullscreen)try{v.webkitEnterFullscreen();}catch(e){}return;}
- v=document.createElement('video');v.className='reel-video';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';
+ if(v){var pp=v.play();if(pp&&pp.catch)pp.catch(function(){});return;}
+ v=document.createElement('video');v.className='reel-video';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('preload','auto');
  var img=fig.querySelector('.vid-poster');if(img)v.poster=img.currentSrc||img.src;
  var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);
  fig.appendChild(v);fig._v=v;fig.classList.add('playing');
- if(v.requestFullscreen){v.requestFullscreen().catch(function(){});}
- else if(v.webkitRequestFullscreen){try{v.webkitRequestFullscreen();}catch(e){}}
- else if(v.webkitEnterFullscreen){v.addEventListener('loadedmetadata',function(){try{v.webkitEnterFullscreen();}catch(e){}},{once:true});v.addEventListener('webkitendfullscreen',function(){resetReel(fig);});}
- v.play().catch(function(){});
+ var fs=document.createElement('button');fs.type='button';fs.className='vid-fs';fs.setAttribute('aria-label','Fullscreen');
+ fs.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>';
+ fs.onclick=function(e){e.stopPropagation();e.preventDefault();fsReq(v);};
+ fig.appendChild(fs);
+ var p=v.play();if(p&&p.catch)p.catch(function(){});
 }
-document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement){var ps=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<ps.length;i++)resetReel(ps[i]);}});
-document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t)all[i].pause();}}},true);
+document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t){try{all[i].pause();}catch(_){}}}}},true);
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>'''
 SCRIPTS = SCRIPTS.replace('__AW_LEAD_LABEL__', AW_LEAD_LABEL)

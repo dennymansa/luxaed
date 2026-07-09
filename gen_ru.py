@@ -112,7 +112,6 @@ def service_page(c):
 <section class="section section--alt">
   <div class="wrap"><span class="tag">Как мы работаем</span><h2 class="big">Четыре шага до готового результата</h2>{PROCESS}</div>
 </section>
-{VARUSTUS}
 {reel_strip(c["videos"],"Видео","Автоматика в работе") if c.get("videos") else ""}
 <section class="section">
   <div class="wrap"><span class="tag">Галерея</span><h2 class="big">Примеры работ</h2><p class="lead">Реальные фотографии выполненных конструкций.</p>{gal_html(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Больше фото в нашем Facebook →</a></div></div>

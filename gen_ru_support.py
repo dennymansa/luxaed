@@ -80,7 +80,7 @@ about_inner=f'''<section class="hero hero--compact">
     <div class="num"><b>100<small>%</small></b><div class="t">Рекомендуют</div><p>По отзывам в Facebook</p></div>
     <div class="num"><b>34</b><div class="t">Отзыва</div><p>Реальные отзывы клиентов</p></div>
     <div class="num"><b>15</b><div class="t">Лет опыта</div><p>Опыт наших мастеров в заборах и воротах</p></div>
-    <div class="num"><b>300</b><div class="t">Объектов</div><p>Установленных заборов и ворот</p></div>
+    <div class="num"><b>2000<small>+</small></b><div class="t">Заборов</div><p>Установлено за 15 лет</p></div>
   </div></div>
 </section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
