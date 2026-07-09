@@ -73,7 +73,7 @@ about_inner=f'''<section class="hero hero--compact">
 </section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин — мастер, который знает о заборах всё.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="Артур Мустафин — мастер LuxAed на объекте" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин — мастер LuxAed" loading="lazy"></picture></div>
   <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b> — сотни объектов по Таллинну и Харьюмаа.</p><ul class="spec">
     <li><b>15 лет опыта</b> — дерево, профнастил, панели, ворота и автоматика</li>
     <li><b>Сотни установленных объектов</b> — частные дома, таунхаусы, территории</li>
