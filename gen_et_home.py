@@ -111,7 +111,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
     <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
     <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
@@ -124,10 +124,10 @@ home_inner=f'''<section class="hero">
   <div class="gal" id="gal">
     <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Puitaed teraskarkassil" loading="lazy"></picture></a>
     <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Puitaed ja lükandvärav" loading="lazy"></picture></a>
-    <a href="/img/luxaed-svc-mesh.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-mesh.webp"><img src="/img/luxaed-svc-mesh.jpg" alt="Keevispaneelaed" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g4.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g4.webp"><img src="/img/luxaed-g4.jpg" alt="Võrkvärav automaatikaga" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g3.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g3.webp"><img src="/img/luxaed-g3.jpg" alt="Metallaed õhtul" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g6.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g6.webp"><img src="/img/luxaed-g6.jpg" alt="Väravaautomaatika" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="Keevispaneelaed" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Lükandvärav automaatikaga" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Metall-lippaed" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed meeskond objektil" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Rohkem fotosid meie Facebookis →</a></div></div></section>
 
@@ -168,7 +168,7 @@ meist=f'''<section class="hero hero--compact">
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aiad ja väravad</p></div></div></div></section>
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-svc-gates.webp"><img src="/img/luxaed-svc-gates.jpg" width="750" height="1000" alt="LuxAed — väravate ja aedade paigaldus" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed — väravate ja aedade paigaldus" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
     <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
     <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
