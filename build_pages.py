@@ -99,9 +99,9 @@ VIDEO_CAPS = {
   "luxaed-reel-montaaz":  {"et":"Aia paigaldus objektil","ru":"Монтаж забора на объекте","en":"Fence installation on site"},
   "luxaed-reel-postid":   {"et":"Postiaukude puurimine","ru":"Бурение ям под столбы","en":"Drilling the post holes"},
   "luxaed-video-puitvarav":{"et":"Puidust lükandvärav automaatikaga","ru":"Деревянные откатные ворота с автоматикой","en":"Wooden sliding gate with automation"},
-  "luxaed-reel-puitvarav2":{"et":"Puitvärav ja jalgvärav","ru":"Деревянные ворота и калитка","en":"Wooden gate and wicket"},
+  "luxaed-reel-puitvarav2":{"et":"Puitvärav ja jalgvärav","ru":"Деревянные ворота и калитка","en":"Wooden gate and pedestrian gate"},
   "luxaed-reel-puitaed":  {"et":"Puitaed ja värav","ru":"Деревянный забор и ворота","en":"Wooden fence and gate"},
-  "luxaed-reel-valmis":   {"et":"Valmis puit-metall aed","ru":"Готовый забор дерево-металл","en":"Finished wood-and-metal fence"},
+  "luxaed-reel-valmis":   {"et":"Valmis puit-metallaed","ru":"Готовый забор дерево-металл","en":"Finished wood-and-metal fence"},
   "luxaed-reel-vorkaed":  {"et":"3D keevispaneelaed","ru":"3D-сетчатый забор","en":"3D welded-panel fence"},
   "luxaed-reel-vorkaed2": {"et":"3D paneelaed heki ääres","ru":"3D-забор вдоль живой изгороди","en":"3D panel fence by a hedge"},
   "luxaed-reel-metallaed":{"et":"Metallpiire","ru":"Металлическое ограждение","en":"Metal fence"},
@@ -121,7 +121,7 @@ def _reelcard(v, lang):
     import json as _j
     c = VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])
     return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
-            f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
+            f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){{event.preventDefault();playReel(this)}}">'
             f'<picture><source type="image/webp" srcset="/img/{v}-poster.webp"><img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}" width="480" height="854"></picture>'
             f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
             f'<figcaption>{c}</figcaption></figure>')
@@ -133,7 +133,7 @@ def video_schema(items, lang):
     for v, c in items:
         d = VIDEO_DUR.get(v, 30)
         obj = {"@context":"https://schema.org","@type":"VideoObject","name":c,
-               "description":c+" — LuxAed, aiad ja väravad Tallinnas ja Harjumaal.",
+               "description":c+{"ru":". LuxAed, заборы и ворота в Таллинне и Харьюмаа.","en":". LuxAed, fences and gates in Tallinn and Harjumaa."}.get(lang,". LuxAed, aiad ja väravad Tallinnas ja Harjumaal."),
                "thumbnailUrl":[DOMAIN+f"/img/{v}-poster.jpg"],"uploadDate":VIDEO_UPLOADED,
                "duration":f"PT{d}S","contentUrl":DOMAIN+f"/img/{v}.mp4",
                "publisher":{"@type":"Organization","name":"LuxAed",
@@ -184,19 +184,20 @@ def video_block(lang):
                 "Живые кадры с наших объектов: монтаж, автоматика и готовые работы.",
                 "Больше видео в нашем Facebook →", "Листайте вбок →",
                 "Хотите забор мечты?", "Звоните прямо сейчас", f"Позвонить {PHONE}", "Оставить заявку →"),
-         "en": ("Videos", "Want to see how the masters work?",
+         "en": ("Videos", "Want to see our team at work?",
                 "Real footage from our sites: installation, automation and finished work.",
                 "More videos on our Facebook →", "Swipe sideways →",
                 "Want your dream fence?", "Call us right away", f"Call {PHONE}", "Get a quote →")}
     tag, h2, lead, fb, hint, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
     cards = "".join(_reelcard(v, lang) for v in VIDEO_ORDER)
-    nav = ('<div class="reel-nav-top">'
-           '<button class="reel-arrow reel-prev" aria-label="Eelmine" onclick="reelScroll(this,-1)">‹</button>'
-           '<button class="reel-arrow reel-next" aria-label="Järgmine" onclick="reelScroll(this,1)">›</button>'
-           '</div>')
+    _arr = {"ru":("Предыдущее","Следующее"),"en":("Previous","Next")}.get(lang,("Eelmine","Järgmine"))
+    nav = (f'<div class="reel-nav-top">'
+           f'<button class="reel-arrow reel-prev" aria-label="{_arr[0]}" onclick="reelScroll(this,-1)">‹</button>'
+           f'<button class="reel-arrow reel-next" aria-label="{_arr[1]}" onclick="reelScroll(this,1)">›</button>'
+           f'</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
             f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-sunset.webp\') center 42%/cover no-repeat;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.8) 0%, rgba(10,12,20,.55) 45%, rgba(8,10,16,.72) 100%);pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.88) 0%, rgba(10,12,20,.7) 45%, rgba(8,10,16,.84) 100%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
@@ -209,7 +210,7 @@ def reel_strip(items, tag, h2):
     # compact reels carousel for a service page (no CTA); items: list of (video, caption)
     def card(v, c):
         return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
-                f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
+                f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){{event.preventDefault();playReel(this)}}">'
                 f'<picture><source type="image/webp" srcset="/img/{v}-poster.webp"><img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}" width="480" height="854"></picture>'
                 f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
                 f'<figcaption>{c}</figcaption></figure>')
@@ -269,7 +270,7 @@ def nav(lang, cur_path):
 def cookie_banner(lang):
     T={"et":("Kasutame küpsiseid saidi toimimiseks ning analüütika ja reklaami jaoks.","Loe lähemalt","Nõustun","Ainult vajalikud","/privaatsus/"),
        "ru":("Мы используем файлы cookie для работы сайта, аналитики и рекламы.","Подробнее","Принять","Только необходимые","/ru/privaatsus/"),
-       "en":("We use cookies for the site, analytics and ads.","Learn more","Accept","Only necessary","/en/privacy/")}
+       "en":("We use cookies to run the site and for analytics and ads.","Learn more","Accept","Only necessary","/en/privacy/")}
     txt,more,acc,dec,priv=T.get(lang,T["et"])
     return (f'<div class="cc-banner" id="ccBanner" role="dialog" aria-label="Cookies">'
             f'<div class="cc-text">{txt} <a href="{priv}">{more}</a></div>'
@@ -325,9 +326,9 @@ def footer(lang):
 SCRIPTS = '''<script>
 function closeMob(){var n=document.querySelector('.nav-mobile');if(n)n.classList.remove('on');var b=document.querySelector('.burger');if(b)b.setAttribute('aria-expanded','false');}
 (function(){var form=document.getElementById('leadForm');if(!form)return;var chips=document.querySelectorAll('#svcChips .chip');var f=document.getElementById('serviceField');function apply(svc){form.querySelectorAll('[data-svc]').forEach(function(el){if(el.classList.contains('chip'))return;var ok=svc&&el.getAttribute('data-svc').split(',').indexOf(svc)>=0;el.style.display=ok?'':'none';});}chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('on')});c.classList.add('on');var svc=c.getAttribute('data-svc');if(f)f.value=svc;apply(svc);});});apply('');})();
-(function(){var i=document.getElementById('photoInput'),t=document.getElementById('photoLabel-txt');if(!i||!t)return;i.addEventListener('change',function(){if(i.files&&i.files.length)t.textContent=i.files.length===1?i.files[0].name:('Файлов: '+i.files.length);});})();
-(function(){var form=document.getElementById('leadForm'),ok=document.getElementById('formOk');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(form._gotcha&&form._gotcha.value)return;form.querySelector('button[type=submit]').disabled=true;ok.style.display='block';var data={};new FormData(form).forEach(function(v,k){if(k!=='photos')data[k]=v;});data.page=location.href;fetch('/api/lead/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',form_service:data.service||''});if(window.gtag){gtag('event','generate_lead',{form_service:data.service||''});gtag('event','conversion',{send_to:'__AW_LEAD_LABEL__',value:1.0,currency:'EUR'});}});})();
-(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',function(){var o=item.classList.contains('open');items.forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});})();
+(function(){var i=document.getElementById('photoInput'),t=document.getElementById('photoLabel-txt');if(!i||!t)return;i.addEventListener('change',function(){if(i.files&&i.files.length)t.textContent=i.files.length===1?i.files[0].name:((({et:'Faile: ',en:'Files: '})[document.documentElement.lang]||'Файлов: ')+i.files.length);});})();
+(function(){var form=document.getElementById('leadForm'),ok=document.getElementById('formOk');if(!form)return;form.addEventListener('submit',function(e){e.preventDefault();if(form._gotcha&&form._gotcha.value)return;var btn=form.querySelector('button[type=submit]');btn.disabled=true;var data={};new FormData(form).forEach(function(v,k){if(k!=='photos')data[k]=v;});data.page=location.href;fetch('/api/lead/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){if(!r.ok)throw 0;ok.style.display='block';(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',form_service:data.service||''});if(window.gtag){gtag('event','generate_lead',{form_service:data.service||''});gtag('event','conversion',{send_to:'__AW_LEAD_LABEL__',value:1.0,currency:'EUR'});}}).catch(function(){btn.disabled=false;var l=document.documentElement.lang;alert(l==='et'?'Saatmine ebaõnnestus. Palun proovige uuesti või helistage.':l==='en'?'Sending failed. Please try again or call us.':'Не удалось отправить. Попробуйте ещё раз или позвоните.');});});})();
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.setAttribute('aria-expanded','false');q.addEventListener('click',function(){var o=item.classList.contains('open');items.forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;});if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}items.forEach(function(i){i.querySelector('.faq-q').setAttribute('aria-expanded',i.classList.contains('open')?'true':'false');});});});})();
 (function(){var lb=document.getElementById('lb');if(!lb)return;var im=document.getElementById('lbImg');document.querySelectorAll('#gal a[data-lb]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();im.src=a.getAttribute('href');var g=a.querySelector('img');im.alt=g?g.alt:'';lb.classList.add('on');});});lb.querySelector('.lb-x').addEventListener('click',function(){lb.classList.remove('on')});lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on')});document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});})();
 (function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var els=document.querySelectorAll(".__no_anim__");var it=[];els.forEach(function(el){var n=el.firstChild;if(!n||n.nodeType!==3)return;var m=n.nodeValue.match(/^(\\d+)(.*)$/);if(!m)return;var t=parseInt(m[1],10);if(t<10)return;it.push({el:el,node:n,t:t,s:m[2]||"",d:false});});if(!it.length)return;function run(x){if(x.d)return;x.d=true;var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);x.node.nodeValue=Math.round(x.t*e)+x.s;if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}var io=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting)return;it.forEach(function(x){if(x.el===e.target)run(x);});io.unobserve(e.target);});},{threshold:.4});it.forEach(function(x){io.observe(x.el)});})();
 (function(){var bar=document.querySelector(".mob-bar");if(!bar)return;var vv=window.visualViewport,typing=false;function pin(){if(!vv)return;var o=window.innerHeight-vv.height-vv.offsetTop;bar.style.bottom=(o>0?o:0)+"px";}function fld(el){return el&&/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)&&el.type!=="hidden";}function refresh(){var kb=vv&&(window.innerHeight-vv.height)>140;if(typing||kb){bar.style.display="none";}else{bar.style.display="";pin();}}document.addEventListener("focusin",function(e){if(fld(e.target)){typing=true;refresh();}});document.addEventListener("focusout",function(e){if(fld(e.target)){setTimeout(function(){if(!fld(document.activeElement)){typing=false;refresh();}},120);}});if(vv){vv.addEventListener("resize",refresh);vv.addEventListener("scroll",refresh);}refresh();})();
@@ -343,7 +344,7 @@ function init(){if(mob.matches&&rev){var ww=w();if(ww>0&&row.scrollLeft<=0)row.s
 setTimeout(init,350);window.addEventListener('load',init);});})();
 function fsReq(v){try{if(v.requestFullscreen){v.requestFullscreen();}else if(v.webkitEnterFullscreen){v.webkitEnterFullscreen();}else if(v.webkitRequestFullscreen){v.webkitRequestFullscreen();}else if(v.msRequestFullscreen){v.msRequestFullscreen();}}catch(e){}}
 function closeVlb(){var lb=document.getElementById('vlb');if(lb){var v=lb.querySelector('video');try{v.pause();}catch(e){}try{v.currentTime=0;}catch(e){}v.removeAttribute('src');try{v.load();}catch(e){}lb.classList.remove('on');}}
-function openVlb(src,poster){var lb=document.getElementById('vlb');if(!lb){lb=document.createElement('div');lb.id='vlb';lb.className='vlb';lb.innerHTML='<button class="vlb-x" aria-label="Close">&times;</button><video class="vlb-video" controls playsinline webkit-playsinline preload="auto"></video>';document.body.appendChild(lb);var vv=lb.querySelector('video');lb.querySelector('.vlb-x').addEventListener('click',closeVlb);lb.addEventListener('click',function(e){if(e.target===lb)closeVlb();});vv.addEventListener('click',function(e){e.stopPropagation();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVlb();});}var v=lb.querySelector('video');v.src=src;if(poster)v.poster=poster;lb.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){});}
+function openVlb(src,poster){var lb=document.getElementById('vlb');if(!lb){lb=document.createElement('div');lb.id='vlb';lb.className='vlb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.innerHTML='<button class="vlb-x" aria-label="Close">&times;</button><video class="vlb-video" controls playsinline webkit-playsinline preload="auto"></video>';document.body.appendChild(lb);var vv=lb.querySelector('video');lb.querySelector('.vlb-x').addEventListener('click',closeVlb);lb.addEventListener('click',function(e){if(e.target===lb)closeVlb();});vv.addEventListener('click',function(e){e.stopPropagation();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVlb();});}var v=lb.querySelector('video');v.src=src;if(poster)v.poster=poster;lb.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){});}
 function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}var b=fig.querySelector('.vid-fs');if(b)b.remove();fig.classList.remove('playing');}
 function playReel(fig){var im=fig.querySelector('.vid-poster');openVlb(fig.dataset.src,im?(im.currentSrc||im.src):'');}
 document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t){try{all[i].pause();}catch(_){}}}}},true);
@@ -374,7 +375,6 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 { ('<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{"gtm.start":new Date().getTime(),event:"gtm.js"}});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);}})(window,document,"script","dataLayer","'+GTM_ID+'");</script>') if GTM_ID else '' }
-<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canon}">

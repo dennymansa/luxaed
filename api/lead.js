@@ -92,7 +92,7 @@ export default async function handler(req, res){
         ${rowsBlock}
         ${msgBlock}
         <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
-          ${page?`Со страницы: <a href="${esc(page)}" style="color:${AC};font-weight:600;text-decoration:none">${esc(page)}</a><br>`:''}
+          ${page?`Со страницы: ${esc(page)}<br>`:''}
           Перезвони типу пояснить, кто здесь папа.
         </td></tr>
       </table></body></html>`;
@@ -111,5 +111,5 @@ export default async function handler(req, res){
       html
     });
     res.status(200).json({ok:true});
-  }catch(e){ res.status(500).json({error:String(e && e.message || e)}); }
+  }catch(e){ res.status(500).json({error:'send_failed'})}); }
 }

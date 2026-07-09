@@ -31,6 +31,14 @@ sub_once(r'<section class="section section--dark vidsec".*?</section>', build_pa
 # 3) partners marquee (real brand logos, two rows)
 sub_once(r'<section class="partners-marquee".*?</section>', build_pages.partners_marquee('ru'), 'partners_marquee')
 
+# 4) VideoObject schema blocks in <head> (order must match the rendered carousel)
+vs = "\n".join(build_pages.video_schema(build_pages.home_video_items('ru'), 'ru'))
+new2, n2 = re.subn(r'(<script type="application/ld\+json">\{"@context": "https://schema\.org", "@type": "VideoObject".*?</script>\n?)+', vs + "\n", s, count=1, flags=re.DOTALL)
+if n2 == 1 and new2 != s:
+    changed.append('video_schema'); s = new2
+elif n2 != 1:
+    raise SystemExit("sync_ru_home: VideoObject schema anchor not found")
+
 if s != orig:
     io.open(P, 'w', encoding='utf-8').write(s)
 print("sync_ru_home:", ("updated " + ", ".join(changed)) if changed else "already in sync")

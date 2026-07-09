@@ -13,7 +13,7 @@ def form_html():
   <form id="leadForm">
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
-    <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
+    <div class="chips" id="svcChips" role="group">{ch}</div>
     <div class="ff" data-svc="aed"><select name="material" class="form-select" aria-label="Aia materjal"><option value="">Aia materjal</option><option>Puit</option><option>Profiilplekk</option><option>Võrkaed (keevispaneel)</option><option>Ei tea, soovitage</option></select></div>
     <div class="ff form-grid2" data-svc="aed"><input type="text" name="length" inputmode="numeric" placeholder="Pikkus, m"><select name="height" class="form-select" aria-label="Kõrgus"><option value="">Kõrgus</option><option>kuni 1,5 m</option><option>1,5–2 m</option><option>üle 2 m</option></select></div>
     <div class="ff" data-svc="varav,automaatika"><select name="gate_type" class="form-select" aria-label="Värava tüüp"><option value="">Värava tüüp</option><option>Lükandvärav</option><option>Tiibvärav</option><option>Ei tea</option></select></div>
@@ -52,12 +52,12 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
   </ul></div></div></div></section>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
-def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h4>{n}</h4><p>{d}</p></div>' for i,n,d in cc)+'</div>'
+def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h3>{n}</h3><p>{d}</p></div>' for i,n,d in cc)+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faqx(fq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in fq)+'</div>'
 def related(cur):
     cc=[(p,t) for p,t in SVC["et"] if p!=cur][:3]
-    return '<div class="svc-cards">'+"".join(f'<a class="svc-card" href="{p}" style="text-decoration:none"><div class="ic">→</div><h4>{t}</h4><p>Loe lähemalt →</p></a>' for p,t in cc)+'</div>'
+    return '<div class="svc-cards">'+"".join(f'<a class="svc-card" href="{p}" style="text-decoration:none"><div class="ic">→</div><h3>{t}</h3><p>Loe lähemalt →</p></a>' for p,t in cc)+'</div>'
 
 def schema(name,desc,path,fq):
     j=lambda o:'<script type="application/ld+json">'+json.dumps(o,ensure_ascii=False)+'</script>'
@@ -139,7 +139,7 @@ ETSERV=[
  "variants":[("▤","Horisontaalne","Horisontaallauad teraskarkassil. Kaasaegne populaarne lahendus."),
              ("▥","Vertikaalaed","Klassikaline vertikaalne puitaed vahega või ilma."),
              ("◫","Ribiline (žalusii)","Kaldu lamellid. Privaatsus koos õhutusega."),
-             ("⛩","Puitväravad","Lük- ja tiibväravad puidutäitega ja automaatikaga.")],
+             ("⛩","Puitväravad","Lükand- ja tiibväravad puidutäitega ja automaatikaga.")],
  "cta_band":"Valime puitaia teie maja juurde","incl":["Krundi mõõdistus","Sektsioonide ja teraskarkassi valmistamine","Postide ja sektsioonide paigaldus","Puidu töötlus ja kate","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Tüüp (horisontaalne, vertikaalne, žalusii)","Puidu liik ja töötlus","Väravad ja automaatika","Reljeef ja alus"],
  "gallery":[("luxaed-svc-wood","Puitaed teraskarkassil"),("luxaed-g1","Puitaed ja lükandvärav"),("luxaed-wood-2","Puitaed krundil"),("luxaed-wood-3","Puitaed ja värav"),("luxaed-g2","Puidust tiibväravad"),("luxaed-g7","Puitaed kivisillutise ääres"),("luxaed-wood-sliding-gate-1","Puidust lükandvärav"),("luxaed-wood-swing-gate-1","Puidust tiibvärav"),("luxaed-w-crew","Meister paigaldamas"),("luxaed-w-van","LuxAed objektil")],
@@ -151,14 +151,14 @@ ETSERV=[
  "title":"Metallaed ja profiilplekk-aed Tallinnas — LuxAed","desc":"Metallaed ja profiilplekk-aed Tallinnas ja Harjumaal. Tsingitud plekk, kunstsepis, betoonaiad, eri värvid. Soodne ja kiire. Tasuta mõõdistus.",
  "kicker":"Metall · profiilplekk","h1":"Metall- ja profiilplekk-aedade<br><em>paigaldus</em>",
  "lead":"Praktiline ja soodne lahendus: kinnine aed tsingitud profiilplekist. Täielik privaatsus, tuule- ja tolmukaitse, erinevad värvid.",
- "intro_h":"Miks profiilplekk","intro_p":"Profiilplekk on soodne ja kiiresti paigaldatav. Kinnine aed katab krundi ja peab kaua tänu tsingile ja polümeerkattele.",
+ "intro_h":"Miks profiilplekk","intro_p":"Profiilplekk on soodne ja kiiresti paigaldatav. Kinnine aed varjab krundi ja peab kaua tänu tsingile ja polümeerkattele.",
  "bens":["Täielik privaatsus. Kinnine aed","Tsingitud plekk polümeerkattega","Erinevad värvid, ka puidu imitatsioon","Kaitse tuule, tolmu ja müra eest","Kunstsepis ja dekoratiivdetailid","Ka betoon- ja plokkaed massiivseks müüriks"],
  "variants_h":"Metallaia valikud",
  "variants":[("▦","Profiilplekk-aed","Kinnine aed tsingitud plekist vajalikus kõrguses."),
              ("◧","Värviline kate","Polümeerkate eri värvides, ka puidu imitatsioon."),
              ("❦","Kunstsepis","Sepisdetailid ja dekoratiivne metallaed. Tellimustöö."),
              ("▣","Betoon- ja plokkaed","Massiivne müür privaatsuseks, kivi- või plokkpostidega.")],
- "cta_band":"Arvutame profiilplekk-aia","incl":["Krundi mõõdistus","Metallpostide ja -lattide paigaldus","Profiilpleki montaaž","Loodimine","Kontroll pärast paigaldust"],
+ "cta_band":"Arvutame profiilplekk-aia hinna","incl":["Krundi mõõdistus","Metallpostide ja -lattide paigaldus","Profiilpleki montaaž","Loodimine","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Pleki mark ja värv","Postide tüüp (metall, kivi)","Väravad ja jalgväravad","Reljeef ja alus"],
  "gallery":[("luxaed-svc-profnastil","Profiilplekk-värav"),("luxaed-metal","Metallaed väravaga"),("luxaed-profnastil-2","Profiilplekk-aed"),("luxaed-profnastil-gate","Profiilplekk-tiibväravad"),("luxaed-w-lippaed-1","Metall-lippaed grafiithallis"),("luxaed-w-lippaed-2","Hall metall-lippaed"),("luxaed-w-lippaed-3","Pruun lippaed"),("luxaed-w-lock-brown","Värava lukk"),("luxaed-w-crew","Meister paigaldamas"),("luxaed-w-van","LuxAed objektil")],
  "faq":[("Kas profiilplekk ei pleegi?","Kvaliteetne polümeerkattega plekk hoiab värvi kaua. Kasutame tõestatud materjale."),
@@ -175,18 +175,18 @@ ETSERV=[
  "variants":[("▤","Ühepoolne lippaed","Lamellid ühel pool. Soodne ja kaasaegne."),
              ("▥","Kahepoolne lippaed","Lamellid mõlemal pool (žalusii-efekt). Privaatsem, mõlemalt poolt korralik."),
              ("◧","RAL-värvid","Antratsiit RAL 7016, must, pruun ja teised toonid."),
-             ("⛩","Lippaed-väravad","Lük- ja tiibväravad sama lippaia lamelliga.")],
+             ("⛩","Lippaed-väravad","Lükand- ja tiibväravad sama lippaia lamelliga.")],
  "cta_band":"Arvutame metall-lippaia teie krundile","incl":["Krundi mõõdistus","Metallpostide paigaldus","Lamellide montaaž valitud vahega","Loodimine reljeefi järgi","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Lamelli vahe ja tüüp (ühe-/kahepoolne)","Värv (RAL)","Väravate ja jalgvärava arv","Reljeef ja alus"],
  "gallery":[("luxaed-w-lippaed-1","Grafiithall metall-lippaed"),("luxaed-w-lippaed-2","Hall lippaed maja juures"),("luxaed-w-lippaed-3","Pruun lippaed lähivaates"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-brown","Locinox lukk lippaia väraval"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-mesh-detail","Kinnitus postile"),("luxaed-w-crew","Meister paigaldamas"),("luxaed-w-van","LuxAed buss objektil")],
  "faq":[("Mis on metall-lippaed (štaketnik)?","Kaasaegne metallist lippaed. Vertikaalsed lamellid valitava vahega, tsingitud ja pulbervärvitud. Läbipaistvam kui plekk-aed, korralik ja pika elueaga."),
         ("Kas lippaed on läbipaistev?","Vahe lamellide vahel valite ise: tihedam privaatsuseks või hõredam kergema ilme jaoks. Kahepoolne lippaed on privaatsem."),
         ("Millised värvid on?","Populaarseim on antratsiit RAL 7016, samuti must ja pruun. Teeme teisi RAL-toone tellimusel."),
-        ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme samamoodi lippaia lamelliga ühes stiilis.")]},
-{"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Hikvisioni domofon väraval"),("luxaed-reel-varav-oht","Lükandvärav automaatikaga"),("luxaed-video-puitvarav","Lükandvärav ühe nupuvajutusega"),("luxaed-reel-montaaz","Paigaldus objektil")],
- "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, aiaväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
+        ("Kas väravad tulevad sama moodi?","Jah, lükand- ja tiibväravad teeme samamoodi lippaia lamelliga ühes stiilis.")]},
+{"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-auto-2","og":"/img/luxaed-auto-2.jpg","videos":[("luxaed-reel-domofon","Hikvisioni domofon väraval"),("luxaed-reel-varav-oht","Lükandvärav automaatikaga"),("luxaed-video-puitvarav","Lükandvärav ühe nupuvajutusega"),("luxaed-reel-montaaz","Paigaldus objektil")],
+ "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lükand- ja tiibväravad, aiaväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · tõkkepuu","h1":"Väravate ja automaatika<br><em>paigaldus</em>",
- "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
+ "lead":"Lükand- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
  "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaautomaatikat igas mahus: ühest jalgväravast kuni suure territooriumi täieliku sissesõidusüsteemini. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil; avamine käib puldist, telefonikõnega, rakendusest või koodiga. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid. Paigaldame ujuva (rolling) koodiga ajamid. Need on kaitstud tavaliste skannerite (nn grabberite) pealtkuulamise eest. Hooldame ja uuendame olemasolevaid süsteeme.",
  "bens":["Mis tahes mahus projektid: jalgväravast terve territooriumini","Üks pult kõigi väravate ja tõkkepuude jaoks","Juhtimine: pult, telefonikõne, rakendus või kood","Ujuv (rolling) kood: kaitse puldi pealtkuulamise eest","Numbrite lisamine ja eemaldamine igal ajal","Domofonid ja videopaneelid","Olemasolevate süsteemide hooldus ja uuendus"],
  "variants_h":"Väravate ja automaatika tüübid",

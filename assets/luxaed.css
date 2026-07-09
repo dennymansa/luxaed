@@ -985,3 +985,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
  .mini-cta .wrap{padding:20px 22px}
  .mini-cta>div>span{font-size:17px}
 }
+
+.vidsec .gal-fb{background:var(--accent);color:#fff;border-color:var(--accent)}
+.vidsec .gal-fb:hover{background:var(--accent-deep);border-color:var(--accent-deep)}

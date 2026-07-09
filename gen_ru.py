@@ -13,7 +13,7 @@ def form_html(lang="ru"):
   <form id="leadForm">
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
-    <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
+    <div class="chips" id="svcChips" role="group">{ch}</div>
     <div class="ff" data-svc="zabor"><select name="material" class="form-select" aria-label="Материал забора"><option value="">Материал забора</option><option>Дерево</option><option>Профнастил</option><option>3D-сетка (сварная)</option><option>Не знаю, подскажите</option></select></div>
     <div class="ff form-grid2" data-svc="zabor"><input type="text" name="length" inputmode="numeric" placeholder="Длина, м"><select name="height" class="form-select" aria-label="Высота"><option value="">Высота</option><option>до 1,5 м</option><option>1,5–2 м</option><option>выше 2 м</option></select></div>
     <div class="ff" data-svc="vorota,avtomatika"><select name="gate_type" class="form-select" aria-label="Тип ворот"><option value="">Тип ворот</option><option>Откатные</option><option>Распашные</option><option>Не знаю</option></select></div>
@@ -59,7 +59,7 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
   </ul></div></div></div></section>'''
 
 def bens_html(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
-def cards_html(cards): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{ic}</div><h4>{n}</h4><p>{d}</p></div>' for ic,n,d in cards)+'</div>'
+def cards_html(cards): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{ic}</div><h3>{n}</h3><p>{d}</p></div>' for ic,n,d in cards)+'</div>'
 def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faq_html(faq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in faq)+'</div>'
 
@@ -72,7 +72,7 @@ PROCESS='''<div class="hsteps">
 
 def related_html(cur):
     cards=[(p,t) for p,t in SVC["ru"] if p!=cur][:3]
-    return '<div class="svc-cards">'+"".join(f'<a class="svc-card" href="{p}" style="text-decoration:none"><div class="ic">→</div><h4>{t}</h4><p>Подробнее об услуге →</p></a>' for p,t in cards)+'</div>'
+    return '<div class="svc-cards">'+"".join(f'<a class="svc-card" href="{p}" style="text-decoration:none"><div class="ic">→</div><h3>{t}</h3><p>Подробнее об услуге →</p></a>' for p,t in cards)+'</div>'
 
 def service_page(c):
     sb=schema_service(c["name"], c["desc"], c["path"], c["faq"])
@@ -209,7 +209,7 @@ SERVICES=[
  "faq":[("Профнастил не выгорает?","Качественный профлист с полимерным покрытием долго сохраняет цвет. Подбираем проверенные материалы."),
         ("Заливаете бетонные или блочные заборы?","Да, строим массивные бетонные и блочные стены и комбинируем их с металлом, профлистом или ковкой."),
         ("Можно комбинировать со столбами из кирпича?","Да, делаем комбинированные заборы: профлист между кирпичными или блочными столбами."),
-        ("Профнастил дешевле дерева и 3D-сетки?","Как правило да. Это одно из самых доступных решений. Точную цену назовём после замера.")],
+        ("Профнастил дешевле дерева и 3D-сетки?","Как правило, да. Это одно из самых доступных решений. Точную цену назовём после замера.")],
 },
 {
  "path":"/ru/uslugi/shtaketnik/","name":"Металлический штакетник","hero":"luxaed-w-lippaed-1","og":"/img/luxaed-w-lippaed-1.jpg",
@@ -227,13 +227,13 @@ SERVICES=[
  "cta_band":"Рассчитаем металлоштакетник под ваш участок","incl":["Выезд на замер участка","Установка металлических столбов","Монтаж ламелей с выбранным просветом","Выравнивание по уровню","Проверка конструкции после монтажа"],
  "factors":["Длина и высота забора","Просвет и тип (одно-/двусторонний)","Цвет (RAL)","Ворота и калитки","Рельеф и основание"],
  "gallery":[("luxaed-w-lippaed-1","Графитовый металлический штакетник"),("luxaed-w-lippaed-2","Серый штакетник у дома"),("luxaed-w-lippaed-3","Коричневый штакетник крупным планом"),("luxaed-w-gates-picket","Откатные ворота из штакетника"),("luxaed-w-lock-brown","Замок Locinox на калитке"),("luxaed-w-gates-graphite","Графитовые распашные ворота"),("luxaed-w-gates-night","Ворота вечером"),("luxaed-w-mesh-detail","Крепление к столбу"),("luxaed-w-crew","Мастер за монтажом"),("luxaed-w-van","Бус LuxAed на объекте")],
- "faq":[("Что такое металлический штакетник (евроштакетник)?","Это современный забор из вертикальных металлических ламелей с регулируемым просветом, оцинкованный и с полимерным покрытием. Полупрозрачнее глухого профлиста, аккуратный и долговечный."),
+ "faq":[("Что такое металлический штакетник (евроштакетник)?","Это современный забор из вертикальных металлических ламелей с регулируемым просветом, оцинкованный и с полимерным покрытием. Пропускает больше света, чем глухой профлист, аккуратный и долговечный."),
         ("Штакетник просвечивает?","Просвет между ламелями выбираете сами: плотнее для приватности или реже для лёгкого вида. Двусторонний штакетник приватнее."),
         ("Какие цвета доступны?","Самый популярный: антрацит RAL 7016, также чёрный и коричневый. Другие оттенки RAL доступны под заказ."),
         ("Ворота сделаете в том же стиле?","Да, откатные и распашные ворота изготавливаем из той же ламели штакетника в едином дизайне.")],
 },
 {
- "path":"/ru/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Домофон Hikvision на калитке"),("luxaed-reel-varav-oht","Откатные ворота с автоматикой"),("luxaed-video-puitvarav","Откатные ворота одним нажатием"),("luxaed-reel-montaaz","Монтаж на объекте")],
+ "path":"/ru/uslugi/vorota-kalitki/","name":"Ворота, калитки и автоматика","hero":"luxaed-auto-2","og":"/img/luxaed-auto-2.jpg","videos":[("luxaed-reel-domofon","Домофон Hikvision на калитке"),("luxaed-reel-varav-oht","Откатные ворота с автоматикой"),("luxaed-video-puitvarav","Откатные ворота одним нажатием"),("luxaed-reel-montaaz","Монтаж на объекте")],
  "title":"Ворота, калитки и автоматика в Таллинне — LuxAed",
  "desc":"Откатные и распашные ворота, автоматика, шлагбаумы и домофоны в Таллинне и Харьюмаа. Монтаж под ключ. Бесплатный замер.",
  "kicker":"Ворота · автоматика · шлагбаумы","h1":"Установка<br><em>ворот и автоматики</em>",

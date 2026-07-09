@@ -40,7 +40,7 @@ areas_html="".join(f'<span class="area-pill">{a}</span>' for a in AREAS)
 HOME_FAQ=[("How much does a fence or gate cost?","We can't give an exact price upfront. It depends on the material, fence length and height, terrain and gates. After a free measurement we give a specific price with no hidden fees."),
  ("What kinds of fences do you make?","Wooden fences (on a steel frame), corrugated-sheet fences and welded mesh fences (3D). We'll help you choose the material for your budget and plot."),
  ("Do you install gate automation?","Yes, we install automation for sliding and swing gates, remotes, photocells and intercoms. We can add automation to existing gates too."),
- ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield. By arrangement, just write to us."),
+ ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield by arrangement, just write to us."),
  ("Do you repair fences?","Yes, we repair fences and gates: replacing sections and posts, adjusting gates, repairing automation.")]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],"geo":{"@type":"GeoCoordinates","latitude":59.437,"longitude":24.7536},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","reviewCount":"34"}},ensure_ascii=False)+'</script>']
@@ -48,8 +48,8 @@ lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https:/
 home_inner=f'''<section class="hero">
   <div class="hero-photo-bg"></div>
   <div class="wrap"><div class="hero-grid"><div>
-    <div class="hero-kicker hand">Hi! A new fence coming up?</div>
-    <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
+    <div class="hero-kicker hand">Hi! Need a new fence or a gate?</div>
+    <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommended</span></div>
     <h1>Fences & gates</h1>
     <p class="hero-claim"><em>turnkey</em><br>from measurement to install</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
@@ -59,7 +59,7 @@ home_inner=f'''<section class="hero">
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">What we do</span><h2 class="info-title">Fences and gates,<br>turnkey.</h2></div>
-  <div><p>We design, manufacture and install <b>fences, gates and wickets</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
+  <div><p>We design, manufacture and install <b>fences, gates and pedestrian gates</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">A solution for every plot</h2>
@@ -72,8 +72,8 @@ home_inner=f'''<section class="hero">
 <section class="section"><div class="wrap"><span class="tag">Reviews on Facebook</span><h2 class="big" style="margin-bottom:32px">Trusted across Tallinn and Harjumaa</h2>
   <div class="gbp-wrap">
     <div class="gbp-panel">
-      <div class="gbp-photos"><div class="gbp-photo-main" style="background:url('/img/luxaed-hero.jpg') center/cover"></div>
-        <div class="gbp-photo-stack"><div style="background:url('/img/luxaed-svc-wood.jpg') center/cover;flex:1;border-radius:0 12px 0 0"></div><div style="background:url('/img/luxaed-svc-mesh.jpg') center/cover;flex:1;border-radius:0 0 12px 0"></div></div></div>
+      <div class="gbp-photos"><div class="gbp-photo-main" style="background:url('/img/luxaed-hero.webp') center/cover"></div>
+        <div class="gbp-photo-stack"><div style="background:url('/img/luxaed-svc-wood.webp') center/cover;flex:1;border-radius:0 12px 0 0"></div><div style="background:url('/img/luxaed-svc-mesh.webp') center/cover;flex:1;border-radius:0 0 12px 0"></div></div></div>
       <div class="gbp-body">
         <div class="gbp-title-row"><h3 class="gbp-name">Fences and gates LuxAed</h3>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></div>
@@ -86,7 +86,7 @@ home_inner=f'''<section class="hero">
       </div>
     </div>
     <div class="gbp-reviews">
-      <div class="gbp-rev-hd"><span class="gbp-rev-score">34</span><div class="gbp-rev-divider"></div><div class="gbp-rev-mid"><div class="gbp-rev-stars">★★★★★</div><div class="gbp-rev-cnt">reviews on Facebook · recommend</div></div><a class="gbp-rev-link" href="{FB}/reviews" target="_blank" rel="noopener">All reviews →</a></div>
+      <div class="gbp-rev-hd"><span class="gbp-rev-score">34</span><div class="gbp-rev-divider"></div><div class="gbp-rev-mid"><div class="gbp-rev-stars">★★★★★</div><div class="gbp-rev-cnt">reviews on Facebook · recommended</div></div><a class="gbp-rev-link" href="{FB}/reviews" target="_blank" rel="noopener">All reviews →</a></div>
       <div class="rev-carousel" role="region" aria-label="Customer reviews on Facebook">
         <button class="rev-arrow rev-prev" type="button" aria-label="Previous review">‹</button>
         <div class="rev-viewport"><div class="gbp-rev-list rev-track">{rev_cards}</div></div>
@@ -106,7 +106,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.78) 0%, rgba(10,12,20,.42) 40%, rgba(12,10,16,.58) 100%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are our craft.</h2>
-  <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
+  <p class="lead lead--lg">LuxAed is a team building fences, gates and pedestrian gates in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Fences</div><p>Installed over 15 years</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><div class="equip">
@@ -150,11 +150,11 @@ page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","Fences and ga
 about=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
-    <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
+    <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommended</span></div>
     <h1>Who we are</h1>
-    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>for over 15 years</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our master has seen every fence type, soil and drainage setup.</p>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">We have been manufacturing and installing fences, gates and pedestrian gates in Tallinn and Harjumaa <b>for over 15 years</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our lead installer has worked with every fence type, soil and drainage situation.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
-    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter.</p>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter. We handle it all.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
@@ -203,7 +203,7 @@ faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers t
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write. We'll advise and come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/faq/","FAQ. Fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, sch=home_faq_schema)
+page("/en/faq/","FAQ. Fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, og="/img/luxaed-wide-wood.jpg", sch=home_faq_schema)
 
 # ---------------- EN CONTACT ----------------
 
@@ -213,7 +213,7 @@ def legal(path,title,h1,kicker,blocks):
 <section class="section"><div class="wrap" style="max-width:820px">
 {"".join(f"<h2 class='big' style='font-size:24px;margin-top:28px'>{t}</h2><p class='lead' style='margin-top:10px'>{b}</p>" for t,b in blocks)}
 <p class="lead" style="margin-top:26px">For questions about this document, write to <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a>.</p></div></section>'''
-    page(path,title,h1+" — LuxAed, fences and gates in Tallinn.",inner,sch=[webpage_schema(path,"en",title,h1)])
+    page(path,title,h1+" — LuxAed, fences and gates in Tallinn.",inner,og="/img/luxaed-g3.jpg",sch=[webpage_schema(path,"en",title,h1)])
 
 legal("/en/privacy/","Privacy policy — LuxAed","Privacy policy","Privacy",[
  ("Who processes the data","LuxAed (fences and gates, Tallinn, Estonia) processes personal data you provide when contacting us via the website, phone, email or Facebook."),
@@ -228,7 +228,7 @@ legal("/en/terms/","Terms of service — LuxAed","Terms of service","Terms",[
  ("General","These terms describe how LuxAed provides services for manufacturing, installing and repairing fences, gates and automation in Tallinn and Harjumaa."),
  ("Request and quote","You can leave a request by phone, email or the form on the website. The price is determined after a free measurement and agreed before work begins."),
  ("Measurement and agreements","The exact price, materials and timing are fixed after visiting the site. All key terms are agreed with the customer in advance."),
- ("Payment","The order and method of payment are agreed individually before work begins. We do not add hidden charges to the agreed estimate without your consent."),
+ ("Payment","Payment terms and method are agreed individually before work begins. We do not add hidden charges to the agreed estimate."),
  ("Warranty and quality","We are responsible for the quality of the work performed. Warranty terms depend on the type of work and materials and are agreed when the arrangement is made."),
  ("Liability","LuxAed is not liable for damage caused by hidden utilities on the site that the customer did not disclose, nor for force majeure."),
  ("Contact","For any questions about the services and terms, contact us at "+PHONE+" or "+EMAIL+"."),
