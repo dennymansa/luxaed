@@ -25,7 +25,8 @@ export default async function handler(req, res){
 
     const USER = process.env.GMAIL_USER;
     const PASS = process.env.GMAIL_APP_PASSWORD;
-    const TO   = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
+    const _to = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
+    const TO   = [..._to.split(','), 'luxaed9@gmail.com'].map(x=>x.trim()).filter((x,i,a)=>x && a.indexOf(x)===i).join(',');
     const AC = '#b5542e';   // brand terracotta
 
     const f = k => (d[k]==null ? '' : String(d[k]).trim());
@@ -93,7 +94,7 @@ export default async function handler(req, res){
         ${msgBlock}
         <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
           ${page?`Со страницы: ${esc(page)}<br>`:''}
-          Перезвони типу пояснить, кто здесь папа.
+          Перезвони типу, скажи папа едет ставить забор!
         </td></tr>
       </table></body></html>`;
 
