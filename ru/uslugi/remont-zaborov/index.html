@@ -733,6 +733,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero--compact::before{background:linear-gradient(105deg,rgba(7,11,17,.92) 0%,rgba(8,14,24,.72) 44%,rgba(6,10,18,.5) 100%)}
 .hero--compact .lead{text-shadow:0 1px 12px rgba(0,0,0,.5)}
 
+
+/* center FAQ section heading (tag + h2); accordion stays left */
+.section:has(>.wrap>.faq)>.wrap{text-align:center}
+.section:has(>.wrap>.faq) h2.big{max-width:none}
+.section:has(>.wrap>.faq) .faq{text-align:left;margin-left:auto;margin-right:auto}
 </style>
 <style>@media(max-width:760px){.hero-photo-bg{background-image:url('/img/luxaed-g6-mobile.webp')!important}}</style>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});try{if(localStorage.getItem("cc")==="all"){gtag("consent","update",{ad_storage:"granted",analytics_storage:"granted",ad_user_data:"granted",ad_personalization:"granted"});}}catch(e){}gtag("js",new Date());gtag("config","AW-960623543");function __lg(){if(window.__lgd)return;window.__lgd=1;var s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id=AW-960623543";document.head.appendChild(s);}["scroll","click","touchstart","keydown"].forEach(function(ev){addEventListener(ev,__lg,{passive:true,once:true})});setTimeout(__lg,3500);</script>

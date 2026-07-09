@@ -711,3 +711,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .hero--compact::before{background:linear-gradient(105deg,rgba(7,11,17,.92) 0%,rgba(8,14,24,.72) 44%,rgba(6,10,18,.5) 100%)}
 .hero--compact .lead{text-shadow:0 1px 12px rgba(0,0,0,.5)}
 
+
+/* center FAQ section heading (tag + h2); accordion stays left */
+.section:has(>.wrap>.faq)>.wrap{text-align:center}
+.section:has(>.wrap>.faq) h2.big{max-width:none}
+.section:has(>.wrap>.faq) .faq{text-align:left;margin-left:auto;margin-right:auto}
