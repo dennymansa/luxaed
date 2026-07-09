@@ -43,7 +43,7 @@ HOME_FAQ=[("How much does a fence or gate cost?","We can't give an exact price u
  ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield. By arrangement, just write to us."),
  ("Do you repair fences?","Yes, we repair fences and gates: replacing sections and posts, adjusting gates, repairing automation.")]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
-lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB]},ensure_ascii=False)+'</script>']
+lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],"geo":{"@type":"GeoCoordinates","latitude":59.437,"longitude":24.7536},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","reviewCount":"34"}},ensure_ascii=False)+'</script>']
 
 home_inner=f'''<section class="hero">
   <div class="hero-photo-bg"></div>
@@ -191,7 +191,7 @@ about=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Manufacture and installation of fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Over 15 years of experience.", about)
+page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Over 15 years of experience.", about)
 
 # ---------------- EN FAQ ----------------
 faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
