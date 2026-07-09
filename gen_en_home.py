@@ -111,7 +111,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed, fence and gate installation" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed van on site" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
     <li><b>Post auger and rammer</b>: posts go in firm and level</li>
     <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
@@ -153,6 +153,17 @@ about=f'''<section class="hero hero--compact">
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
+<section class="section"><div class="wrap"><div class="equip">
+  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>
+  <div class="equip-body"><ul class="spec">
+    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
+    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
+  </ul></div>
+</div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
 <div class="svc-cards">
 <div class="svc-card"><div class="ic">1</div><h3>Everything with one call</h3><p>Measurement, materials, installation and repair from one place. One call, and it's all arranged.</p></div>
@@ -176,17 +187,6 @@ about=f'''<section class="hero hero--compact">
     <li><b>A complete turnkey solution</b>: not just installation, a solution built around your wishes</li>
     <li><b>Your dream fence</b>: the master sees at once how it will stand and how it will look</li>
     <li><b>Every job under his eye</b>: the master answers for quality personally</li>
-  </ul></div>
-</div></div></section>
-<section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>
-  <div class="equip-body"><ul class="spec">
-    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
-    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
-    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
-    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
-    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
   </ul></div>
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
