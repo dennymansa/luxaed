@@ -57,7 +57,6 @@ home_inner=f'''<section class="hero">
     <h1>Aiad ja väravad</h1>
     <p class="hero-claim"><em>võtmed kätte</em><br>mõõdistusest paigalduseni</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
-    <p class="hero-reassure">Jätke päring ja saate oma krundi kohta esialgse hinnahinnangu. Ilma survet müügita.</p>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>15</b><span>aastat meistrite kogemust</span></div></div></div>
 </section>

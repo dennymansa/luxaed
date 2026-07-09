@@ -57,7 +57,6 @@ home_inner=f'''<section class="hero">
     <h1>Fences & gates</h1>
     <p class="hero-claim"><em>turnkey</em><br>from measurement to install</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
-    <p class="hero-reassure">Leave a request and get a preliminary estimate for your plot. No sales pressure.</p>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>15</b><span>years of craft experience</span></div></div></div>
 </section>
