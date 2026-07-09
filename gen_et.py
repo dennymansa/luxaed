@@ -107,7 +107,7 @@ def service(c):
     print("wrote", write(c["path"],H+"\n"+body))
 
 ETSERV=[
-{"path":"/aiad/vorkaed/","name":"Võrkaed ja 3D paneelaed","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
+{"path":"/aiad/vorkaed/","video":("luxaed-reel-vorkaed","3D keevispaneelaed — valmis objekt"),"name":"Võrkaed ja 3D paneelaed","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
  "title":"Võrkaed, 3D paneelaed ja aiapostid Tallinnas — LuxAed","desc":"Võrkaia ja 3D paneelaia paigaldus Tallinnas ja Harjumaal. Keevispaneelid 2D/3D, aiapostid, koeraaedikud, antratsiit RAL 7016. Tasuta mõõdistus.",
  "kicker":"Võrkaed · 3D paneelaed · aiapostid","h1":"Võrk- ja 3D-paneelaedade<br><em>paigaldus</em>",
  "lead":"Kaasaegsed keevispaneelaiad (3D aiapaneelid) jäikusribidega: tugev, korralik ja hea läbipaistvusega piire. Tsingitud ja pulbervärvitud. Peab aastakümneid.",
@@ -203,7 +203,7 @@ ETSERV=[
         ("Kas paigaldate domofone?","Jah, paigaldame ja ühendame domofonid ning kutsepaneelid värava avamisega."),
         ("Kas paigaldate tõkkepuid?","Jah, müüme ja paigaldame automaatseid tõkkepuid parklatesse, korteriühistutele ja territooriumide sissesõitudele. Koos pultide ja juhtimisega."),
         ("Kuidas on automaatika ohutusega?","Paigaldame fotoelemendid ja signaallambi, et värav ei sulguks auto või inimese peale.")]},
-{"path":"/aia-remont/","name":"Aia ja värava remont","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
+{"path":"/aia-remont/","video":("luxaed-reel-remont","Vana betoonposti eemaldamine"),"name":"Aia ja värava remont","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Aia ja värava remont Tallinnas — LuxAed","desc":"Aedade ja väravate remont Tallinnas ja Harjumaal: sektsioonide ja postide vahetus, lük- ja tiibväravate ning automaatika remont. Diagnostika ja hinnapakkumine.",
  "kicker":"Remont · hooldus","h1":"Aedade ja väravate<br><em>remont</em>",
  "lead":"Taastame aedu, väravaid ja automaatikat: sektsioonide ja postide vahetus, tiibade reguleerimine, ajamite ja furnituuri remont. Teeme diagnostika ja ütleme hinna.",

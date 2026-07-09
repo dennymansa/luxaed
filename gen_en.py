@@ -107,7 +107,7 @@ def service(c):
     print("wrote", write(c["path"],H+"\n"+body))
 
 ENSERV=[
-{"path":"/en/services/mesh-fence/","name":"Mesh & 3D fences","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
+{"path":"/en/services/mesh-fence/","video":("luxaed-reel-vorkaed","3D welded-panel fence — finished project"),"name":"Mesh & 3D fences","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
  "title":"Mesh & 3D fences, posts and dog runs in Tallinn — LuxAed","desc":"Mesh and 3D welded-panel fences in Tallinn and Harjumaa. Fence posts, dog runs, anthracite RAL 7016. Turnkey install. Free measurement.",
  "kicker":"3D mesh · panels · posts","h1":"<em>Mesh &amp; 3D fence</em><br>installation",
  "lead":"Modern welded 3D panels with stiffening ribs: strong, tidy and with good visibility of the plot. Galvanised plus powder-coated. Lasts for decades.",
@@ -203,7 +203,7 @@ ENSERV=[
         ("Do you install intercoms?","Yes, we install and connect intercoms and call panels that open the gate and wicket."),
         ("Do you install barriers?","Yes, we supply and install automatic barriers for car parks, housing associations and site entrances. With remotes and controls."),
         ("What about automation safety?","We fit photocells and a warning light so the gate won't close on a car or a person.")]},
-{"path":"/en/services/fence-repair/","name":"Fence & gate repair","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
+{"path":"/en/services/fence-repair/","video":("luxaed-reel-remont","Removing an old concrete post"),"name":"Fence & gate repair","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Fence & gate repair in Tallinn — LuxAed","desc":"Repair of fences and gates in Tallinn and Harjumaa: replacing sections and posts, repairing sliding and swing gates, automation and hardware. Diagnostics and quote.",
  "kicker":"Repair · maintenance","h1":"<em>Fence &amp; gate</em><br>repair",
  "lead":"We restore fences, gates and automation: replacing sections and posts, adjusting leaves, repairing drives and hardware. We run diagnostics and give you a price.",

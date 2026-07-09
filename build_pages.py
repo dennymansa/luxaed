@@ -113,19 +113,23 @@ def video_block(lang):
                 "Real projects: installation, gate automation and finished work.",
                 "More videos on our Facebook →")}
     tag, h2, lead, fb = T.get(lang, T["et"])
-    caps = {"et": "Puidust lükandvärav automaatikaga — valmis objekt",
-            "ru": "Деревянные откатные ворота с автоматикой — готовый объект",
-            "en": "Wooden sliding gate with automation — finished project"}
-    cap = caps.get(lang, caps["et"])
-    VIDEOS = [("luxaed-video-puitvarav", cap)]
+    # one reels strip, mixed orientations on one fixed height, horizontal scroll
+    CAPS = {
+      "luxaed-reel-postid":   {"et":"Postiaukude puurimine","ru":"Бурение ям под столбы","en":"Drilling the post holes"},
+      "luxaed-video-puitvarav":{"et":"Puidust lükandvärav automaatikaga","ru":"Деревянные откатные ворота с автоматикой","en":"Wooden sliding gate with automation"},
+      "luxaed-reel-puitaed":  {"et":"Puitaed ja värav","ru":"Деревянный забор и ворота","en":"Wooden fence and gate"},
+      "luxaed-reel-vorkaed":  {"et":"3D keevispaneelaed","ru":"3D-сетчатый забор","en":"3D welded-panel fence"},
+      "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
+    }
+    ORDER = ["luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitaed","luxaed-reel-vorkaed","luxaed-reel-remont"]
     cards = "".join(
-        f'<figure class="vidcard"><video controls preload="none" playsinline '
+        f'<figure class="reelcard"><video controls preload="none" playsinline '
         f'poster="/img/{v}-poster.jpg"><source src="/img/{v}.mp4" type="video/mp4"></video>'
-        f'<figcaption>{c}</figcaption></figure>' for v, c in VIDEOS)
+        f'<figcaption>{CAPS[v].get(lang, CAPS[v]["et"])}</figcaption></figure>' for v in ORDER)
     return (f'<section class="section"><div class="wrap"><span class="tag">{tag}</span>'
-            f'<h2 class="big">{h2}</h2><p class="lead">{lead}</p>'
-            f'<div class="vidgrid">{cards}</div>'
-            f'<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/videos" '
+            f'<h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
+            f'<div class="wrap"><div class="reelrow">{cards}</div>'
+            f'<div style="text-align:center;margin-top:20px"><a class="gal-fb" href="{FB}/reels" '
             f'target="_blank" rel="noopener">{fb}</a></div></div></section>')
 
 def lang_switch(cur_path, lang):
