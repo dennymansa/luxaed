@@ -111,7 +111,7 @@ home_inner=f'''<section class="hero">
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are our craft.</h2>
   <p class="lead lead--lg">LuxAed is a team building fences, gates and pedestrian gates in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
-  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Fences</div><p>Installed over 15 years</p></div></div></div></section>
+  </div></section>
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
@@ -163,7 +163,7 @@ about=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. Over 15 years of experience building fences and gates.</h2></div>
+  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin.<br>Over 15 years of experience building fences and gates.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
   <div class="equip-body"><p class="lead" style="margin-bottom:14px">Over 15 years of work, Artur has built thousands of fences and gates in Tallinn and Harjumaa. Thanks to his deep experience, he knows in advance which solution best suits your plot, which materials to choose and how to avoid unnecessary costs.</p><ul class="svc-bens">
     <li>Over 15 years of experience building fences and gates</li>
@@ -186,7 +186,7 @@ about=f'''<section class="hero hero--compact">
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
 <div class="wrap" style="position:relative"><span class="tag">Trusted by customers</span><h2 class="big big--xl">The reviews speak for us</h2>
 <p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach.<br>See the reviews on our <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a> page.</p>
-<div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Fences</div><p>Installed over 15 years</p></div></div></div></section>
+</div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>

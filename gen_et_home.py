@@ -111,7 +111,7 @@ home_inner=f'''<section class="hero">
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on meie käsitöö.</h2>
   <p class="lead lead--lg">LuxAed. Aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
-  <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Aeda</div><p>Paigaldatud 15 aasta jooksul</p></div></div></div></section>
+  </div></section>
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
@@ -163,7 +163,7 @@ meist=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Üle 15 aasta kogemust aedade ja väravate ehitamisel.</h2></div>
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin.<br>Üle 15 aasta kogemust aedade ja väravate ehitamisel.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
   <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 tööaasta jooksul on Artur ehitanud tuhandeid aedu ja väravaid Tallinnas ja Harjumaal. Tänu suurele kogemusele teab ta juba ette, milline lahendus sobib just teie krundile, millised materjalid valida ja kuidas vältida liigseid kulusid.</p><ul class="svc-bens">
     <li>Üle 15 aasta kogemust aedade ja väravate ehitamisel</li>
@@ -186,7 +186,7 @@ meist=f'''<section class="hero hero--compact">
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
 <p class="lead lead--lg">Kliendid kiidavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest.<br>Vaadake arvustusi meie <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebooki</a> lehel.</p>
-<div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Aeda</div><p>Paigaldatud 15 aasta jooksul</p></div></div></div></section>
+</div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed, väravate ja aedade paigaldus" loading="lazy"></picture></div>

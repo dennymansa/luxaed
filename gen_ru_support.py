@@ -42,7 +42,7 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Более 15 лет опыта в строительстве заборов и ворот.</h2></div>
+  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин.<br>Более 15 лет опыта в строительстве заборов и ворот.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин, мастер LuxAed" loading="lazy"></picture></div>
   <div class="equip-body"><p class="lead" style="margin-bottom:14px">За 15 лет работы Артур построил тысячи заборов и ворот в Таллинне и Харьюмаа. Благодаря большому опыту он заранее знает, какое решение лучше подойдёт именно для вашего участка, какие материалы выбрать и как избежать лишних затрат.</p><ul class="svc-bens">
     <li>Более 15 лет опыта в строительстве заборов и ворот</li>
@@ -76,12 +76,7 @@ about_inner=f'''<section class="hero hero--compact">
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-sunset.webp') center 40%/cover no-repeat;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.92) 0%, rgba(10,12,20,.74) 40%, rgba(12,10,16,.86) 100%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">Нам доверяют</span><h2 class="big big--xl">Отзывы говорят за нас</h2>
   <p class="lead lead--lg">Клиенты рекомендуют LuxAed за скорость, качество и профессиональный подход.<br>Смотрите отзывы на нашей странице в <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a>.</p>
-  <div class="nums">
-    <div class="num"><b>100<small>%</small></b><div class="t">Рекомендуют</div><p>По отзывам в Facebook</p></div>
-    <div class="num"><b>34</b><div class="t">Отзыва</div><p>Реальные отзывы клиентов</p></div>
-    <div class="num"><b>15</b><div class="t">Лет опыта</div><p>Опыт наших мастеров в заборах и воротах</p></div>
-    <div class="num"><b>2000<small>+</small></b><div class="t">Заборов</div><p>Установлено за 15 лет</p></div>
-  </div></div>
+  </div>
 </section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Оснащение</span><h2 class="big">Правильная техника, опытная бригада, аккуратный результат.</h2></div>

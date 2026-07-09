@@ -197,7 +197,7 @@ def video_block(lang):
            f'</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
             f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-sunset.webp\') center 42%/cover no-repeat;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.88) 0%, rgba(10,12,20,.7) 45%, rgba(8,10,16,.84) 100%);pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.93) 0%, rgba(10,12,20,.8) 45%, rgba(8,10,16,.9) 100%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
