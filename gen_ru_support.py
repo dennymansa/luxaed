@@ -37,7 +37,7 @@ about_inner=f'''<section class="hero hero--compact">
     <h1>Кто мы</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более 15 лет</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Наш мастер видел все типы заборов, грунтов и водоотвода.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограда всей территории. И, в отличие от многих, <b>работаем круглый год. Включая зиму</b>.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограда всей территории.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>

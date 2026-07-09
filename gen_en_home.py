@@ -149,7 +149,7 @@ about=f'''<section class="hero hero--compact">
     <h1>Who we are</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>for over 15 years</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our master has seen every fence type, soil and drainage setup.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter. And unlike many, <b>we work year-round. Even in winter</b>.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>

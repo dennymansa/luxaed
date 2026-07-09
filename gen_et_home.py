@@ -149,7 +149,7 @@ meist=f'''<section class="hero hero--compact">
     <h1>Kes me oleme</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>juba üle 15 aasta</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meister on näinud kõiki aiatüüpe, pinnaseid ja vee äravoolu lahendusi.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire. Ja erinevalt paljudest <b>töötame aastaringselt. Ka talvel</b>.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
