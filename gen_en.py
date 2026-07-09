@@ -95,7 +95,7 @@ def service(c):
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our work</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>{c["name"].lower()}</em> for your property?</h2>
+<section class="cta-final"><div class="wrap"><h2>We'll build your <em>dream fence</em></h2>
   <p>Leave a request or call. We'll come for a free measurement and give you an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>
 </main>

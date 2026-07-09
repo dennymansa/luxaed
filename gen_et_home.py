@@ -105,7 +105,7 @@ home_inner=f'''<section class="hero">
 </div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.16"></div>
-  <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
+  <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on meie käsitöö.</h2>
   <p class="lead lead--lg">LuxAed. Aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Aeda</div><p>Paigaldatud 15 aasta jooksul</p></div></div></div></section>
 
@@ -181,7 +181,7 @@ meist=f'''<section class="hero hero--compact">
 <ul class="svc-bens"><li>Üle <b>15 aasta</b> kogemust Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, väravaautomaatika ja domofonid</li><li>Materjalide ostu ja kogu protsessi võtame enda peale</li><li>Tasuta mõõdistus, hind enne algust, garantii tööle</li><li>Töötame aastaringselt, ka talvel</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
-<p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
+<p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest.<br>Vaadake arvustusi meie <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebooki</a> lehel.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Aeda</div><p>Paigaldatud 15 aasta jooksul</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>

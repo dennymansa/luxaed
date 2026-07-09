@@ -82,8 +82,9 @@ def partners_marquee(lang):
        "et":("Partnerid","Töötame juhtivate brändide seadmete ja materjalidega"),
        "en":("Partners","We work with equipment and materials from leading brands")}
     tag,h2=T.get(lang,T["et"])
+    from brand_logos import BRAND_LOGOS
     def pills(names):
-        return "".join(f'<span class="pm-pill pm-brand">{n}</span>' for n in names)
+        return "".join(f'<span class="pm-pill pm-brand" title="{n}">{BRAND_LOGOS.get(n, n)}</span>' for n in names)
     r1,r2=pills(ROW1),pills(ROW2)
     return (f'<section class="partners-marquee" aria-label="{tag}">'
             f'<div class="wrap"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>'
@@ -146,15 +147,15 @@ def home_video_items(lang):
 def video_block(lang):
     T = {"et": ("Videod", "Tahate näha, kuidas meistrid töötavad?",
                 "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
-                "Rohkem videoid meie Facebookis →", "Puuduta videot · keri kõrvale →",
+                "Rohkem videoid meie Facebookis →", "Keri kõrvale →",
                 "Soovite unistuste aeda?", "Helistage kohe", f"Helista {PHONE}", "Küsi pakkumist →"),
          "ru": ("Видео", "Хотите посмотреть, как работают мастера?",
                 "Живые кадры с наших объектов: монтаж, автоматика и готовые работы.",
-                "Больше видео в нашем Facebook →", "Нажмите на видео · листайте вбок →",
+                "Больше видео в нашем Facebook →", "Листайте вбок →",
                 "Хотите забор мечты?", "Звоните прямо сейчас", f"Позвонить {PHONE}", "Оставить заявку →"),
          "en": ("Videos", "Want to see how the masters work?",
                 "Real footage from our sites: installation, automation and finished work.",
-                "More videos on our Facebook →", "Tap a video · swipe sideways →",
+                "More videos on our Facebook →", "Swipe sideways →",
                 "Want your dream fence?", "Call us right away", f"Call {PHONE}", "Get a quote →")}
     tag, h2, lead, fb, hint, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
     cards = "".join(_reelcard(v, lang) for v in VIDEO_ORDER)
@@ -164,8 +165,8 @@ def video_block(lang):
            f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
            f'</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
-            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 42%/cover no-repeat;opacity:.26;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:radial-gradient(78% 62% at 76% -6%, rgba(232,142,68,.24), transparent 56%);pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 30%/cover no-repeat;opacity:.42;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:radial-gradient(92% 72% at 70% -4%, rgba(236,150,74,.34), transparent 58%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'

@@ -105,7 +105,7 @@ home_inner=f'''<section class="hero">
 </div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.16"></div>
-  <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>
+  <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are our craft.</h2>
   <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Fences</div><p>Installed over 15 years</p></div></div></div></section>
 
@@ -181,7 +181,7 @@ about=f'''<section class="hero hero--compact">
 <ul class="svc-bens"><li>Over <b>15 years</b> of experience in Tallinn and Harjumaa</li><li>Fences from wood, profiled sheet and welded mesh</li><li>Sliding and swing gates, automation and intercoms</li><li>We handle buying the materials and the whole process</li><li>Free measurement, price up front, warranty on the work</li><li>We work year-round, including winter</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
 <div class="wrap" style="position:relative"><span class="tag">Trusted by customers</span><h2 class="big big--xl">The reviews speak for us</h2>
-<p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach. See the reviews on our Facebook page.</p>
+<p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach.<br>See the reviews on our <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a> page.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>2000<small>+</small></b><div class="t">Fences</div><p>Installed over 15 years</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>

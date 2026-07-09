@@ -75,7 +75,7 @@ about_inner=f'''<section class="hero hero--compact">
 </div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
   <div class="wrap" style="position:relative"><span class="tag">Нам доверяют</span><h2 class="big big--xl">Отзывы говорят за нас</h2>
-  <p class="lead lead--lg">Клиенты рекомендуют LuxAed за скорость, качество и профессиональный подход. Смотрите отзывы на нашей странице в Facebook.</p>
+  <p class="lead lead--lg">Клиенты рекомендуют LuxAed за скорость, качество и профессиональный подход.<br>Смотрите отзывы на нашей странице в <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a>.</p>
   <div class="nums">
     <div class="num"><b>100<small>%</small></b><div class="t">Рекомендуют</div><p>По отзывам в Facebook</p></div>
     <div class="num"><b>34</b><div class="t">Отзыва</div><p>Реальные отзывы клиентов</p></div>
