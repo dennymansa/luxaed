@@ -51,7 +51,7 @@ about_inner=f'''<section class="hero hero--compact">
     <li>Опыт на участках с любыми грунтами и рельефом</li>
     <li>Помощь с выбором материалов и оптимального решения</li>
     <li>Контроль качества на каждом этапе работ</li>
-  </ul><p style="margin-top:16px"><b>Мы не просто устанавливаем заборы.</b> Мы строим надёжные решения, которые прослужат долгие годы.</p></div>
+  </ul><p style="margin-top:16px"><b>Мы не просто устанавливаем заборы.</b><br>Мы строим надёжные решения, которые прослужат долгие годы.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap">
   <span class="tag">Принципы</span><h2 class="big">Что для нас важно</h2>
@@ -106,7 +106,7 @@ FAQ=[("Сколько стоит забор или ворота?","Точную 
 faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]},ensure_ascii=False)+'</script>']
 faq_inner=f'''{hero("Вопросы и ответы","Частые вопросы о заборах и воротах","Собрали ответы на вопросы, которые чаще всего задают перед заказом забора или ворот.", crumb="Вопросы")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Что спрашивают перед заказом</h2>{faq_html(FAQ)}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Не нашли ответ?</h2><p>Позвоните или напишите. Подскажем и приедем на бесплатный замер.</p>
+<section class="cta-final"><div class="wrap"><h2>Не нашли ответ?</h2><p>Позвоните или напишите.<br>Подскажем и приедем на бесплатный замер.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
 page("/ru/faq/","Вопросы и ответы о заборах и воротах — LuxAed","Частые вопросы о заборах, воротах и автоматике в Таллинне: цена, материалы, сроки, автоматика, ремонт. Ответы от LuxAed.", faq_inner, schema=faq_schema)
 

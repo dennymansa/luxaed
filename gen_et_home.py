@@ -172,7 +172,7 @@ meist=f'''<section class="hero hero--compact">
     <li>Kogemus igasuguse pinnase ja reljeefiga kruntidel</li>
     <li>Abi materjalide ja parima lahenduse valikul</li>
     <li>Kvaliteedikontroll töö igas etapis</li>
-  </ul><p style="margin-top:16px"><b>Me ei paigalda lihtsalt aedu.</b> Me ehitame töökindlaid lahendusi, mis kestavad aastaid.</p></div>
+  </ul><p style="margin-top:16px"><b>Me ei paigalda lihtsalt aedu.</b><br>Me ehitame töökindlaid lahendusi, mis kestavad aastaid.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Põhimõtted</span><h2 class="big">Meie jaoks oluline</h2>
 <div class="svc-cards">
@@ -205,7 +205,7 @@ page("/meist/","LuxAedist. Aiad ja väravad Tallinnas","LuxAed. Aedade ja värav
 # ---------------- ET KKK ----------------
 kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Kogusime vastused küsimustele, mida enne aia või värava tellimist kõige sagedamini küsitakse.", crumb="KKK")}
 <section class="section"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage. Anname nõu ja tuleme tasuta mõõdistusele.</p>
+<section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage.<br>Anname nõu ja tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 page("/kkk/","KKK. Aiad ja väravad — LuxAed","Korduma kippuvad küsimused aedade, väravate ja automaatika kohta Tallinnas: hind, materjalid, tähtajad, automaatika, remont. LuxAed.", kkk_inner, og="/img/luxaed-wide-wood.jpg", sch=home_faq_schema)
 

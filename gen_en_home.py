@@ -172,7 +172,7 @@ about=f'''<section class="hero hero--compact">
     <li>Experience on plots with any soil and terrain</li>
     <li>Help choosing materials and the best solution</li>
     <li>Quality control at every stage of the work</li>
-  </ul><p style="margin-top:16px"><b>We don't just install fences.</b> We build reliable solutions that will last for years.</p></div>
+  </ul><p style="margin-top:16px"><b>We don't just install fences.</b><br>We build reliable solutions that will last for years.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
 <div class="svc-cards">
@@ -205,7 +205,7 @@ page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Fences an
 # ---------------- EN FAQ ----------------
 faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write. We'll advise and come for a free measurement.</p>
+<section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write.<br>We'll advise and come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
 page("/en/faq/","FAQ. Fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, og="/img/luxaed-wide-wood.jpg", sch=home_faq_schema)
 

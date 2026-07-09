@@ -127,7 +127,7 @@ def service_page(c):
 
 <section class="cta-final">
   <div class="wrap"><h2>Поставим <em>забор вашей мечты</em></h2>
-    <p>Оставьте заявку или позвоните. Приедем на бесплатный замер и назовём точную цену.</p>
+    <p>Оставьте заявку или позвоните.<br>Приедем на бесплатный замер и назовём точную цену.</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div>
 </section>
 </main>

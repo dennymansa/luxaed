@@ -96,7 +96,7 @@ def service(c):
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>We'll build your <em>dream fence</em></h2>
-  <p>Leave a request or call. We'll come for a free measurement and give you an exact price.</p>
+  <p>Leave a request or call.<br>We'll come for a free measurement and give you an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>
 </main>
 <div class="lb" id="lb"><button class="lb-x" aria-label="Close">&times;</button><img src="" alt="" id="lbImg"></div>
