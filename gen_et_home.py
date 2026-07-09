@@ -148,7 +148,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, 3D paneelid, väravaautomaatika. Tasuta mõõdistus. 100% soovitab.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("et"),"et"))
+page("/","Aedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, 3D paneelid, väravaautomaatika. Tasuta mõõdistus. 100% soovitab.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">

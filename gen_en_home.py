@@ -148,7 +148,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Ready to discuss <em>a fence or gate</em>?</h2>
   <p>Leave a request or call. We'll come for a free measurement and give an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, 3D mesh panels, gate automation. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("en"),"en"))
+page("/en/","Fences and gates installation in Tallinn and Harjumaa — LuxAed","Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, 3D mesh panels, gate automation. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("en"),"en"))
 
 # ---------------- EN ABOUT ----------------
 about=f'''<section class="hero hero--compact">
