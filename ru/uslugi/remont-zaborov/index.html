@@ -19,7 +19,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M4%2022%20H22%27/%3E%3Cpath%20d%3D%27M8%2022%20V9%20M18%2022%20V9%27/%3E%3Cpath%20d%3D%27M8%209%20Q13%204.5%2018%209%27/%3E%3Cpath%20d%3D%27M11%2022%20V11%20M15%2022%20V11%20M13%2022%20V10%27/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="/img/luxaed-g6.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/caveat-700-cyrillic.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/luxaed.css?v=34e0c0cc">
+<link rel="stylesheet" href="/assets/luxaed.css?v=20eb04c7">
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-960623543"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","AW-960623543");</script>
 </head>
 <body>
@@ -180,7 +180,21 @@ function down(){hold=true;if(rt){clearTimeout(rt);rt=null;}}function up(){if(rt)
 row.addEventListener('touchstart',down,{passive:true});row.addEventListener('touchend',up,{passive:true});row.addEventListener('touchcancel',up,{passive:true});
 function init(){if(mob.matches&&rev){var ww=w();if(ww>0&&row.scrollLeft<=0)row.scrollLeft=ww;}if(!on){on=true;requestAnimationFrame(tick);}}
 setTimeout(init,350);window.addEventListener('load',init);});})();
-function playReel(fig){if(fig.dataset.on)return;fig.dataset.on='1';var img=fig.querySelector('.vid-poster');var v=document.createElement('video');v.controls=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('preload','auto');v.poster=img?img.currentSrc||img.src:'';var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);if(img)img.replaceWith(v);var b=fig.querySelector('.vid-play');if(b)b.remove();var fs=document.createElement('button');fs.type='button';fs.className='vid-fs';fs.setAttribute('aria-label','Fullscreen');fs.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>';fs.onclick=function(e){e.stopPropagation();try{if(v.requestFullscreen)v.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();else if(v.webkitRequestFullscreen)v.webkitRequestFullscreen();}catch(_){}};fig.appendChild(fs);var p=v.play();if(p&&p.catch)p.catch(function(){});}
+function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}fig.classList.remove('playing');}
+function playReel(fig){
+ var others=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<others.length;i++){if(others[i]!==fig)resetReel(others[i]);}
+ var v=fig._v;
+ if(v){v.play().catch(function(){});if(v.requestFullscreen)v.requestFullscreen().catch(function(){});else if(v.webkitEnterFullscreen)try{v.webkitEnterFullscreen();}catch(e){}return;}
+ v=document.createElement('video');v.className='reel-video';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';
+ var img=fig.querySelector('.vid-poster');if(img)v.poster=img.currentSrc||img.src;
+ var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);
+ fig.appendChild(v);fig._v=v;fig.classList.add('playing');
+ if(v.requestFullscreen){v.requestFullscreen().catch(function(){});}
+ else if(v.webkitRequestFullscreen){try{v.webkitRequestFullscreen();}catch(e){}}
+ else if(v.webkitEnterFullscreen){v.addEventListener('loadedmetadata',function(){try{v.webkitEnterFullscreen();}catch(e){}},{once:true});v.addEventListener('webkitendfullscreen',function(){resetReel(fig);});}
+ v.play().catch(function(){});
+}
+document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement){var ps=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<ps.length;i++)resetReel(ps[i]);}});
 document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t)all[i].pause();}}},true);
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>

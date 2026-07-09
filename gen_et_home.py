@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # ET home + ET support pages (meist, kkk, kontakt, privaatsus, tingimused)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block, video_schema, home_video_items
 from gen_et import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -141,7 +141,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, 3D paneelid, väravaautomaatika. Tasuta mõõdistus. 100% soovitab.", home_inner, sch=lb_schema+home_faq_schema)
+page("/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, 3D paneelid, väravaautomaatika. Tasuta mõõdistus. 100% soovitab.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">

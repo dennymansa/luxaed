@@ -101,55 +101,71 @@ def partners_marquee(lang):
             f'<div class="pm-set">{monos}</div><div class="pm-set">{monos}</div></div></div>'
             f'</section>')
 
+# ---- work videos (self-hosted, downloaded from LuxAed FB) ----
+VIDEO_CAPS = {
+  "luxaed-reel-montaaz":  {"et":"Aia paigaldus objektil","ru":"Монтаж забора на объекте","en":"Fence installation on site"},
+  "luxaed-reel-postid":   {"et":"Postiaukude puurimine","ru":"Бурение ям под столбы","en":"Drilling the post holes"},
+  "luxaed-video-puitvarav":{"et":"Puidust lükandvärav automaatikaga","ru":"Деревянные откатные ворота с автоматикой","en":"Wooden sliding gate with automation"},
+  "luxaed-reel-puitvarav2":{"et":"Puitvärav ja jalgvärav","ru":"Деревянные ворота и калитка","en":"Wooden gate and wicket"},
+  "luxaed-reel-puitaed":  {"et":"Puitaed ja värav","ru":"Деревянный забор и ворота","en":"Wooden fence and gate"},
+  "luxaed-reel-valmis":   {"et":"Valmis puit-metall aed","ru":"Готовый забор дерево-металл","en":"Finished wood-and-metal fence"},
+  "luxaed-reel-vorkaed":  {"et":"3D keevispaneelaed","ru":"3D-сетчатый забор","en":"3D welded-panel fence"},
+  "luxaed-reel-vorkaed2": {"et":"3D paneelaed heki ääres","ru":"3D-забор вдоль живой изгороди","en":"3D panel fence by a hedge"},
+  "luxaed-reel-metallaed":{"et":"Metallpiire","ru":"Металлическое ограждение","en":"Metal fence"},
+  "luxaed-reel-domofon":  {"et":"Domofoni paigaldus","ru":"Установка домофона","en":"Intercom installation"},
+  "luxaed-reel-varav-oht":{"et":"Liugväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
+  "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
+}
+VIDEO_ORDER = ["luxaed-reel-montaaz","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
+               "luxaed-reel-puitaed","luxaed-reel-valmis","luxaed-reel-vorkaed","luxaed-reel-vorkaed2",
+               "luxaed-reel-metallaed","luxaed-reel-domofon","luxaed-reel-varav-oht","luxaed-reel-remont"]
+VIDEO_DUR = {"luxaed-reel-domofon":15,"luxaed-reel-metallaed":31,"luxaed-reel-montaaz":64,"luxaed-reel-postid":36,
+             "luxaed-reel-puitaed":29,"luxaed-reel-puitvarav2":63,"luxaed-reel-remont":57,"luxaed-reel-valmis":19,
+             "luxaed-reel-varav-oht":50,"luxaed-reel-vorkaed":36,"luxaed-reel-vorkaed2":70,"luxaed-video-puitvarav":59}
+VIDEO_UPLOADED = "2025-08-01"
+
+def _reelcard(v, lang):
+    import json as _j
+    c = VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])
+    return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
+            f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
+            f'<img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}">'
+            f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
+            f'<figcaption>{c}</figcaption></figure>')
+
+def video_schema(items, lang):
+    # VideoObject JSON-LD (name, description, thumbnailUrl, uploadDate required; +contentUrl, duration)
+    import json as _j
+    out = []
+    for v, c in items:
+        d = VIDEO_DUR.get(v, 30)
+        obj = {"@context":"https://schema.org","@type":"VideoObject","name":c,
+               "description":c+" — LuxAed, aiad ja väravad Tallinnas ja Harjumaal.",
+               "thumbnailUrl":[DOMAIN+f"/img/{v}-poster.jpg"],"uploadDate":VIDEO_UPLOADED,
+               "duration":f"PT{d}S","contentUrl":DOMAIN+f"/img/{v}.mp4",
+               "publisher":{"@type":"Organization","name":"LuxAed",
+                            "logo":{"@type":"ImageObject","url":DOMAIN+"/img/luxaed-hero.jpg"}}}
+        out.append('<script type="application/ld+json">'+_j.dumps(obj,ensure_ascii=False)+'</script>')
+    return out
+
+def home_video_items(lang):
+    return [(v, VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])) for v in VIDEO_ORDER]
+
 def video_block(lang):
-    # self-hosted work videos (downloaded from LuxAed FB, re-encoded); click-to-play, preload=none
     T = {"et": ("Videod", "Tahad näha, kuidas meistrid töötavad?",
                 "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
-                "Rohkem videoid meie Facebookis →",
+                "Rohkem videoid meie Facebookis →", "Puuduta videot · keri kõrvale →",
                 "Soovite unistuste aeda?", "Helistage kohe", f"Helista {PHONE}", "Küsi pakkumist →"),
          "ru": ("Видео", "Хотите посмотреть, как работают мастера?",
                 "Живые кадры с наших объектов: монтаж, автоматика и готовые работы.",
-                "Больше видео в нашем Facebook →",
+                "Больше видео в нашем Facebook →", "Нажмите на видео · листайте вбок →",
                 "Хотите забор мечты?", "Звоните прямо сейчас", f"Позвонить {PHONE}", "Оставить заявку →"),
          "en": ("Videos", "Want to see how the masters work?",
                 "Real footage from our sites: installation, automation and finished work.",
-                "More videos on our Facebook →",
+                "More videos on our Facebook →", "Tap a video · swipe sideways →",
                 "Want your dream fence?", "Call us right away", f"Call {PHONE}", "Get a quote →")}
-    tag, h2, lead, fb, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
-    # one reels carousel, mixed orientations on one fixed height, horizontal scroll + arrows
-    CAPS = {
-      "luxaed-reel-montaaz":  {"et":"Aia paigaldus objektil","ru":"Монтаж забора на объекте","en":"Fence installation on site"},
-      "luxaed-reel-postid":   {"et":"Postiaukude puurimine","ru":"Бурение ям под столбы","en":"Drilling the post holes"},
-      "luxaed-video-puitvarav":{"et":"Puidust lükandvärav automaatikaga","ru":"Деревянные откатные ворота с автоматикой","en":"Wooden sliding gate with automation"},
-      "luxaed-reel-puitvarav2":{"et":"Puitvärav ja jalgvärav","ru":"Деревянные ворота и калитка","en":"Wooden gate and wicket"},
-      "luxaed-reel-puitaed":  {"et":"Puitaed ja värav","ru":"Деревянный забор и ворота","en":"Wooden fence and gate"},
-      "luxaed-reel-valmis":   {"et":"Valmis puit-metall aed","ru":"Готовый забор дерево-металл","en":"Finished wood-and-metal fence"},
-      "luxaed-reel-vorkaed":  {"et":"3D keevispaneelaed","ru":"3D-сетчатый забор","en":"3D welded-panel fence"},
-      "luxaed-reel-vorkaed2": {"et":"3D paneelaed heki ääres","ru":"3D-забор вдоль живой изгороди","en":"3D panel fence by a hedge"},
-      "luxaed-reel-metallaed":{"et":"Metallpiire","ru":"Металлическое ограждение","en":"Metal fence"},
-      "luxaed-reel-domofon":  {"et":"Domofoni paigaldus","ru":"Установка домофона","en":"Intercom installation"},
-      "luxaed-reel-varav-oht":{"et":"Liugväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
-      "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
-    }
-    ORDER = ["luxaed-reel-montaaz","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
-             "luxaed-reel-puitaed","luxaed-reel-valmis","luxaed-reel-vorkaed","luxaed-reel-vorkaed2",
-             "luxaed-reel-metallaed","luxaed-reel-domofon","luxaed-reel-varav-oht","luxaed-reel-remont"]
-    def dims(v):
-        try:
-            from PIL import Image
-            return Image.open(os.path.join(SITE, "img", v + "-poster.jpg")).size
-        except Exception:
-            return (400, 700)
-    def card(v):
-        c = CAPS[v].get(lang, CAPS[v]["et"])
-        w, h = dims(v)
-        return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
-                f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
-                f'<img class="vid-poster" loading="lazy" decoding="async" width="{w}" height="{h}" '
-                f'src="/img/{v}-poster.jpg" alt="{c}">'
-                f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
-                f'<figcaption>{c}</figcaption></figure>')
-    cards = "".join(card(v) for v in ORDER)
+    tag, h2, lead, fb, hint, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
+    cards = "".join(_reelcard(v, lang) for v in VIDEO_ORDER)
     scroll = "this.closest('.vidsec').querySelector('.reelrow').scrollBy"
     nav = (f'<div class="reel-nav-top">'
            f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
@@ -159,7 +175,8 @@ def video_block(lang):
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
             f'<div class="wrap"><div class="reelwrap"><div class="reelrow">{cards}</div></div>'
-            f'<div style="text-align:center;margin-top:24px"><a class="gal-fb" href="{FB}/reels" '
+            f'<div class="reel-hint">{hint}</div>'
+            f'<div style="text-align:center;margin-top:14px"><a class="gal-fb" href="{FB}/reels" '
             f'target="_blank" rel="noopener">{fb}</a></div></div></section>'
             f'<div class="mini-cta mini-cta--dream"><div class="wrap"><span>{cta_h} <b>{cta_sub}!</b></span>'
             f'<div class="mini-cta-btns"><a class="btn btn-accent" href="tel:{TEL}">{cta_call}</a>'
@@ -167,18 +184,10 @@ def video_block(lang):
 
 def reel_strip(items, tag, h2):
     # compact reels carousel for a service page (no CTA); items: list of (video, caption)
-    def dims(v):
-        try:
-            from PIL import Image
-            return Image.open(os.path.join(SITE, "img", v + "-poster.jpg")).size
-        except Exception:
-            return (400, 700)
     def card(v, c):
-        w, h = dims(v)
         return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
                 f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
-                f'<img class="vid-poster" loading="lazy" decoding="async" width="{w}" height="{h}" '
-                f'src="/img/{v}-poster.jpg" alt="{c}">'
+                f'<img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}">'
                 f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
                 f'<figcaption>{c}</figcaption></figure>')
     cards = "".join(card(v, c) for v, c in items)
@@ -299,7 +308,21 @@ function down(){hold=true;if(rt){clearTimeout(rt);rt=null;}}function up(){if(rt)
 row.addEventListener('touchstart',down,{passive:true});row.addEventListener('touchend',up,{passive:true});row.addEventListener('touchcancel',up,{passive:true});
 function init(){if(mob.matches&&rev){var ww=w();if(ww>0&&row.scrollLeft<=0)row.scrollLeft=ww;}if(!on){on=true;requestAnimationFrame(tick);}}
 setTimeout(init,350);window.addEventListener('load',init);});})();
-function playReel(fig){if(fig.dataset.on)return;fig.dataset.on='1';var img=fig.querySelector('.vid-poster');var v=document.createElement('video');v.controls=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('preload','auto');v.poster=img?img.currentSrc||img.src:'';var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);if(img)img.replaceWith(v);var b=fig.querySelector('.vid-play');if(b)b.remove();var fs=document.createElement('button');fs.type='button';fs.className='vid-fs';fs.setAttribute('aria-label','Fullscreen');fs.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>';fs.onclick=function(e){e.stopPropagation();try{if(v.requestFullscreen)v.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();else if(v.webkitRequestFullscreen)v.webkitRequestFullscreen();}catch(_){}};fig.appendChild(fs);var p=v.play();if(p&&p.catch)p.catch(function(){});}
+function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}fig.classList.remove('playing');}
+function playReel(fig){
+ var others=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<others.length;i++){if(others[i]!==fig)resetReel(others[i]);}
+ var v=fig._v;
+ if(v){v.play().catch(function(){});if(v.requestFullscreen)v.requestFullscreen().catch(function(){});else if(v.webkitEnterFullscreen)try{v.webkitEnterFullscreen();}catch(e){}return;}
+ v=document.createElement('video');v.className='reel-video';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';
+ var img=fig.querySelector('.vid-poster');if(img)v.poster=img.currentSrc||img.src;
+ var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);
+ fig.appendChild(v);fig._v=v;fig.classList.add('playing');
+ if(v.requestFullscreen){v.requestFullscreen().catch(function(){});}
+ else if(v.webkitRequestFullscreen){try{v.webkitRequestFullscreen();}catch(e){}}
+ else if(v.webkitEnterFullscreen){v.addEventListener('loadedmetadata',function(){try{v.webkitEnterFullscreen();}catch(e){}},{once:true});v.addEventListener('webkitendfullscreen',function(){resetReel(fig);});}
+ v.play().catch(function(){});
+}
+document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement){var ps=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<ps.length;i++)resetReel(ps[i]);}});
 document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t)all[i].pause();}}},true);
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();
 </script>'''
