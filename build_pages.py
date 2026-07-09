@@ -180,7 +180,7 @@ def video_block(lang):
                 "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
                 "Rohkem videoid meie Facebookis →", "Keri kõrvale →",
                 "Soovite unistuste aeda?", "Helistage kohe", f"Helista {PHONE}", "Küsi pakkumist →"),
-         "ru": ("Видео", "Хотите посмотреть, как работают мастера?",
+         "ru": ("Видео", "Хотите посмотреть, как работают профессионалы?",
                 "Живые кадры с наших объектов: монтаж, автоматика и готовые работы.",
                 "Больше видео в нашем Facebook →", "Листайте вбок →",
                 "Хотите забор мечты?", "Звоните прямо сейчас", f"Позвонить {PHONE}", "Оставить заявку →"),
