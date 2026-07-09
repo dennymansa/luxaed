@@ -23,6 +23,42 @@ def fix_css(s):
     b = BASE
     return re.sub(r"url\((['\"]?)/(?!"+re.escape(b[1:])+r"/)(?!/)", r"url(\1"+b+"/", s)
 
+# ---- Title Case for <title>/og:title/twitter:title (per language, connectors stay lowercase) ----
+_STOP = {
+ 'ru': {'и','в','из','на','о','с','со','для','по','к','у','от','до'},
+ 'et': {'ja','ning','või'},
+ 'en': {'and','in','of','the','a','an','for','to','or','on','with','&'},
+}
+def _cap_first(w):
+    for i,ch in enumerate(w):
+        if ch.isalpha():
+            return w[:i]+ch.upper()+w[i+1:]  # capitalise first letter, keep the rest (LuxAed, 3D, väravate stay intact)
+        if ch.isdigit():
+            return w  # 3D-, 15- etc: leave as-is
+    return w
+def _tc_part(s, lang):
+    stop=_STOP.get(lang,set()); out=[]
+    for i,w in enumerate(s.split(' ')):
+        if not w or '&' in w: out.append(w); continue  # leave HTML entities (&amp; &nbsp;) intact
+        low=w.lower().strip('.,()')
+        out.append(w.lower() if (i>0 and low in stop) else _cap_first(w))
+    return ' '.join(out)
+def title_case(title, lang):
+    # keep the "— LuxAed" brand suffix untouched
+    if ' — ' in title:
+        main, brand = title.split(' — ', 1)
+        return _tc_part(main, lang) + ' — ' + brand
+    return _tc_part(title, lang)
+def apply_titlecase(html):
+    m=re.search(r'<html lang="([a-z]{2})"', html)
+    lang=m.group(1) if m else 'et'
+    def sub_title(mm): return '<title>'+title_case(mm.group(1), lang)+'</title>'
+    html=re.sub(r'<title>(.*?)</title>', sub_title, html, count=1, flags=re.DOTALL)
+    for prop in ('og:title','twitter:title'):
+        def sub_meta(mm, prop=prop): return mm.group(1)+title_case(mm.group(2), lang)+mm.group(3)
+        html=re.sub(r'(<meta (?:property|name)="'+prop+r'" content=")([^"]*)(">)', sub_meta, html, count=1)
+    return html
+
 def main():
     import hashlib
     # content hash of CSS -> cache-busting version so browsers always fetch fresh CSS
@@ -36,6 +72,7 @@ def main():
     for f in glob.glob("**/*.html", recursive=True):
         if f.startswith("reference-kit"): continue
         s=open(f,encoding="utf-8").read(); t=fix_html(s)
+        t=apply_titlecase(t)
         if css_inline:
             # inline the full stylesheet (removes the render-blocking request);
             # idempotent: replaces the <link> on fresh builds or refreshes a previous inline copy
