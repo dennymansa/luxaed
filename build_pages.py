@@ -137,7 +137,7 @@ def video_schema(items, lang):
                "thumbnailUrl":[DOMAIN+f"/img/{v}-poster.jpg"],"uploadDate":VIDEO_UPLOADED,
                "duration":f"PT{d}S","contentUrl":DOMAIN+f"/img/{v}.mp4",
                "publisher":{"@type":"Organization","name":"LuxAed",
-                            "logo":{"@type":"ImageObject","url":DOMAIN+"/img/luxaed-hero.jpg"}}}
+                            "logo":{"@type":"ImageObject","url":DOMAIN+"/img/luxaed-logo.png"}}}
         out.append('<script type="application/ld+json">'+_j.dumps(obj,ensure_ascii=False)+'</script>')
     return out
 
@@ -388,8 +388,8 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 {alts}
 <meta property="og:url" content="{canon}"><meta property="og:type" content="website"><meta property="og:site_name" content="LuxAed">
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}">
-<meta property="og:image" content="{DOMAIN}{og_img}"><meta property="og:locale" content="{locale}">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{html.escape(title)}"><meta name="twitter:image" content="{DOMAIN}{og_img}">
+<meta property="og:image" content="{DOMAIN}/img/luxaed-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{locale}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{html.escape(title)}"><meta name="twitter:image" content="{DOMAIN}/img/luxaed-og.jpg">
 {sb}
 <link rel="icon" href="{fav}">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
