@@ -113,7 +113,7 @@ VIDEO_CAPS = {
   "luxaed-reel-vorkaed2": {"et":"3D paneelaed heki ääres","ru":"3D-забор вдоль живой изгороди","en":"3D panel fence by a hedge"},
   "luxaed-reel-metallaed":{"et":"Metallpiire","ru":"Металлическое ограждение","en":"Metal fence"},
   "luxaed-reel-domofon":  {"et":"Domofoni paigaldus","ru":"Установка домофона","en":"Intercom installation"},
-  "luxaed-reel-varav-oht":{"et":"Liugväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
+  "luxaed-reel-varav-oht":{"et":"Lükandväravad õhtuvalguses","ru":"Откатные ворота вечером","en":"Sliding gates at dusk"},
   "luxaed-reel-remont":   {"et":"Vana posti eemaldamine","ru":"Демонтаж старого столба","en":"Removing an old post"},
 }
 VIDEO_ORDER = ["luxaed-reel-montaaz","luxaed-reel-postid","luxaed-video-puitvarav","luxaed-reel-puitvarav2",
@@ -152,7 +152,7 @@ def home_video_items(lang):
     return [(v, VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])) for v in VIDEO_ORDER]
 
 def video_block(lang):
-    T = {"et": ("Videod", "Tahad näha, kuidas meistrid töötavad?",
+    T = {"et": ("Videod", "Tahate näha, kuidas meistrid töötavad?",
                 "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
                 "Rohkem videoid meie Facebookis →", "Puuduta videot · keri kõrvale →",
                 "Soovite unistuste aeda?", "Helistage kohe", f"Helista {PHONE}", "Küsi pakkumist →"),
@@ -171,10 +171,12 @@ def video_block(lang):
            f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
            f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
            f'</div>')
-    return (f'<section class="section vidsec"><div class="wrap"><div class="vidsec-head">'
+    return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
+            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-night.webp\') center/cover no-repeat;opacity:.14;pointer-events:none"></div>'
+            f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
-            f'<div class="wrap"><div class="reelwrap"><div class="reelrow">{cards}</div></div>'
+            f'<div class="wrap" style="position:relative"><div class="reelwrap"><div class="reelrow">{cards}</div></div>'
             f'<div class="reel-hint">{hint}</div>'
             f'<div style="text-align:center;margin-top:14px"><a class="gal-fb" href="{FB}/reels" '
             f'target="_blank" rel="noopener">{fb}</a></div></div></section>'

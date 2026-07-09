@@ -34,7 +34,7 @@ def form_html():
 </div></div>'''
 
 PROCESS='''<div class="hsteps">
-  <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum. Ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
+  <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum, ja võtame kogu töö enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
   <div class="hstep"><div class="hstep-num">2</div><h3>Leiame sobiva lahenduse</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna. Ilma üllatusteta.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>Paigaldame korralikult</h3><p>Paigaldame postid, sektsioonid, väravad ja automaatika. Hoiame teid kursis igal etapil.</p></div>
   <div class="hstep"><div class="hstep-num">4</div><h3>Anname töö üle</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle. Koos hooldussoovitustega.</p></div>
@@ -96,7 +96,7 @@ def service(c):
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Tehtud tööde näited</h2>{gal(c["gallery"])}{("<div class=\"vidgrid\" style=\"margin-top:26px\"><figure class=\"vidcard\" data-src=\"/img/"+c["video"][0]+".mp4\" onclick=\"playReel(this)\" tabindex=\"0\" role=\"button\" onkeydown=\"if(event.key==='Enter')playReel(this)\"><img class=\"vid-poster\" loading=\"lazy\" decoding=\"async\" src=\"/img/"+c["video"][0]+"-poster.jpg\" alt=\""+c["video"][1]+"\"><button class=\"vid-play\" aria-hidden=\"true\" tabindex=\"-1\">▶</button><figcaption>"+c["video"][1]+"</figcaption></figure></div>") if c.get("video") else ""}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Vaata rohkem fotosid Facebookis →</a></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Arutame <em>{c["name"].lower()}</em> teie krundile?</h2>
+<section class="cta-final"><div class="wrap"><h2><em>{c["name"]}</em> teie krundil? Räägime.</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>
 </main>
@@ -112,7 +112,7 @@ ETSERV=[
  "title":"Võrkaed, 3D paneelaed ja aiapostid Tallinnas — LuxAed","desc":"Võrkaia ja 3D paneelaia paigaldus Tallinnas ja Harjumaal. Keevispaneelid 2D/3D, aiapostid, koeraaedikud, antratsiit RAL 7016. Tasuta mõõdistus.",
  "kicker":"Võrkaed · 3D paneelaed · aiapostid","h1":"Võrk- ja 3D-paneelaedade<br><em>paigaldus</em>",
  "lead":"Kaasaegsed keevispaneelaiad (3D aiapaneelid) jäikusribidega: tugev, korralik ja hea läbipaistvusega piire. Tsingitud ja pulbervärvitud. Peab aastakümneid.",
- "intro_h":"Miks valida paneelaed","intro_p":"Keevispaneel (3D) hoiab vormi, ei vaju ega tuuletõmba ning näeb kaasaegne välja. Selline piirdeaed sobib eramutele, ridaelamutele ja territooriumidele. Müüme ja paigaldame ka aiaposte ning ehitame koeraaedikuid.",
+ "intro_h":"Miks valida paneelaed","intro_p":"Keevispaneel (3D) hoiab vormi, ei vaju ega paindu tuules ning näeb kaasaegne välja. Selline piirdeaed sobib eramutele, ridaelamutele ja territooriumidele. Müüme ja paigaldame ka aiaposte ning ehitame koeraaedikuid.",
  "bens":["Tugevad keevispaneelid jäikusribidega","Tsink + pulbervärv. Ei roosteta","Antratsiit RAL 7016 ja teised värvid","2D ja 3D aiapaneelid, keevisvõrkaed","Tsingitud aiapostid, kübarad ja klambrid","Koeraaedikud ja loomatarad keevispaneelist"],
  "variants_h":"Milliseid võrkaedu teeme",
  "variants":[("3D","3D aiapaneel","Keevispaneel V-kujuliste jäikusribidega. Populaarseim ja tugevaim."),
@@ -121,14 +121,14 @@ ETSERV=[
              ("⌗","Koeraaedik","Keevispaneelidest koeraaedikud ja loomatarad. Tugevad ja turvalised."),
              ("◧","RAL värvid","Antratsiit RAL 7016, roheline RAL 6005, must jm.")],
  "cta_band":"Arvutame võrkaia teie krundile","incl":["Krundi mõõdistus","Tsingitud postide paigaldus","Keevispaneelide ja kinnituste montaaž","Loodimine reljeefi järgi","Kontroll pärast paigaldust"],
- "factors":["Aia pikkus ja paneelide kõrgus (1.23–2.03 m)","Paneeli tüüp (2D/3D) ja värv","Aiapostide arv ja tüüp","Väravate, jalgvärava ja koeraaediku vajadus","Reljeef ja vana aia lammutus"],
+ "factors":["Aia pikkus ja paneelide kõrgus (1,23–2,03 m)","Paneeli tüüp (2D/3D) ja värv","Aiapostide arv ja tüüp","Väravate, jalgvärava ja koeraaediku vajadus","Reljeef ja vana aia lammutus"],
  "gallery":[("luxaed-w-mesh-1","Antratsiit 3D paneelaed heki ääres"),("luxaed-w-mesh-2","3D keevispaneelaed rohelises toonis"),("luxaed-w-mesh-gate","Jalgvärav keevispaneelist"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-mesh-detail","Paneeli kinnitus postile"),("luxaed-w-panels","2D aiapaneelid enne paigaldust"),("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-night","Paneelväravad õhtuvalguses"),("luxaed-mesh-2","Võrkaed krundi ääres"),("luxaed-w-van","LuxAed meeskond objektil")],
  "faq":[("Võrkaed (aiavõrk) või paneelaed. Kumb valida?","Klassikaline aiavõrk rullis on odav, aga venib ja vajub aja jooksul. Soovitame keevispaneeli või keevisvõrkaeda: sama läbipaistvus, kuid jäik ja korralik. Peab kordades kauem. Arvutame mõlema hinna ja aitame valida."),
         ("Mis vahe on keevisvõrkaial ja keevispaneelaial?","Keevisvõrkaed on tihe keevisvõrk raamil, keevispaneelaed on jäikusribidega paneel. Mõlemad tsingitud ja pulbervärvitud. Paneel on jäigem, võrk soodsam."),
-        ("Millised kõrgused on?","Tavaliselt 1.23–2.03 m. Valime kõrguse vajaduse järgi."),
+        ("Millised kõrgused on?","Tavaliselt 1,23–2,03 m. Valime kõrguse vajaduse järgi."),
         ("Milline värv valida?","Populaarseimad on antratsiit RAL 7016 ja roheline RAL 6005."),
         ("Kas müüte ka aiaposte eraldi?","Jah, müüme ja paigaldame tsingitud aiaposte (metallist aiapostid) koos kübarate ja kinnitusklambritega. Nii paneelaia kui muude aedade jaoks."),
-        ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomataru. Tugevad, turvalised ja pika elueaga."),
+        ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomatarasid. Tugevad, turvalised ja pika elueaga."),
         ("Kas saab värava samas toonis?","Jah, teeme lük- ja tiibväravaid sama paneeliga samas värvis.")]},
 {"path":"/aiad/puitaed/","video":("luxaed-video-puitvarav","Puidust lükandvärav automaatikaga — valmis objekt"),"name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Puitaed ja puitväravad Tallinnas — LuxAed","desc":"Puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
@@ -183,15 +183,15 @@ ETSERV=[
  "faq":[("Mis on metall-lippaed (štaketnik)?","Kaasaegne metallist lippaed. Vertikaalsed lamellid valitava vahega, tsingitud ja pulbervärvitud. Läbipaistvam kui plekk-aed, korralik ja pika elueaga."),
         ("Kas lippaed on läbipaistev?","Vahe lamellide vahel valite ise: tihedam privaatsuseks või hõredam kergema ilme jaoks. Kahepoolne lippaed on privaatsem."),
         ("Millised värvid on?","Populaarseim on antratsiit RAL 7016, samuti must ja pruun. Teeme teisi RAL-toone tellimusel."),
-        ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme sama lippaia lamelliga ühes stiilis.")]},
+        ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme samamoodi lippaia lamelliga ühes stiilis.")]},
 {"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-w-gates-green","og":"/img/luxaed-w-gates-green.jpg","videos":[("luxaed-reel-domofon","Hikvisioni domofon väraval"),("luxaed-reel-varav-oht","Lükandvärav automaatikaga"),("luxaed-video-puitvarav","Lükandvärav ühe nupuvajutusega"),("luxaed-reel-montaaz","Paigaldus objektil")],
  "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, aiaväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · tõkkepuu","h1":"Väravate ja automaatika<br><em>paigaldus</em>",
  "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
- "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaautomaatikat igas mahus: ühest jalgväravast kuni suure territooriumi täieliku sissesõidusüsteemini. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil; avamine käib puldist, telefonikõnega, rakendusest või koodiga. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid. Paigaldame ujuva (rolling) koodiga ajamid. Need on kaitstud tavaliste skannerite-«grabberite» pealtkuulamise eest. Hooldame ja uuendame olemasolevaid süsteeme.",
+ "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaautomaatikat igas mahus: ühest jalgväravast kuni suure territooriumi täieliku sissesõidusüsteemini. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil; avamine käib puldist, telefonikõnega, rakendusest või koodiga. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid. Paigaldame ujuva (rolling) koodiga ajamid. Need on kaitstud tavaliste skannerite (nn grabberite) pealtkuulamise eest. Hooldame ja uuendame olemasolevaid süsteeme.",
  "bens":["Mis tahes mahus projektid: jalgväravast terve territooriumini","Üks pult kõigi väravate ja tõkkepuude jaoks","Juhtimine: pult, telefonikõne, rakendus või kood","Ujuv (rolling) kood: kaitse puldi pealtkuulamise eest","Numbrite lisamine ja eemaldamine igal ajal","Domofonid ja videopaneelid","Olemasolevate süsteemide hooldus ja uuendus"],
  "variants_h":"Väravate ja automaatika tüübid",
- "variants":[("⇄","Lükandvärav","Liugvärav ilma alumise siinita. Mugav, ei võta avades ruumi."),
+ "variants":[("⇄","Lükandvärav","Lükandvärav ilma alumise siinita. Mugav, ei võta avades ruumi."),
              ("⛩","Tiibvärav","Klassikaline kahe tiivaga värav ajamitega."),
              ("⚙","Automaatika","Ajamid, kaugjuhtimispultid, fotoelemendid, signaallamp."),
              ("⊤","Tõkkepuu","Automaatsed tõkkepuud parklatesse, ühistutele ja sissesõitudele."),
@@ -208,7 +208,7 @@ ETSERV=[
  "title":"Aia ja värava remont Tallinnas — LuxAed","desc":"Aedade ja väravate remont Tallinnas ja Harjumaal: sektsioonide ja postide vahetus, lük- ja tiibväravate ning automaatika remont. Diagnostika ja hinnapakkumine.",
  "kicker":"Remont · hooldus","h1":"Aedade ja väravate<br><em>remont</em>",
  "lead":"Taastame aedu, väravaid ja automaatikat: sektsioonide ja postide vahetus, tiibade reguleerimine, ajamite ja furnituuri remont. Teeme diagnostika ja ütleme hinna.",
- "intro_h":"Mida remondime","intro_p":"Aia remont on sageli mõistlikum kui uue ehitus: kogu aeda ei pea alati vahetama. Sageli piisab kahjustatud sektsioonide või postide vahetusest, väravate reguleerimisest või automaatika taastamisest.",
+ "intro_h":"Mida remondime","intro_p":"Aia remont on sageli mõistlikum kui uue aia ehitamine: kogu aeda ei pea alati vahetama. Sageli piisab kahjustatud sektsioonide või postide vahetusest, väravate reguleerimisest või automaatika taastamisest.",
  "bens":["Kahjustatud sektsioonide vahetus","Postide vahetus ja loodimine","Lük- ja tiibväravate remont","Automaatika remont ja seadistus","Rullikute, siinide ja furnituuri vahetus","Diagnostika ja hind enne tööd"],
  "variants_h":"Remonditööde liigid",
  "variants":[("▤","Aia sektsioonid","Kahjustatud paneelide, laudade või pleki vahetus."),

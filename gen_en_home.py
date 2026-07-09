@@ -104,7 +104,7 @@ home_inner=f'''<section class="hero">
   <div class="hon bad"><h3>Depends on the project</h3><ul><li>Choice of material (wood, corrugated sheet, 3D mesh)</li><li>Fence length and height, number of gates</li><li>Terrain complexity and base preparation</li><li>Gate automation and intercom. Optional</li><li>Removing the old fence</li></ul></div>
 </div></div></section>
 
-<section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
+<section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.16"></div>
   <div class="wrap" style="position:relative"><span class="tag">About us</span><h2 class="big big--xl">Fences are what we do every day.</h2>
   <p class="lead lead--lg">LuxAed is a team building fences, gates and wickets in Tallinn and Harjumaa.<br>Wood, profiled sheet, welded mesh, gate automation and intercoms.<br>Neatly, at a fair price and with a quote before the work begins.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews on Facebook</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
@@ -176,7 +176,7 @@ about=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Why us</span><h2 class="big">Why LuxAed</h2>
 <ul class="svc-bens"><li>Over <b>15 years</b> of experience in Tallinn and Harjumaa</li><li>Fences from wood, profiled sheet and welded mesh</li><li>Sliding and swing gates, automation and intercoms</li><li>We handle buying the materials and the whole process</li><li>Free measurement, price up front, warranty on the work</li><li>We work year-round, including winter</li></ul></div></section>
-<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
+<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
 <div class="wrap" style="position:relative"><span class="tag">Trusted by customers</span><h2 class="big big--xl">The reviews speak for us</h2>
 <p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach. See the reviews on our Facebook page.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>

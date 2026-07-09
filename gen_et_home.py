@@ -40,7 +40,7 @@ areas_html="".join(f'<span class="area-pill">{a}</span>' for a in AREAS)
 HOME_FAQ=[("Kui palju aed või värav maksab?","Täpset hinda ei saa ette öelda. See sõltub materjalist, aia pikkusest ja kõrgusest, reljeefist ning väravatest. Pärast tasuta mõõdistust ütleme konkreetse hinna ilma varjatud lisatasudeta."),
  ("Milliseid aedu te teete?","Puitaiad (teraskarkassil), profiilplekk-aiad ja keevispaneelaiad (3D). Aitame valida materjali eelarve ja krundi järgi."),
  ("Kas paigaldate väravaautomaatikat?","Jah, paigaldame lük- ja tiibväravate automaatika, pultid, fotoelemendid ja domofonid. Saame automaatika ka olemasolevale väravale."),
- ("Millistes piirkondades töötate?","Tallinnas ja kogu Harjumaal. Kaugemale. Kokkuleppel, kirjutage meile."),
+ ("Millistes piirkondades töötate?","Tallinnas ja kogu Harjumaal. Kaugemale kokkuleppel, kirjutage meile."),
  ("Kas teete aedade remonti?","Jah, remondime aedu ja väravaid: sektsioonide ja postide vahetus, väravate reguleerimine, automaatika remont.")]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],"geo":{"@type":"GeoCoordinates","latitude":59.437,"longitude":24.7536},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","reviewCount":"34"}},ensure_ascii=False)+'</script>']
@@ -104,7 +104,7 @@ home_inner=f'''<section class="hero">
   <div class="hon bad"><h3>Sõltub projektist</h3><ul><li>Materjali valik (puit, profiilplekk, keevispaneel)</li><li>Aia pikkus ja kõrgus, väravate arv</li><li>Reljeefi keerukus ja aluse ettevalmistus</li><li>Väravaautomaatika ja domofon. Soovi korral</li><li>Vana aia lammutus</li></ul></div>
 </div></div></section>
 
-<section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
+<section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.16"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
   <p class="lead lead--lg">LuxAed. Aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
@@ -151,7 +151,7 @@ meist=f'''<section class="hero hero--compact">
     <h1>Kes me oleme</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>juba üle 15 aasta</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meister on näinud kõiki aiatüüpe, pinnaseid ja vee äravoolu lahendusi.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire : teeme kõik ära.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
@@ -176,7 +176,7 @@ meist=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Miks meie</span><h2 class="big">Miks LuxAed</h2>
 <ul class="svc-bens"><li>Üle <b>15 aasta</b> kogemust Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, väravaautomaatika ja domofonid</li><li>Materjalide ostu ja kogu protsessi võtame enda peale</li><li>Tasuta mõõdistus, hind enne algust, garantii tööle</li><li>Töötame aastaringselt, ka talvel</li></ul></div></section>
-<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
+<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aiad ja väravad</p></div></div></div></section>
@@ -219,7 +219,7 @@ legal("/privaatsus/","Privaatsuspoliitika — LuxAed","Privaatsuspoliitika","Pri
  ("Andmete säilitamine","Säilitame andmeid nii kaua, kui vaja päringu töötlemiseks ja teenuse osutamiseks, seejärel kustutame, kui pole muid seaduslikke aluseid."),
  ("Edastamine kolmandatele","Me ei müü ega edasta teie andmeid kolmandatele, välja arvatud seaduses ettenähtud juhtudel."),
  ("Teie õigused","Teil on õigus taotleda ligipääsu oma andmetele, nende parandamist või kustutamist ja nõusolek tagasi võtta. Selleks võtke meiega ühendust e-posti teel."),
- ("Küpsised","Veeb võib kasutada tehnilisi küpsiseid korrektseks tööks. Analüütika- ja reklaamiskriptid ühendatakse ainult vastava nõusoleku olemasolul."),
+ ("Küpsised","Veebisait võib kasutada tehnilisi küpsiseid korrektseks tööks. Analüütika- ja reklaamiskriptid ühendatakse ainult vastava nõusoleku olemasolul."),
 ])
 legal("/tingimused/","Kasutustingimused — LuxAed","Kasutustingimused","Tingimused",[
  ("Üldsätted","Käesolevad tingimused kirjeldavad LuxAedi teenuste osutamist aedade, väravate ja automaatika valmistamisel, paigaldusel ja remondil Tallinnas ja Harjumaal."),
@@ -227,7 +227,7 @@ legal("/tingimused/","Kasutustingimused — LuxAed","Kasutustingimused","Tingimu
  ("Mõõdistus ja kokkulepped","Täpne hind, materjalid ja tähtajad fikseeritakse pärast objektile jõudmist. Kõik olulised tingimused lepitakse kliendiga eelnevalt kokku."),
  ("Tasumine","Tasumise kord ja viis lepitakse kokku individuaalselt enne tööde algust. Me ei võta kokkulepitud eelarvest varjatud lisatasusid ilma teie nõusolekuta."),
  ("Garantii ja kvaliteet","Vastutame tehtud tööde kvaliteedi eest. Garantiitingimused sõltuvad tööde ja materjalide liigist ning lepitakse kokku kokkuleppe sõlmimisel."),
- ("Vastutus","LuxAed ei vastuta krundil olevate varjatud kommunikatsioonide kahjustuste eest, millest klient ei teavitanud, ega vääramatu jõu eest."),
+ ("Vastutus","LuxAed ei vastuta krundil olevate varjatud tehnovõrkude kahjustuste eest, millest klient ei teavitanud, ega vääramatu jõu eest."),
  ("Kontakt","Kõigis teenuste ja tingimustega seotud küsimustes võtke ühendust telefonil "+PHONE+" või e-postil "+EMAIL+"."),
 ])
 print("ET home + support done")
