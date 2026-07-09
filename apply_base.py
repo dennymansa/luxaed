@@ -29,12 +29,18 @@ def main():
     ver=""
     if os.path.exists("assets/luxaed.css"):
         ver=hashlib.md5(open("assets/luxaed.css","rb").read()).hexdigest()[:8]
+    css_inline=""
+    if os.path.exists("assets/luxaed.css"):
+        css_inline='<style id="lux-css">'+open("assets/luxaed.css",encoding="utf-8").read()+'</style>'
     n=0
     for f in glob.glob("**/*.html", recursive=True):
         if f.startswith("reference-kit"): continue
         s=open(f,encoding="utf-8").read(); t=fix_html(s)
-        if ver:  # version the stylesheet link (strip any old ?v= first)
-            t=re.sub(r'(assets/luxaed\.css)(\?v=[a-f0-9]+)?"', r'\1?v='+ver+'"', t)
+        if css_inline:
+            # inline the full stylesheet (removes the render-blocking request);
+            # idempotent: replaces the <link> on fresh builds or refreshes a previous inline copy
+            t=re.sub(r'<link rel="stylesheet" href="/assets/luxaed\.css[^"]*">', lambda m: css_inline, t, count=1)
+            t=re.sub(r'<style id="lux-css">.*?</style>', lambda m: css_inline, t, count=1, flags=re.DOTALL)
         if t!=s: open(f,"w",encoding="utf-8").write(t); n+=1
     for f in ["assets/luxaed.css"]:
         if os.path.exists(f):

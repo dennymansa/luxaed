@@ -364,7 +364,8 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
     ru = alt(path,"ru"); et = alt(path,"et"); en = alt(path,"en")
     # preload the handwritten Caveat weight the hero kicker uses (per-language script) so it
     # doesn't flash a fallback font on load (kills the FOUT swap on the above-the-fold kicker)
-    caveat = "caveat-700-cyrillic.woff2" if lang=="ru" else "caveat-700-latin.woff2"
+    caveat = "caveat-var-cyrillic.woff2" if lang=="ru" else "caveat-var-latin.woff2"
+    caveat2 = "caveat-var-latin-ext.woff2" if lang=="et" else ""
     canon = DOMAIN + path
     alts = (f'<link rel="alternate" hreflang="ru" href="{DOMAIN}{ru}">'
             f'<link rel="alternate" hreflang="et" href="{DOMAIN}{et}">'
@@ -373,6 +374,14 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
     sb = "\n".join(schema_blocks or [])
     fav = ("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20viewBox%3D%270%200%2026%2026%27%20fill%3D%27none%27%20stroke%3D%27%23b5542e%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M4%2022%20H22%27/%3E%3Cpath%20d%3D%27M8%2022%20V9%20M18%2022%20V9%27/%3E%3Cpath%20d%3D%27M8%209%20Q13%204.5%2018%209%27/%3E%3Cpath%20d%3D%27M11%2022%20V11%20M15%2022%20V11%20M13%2022%20V10%27/%3E%3C/svg%3E")
     locale = {"et":"et_EE","en":"en_US"}.get(lang,"ru_RU")
+    _base = og_img.replace('.jpg','.webp'); _mob = _base.replace('.webp','-mobile.webp')
+    if os.path.exists(os.path.join(SITE, _mob.lstrip('/'))):
+        pre_img = (f'<link rel="preload" as="image" href="{_mob}" media="(max-width:760px)" fetchpriority="high">'
+                   f'<link rel="preload" as="image" href="{_base}" media="(min-width:761px)" fetchpriority="high">')
+        mob_css = "<style>@media(max-width:760px){.hero-photo-bg{background-image:url('"+_mob+"')!important}}</style>"
+    else:
+        pre_img = f'<link rel="preload" as="image" href="{_base}" fetchpriority="high">'
+        mob_css = ""
     return f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -389,16 +398,19 @@ def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=N
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{html.escape(title)}"><meta name="twitter:image" content="{DOMAIN}{og_img}">
 {sb}
 <link rel="icon" href="{fav}">
-<link rel="preload" as="image" href="{og_img.replace('.jpg','.webp')}" fetchpriority="high">
+{pre_img}
 <link rel="preload" as="font" type="font/woff2" href="/fonts/{caveat}" crossorigin>
+{('<link rel="preload" as="font" type="font/woff2" href="/fonts/'+caveat2+'" crossorigin>') if caveat2 else ''}
 <link rel="stylesheet" href="/assets/luxaed.css">
+{mob_css}
 { (lambda _ids=[i for i in (GA_ID, AW_ID) if i]: (
-    f'<script async src="https://www.googletagmanager.com/gtag/js?id={_ids[0]}"></script>'
     '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
     'gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});'
     'try{if(localStorage.getItem("cc")==="all"){gtag("consent","update",{ad_storage:"granted",analytics_storage:"granted",ad_user_data:"granted",ad_personalization:"granted"});}}catch(e){}'
     'gtag("js",new Date());'
-    + "".join(f'gtag("config","{i}");' for i in _ids) + '</script>'
+    + "".join(f'gtag("config","{i}");' for i in _ids)
+    + 'function __lg(){if(window.__lgd)return;window.__lgd=1;var s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id=' + _ids[0] + '";document.head.appendChild(s);}'
+    + '["scroll","click","touchstart","keydown"].forEach(function(ev){addEventListener(ev,__lg,{passive:true,once:true})});setTimeout(__lg,3500);</script>'
   ) if _ids else '')() }
 </head>
 <body>

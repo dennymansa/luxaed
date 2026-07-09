@@ -25,7 +25,7 @@ def sub_once(pattern, repl_str, label):
     s = new
 
 # 1) shared <script> block (anchored on the unique 'function closeMob')
-sub_once(r'<script>\s*\nfunction closeMob\(\).*?</script>', build_pages.SCRIPTS, 'SCRIPTS')
+sub_once(r'<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob\(\).*?</script>', build_pages.SCRIPTS, 'SCRIPTS')
 # 2) video section (dark sunset + looping carousel)
 sub_once(r'<section class="section section--dark vidsec".*?</section>', build_pages.video_block('ru'), 'video_block')
 # 3) partners marquee (real brand logos, two rows)
