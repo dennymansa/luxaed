@@ -35,11 +35,11 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 отзыва в Facebook · рекомендуют</span></div>
     <h1>Кто мы</h1>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>с 2021 года</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>с 2021 года</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. У наших мастеров — более 15 лет опыта в заборах и воротах.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее — без скрытых доплат и сюрпризов.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограда всей территории. И, в отличие от многих, <b>работаем круглый год — включая зиму</b>.</p>
   </div></div>
-  <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>5</b><span>Лет на рынке (с 2021)</span></div></div></div>
+  <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>
 <section class="section section--alt"><div class="wrap">
   <span class="tag">Принципы</span><h2 class="big">Что для нас важно</h2>
@@ -67,7 +67,7 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="nums">
     <div class="num"><b>100<small>%</small></b><div class="t">Рекомендуют</div><p>По отзывам в Facebook</p></div>
     <div class="num"><b>34</b><div class="t">Отзыва</div><p>Реальные отзывы клиентов</p></div>
-    <div class="num"><b>5</b><div class="t">Лет на рынке</div><p>Устанавливаем заборы с 2021 года</p></div>
+    <div class="num"><b>15</b><div class="t">Лет опыта</div><p>Опыт наших мастеров в заборах и воротах</p></div>
     <div class="num"><b>300</b><div class="t">Объектов</div><p>Установленных заборов и ворот</p></div>
   </div></div>
 </section>

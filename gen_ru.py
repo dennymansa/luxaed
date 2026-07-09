@@ -87,7 +87,7 @@ def service_page(c):
     <h1>{c["h1"]}</h1>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div>
   </div>{form_html()}</div>
-  <div class="hero-stats"><div class="hstat"><b>100%</b><span>рекомендуют на Facebook</span></div><div class="hstat"><b>34</b><span>отзыва на странице</span></div><div class="hstat"><b>5</b><span>лет на рынке (с 2021)</span></div></div></div>
+  <div class="hero-stats"><div class="hstat"><b>100%</b><span>рекомендуют на Facebook</span></div><div class="hstat"><b>34</b><span>отзыва на странице</span></div><div class="hstat"><b>15</b><span>лет опыта мастеров</span></div></div></div>
 </section>
 
 <section class="section">
