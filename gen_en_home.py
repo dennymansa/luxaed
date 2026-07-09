@@ -31,7 +31,7 @@ TILES=[("/en/services/wooden-fence/","luxaed-svc-wood","Wood","Wooden fences","W
  ("/en/services/metal-fence/","luxaed-svc-profnastil","Corrugated","Corrugated (metal) fences","A solid profiled-sheet fence for privacy. Affordable and fast."),
  ("/en/services/mesh-fence/","luxaed-svc-mesh","Mesh","Mesh / 3D fences","Welded panels (3D), anthracite RAL. Strong and modern."),
  ("/en/services/gates-automation/","luxaed-svc-gates","Automation","Gates & automation","Sliding & swing gates, automation and intercoms.")]
-tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{n}" loading="lazy"></picture></div>
+tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{n}" width="600" height="400" loading="lazy"></picture></div>
 <div class="sp-top-label"><span>{lbl}</span></div><div class="sp-body"><h3>{n}</h3><p>{d}</p></div></a>''' for u,im,lbl,n,d in TILES)
 
 AREAS=["Tallinn","Kesklinn","Lasnamäe","Mustamäe","Haabersti","Kristiine","Põhja-Tallinn","Pirita","Nõmme","Viimsi","Maardu","Saue","Keila","Harku","Rae","Harjumaa"]
@@ -122,15 +122,15 @@ home_inner=f'''<section class="hero">
 
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>
   <div class="gal" id="gal">
-    <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Wooden fence on a steel frame" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Sliding gate with automation" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D welded-panel fence" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Steel picket fence" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Wooden fence and sliding gate" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Swing gates from panels" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Graphite swing gates" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Green 3D panel fence" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed van on site" loading="lazy"></picture></a>
+    <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Wooden fence on a steel frame" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Sliding gate with automation" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D welded-panel fence" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Steel picket fence" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Wooden fence and sliding gate" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Swing gates from panels" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Graphite swing gates" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Green 3D panel fence" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed van on site" width="600" height="400" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 
@@ -159,16 +159,16 @@ about=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A master whose experience saves you time and money.</h2></div>
+  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. Over 15 years of experience building fences and gates.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 years of building fences and gates means more than just experience. It means that before the work even begins, the master already knows which solution suits your plot, which materials last the longest and which mistakes to avoid.</p><ul class="svc-bens">
-    <li>Over 15 years of hands-on experience on sites across Tallinn and Harjumaa</li>
-    <li>Thousands of successfully completed fences and gates for homes and businesses</li>
-    <li>Experience with every kind of ground: clay, sand, slopes and difficult plots</li>
-    <li>Wood, metal and panel fences, plus sliding and swing gates and automation</li>
-    <li>Well-considered solutions that last for years, not just the first season</li>
-    <li>Every job under the master's personal control, from start to handover</li>
-  </ul><p style="margin-top:16px"><b>Our goal is not simply to install a fence.</b> Our goal is to build a solution that looks great, works flawlessly and serves you for years.</p></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Over 15 years of work, Artur has built thousands of fences and gates in Tallinn and Harjumaa. Thanks to his deep experience, he knows in advance which solution best suits your plot, which materials to choose and how to avoid unnecessary costs.</p><ul class="svc-bens">
+    <li>Over 15 years of experience building fences and gates</li>
+    <li>Thousands of completed projects in Tallinn and Harjumaa</li>
+    <li>Work with every type of fence, gate and automation</li>
+    <li>Experience on plots with any soil and terrain</li>
+    <li>Help choosing materials and the best solution</li>
+    <li>Quality control at every stage of the work</li>
+  </ul><p style="margin-top:16px"><b>We don't just install fences.</b> We build reliable solutions that will last for years.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
 <div class="svc-cards">

@@ -60,7 +60,7 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 
 def bens_html(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards_html(cards): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{ic}</div><h4>{n}</h4><p>{d}</p></div>' for ic,n,d in cards)+'</div>'
-def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
+def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faq_html(faq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in faq)+'</div>'
 
 PROCESS='''<div class="hsteps">

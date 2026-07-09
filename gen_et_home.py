@@ -31,7 +31,7 @@ TILES=[("/aiad/puitaed/","luxaed-svc-wood","Puit","Puitaiad","Puitaiad ja -vära
  ("/aiad/metallaed/","luxaed-svc-profnastil","Profiilplekk","Metallaed / profiilplekk","Kinnine profiilplekk-aed privaatsuseks. Soodne ja kiire."),
  ("/aiad/vorkaed/","luxaed-svc-mesh","Võrkaed","Võrkaed / paneelaed","Keevispaneelid (3D), antratsiit RAL. Tugev ja kaasaegne."),
  ("/varavad/","luxaed-svc-gates","Automaatika","Väravad ja automaatika","Lük- ja tiibväravad, automaatika ja domofonid.")]
-tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{n}" loading="lazy"></picture></div>
+tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{n}" width="600" height="400" loading="lazy"></picture></div>
 <div class="sp-top-label"><span>{lbl}</span></div><div class="sp-body"><h3>{n}</h3><p>{d}</p></div></a>''' for u,im,lbl,n,d in TILES)
 
 AREAS=["Tallinn","Kesklinn","Lasnamäe","Mustamäe","Haabersti","Kristiine","Põhja-Tallinn","Pirita","Nõmme","Viimsi","Maardu","Saue","Keila","Harku","Rae","Harjumaa"]
@@ -122,15 +122,15 @@ home_inner=f'''<section class="hero">
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
   <div class="gal" id="gal">
-    <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Puitaed teraskarkassil" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Lükandvärav automaatikaga" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D keevispaneelaed" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Metall-lippaed" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Puitaed ja lükandvärav" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Tiibväravad keevispaneelist" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Grafiithallid tiibväravad" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Roheline 3D paneelaed" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAedi buss objektil" loading="lazy"></picture></a>
+    <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Puitaed teraskarkassil" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Lükandvärav automaatikaga" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D keevispaneelaed" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Metall-lippaed" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Puitaed ja lükandvärav" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Tiibväravad keevispaneelist" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Grafiithallid tiibväravad" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Roheline 3D paneelaed" width="600" height="400" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAedi buss objektil" width="600" height="400" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Rohkem fotosid meie Facebookis →</a></div></div></section>
 
@@ -159,16 +159,16 @@ meist=f'''<section class="hero hero--compact">
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kelle kogemus hoiab kokku teie aega ja raha.</h2></div>
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Üle 15 aasta kogemust aedade ja väravate ehitamisel.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 aastat aedade ja väravate ehitamist tähendab rohkem kui lihtsalt kogemust. See tähendab, et enne töö algust teab meister juba, milline lahendus teie krundile sobib, millised materjalid kestavad kõige kauem ja milliseid vigu tuleb vältida.</p><ul class="svc-bens">
-    <li>Üle 15 aasta praktilist kogemust Tallinna ja Harjumaa objektidel</li>
-    <li>Tuhanded edukalt valminud aiad ja väravad eramajadele ning ettevõtetele</li>
-    <li>Kogemus igasuguste pinnastega: savi, liiv, kallakud ja keerulised krundid</li>
-    <li>Puit-, metall- ja paneelaiad, samuti lükand- ja tiibväravad ning automaatika</li>
-    <li>Läbimõeldud lahendused, mis peavad vastu aastaid, mitte ainult esimese hooaja</li>
-    <li>Iga töö meistri isikliku kontrolli all algusest kuni objekti üleandmiseni</li>
-  </ul><p style="margin-top:16px"><b>Meie eesmärk ei ole lihtsalt paigaldada aed.</b> Meie eesmärk on ehitada lahendus, mis näeb hea välja, töötab laitmatult ja teenib teid aastaid.</p></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 tööaasta jooksul on Artur ehitanud tuhandeid aedu ja väravaid Tallinnas ja Harjumaal. Tänu suurele kogemusele teab ta juba ette, milline lahendus sobib just teie krundile, millised materjalid valida ja kuidas vältida liigseid kulusid.</p><ul class="svc-bens">
+    <li>Üle 15 aasta kogemust aedade ja väravate ehitamisel</li>
+    <li>Tuhanded valminud objektid Tallinnas ja Harjumaal</li>
+    <li>Töö igat tüüpi aedade, väravate ja automaatikaga</li>
+    <li>Kogemus igasuguse pinnase ja reljeefiga kruntidel</li>
+    <li>Abi materjalide ja parima lahenduse valikul</li>
+    <li>Kvaliteedikontroll töö igas etapis</li>
+  </ul><p style="margin-top:16px"><b>Me ei paigalda lihtsalt aedu.</b> Me ehitame töökindlaid lahendusi, mis kestavad aastaid.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Põhimõtted</span><h2 class="big">Meie jaoks oluline</h2>
 <div class="svc-cards">
