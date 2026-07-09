@@ -123,11 +123,14 @@ home_inner=f'''<section class="hero">
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>
   <div class="gal" id="gal">
     <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Wooden fence on a steel frame" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Wooden fence and sliding gate" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="Welded mesh fence" loading="lazy"></picture></a>
     <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Sliding gate with automation" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D welded-panel fence" loading="lazy"></picture></a>
     <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Steel picket fence" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed crew on site" loading="lazy"></picture></a>
+    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Wooden fence and sliding gate" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Swing gates from panels" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Graphite swing gates" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Green 3D panel fence" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed van on site" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">More photos on our Facebook →</a></div></div></section>
 
@@ -158,7 +161,7 @@ about=f'''<section class="hero hero--compact">
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A craftsman who knows fences inside out.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: hundreds of projects across Tallinn and Harjumaa.</p><ul class="spec">
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: thousands of projects across Tallinn and Harjumaa over 15 years, too many to count.</p><ul class="spec">
     <li><b>15 years of experience</b>: wood, sheet, panels, gates and automation</li>
     <li><b>Seen it all</b>: every fence type, soil and drainage setup</li>
     <li><b>Knows the suppliers</b>: the right materials at the right price</li>

@@ -44,7 +44,7 @@ about_inner=f'''<section class="hero hero--compact">
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Мастер, который знает о заборах всё.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин, мастер LuxAed" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b>: сотни объектов по Таллинну и Харьюмаа.</p><ul class="spec">
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b>: за 15 лет тысячи объектов по Таллинну и Харьюмаа, даже уже и не посчитать.</p><ul class="spec">
     <li><b>15 лет опыта</b>: дерево, профнастил, панели, ворота и автоматика</li>
     <li><b>Видел всё</b>: любые типы заборов, грунтов и водоотвода</li>
     <li><b>Знает поставщиков</b>: правильные материалы по правильной цене</li>

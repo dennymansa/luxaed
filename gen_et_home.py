@@ -123,11 +123,14 @@ home_inner=f'''<section class="hero">
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
   <div class="gal" id="gal">
     <a href="/img/luxaed-svc-wood.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-svc-wood.webp"><img src="/img/luxaed-svc-wood.jpg" alt="Puitaed teraskarkassil" loading="lazy"></picture></a>
-    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Puitaed ja lükandvärav" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="Keevispaneelaed" loading="lazy"></picture></a>
     <a href="/img/luxaed-w-gates-auto.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-auto.webp"><img src="/img/luxaed-w-gates-auto.jpg" alt="Lükandvärav automaatikaga" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="3D keevispaneelaed" loading="lazy"></picture></a>
     <a href="/img/luxaed-w-lippaed-1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-lippaed-1.webp"><img src="/img/luxaed-w-lippaed-1.jpg" alt="Metall-lippaed" loading="lazy"></picture></a>
-    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAed meeskond objektil" loading="lazy"></picture></a>
+    <a href="/img/luxaed-g1.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-g1.webp"><img src="/img/luxaed-g1.jpg" alt="Puitaed ja lükandvärav" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-green.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-green.webp"><img src="/img/luxaed-w-gates-green.jpg" alt="Tiibväravad keevispaneelist" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-gates-graphite.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-gates-graphite.webp"><img src="/img/luxaed-w-gates-graphite.jpg" alt="Grafiithallid tiibväravad" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-mesh-2.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-2.webp"><img src="/img/luxaed-w-mesh-2.jpg" alt="Roheline 3D paneelaed" loading="lazy"></picture></a>
+    <a href="/img/luxaed-w-van.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" alt="LuxAedi buss objektil" loading="lazy"></picture></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">Rohkem fotosid meie Facebookis →</a></div></div></section>
 
@@ -158,7 +161,7 @@ meist=f'''<section class="hero hero--compact">
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kes teab aedadest kõike.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. Sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. 15 aastaga tuhandeid objekte üle Tallinna ja Harjumaa, kõiki ei jõuagi kokku lugeda.</p><ul class="spec">
     <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
     <li><b>Näinud kõike</b>: kõik aiatüübid, pinnased ja vee äravoolud</li>
     <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>

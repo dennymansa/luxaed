@@ -164,17 +164,15 @@ def video_block(lang):
            f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
            f'</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
-            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-night.webp\') center/cover no-repeat;opacity:.14;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 42%/cover no-repeat;opacity:.26;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:radial-gradient(78% 62% at 76% -6%, rgba(232,142,68,.24), transparent 56%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
             f'<div class="wrap" style="position:relative"><div class="reelwrap"><div class="reelrow">{cards}</div></div>'
             f'<div class="reel-hint">{hint}</div>'
             f'<div style="text-align:center;margin-top:14px"><a class="gal-fb" href="{FB}/reels" '
-            f'target="_blank" rel="noopener">{fb}</a></div></div></section>'
-            f'<div class="mini-cta mini-cta--dream"><div class="wrap"><span>{cta_h} <b>{cta_sub}!</b></span>'
-            f'<div class="mini-cta-btns"><a class="btn btn-accent" href="tel:{TEL}">{cta_call}</a>'
-            f'<a class="btn btn-ghost" href="#form">{cta_quote}</a></div></div></div>')
+            f'target="_blank" rel="noopener">{fb}</a></div></div></section>')
 
 def reel_strip(items, tag, h2):
     # compact reels carousel for a service page (no CTA); items: list of (video, caption)
