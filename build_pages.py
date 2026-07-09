@@ -195,9 +195,8 @@ def video_block(lang):
            '<button class="reel-arrow reel-next" aria-label="Järgmine" onclick="reelScroll(this,1)">›</button>'
            '</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
-            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 60%/cover no-repeat;filter:brightness(.42) saturate(1.12) contrast(1.05);opacity:.92;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:radial-gradient(72% 56% at 68% 98%, rgba(255,150,60,.55), rgba(240,98,46,.18) 42%, transparent 72%);mix-blend-mode:screen;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,11,22,.9) 0%, rgba(20,16,32,.6) 46%, rgba(48,24,30,.32) 100%);pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-sunset.webp\') center 42%/cover no-repeat;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,16,.8) 0%, rgba(10,12,20,.55) 45%, rgba(8,10,16,.72) 100%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
