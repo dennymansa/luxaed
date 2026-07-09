@@ -35,9 +35,9 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 отзыва в Facebook · рекомендуют</span></div>
     <h1>Кто мы</h1>
-    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:16px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более 15 лет</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Наш мастер видел все типы заборов, грунтов и водоотвода.</p>
-    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
-    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограждение всей территории. Поможем с любой задачей.</p>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более 15 лет</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Наш мастер видел все типы заборов, грунтов и водоотвода.</p>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограждение всей территории. Поможем с любой задачей.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>
@@ -73,7 +73,7 @@ about_inner=f'''<section class="hero hero--compact">
     <li>Работаем круглый год, включая зиму</li>
   </ul>
 </div></section>
-<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.16"></div>
+<section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:linear-gradient(174deg,#0e1220 0%,#1b1730 28%,#3a2440 48%,#743a30 66%,#b85e30 82%,#e0842f 100%);pointer-events:none"></div><div style="position:absolute;inset:0;background:url('/img/luxaed-w-gates-auto.webp') center 40%/cover no-repeat;filter:brightness(.5) contrast(1.06) saturate(1.1);opacity:.46;mix-blend-mode:soft-light;pointer-events:none"></div><div style="position:absolute;inset:0;background:radial-gradient(56% 44% at 72% 102%, rgba(255,192,108,.55), rgba(255,122,54,.16) 46%, transparent 72%);mix-blend-mode:screen;pointer-events:none"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(8,10,18,.6) 0%, rgba(8,10,18,.14) 27%, transparent 47%);pointer-events:none"></div>
   <div class="wrap" style="position:relative"><span class="tag">Нам доверяют</span><h2 class="big big--xl">Отзывы говорят за нас</h2>
   <p class="lead lead--lg">Клиенты рекомендуют LuxAed за скорость, качество и профессиональный подход.<br>Смотрите отзывы на нашей странице в <a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent)">Facebook</a>.</p>
   <div class="nums">
