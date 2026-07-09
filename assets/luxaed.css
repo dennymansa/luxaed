@@ -545,6 +545,9 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .spec li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
 .spec li span:first-child{color:var(--body-text-mute)}
 .spec li span:last-child{font-weight:600;text-align:right}
+/* feature-style items (<b>term</b> — description): flow as one line, not label/value columns */
+.spec li:has(b){display:block;line-height:1.6;color:var(--body-text-mute)}
+.spec li:has(b) b{color:var(--ink)}
 .svc-why{list-style:none;max-width:780px;margin:8px 0 0;display:grid;gap:11px}
 .svc-why li{position:relative;padding-left:30px;font-size:15.5px;color:var(--body-text-dim)}
 .svc-why li::before{content:"\2713";position:absolute;left:0;top:1px;color:var(--accent);font-weight:800;font-size:17px}
