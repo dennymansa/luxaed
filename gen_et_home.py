@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # ET home + ET support pages (meist, kkk, kontakt, privaatsus, tingimused)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block, video_schema, home_video_items
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block, video_schema, home_video_items, about_page_schema, person_artur_schema, webpage_schema
 from gen_et import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -152,23 +152,23 @@ meist=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Kes me oleme</h1>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>juba üle 15 aasta</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meister on näinud kõiki aiatüüpe, pinnaseid ja vee äravoolu lahendusi.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire : teeme kõik ära.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:16px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>juba üle 15 aasta</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meister on näinud kõiki aiatüüpe, pinnaseid ja vee äravoolu lahendusi.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire : teeme kõik ära.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kes teab aedadest kõike.</h2></div>
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kelle kogemus hoiab kokku teie aega ja raha.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. 15 aastaga tuhandeid objekte üle Tallinna ja Harjumaa, kõiki ei jõuagi kokku lugeda.</p><ul class="spec">
-    <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
-    <li><b>Näinud kõike</b>: kõik aiatüübid, pinnased ja vee äravoolud</li>
-    <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>
-    <li><b>Terviklahendus võtmed kätte</b>: mitte ainult paigaldus, vaid lahendus teie soovide järgi</li>
-    <li><b>Teie unistuste aed</b>: meister näeb kohe, kuidas aed paigaldatakse ja milline see saab olema</li>
-    <li><b>Iga objekt tema silma all</b>: kvaliteedi eest vastutab meister ise</li>
-  </ul></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 aastat aedade ja väravate ehitamist tähendab rohkem kui lihtsalt kogemust. See tähendab, et enne töö algust teab meister juba, milline lahendus teie krundile sobib, millised materjalid kestavad kõige kauem ja milliseid vigu tuleb vältida.</p><ul class="svc-bens">
+    <li>Üle 15 aasta praktilist kogemust Tallinna ja Harjumaa objektidel</li>
+    <li>Tuhanded edukalt valminud aiad ja väravad eramajadele ning ettevõtetele</li>
+    <li>Kogemus igasuguste pinnastega: savi, liiv, kallakud ja keerulised krundid</li>
+    <li>Puit-, metall- ja paneelaiad, samuti lükand- ja tiibväravad ning automaatika</li>
+    <li>Läbimõeldud lahendused, mis peavad vastu aastaid, mitte ainult esimese hooaja</li>
+    <li>Iga töö meistri isikliku kontrolli all algusest kuni objekti üleandmiseni</li>
+  </ul><p style="margin-top:16px"><b>Meie eesmärk ei ole lihtsalt paigaldada aed.</b> Meie eesmärk on ehitada lahendus, mis näeb hea välja, töötab laitmatult ja teenib teid aastaid.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Põhimõtted</span><h2 class="big">Meie jaoks oluline</h2>
 <div class="svc-cards">
@@ -196,7 +196,7 @@ meist=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage. Tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/meist/","LuxAedist. Aiad ja väravad Tallinnas","LuxAed. Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist)
+page("/meist/","LuxAedist. Aiad ja väravad Tallinnas","LuxAed. Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist, sch=[about_page_schema("/meist/","et","LuxAedist","Aedade ja väravate meister Artur Mustafin ja LuxAedi lugu Tallinnas ja Harjumaal."),person_artur_schema("et")])
 
 # ---------------- ET KKK ----------------
 kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Kogusime vastused küsimustele, mida enne aia või värava tellimist kõige sagedamini küsitakse.", crumb="KKK")}
@@ -213,7 +213,7 @@ def legal(path,title,h1,kicker,blocks):
 <section class="section"><div class="wrap" style="max-width:820px">
 {"".join(f"<h2 class='big' style='font-size:24px;margin-top:28px'>{t}</h2><p class='lead' style='margin-top:10px'>{b}</p>" for t,b in blocks)}
 <p class="lead" style="margin-top:26px">Selle dokumendiga seotud küsimustes kirjutage <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a>.</p></div></section>'''
-    page(path,title,h1+" — LuxAed, aiad ja väravad Tallinnas.",inner)
+    page(path,title,h1+" — LuxAed, aiad ja väravad Tallinnas.",inner,sch=[webpage_schema(path,"et",title,h1)])
 
 legal("/privaatsus/","Privaatsuspoliitika — LuxAed","Privaatsuspoliitika","Privaatsus",[
  ("Kes andmeid töötleb","LuxAed (aiad ja väravad, Tallinn, Eesti) töötleb isikuandmeid, mille edastate meiega ühendust võttes veebi, telefoni, e-posti või Facebooki kaudu."),

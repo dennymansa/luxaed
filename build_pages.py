@@ -122,7 +122,7 @@ def _reelcard(v, lang):
     c = VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])
     return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
             f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
-            f'<img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}">'
+            f'<picture><source type="image/webp" srcset="/img/{v}-poster.webp"><img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}" width="480" height="854"></picture>'
             f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
             f'<figcaption>{c}</figcaption></figure>')
 
@@ -144,6 +144,37 @@ def video_schema(items, lang):
 def home_video_items(lang):
     return [(v, VIDEO_CAPS[v].get(lang, VIDEO_CAPS[v]["et"])) for v in VIDEO_ORDER]
 
+def _ld(obj):
+    import json as _j
+    return '<script type="application/ld+json">'+_j.dumps(obj, ensure_ascii=False)+'</script>'
+
+def person_artur_schema(lang):
+    # Person schema for the master craftsman — E-E-A-T signal (real expert behind the business)
+    jt = {"et":"Aedade ja väravate meister","ru":"Мастер по заборам и воротам",
+          "en":"Fence and gate master craftsman"}.get(lang,"Meister")
+    knows = {"et":["Aiad","Väravad","Väravaautomaatika","Piirdeaiad","Aia remont"],
+             "ru":["Заборы","Ворота","Автоматика ворот","Ограждения","Ремонт заборов"],
+             "en":["Fences","Gates","Gate automation","Fencing","Fence repair"]}.get(lang)
+    return _ld({"@context":"https://schema.org","@type":"Person","name":"Artur Mustafin",
+        "jobTitle":jt,"image":DOMAIN+"/img/luxaed-artur.jpg",
+        "worksFor":{"@type":"Organization","name":"LuxAed","url":DOMAIN+"/"},
+        "knowsAbout":knows})
+
+def about_page_schema(path, lang, name, desc):
+    return _ld({"@context":"https://schema.org","@type":"AboutPage","name":name,"description":desc,
+        "url":DOMAIN+path,"inLanguage":lang,
+        "mainEntity":{"@type":"HomeAndConstructionBusiness","name":"LuxAed","url":DOMAIN+"/",
+            "image":DOMAIN+"/img/luxaed-hero.jpg","telephone":PHONE,"email":EMAIL,"priceRange":"€€",
+            "address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},
+            "areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],
+            "employee":{"@type":"Person","name":"Artur Mustafin"}}})
+
+def webpage_schema(path, lang, name, desc):
+    return _ld({"@context":"https://schema.org","@type":"WebPage","name":name,"description":desc,
+        "url":DOMAIN+path,"inLanguage":lang,
+        "isPartOf":{"@type":"WebSite","name":"LuxAed","url":DOMAIN+"/"},
+        "publisher":{"@type":"Organization","name":"LuxAed","url":DOMAIN+"/"}})
+
 def video_block(lang):
     T = {"et": ("Videod", "Tahate näha, kuidas meistrid töötavad?",
                 "Päris kaadrid meie objektidelt: paigaldus, automaatika ja valmis tööd.",
@@ -159,14 +190,14 @@ def video_block(lang):
                 "Want your dream fence?", "Call us right away", f"Call {PHONE}", "Get a quote →")}
     tag, h2, lead, fb, hint, cta_h, cta_sub, cta_call, cta_quote = T.get(lang, T["et"])
     cards = "".join(_reelcard(v, lang) for v in VIDEO_ORDER)
-    scroll = "this.closest('.vidsec').querySelector('.reelrow').scrollBy"
-    nav = (f'<div class="reel-nav-top">'
-           f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
-           f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
-           f'</div>')
+    nav = ('<div class="reel-nav-top">'
+           '<button class="reel-arrow reel-prev" aria-label="Eelmine" onclick="reelScroll(this,-1)">‹</button>'
+           '<button class="reel-arrow reel-next" aria-label="Järgmine" onclick="reelScroll(this,1)">›</button>'
+           '</div>')
     return (f'<section class="section section--dark vidsec" style="position:relative;overflow:hidden">'
-            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 30%/cover no-repeat;opacity:.42;pointer-events:none"></div>'
-            f'<div style="position:absolute;inset:0;background:radial-gradient(92% 72% at 70% -4%, rgba(236,150,74,.34), transparent 58%);pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:url(\'/img/luxaed-w-gates-auto.webp\') center 60%/cover no-repeat;filter:brightness(.42) saturate(1.12) contrast(1.05);opacity:.92;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:radial-gradient(72% 56% at 68% 98%, rgba(255,150,60,.55), rgba(240,98,46,.18) 42%, transparent 72%);mix-blend-mode:screen;pointer-events:none"></div>'
+            f'<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(9,11,22,.9) 0%, rgba(20,16,32,.6) 46%, rgba(48,24,30,.32) 100%);pointer-events:none"></div>'
             f'<div class="wrap" style="position:relative"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2><p class="lead">{lead}</p></div>'
             f'{nav}</div></div>'
@@ -180,15 +211,14 @@ def reel_strip(items, tag, h2):
     def card(v, c):
         return (f'<figure class="reelcard" data-src="/img/{v}.mp4" onclick="playReel(this)" '
                 f'tabindex="0" role="button" aria-label="{c}" onkeydown="if(event.key===\'Enter\')playReel(this)">'
-                f'<img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}">'
+                f'<picture><source type="image/webp" srcset="/img/{v}-poster.webp"><img class="vid-poster" loading="lazy" decoding="async" src="/img/{v}-poster.jpg" alt="{c}" width="480" height="854"></picture>'
                 f'<button class="vid-play" aria-hidden="true" tabindex="-1">▶</button>'
                 f'<figcaption>{c}</figcaption></figure>')
     cards = "".join(card(v, c) for v, c in items)
-    scroll = "this.closest('.vidsec').querySelector('.reelrow').scrollBy"
-    nav = (f'<div class="reel-nav-top">'
-           f'<button class="reel-arrow reel-prev" aria-label="←" onclick="{scroll}({{left:-400,behavior:\'smooth\'}})">‹</button>'
-           f'<button class="reel-arrow reel-next" aria-label="→" onclick="{scroll}({{left:400,behavior:\'smooth\'}})">›</button>'
-           f'</div>')
+    nav = ('<div class="reel-nav-top">'
+           '<button class="reel-arrow reel-prev" aria-label="Eelmine" onclick="reelScroll(this,-1)">‹</button>'
+           '<button class="reel-arrow reel-next" aria-label="Järgmine" onclick="reelScroll(this,1)">›</button>'
+           '</div>')
     return (f'<section class="section vidsec"><div class="wrap"><div class="vidsec-head">'
             f'<div class="vidsec-intro"><span class="tag">{tag}</span><h2 class="big">{h2}</h2></div>{nav}</div></div>'
             f'<div class="wrap"><div class="reelwrap"><div class="reelrow">{cards}</div></div></div></section>')
@@ -316,22 +346,10 @@ function fsReq(v){try{if(v.requestFullscreen){v.requestFullscreen();}else if(v.w
 function closeVlb(){var lb=document.getElementById('vlb');if(lb){var v=lb.querySelector('video');try{v.pause();}catch(e){}v.removeAttribute('src');try{v.load();}catch(e){}lb.classList.remove('on');}}
 function openVlb(src,poster){var lb=document.getElementById('vlb');if(!lb){lb=document.createElement('div');lb.id='vlb';lb.className='vlb';lb.innerHTML='<button class="vlb-x" aria-label="Close">&times;</button><video class="vlb-video" controls playsinline preload="auto"></video>';document.body.appendChild(lb);lb.querySelector('.vlb-x').addEventListener('click',closeVlb);lb.addEventListener('click',function(e){if(e.target===lb)closeVlb();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVlb();});}var v=lb.querySelector('video');v.src=src;if(poster)v.poster=poster;lb.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){});}
 function resetReel(fig){var v=fig._v;if(v){try{v.pause();}catch(e){}v.remove();fig._v=null;}var b=fig.querySelector('.vid-fs');if(b)b.remove();fig.classList.remove('playing');}
-function playReel(fig){
- if(window.matchMedia&&window.matchMedia('(min-width:761px)').matches){var im=fig.querySelector('.vid-poster');openVlb(fig.dataset.src,im?(im.currentSrc||im.src):'');return;}
- var others=document.querySelectorAll('.reelcard.playing,.vidcard.playing');for(var i=0;i<others.length;i++){if(others[i]!==fig)resetReel(others[i]);}
- var v=fig._v;
- if(v){var pp=v.play();if(pp&&pp.catch)pp.catch(function(){});return;}
- v=document.createElement('video');v.className='reel-video';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('preload','auto');
- var img=fig.querySelector('.vid-poster');if(img)v.poster=img.currentSrc||img.src;
- var s=document.createElement('source');s.src=fig.dataset.src;s.type='video/mp4';v.appendChild(s);
- fig.appendChild(v);fig._v=v;fig.classList.add('playing');
- var fs=document.createElement('button');fs.type='button';fs.className='vid-fs';fs.setAttribute('aria-label','Fullscreen');
- fs.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>';
- fs.onclick=function(e){e.stopPropagation();e.preventDefault();fsReq(v);};
- fig.appendChild(fs);
- var p=v.play();if(p&&p.catch)p.catch(function(){});
-}
+function playReel(fig){var im=fig.querySelector('.vid-poster');openVlb(fig.dataset.src,im?(im.currentSrc||im.src):'');}
 document.addEventListener('play',function(e){var t=e.target;if(t&&t.tagName==='VIDEO'){var all=document.getElementsByTagName('video');for(var i=0;i<all.length;i++){if(all[i]!==t){try{all[i].pause();}catch(_){}}}}},true);
+// carousel arrows loop around (endless feel)
+function reelScroll(btn,dir){var wrap=btn.closest('.vidsec');var row=wrap.querySelector('.reelrow');var step=Math.min(400,row.clientWidth*0.85);if(dir>0){if(row.scrollLeft+row.clientWidth>=row.scrollWidth-8){row.scrollTo({left:0,behavior:'smooth'});return;}}else{if(row.scrollLeft<=8){row.scrollTo({left:row.scrollWidth,behavior:'smooth'});return;}}row.scrollBy({left:dir*step,behavior:'smooth'});}
 function ccChoose(all){try{localStorage.setItem('cc',all?'all':'necessary');}catch(e){}if(all&&window.gtag){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}var b=document.getElementById('ccBanner');if(b)b.classList.remove('on');}
 (function(){var b=document.getElementById('ccBanner');if(!b)return;var c=null;try{c=localStorage.getItem('cc');}catch(e){}if(!c)setTimeout(function(){b.classList.add('on');},600);})();
 (function(){var car=document.querySelector(".rev-carousel");if(!car)return;var vp=car.querySelector(".rev-viewport"),track=car.querySelector(".rev-track");var cards=[].slice.call(track.children);if(cards.length<2)return;var i=0,n=cards.length,auto=null;function step(){return (cards[1].offsetLeft-cards[0].offsetLeft)||cards[0].offsetWidth;}function perView(){return Math.max(1,Math.round(vp.offsetWidth/step()));}function maxI(){return Math.max(0,n-perView());}function setX(px){track.style.transform="translateX("+px+"px)";}function go(k){var m=maxI();i=k<0?m:(k>m?0:k);setX(-i*step());}function next(){go(i+1);}function prev(){go(i-1);}function start(){stop();auto=setInterval(next,4500);}function stop(){if(auto){clearInterval(auto);auto=null;}}car.querySelector(".rev-next").addEventListener("click",function(){next();start();});car.querySelector(".rev-prev").addEventListener("click",function(){prev();start();});var down=false,moved=false,sx=0,dx=0;function dS(x){down=true;moved=false;sx=x;dx=0;track.classList.add("is-drag");stop();}function dM(x){if(!down)return;dx=x-sx;if(Math.abs(dx)>5)moved=true;setX(-i*step()+dx);}function dE(){if(!down)return;down=false;track.classList.remove("is-drag");var th=Math.min(80,step()*0.2);if(dx<-th)next();else if(dx>th)prev();else go(i);dx=0;start();}track.addEventListener("mousedown",function(e){dS(e.clientX);});window.addEventListener("mousemove",function(e){dM(e.clientX);});window.addEventListener("mouseup",dE);track.addEventListener("touchstart",function(e){dS(e.touches[0].clientX);},{passive:true});track.addEventListener("touchmove",function(e){dM(e.touches[0].clientX);},{passive:true});track.addEventListener("touchend",dE);track.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();}},true);track.addEventListener("dragstart",function(e){e.preventDefault();});car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",start);window.addEventListener("resize",function(){go(i);});go(0);start();})();

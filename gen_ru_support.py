@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # RU support pages: o-nas, faq, kontakty, privaatsus, tingimused
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, about_page_schema, person_artur_schema, webpage_schema
 from gen_ru import form_html, faq_html
 
 def hero(kicker, h1, lead, img="luxaed-wide-wood", crumb=None):
@@ -35,23 +35,23 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 отзыва в Facebook · рекомендуют</span></div>
     <h1>Кто мы</h1>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более 15 лет</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Наш мастер видел все типы заборов, грунтов и водоотвода.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограждение всей территории. Поможем с любой задачей.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:16px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более 15 лет</b>. Работаем с деревом, профнастилом и сварной 3D-сеткой, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Наш мастер видел все типы заборов, грунтов и водоотвода.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограждение всей территории. Поможем с любой задачей.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Рекомендуют в Facebook</span></div><div class="hstat"><b>34</b><span>Отзыва</span></div><div class="hstat"><b>15</b><span>Лет опыта мастеров</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Мастер, который знает о заборах всё.</h2></div>
+  <div class="equip-head"><span class="tag">Мастер</span><h2 class="big">Артур Мустафин. Мастер, чей опыт экономит ваше время и деньги.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Артур Мустафин, мастер LuxAed" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">Работами LuxAed руководит мастер с <b>15-летним опытом</b>: за 15 лет тысячи объектов по Таллинну и Харьюмаа, даже уже и не посчитать.</p><ul class="spec">
-    <li><b>15 лет опыта</b>: дерево, профнастил, панели, ворота и автоматика</li>
-    <li><b>Видел всё</b>: любые типы заборов, грунтов и водоотвода</li>
-    <li><b>Знает поставщиков</b>: правильные материалы по правильной цене</li>
-    <li><b>Полное решение под ключ</b>: не просто установка, а решение под ваши пожелания</li>
-    <li><b>Забор вашей мечты</b>: мастер сразу видит, как он встанет и каким будет</li>
-    <li><b>Каждый объект под его контролем</b>: за качество мастер отвечает лично</li>
-  </ul></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 лет строительства заборов и ворот дают больше, чем просто опыт. Это значит, что ещё до начала работ мастер уже знает, какое решение подойдёт вашему участку, какие материалы прослужат дольше всего и каких ошибок нужно избежать.</p><ul class="svc-bens">
+    <li>Более 15 лет практического опыта на объектах Таллинна и Харьюмаа</li>
+    <li>Тысячи успешно построенных заборов и ворот для частных домов и компаний</li>
+    <li>Опыт с любыми грунтами: глина, песок, склоны и сложные участки</li>
+    <li>Деревянные, металлические и панельные заборы, откатные и распашные ворота, автоматика</li>
+    <li>Продуманные решения, которые служат годами, а не только первый сезон</li>
+    <li>Каждая работа под личным контролем мастера, от начала до сдачи объекта</li>
+  </ul><p style="margin-top:16px"><b>Наша цель не в том, чтобы просто поставить забор.</b> Мы строим решение, которое отлично выглядит, работает безупречно и служит вам годами.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap">
   <span class="tag">Принципы</span><h2 class="big">Что для нас важно</h2>
@@ -97,7 +97,7 @@ about_inner=f'''<section class="hero hero--compact">
 <section class="cta-final"><div class="wrap"><h2>Обсудим <em>ваш забор или ворота</em>?</h2>
   <p>Оставьте заявку или позвоните. Приедем на бесплатный замер и назовём точную стоимость.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
-page("/ru/o-nas/","О компании LuxAed. Заборы и ворота в Таллинне","LuxAed. Заборы и ворота в Таллинне и Харьюмаа. Дерево, профнастил, 3D-сетка, автоматика. 100% рекомендуют в Facebook.", about_inner)
+page("/ru/o-nas/","О компании LuxAed. Заборы и ворота в Таллинне","LuxAed. Заборы и ворота в Таллинне и Харьюмаа. Дерево, профнастил, 3D-сетка, автоматика. 100% рекомендуют в Facebook.", about_inner, schema=[about_page_schema("/ru/o-nas/","ru","О компании LuxAed","Мастер по заборам и воротам Артур Мустафин и история LuxAed в Таллинне и Харьюмаа."),person_artur_schema("ru")])
 
 # ---------- FAQ ----------
 FAQ=[("Сколько стоит забор или ворота?","Точную стоимость назвать заранее нельзя. Она зависит от материала, длины и высоты забора, рельефа участка и наличия ворот с автоматикой. После бесплатного замера мы называем конкретную цену без скрытых доплат."),
@@ -124,7 +124,7 @@ def legal_page(path, title, h1, kicker, blocks):
 {"".join(f"<h2 class='big' style='font-size:24px;margin-top:28px'>{t}</h2><p class='lead' style='margin-top:10px'>{b}</p>" for t,b in blocks)}
 <p class="lead" style="margin-top:26px">По вопросам, связанным с этим документом, пишите на <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a>.</p>
 </div></section>'''
-    page(path,title,h1+" — LuxAed, заборы и ворота в Таллинне.",inner)
+    page(path,title,h1+" — LuxAed, заборы и ворота в Таллинне.",inner,schema=[webpage_schema(path,"ru",title,h1)])
 
 legal_page("/ru/privaatsus/","Политика конфиденциальности — LuxAed","Политика конфиденциальности","Конфиденциальность",[
  ("Кто обрабатывает данные","LuxAed (заборы и ворота, Таллинн, Эстония) обрабатывает персональные данные, которые вы предоставляете при обращении через сайт, телефон, email или Facebook."),

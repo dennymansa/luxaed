@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # EN home + EN support pages (about, faq, contact, privacy, terms)
 import json, html
-from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block, video_schema, home_video_items
+from build_pages import head, nav, footer, SCRIPTS, write, PHONE, TEL, EMAIL, FB, DOMAIN, partners_marquee, video_block, video_schema, home_video_items, about_page_schema, person_artur_schema, webpage_schema
 from gen_en import form_html, faqx, PROCESS
 from reviews_data import REVIEWS as ALLREV, card as revcard
 
@@ -152,23 +152,23 @@ about=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <h1>Who we are</h1>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>for over 15 years</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our master has seen every fence type, soil and drainage setup.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:16px;max-width:720px">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>for over 15 years</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our master has seen every fence type, soil and drainage setup.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
+    <p class="lead" style="color:#fff;font-size:18px;line-height:1.55;margin-top:12px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>15</b><span>Years of craft experience</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A craftsman who knows fences inside out.</h2></div>
+  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A master whose experience saves you time and money.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: thousands of projects across Tallinn and Harjumaa over 15 years, too many to count.</p><ul class="spec">
-    <li><b>15 years of experience</b>: wood, sheet, panels, gates and automation</li>
-    <li><b>Seen it all</b>: every fence type, soil and drainage setup</li>
-    <li><b>Knows the suppliers</b>: the right materials at the right price</li>
-    <li><b>A complete turnkey solution</b>: not just installation, a solution built around your wishes</li>
-    <li><b>Your dream fence</b>: the master sees at once how it will stand and how it will look</li>
-    <li><b>Every job under his eye</b>: the master answers for quality personally</li>
-  </ul></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">15 years of building fences and gates means more than just experience. It means that before the work even begins, the master already knows which solution suits your plot, which materials last the longest and which mistakes to avoid.</p><ul class="svc-bens">
+    <li>Over 15 years of hands-on experience on sites across Tallinn and Harjumaa</li>
+    <li>Thousands of successfully completed fences and gates for homes and businesses</li>
+    <li>Experience with every kind of ground: clay, sand, slopes and difficult plots</li>
+    <li>Wood, metal and panel fences, plus sliding and swing gates and automation</li>
+    <li>Well-considered solutions that last for years, not just the first season</li>
+    <li>Every job under the master's personal control, from start to handover</li>
+  </ul><p style="margin-top:16px"><b>Our goal is not simply to install a fence.</b> Our goal is to build a solution that looks great, works flawlessly and serves you for years.</p></div>
 </div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
 <div class="svc-cards">
@@ -196,7 +196,7 @@ about=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Over 15 years of experience.", about)
+page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Over 15 years of experience.", about, sch=[about_page_schema("/en/about/","en","About LuxAed","Fence and gate master Artur Mustafin and the LuxAed story in Tallinn and Harjumaa."),person_artur_schema("en")])
 
 # ---------------- EN FAQ ----------------
 faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
@@ -213,7 +213,7 @@ def legal(path,title,h1,kicker,blocks):
 <section class="section"><div class="wrap" style="max-width:820px">
 {"".join(f"<h2 class='big' style='font-size:24px;margin-top:28px'>{t}</h2><p class='lead' style='margin-top:10px'>{b}</p>" for t,b in blocks)}
 <p class="lead" style="margin-top:26px">For questions about this document, write to <a href="mailto:{EMAIL}" style="color:var(--accent)">{EMAIL}</a>.</p></div></section>'''
-    page(path,title,h1+" — LuxAed, fences and gates in Tallinn.",inner)
+    page(path,title,h1+" — LuxAed, fences and gates in Tallinn.",inner,sch=[webpage_schema(path,"en",title,h1)])
 
 legal("/en/privacy/","Privacy policy — LuxAed","Privacy policy","Privacy",[
  ("Who processes the data","LuxAed (fences and gates, Tallinn, Estonia) processes personal data you provide when contacting us via the website, phone, email or Facebook."),
