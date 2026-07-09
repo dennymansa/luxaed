@@ -35,7 +35,7 @@ a.btn.g{background:transparent;border:1.5px solid rgba(255,255,255,.25)}
     </g>
     <circle cx="120" cy="8" r="3.4" fill="#e8a24a"/>
   </svg>
-  <h1 id="t">Lehte ei leitud. <em>Aga aed on leitud!</em></h1>
+  <h1 id="t">Lehte ei leitud.<br><em>Aga aed on leitud!</em></h1>
   <p id="d">Kus iganes see leht ka poleks, meie aia taha ta ei jää. Alustage avalehelt või helistage: paigaldame teile lehe asemel korraliku aia.</p>
   <div class="btns">
     <a class="btn" id="home" href="/">Avalehele →</a>
@@ -48,13 +48,13 @@ a.btn.g{background:transparent;border:1.5px solid rgba(255,255,255,.25)}
   var p=location.pathname||'';
   var L=p.indexOf('/ru/')===0?'ru':(p.indexOf('/en/')===0?'en':'et');
   var T={
-    ru:{h:'Страница не найдена. <em>Зато забор найден!</em>',
+    ru:{h:'Страница не найдена.<br><em>Зато забор найден!</em>',
         d:'Куда бы ни делась эта страница, за наш забор она не убежала. Начните с главной или позвоните: вместо страницы поставим вам отличный забор.',
         b:'На главную →', u:'/ru/', l:'ru'},
-    en:{h:'Page not found. <em>But hey, the fence is found!</em>',
+    en:{h:'Page not found.<br><em>But hey, the fence is found!</em>',
         d:'Wherever this page went, it did not get past our fence. Start from the homepage or give us a call: we install fences far more reliably than URLs.',
         b:'To the homepage →', u:'/en/', l:'en'},
-    et:{h:'Lehte ei leitud. <em>Aga aed on leitud!</em>',
+    et:{h:'Lehte ei leitud.<br><em>Aga aed on leitud!</em>',
         d:'Kus iganes see leht ka poleks, meie aia taha ta ei jää. Alustage avalehelt või helistage: paigaldame teile lehe asemel korraliku aia.',
         b:'Avalehele →', u:'/', l:'et'}
   }[L];
