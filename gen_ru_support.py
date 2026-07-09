@@ -89,7 +89,7 @@ about_inner=f'''<section class="hero hero--compact">
     <li><b>Чистый объект</b>: убираем за собой и сдаём участок в порядке</li>
   </ul></div>
 </div></div></section>
-<section class="cta-final"><div class="wrap"><h2>Обсудим <em>ваш забор или ворота</em>?</h2>
+<section class="cta-final"><div class="wrap"><h2>Обсудим <em>ваш забор и ворота</em>?</h2>
   <p>Оставьте заявку или позвоните. Приедем на бесплатный замер и назовём точную стоимость.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
 page("/ru/o-nas/","О компании LuxAed. Заборы и ворота в Таллинне","LuxAed. Заборы и ворота в Таллинне и Харьюмаа. Дерево, профнастил, 3D-сетка, автоматика. 100% рекомендуют в Facebook.", about_inner, schema=[about_page_schema("/ru/o-nas/","ru","О компании LuxAed","Мастер по заборам и воротам Артур Мустафин и история LuxAed в Таллинне и Харьюмаа."),person_artur_schema("ru")])
