@@ -99,7 +99,6 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-{partners_marquee("en")}
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Honest about prices</span><h2 class="big">What's always included and what depends on the project</h2>
 <p class="lead">The price depends on the material, fence length, terrain and gate complexity. So there's no fixed price list. We give the exact price after a free measurement.</p>

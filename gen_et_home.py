@@ -99,7 +99,6 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-{partners_marquee("et")}
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Mis kuulub hinna sisse ja mis sõltub projektist</h2>
 <p class="lead">Hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest. Seepärast fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>

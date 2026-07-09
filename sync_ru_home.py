@@ -28,8 +28,6 @@ def sub_once(pattern, repl_str, label):
 sub_once(r'<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob\(\).*?</script>', build_pages.SCRIPTS, 'SCRIPTS')
 # 2) video section (dark sunset + looping carousel)
 sub_once(r'<section class="section section--dark vidsec".*?</section>', build_pages.video_block('ru'), 'video_block')
-# 3) partners marquee (real brand logos, two rows)
-sub_once(r'<section class="partners-marquee".*?</section>', build_pages.partners_marquee('ru'), 'partners_marquee')
 
 # 4) VideoObject schema blocks in <head> (order must match the rendered carousel)
 vs = "\n".join(build_pages.video_schema(build_pages.home_video_items('ru'), 'ru'))
