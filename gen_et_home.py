@@ -37,10 +37,10 @@ tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><pict
 AREAS=["Tallinn","Kesklinn","Lasnamäe","Mustamäe","Haabersti","Kristiine","Põhja-Tallinn","Pirita","Nõmme","Viimsi","Maardu","Saue","Keila","Harku","Rae","Harjumaa"]
 areas_html="".join(f'<span class="area-pill">{a}</span>' for a in AREAS)
 
-HOME_FAQ=[("Kui palju aed või värav maksab?","Täpset hinda ei saa ette öelda — see sõltub materjalist, aia pikkusest ja kõrgusest, reljeefist ning väravatest. Pärast tasuta mõõdistust ütleme konkreetse hinna ilma varjatud lisatasudeta."),
+HOME_FAQ=[("Kui palju aed või värav maksab?","Täpset hinda ei saa ette öelda. See sõltub materjalist, aia pikkusest ja kõrgusest, reljeefist ning väravatest. Pärast tasuta mõõdistust ütleme konkreetse hinna ilma varjatud lisatasudeta."),
  ("Milliseid aedu te teete?","Puitaiad (teraskarkassil), profiilplekk-aiad ja keevispaneelaiad (3D). Aitame valida materjali eelarve ja krundi järgi."),
  ("Kas paigaldate väravaautomaatikat?","Jah, paigaldame lük- ja tiibväravate automaatika, pultid, fotoelemendid ja domofonid. Saame automaatika ka olemasolevale väravale."),
- ("Millistes piirkondades töötate?","Tallinnas ja kogu Harjumaal. Kaugemale — kokkuleppel, kirjutage meile."),
+ ("Millistes piirkondades töötate?","Tallinnas ja kogu Harjumaal. Kaugemale. Kokkuleppel, kirjutage meile."),
  ("Kas teete aedade remonti?","Jah, remondime aedu ja väravaid: sektsioonide ja postide vahetus, väravate reguleerimine, automaatika remont.")]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB]},ensure_ascii=False)+'</script>']
@@ -63,7 +63,7 @@ home_inner=f'''<section class="hero">
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Lahendus igale krundile</h2>
-  <p class="lead lead--lg">Valige aia või värava tüüp — aitame valida sobiva lahenduse, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
+  <p class="lead lead--lg">Valige aia või värava tüüp. Aitame valida sobiva lahenduse, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Ei tea, milline aed sobib?</span>
@@ -98,26 +98,26 @@ home_inner=f'''<section class="hero">
 {partners_marquee("et")}
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Mis kuulub hinna sisse ja mis sõltub projektist</h2>
-<p class="lead">Hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest — seepärast fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
+<p class="lead">Hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest. Seepärast fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
 <div class="honest">
   <div class="hon good"><h3>Alati hinna sees</h3><ul><li>Krundi mõõdistamine</li><li>Materjali ja konstruktsiooni konsultatsioon</li><li>Hinnaarvestus enne tööde algust</li><li>Postide ja sektsioonide paigaldus</li><li>Furnituuri ja vajadusel automaatika paigaldus</li><li>Väravate kontroll pärast paigaldust</li></ul></div>
-  <div class="hon bad"><h3>Sõltub projektist</h3><ul><li>Materjali valik (puit, profiilplekk, keevispaneel)</li><li>Aia pikkus ja kõrgus, väravate arv</li><li>Reljeefi keerukus ja aluse ettevalmistus</li><li>Väravaautomaatika ja domofon — soovi korral</li><li>Vana aia lammutus</li></ul></div>
+  <div class="hon bad"><h3>Sõltub projektist</h3><ul><li>Materjali valik (puit, profiilplekk, keevispaneel)</li><li>Aia pikkus ja kõrgus, väravate arv</li><li>Reljeefi keerukus ja aluse ettevalmistus</li><li>Väravaautomaatika ja domofon. Soovi korral</li><li>Vana aia lammutus</li></ul></div>
 </div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
   <div class="wrap" style="position:relative"><span class="tag">Ettevõttest</span><h2 class="big big--xl">Aiad on see, mida teeme iga päev.</h2>
-  <p class="lead lead--lg">LuxAed — aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
+  <p class="lead lead--lg">LuxAed. Aedade ja väravate meeskond Tallinnas ja Harjumaal.<br>Puit, profiilplekk, keevispaneel, väravaautomaatika ja domofonid.<br>Kvaliteetselt ja kokkulepitud hinnaga, mille ütleme enne tööde algust.</p>
   <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused Facebookis</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aeda ja väravat</p></div></div></div></section>
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
-    <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
-    <li><b>Loodimine ja mõõtmine</b> — sektsioonid ühes joones, ka kaldega krundil</li>
-    <li><b>Automaatika ja domofonid</b> — seadistame ja ühendame võtmed kätte</li>
-    <li><b>Puhas objekt</b> — koristame enda järelt ja anname krundi korras üle</li>
+    <li><b>Postiaugupuur ja rammer</b>: postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b>: teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b>: sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b>: seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b>: koristame enda järelt ja anname krundi korras üle</li>
   </ul></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Galerii</span><h2 class="big">Meie aedade ja väravate näited</h2><p class="lead">Tehtud tööde päris fotod. Vajuta pildile, et avada.</p>
@@ -137,7 +137,7 @@ home_inner=f'''<section class="hero">
 <section class="section" id="kkk"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>
 
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
-  <p>Jätke päring või helistage — tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
+  <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
 page("/","Aiad ja väravad Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, 3D paneelid, väravaautomaatika. Tasuta mõõdistus. 100% soovitab.", home_inner, sch=lb_schema+home_faq_schema)
 
@@ -148,17 +148,17 @@ meist=f'''<section class="hero hero--compact">
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Kes me oleme</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meistritel on üle 15 aasta kogemust aedade ja väravate ehituses.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette — ilma peidetud lisatasude ja üllatusteta.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire. Ja erinevalt paljudest <b>töötame aastaringselt — ka talvel</b>.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire. Ja erinevalt paljudest <b>töötame aastaringselt. Ka talvel</b>.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>Arvustust</span></div><div class="hstat"><b>15</b><span>Aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Põhimõtted</span><h2 class="big">Meie jaoks oluline</h2>
 <div class="svc-cards">
 <div class="svc-card"><div class="ic">1</div><h3>Kõik ühe kõnega</h3><p>Mõõdistus, materjalid, paigaldus ja remont ühest kohast. Üks kõne, ja kõik on korraldatud.</p></div>
-<div class="svc-card"><div class="ic">2</div><h3>Töötame aastaringselt</h3><p>Paigaldame aedu ka talvel — külmunud pinnas pole takistus. Me ei lükka kevadesse.</p></div>
+<div class="svc-card"><div class="ic">2</div><h3>Töötame aastaringselt</h3><p>Paigaldame aedu ka talvel. Külmunud pinnas pole takistus. Me ei lükka kevadesse.</p></div>
 <div class="svc-card"><div class="ic">3</div><h3>Hoolsad käed</h3><p>Töötame puhtalt, hoiame krunti ja koristame enda järelt. Anname objekti korras üle.</p></div>
-<div class="svc-card"><div class="ic">4</div><h3>Täpne hind ette</h3><p>Ütleme hinna enne algust ja peame sellest kinni — ilma peidetud lisatasude ja üllatusteta.</p></div>
+<div class="svc-card"><div class="ic">4</div><h3>Täpne hind ette</h3><p>Ütleme hinna enne algust ja peame sellest kinni. Ilma peidetud lisatasude ja üllatusteta.</p></div>
 </div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Miks meie</span><h2 class="big">Miks LuxAed</h2>
 <ul class="svc-bens"><li>Töötame <b>alates 2021. aastast</b> Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, väravaautomaatika ja domofonid</li><li>Materjalide ostu ja kogu protsessi võtame enda peale</li><li>Tasuta mõõdistus, hind enne algust, garantii tööle</li><li>Töötame aastaringselt, ka talvel</li></ul></div></section>
@@ -167,40 +167,40 @@ meist=f'''<section class="hero hero--compact">
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Soovitavad</div><p>Facebooki arvustuste järgi</p></div><div class="num"><b>34</b><div class="t">Arvustust</div><p>Klientide arvustused</p></div><div class="num"><b>15</b><div class="t">Aastat kogemust</div><p>Meie meistrite kogemus aedade ehituses</p></div><div class="num"><b>300</b><div class="t">Objekti</div><p>Paigaldatud aiad ja väravad</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin — meister, kes teab aedadest kõike.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin — LuxAed meister" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud — sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
-    <li><b>15 aastat kogemust</b> — puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
-    <li><b>Sajad paigaldatud objektid</b> — eramud, ridaelamud ja territooriumid</li>
-    <li><b>Tunneb kõiki pinnaseid</b> — savi, liiv või turvas, postid seisavad loodis</li>
-    <li><b>Tunneb tarnijaid</b> — õiged materjalid õige hinnaga, ilma vahendajateta</li>
-    <li><b>Iga objekt tema silma all</b> — kvaliteedi eest vastutab meister ise</li>
+  <div class="equip-head"><span class="tag">Meister</span><h2 class="big">Artur Mustafin. Meister, kes teab aedadest kõike.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. Sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
+    <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
+    <li><b>Sajad paigaldatud objektid</b>: eramud, ridaelamud ja territooriumid</li>
+    <li><b>Tunneb kõiki pinnaseid</b>: savi, liiv või turvas, postid seisavad loodis</li>
+    <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>
+    <li><b>Iga objekt tema silma all</b>: kvaliteedi eest vastutab meister ise</li>
   </ul></div>
 </div></div></section>
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed — väravate ja aedade paigaldus" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed, väravate ja aedade paigaldus" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
-    <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
-    <li><b>Loodimine ja mõõtmine</b> — sektsioonid ühes joones, ka kaldega krundil</li>
-    <li><b>Automaatika ja domofonid</b> — seadistame ja ühendame võtmed kätte</li>
-    <li><b>Puhas objekt</b> — koristame enda järelt ja anname krundi korras üle</li>
+    <li><b>Postiaugupuur ja rammer</b>: postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b>: teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b>: sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b>: seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b>: koristame enda järelt ja anname krundi korras üle</li>
   </ul></div>
 </div></div></section>
-<section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage — tuleme tasuta mõõdistusele.</p>
+<section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage. Tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/meist/","LuxAedist — aiad ja väravad Tallinnas","LuxAed — aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist)
+page("/meist/","LuxAedist. Aiad ja väravad Tallinnas","LuxAed. Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevispaneel, automaatika ja domofonid.", meist)
 
 # ---------------- ET KKK ----------------
 kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Kogusime vastused küsimustele, mida enne aia või värava tellimist kõige sagedamini küsitakse.", crumb="KKK")}
 <section class="section"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage — soovitame ja tuleme tasuta mõõdistusele.</p>
+<section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage. Soovitame ja tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/kontakt/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/kkk/","KKK — aiad ja väravad — LuxAed","Korduma kippuvad küsimused aedade, väravate ja automaatika kohta Tallinnas: hind, materjalid, tähtajad, automaatika, remont. LuxAed.", kkk_inner, sch=home_faq_schema)
+page("/kkk/","KKK. Aiad ja väravad — LuxAed","Korduma kippuvad küsimused aedade, väravate ja automaatika kohta Tallinnas: hind, materjalid, tähtajad, automaatika, remont. LuxAed.", kkk_inner, sch=home_faq_schema)
 
 # ---------------- ET KONTAKT ----------------
-kontakt=f'''{hero("Kontakt","Võtke LuxAediga ühendust","Aiad, väravad ja automaatika Tallinnas ja Harjumaal. Helistage, kirjutage või jätke päring — tuleme tasuta mõõdistusele.", crumb="Kontakt")}
+kontakt=f'''{hero("Kontakt","Võtke LuxAediga ühendust","Aiad, väravad ja automaatika Tallinnas ja Harjumaal. Helistage, kirjutage või jätke päring. Tuleme tasuta mõõdistusele.", crumb="Kontakt")}
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Kontakt</span><h2 class="big">Kuidas meiega ühendust võtta</h2></div>
   <div class="equip-body"><ul class="spec">
@@ -209,7 +209,7 @@ kontakt=f'''{hero("Kontakt","Võtke LuxAediga ühendust","Aiad, väravad ja auto
     <li><span>Facebook</span><span><a href="{FB}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Aiad ja väravad LuxAed</a></span></li>
     <li><span>Piirkond</span><span>Tallinn, Harjumaa, Eesti</span></li>
     <li><span>Lahtiolekuajad</span><span>E–R 09–18, L kokkuleppel</span></li></ul>
-    <p class="lead">Kõige kiiremini — helistage või jätke päring vormis. Helistame tagasi, täpsustame detailid ja lepime kokku tasuta mõõdistuse.</p></div>
+    <p class="lead">Kõige kiiremini. Helistage või jätke päring vormis. Helistame tagasi, täpsustame detailid ja lepime kokku tasuta mõõdistuse.</p></div>
   <div class="equip-img">{form_html().replace('<div class="form-slot">','').replace('</div></div>','</div>')}</div>
 </div></div></section>'''
 page("/kontakt/","Kontakt — LuxAed aiad ja väravad Tallinnas","LuxAedi kontakt: telefon "+PHONE+", e-post "+EMAIL+", Facebook. Aiad, väravad ja automaatika Tallinnas ja Harjumaal. Jätke päring tasuta mõõdistuseks.", kontakt)

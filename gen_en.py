@@ -14,7 +14,7 @@ def form_html():
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
     <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
-    <div class="ff" data-svc="fence"><select name="material" class="form-select" aria-label="Fence material"><option value="">Fence material</option><option>Wood</option><option>Corrugated sheet</option><option>Mesh (3D welded)</option><option>Not sure — advise me</option></select></div>
+    <div class="ff" data-svc="fence"><select name="material" class="form-select" aria-label="Fence material"><option value="">Fence material</option><option>Wood</option><option>Corrugated sheet</option><option>Mesh (3D welded)</option><option>Not sure, advise me</option></select></div>
     <div class="ff form-grid2" data-svc="fence"><input type="text" name="length" inputmode="numeric" placeholder="Length, m"><select name="height" class="form-select" aria-label="Height"><option value="">Height</option><option>up to 1.5 m</option><option>1.5–2 m</option><option>over 2 m</option></select></div>
     <div class="ff" data-svc="gate,automation"><select name="gate_type" class="form-select" aria-label="Gate type"><option value="">Gate type</option><option>Sliding</option><option>Swing</option><option>Not sure</option></select></div>
     <div class="ff" data-svc="gate"><select name="automation" class="form-select" aria-label="Automation?"><option value="">Automation?</option><option>With automation</option><option>Without automation</option><option>Not sure</option></select></div>
@@ -34,21 +34,21 @@ def form_html():
 </div></div>'''
 
 PROCESS='''<div class="hsteps">
-  <div class="hstep"><div class="hstep-num">1</div><h3>You send a request</h3><p>One call or message — and we take the fence off your hands. We come for a free measurement at a time that suits you.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>We advise & quote</h3><p>We suggest the material and solution for your plot and budget and give an exact price — no surprises on the invoice.</p></div>
+  <div class="hstep"><div class="hstep-num">1</div><h3>You send a request</h3><p>One call or message. And we take the fence off your hands. We come for a free measurement at a time that suits you.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>We advise & quote</h3><p>We suggest the material and solution for your plot and budget and give an exact price. No surprises on the invoice.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>We install with care</h3><p>We set the posts, sections, gates and automation. We keep you posted at every stage.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>We hand it over</h3><p>When the work is done we review the result together with you and hand over the finished job — with care and maintenance tips.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>We hand it over</h3><p>When the work is done we review the result together with you and hand over the finished job. With care and maintenance tips.</p></div>
 </div>'''
 
 VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed — fence and gate installation" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed, fence and gate installation" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Post auger and rammer</b> — posts go in firm and level</li>
-    <li><b>Welding and cutting on site</b> — steel frames and gate frames</li>
-    <li><b>Levelling and measuring</b> — sections in one line, even on a slope</li>
-    <li><b>Automation and intercoms</b> — set up and connected turnkey</li>
-    <li><b>Clean site</b> — we clean up after ourselves and hand the plot over tidy</li>
+    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
+    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
   </ul></div></div></div></section>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
@@ -87,7 +87,7 @@ def service(c):
 <section class="section section--alt"><div class="wrap"><span class="tag">Options</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
   <div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Get a quote →</a></div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Honest about pricing</span><h2 class="big">What affects the price</h2>
-  <p class="lead">There is no fixed price list — we quote after a free on-site measurement. Here's what's always included and what affects the total.</p>
+  <p class="lead">There is no fixed price list. We quote after a free on-site measurement. Here's what's always included and what affects the total.</p>
   <div class="honest"><div class="hon good"><h3>Always included</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>We work year-round, including winter</li><li>Warranty on completed work</li></ul></div>
   <div class="hon bad"><h3>Affects the price</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
@@ -96,7 +96,7 @@ def service(c):
 <section class="section section--alt"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Frequently asked questions</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Other services</span><h2 class="big">See also</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>{c["name"].lower()}</em> for your property?</h2>
-  <p>Leave a request or call — we'll come for a free measurement and give you an exact price.</p>
+  <p>Leave a request or call. We'll come for a free measurement and give you an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>
 </main>
 <div class="lb" id="lb"><button class="lb-x" aria-label="Close">&times;</button><img src="" alt="" id="lbImg"></div>
@@ -110,35 +110,35 @@ ENSERV=[
 {"path":"/en/services/mesh-fence/","name":"Mesh & 3D fences","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
  "title":"Mesh & 3D fences, posts and dog runs in Tallinn — LuxAed","desc":"Mesh and 3D welded-panel fences in Tallinn and Harjumaa. Fence posts, dog runs, anthracite RAL 7016. Turnkey install. Free measurement.",
  "kicker":"3D mesh · panels · posts","h1":"<em>Mesh &amp; 3D fence</em><br>installation",
- "lead":"Modern welded 3D panels with stiffening ribs: strong, tidy and with good visibility of the plot. Galvanised plus powder-coated — lasts for decades.",
+ "lead":"Modern welded 3D panels with stiffening ribs: strong, tidy and with good visibility of the plot. Galvanised plus powder-coated. Lasts for decades.",
  "intro_h":"Why a 3D fence","intro_p":"A welded panel with bends (3D) holds its shape without sagging or wind load and looks modern. A great fit for houses, townhouses and grounds. We also sell and install fence posts and build dog runs.",
- "bens":["Strong welded panels with stiffening ribs","Galvanised + powder-coated — no rust","Anthracite RAL 7016 and other colours","2D and 3D panels, welded mesh","Galvanised fence posts, caps and clips","Dog runs and animal enclosures from panels"],
+ "bens":["Strong welded panels with stiffening ribs","Galvanised + powder-coated. No rust","Anthracite RAL 7016 and other colours","2D and 3D panels, welded mesh","Galvanised fence posts, caps and clips","Dog runs and animal enclosures from panels"],
  "variants_h":"Types of mesh fence",
- "variants":[("3D","3D panels","Welded panel with V-shaped stiffening ribs — the most popular and durable option."),
-             ("2D","2D double-wire","Double horizontal wire — a reinforced flat panel for long spans."),
-             ("▤","Fence posts","Galvanised fence posts with caps, brackets and clips — supply and installation."),
-             ("⌗","Dog runs","Dog runs and animal enclosures from welded panels — strong and safe."),
+ "variants":[("3D","3D panels","Welded panel with V-shaped stiffening ribs. The most popular and durable option."),
+             ("2D","2D double-wire","Double horizontal wire. A reinforced flat panel for long spans."),
+             ("▤","Fence posts","Galvanised fence posts with caps, brackets and clips. Supply and installation."),
+             ("⌗","Dog runs","Dog runs and animal enclosures from welded panels. Strong and safe."),
              ("◧","RAL colours","Anthracite RAL 7016, green RAL 6005, black and other coating colours.")],
  "cta_band":"Let's price a mesh fence for your plot","incl":["On-site measurement","Installation of galvanised posts","Mounting of welded panels and fixings","Levelling to the terrain","Post-installation check"],
  "factors":["Fence length and panel height (1.23–2.03 m)","Panel type (2D/3D) and colour","Number and type of fence posts","Gates, wickets and dog runs","Terrain and removal of the old fence"],
  "gallery":[("luxaed-w-mesh-1","Anthracite 3D panel fence"),("luxaed-w-mesh-2","Green 3D welded-panel fence"),("luxaed-w-mesh-gate","Wicket from welded panel"),("luxaed-w-gates-green","Swing gates from panels"),("luxaed-w-mesh-detail","Panel fixing on the post"),("luxaed-w-panels","2D panels before installation"),("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-night","Panel gates in the evening"),("luxaed-mesh-2","Mesh fence along the plot"),("luxaed-w-van","LuxAed crew on site")],
- "faq":[("Chain-link mesh or welded panels — which to choose?","Rolled chain-link is cheaper, but it stretches and sags over time. We recommend a welded 3D panel: the same visibility, but rigid and neat — it lasts far longer. We'll price both and help you decide."),
+ "faq":[("Chain-link mesh or welded panels. Which to choose?","Rolled chain-link is cheaper, but it stretches and sags over time. We recommend a welded 3D panel: the same visibility, but rigid and neat. It lasts far longer. We'll price both and help you decide."),
         ("How long does a 3D fence last?","When galvanised and powder-coated, welded panels last for decades and don't rust."),
-        ("What heights are available?","Usually 1.23–2.03 m. We pick the height for your goal — privacy or marking the boundary."),
+        ("What heights are available?","Usually 1.23–2.03 m. We pick the height for your goal. Privacy or marking the boundary."),
         ("Which colour should I choose?","The most popular are anthracite RAL 7016 and green RAL 6005. Other coating colours are available."),
-        ("Do you sell fence posts separately?","Yes, we supply and install galvanised fence posts with caps and clips — for panel fences and other fence types."),
-        ("Do you build dog runs?","Yes, we build dog runs and animal enclosures from welded panels — strong, safe and long-lasting."),
+        ("Do you sell fence posts separately?","Yes, we supply and install galvanised fence posts with caps and clips. For panel fences and other fence types."),
+        ("Do you build dog runs?","Yes, we build dog runs and animal enclosures from welded panels. Strong, safe and long-lasting."),
         ("Can I get a matching gate?","Yes, we make sliding and swing gates filled with welded panel in the same colour.")]},
 {"path":"/en/services/wooden-fence/","name":"Wooden fences","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Wooden fences and gates in Tallinn — LuxAed","desc":"Manufacture and installation of wooden fences and gates in Tallinn and Harjumaa. Horizontal fence, steel frame, timber treatment. Free measurement and quote.",
  "kicker":"Wood · steel frame","h1":"<em>Wooden fence</em><br>installation",
- "lead":"A warm, tidy look for your plot. We build fences and gates from treated timber on a sturdy steel frame — natural wood combined with reliable metal.",
+ "lead":"A warm, tidy look for your plot. We build fences and gates from treated timber on a sturdy steel frame. Natural wood combined with reliable metal.",
  "intro_h":"Why a wooden fence","intro_p":"Wood looks premium and natural and fits any plot. On a steel frame the structure doesn't sag and lasts a long time.",
- "bens":["Treated timber for the Estonian climate","Sturdy steel frame — no sagging","Horizontal, vertical or louvre","Fence and gates in one style","Gate automation available","Custom design for your plot"],
+ "bens":["Treated timber for the Estonian climate","Sturdy steel frame. No sagging","Horizontal, vertical or louvre","Fence and gates in one style","Gate automation available","Custom design for your plot"],
  "variants_h":"Types of wooden fence",
- "variants":[("▤","Horizontal","Horizontal boards on a steel frame — the popular modern look."),
+ "variants":[("▤","Horizontal","Horizontal boards on a steel frame. The popular modern look."),
              ("▥","Vertical boards","Classic vertical wooden fence, with or without a gap."),
-             ("◫","Louvre (ranch)","Angled slats — privacy with airflow."),
+             ("◫","Louvre (ranch)","Angled slats. Privacy with airflow."),
              ("⛩","Wooden gates","Sliding and swing gates with timber infill and automation.")],
  "cta_band":"Let's pick a wooden fence for your home","incl":["On-site measurement","Making the sections and steel frame","Installing posts and mounting sections","Timber treatment and coating","Post-installation check"],
  "factors":["Fence length and height","Type (horizontal, vertical, louvre)","Timber species and treatment","Gates and automation","Terrain and groundwork"],
@@ -146,17 +146,17 @@ ENSERV=[
  "faq":[("Won't the wood rot?","We use treated timber and coating, and the frame is steel. With proper care the fence lasts for many years."),
         ("Can I have horizontal boards?","Yes, a horizontal fence on a steel frame is one of the most popular options."),
         ("Will you make a matching gate?","Yes, we make sliding and swing gates with timber infill in the same design."),
-        ("Does a wooden fence need maintenance?","We recommend refreshing the protective coating periodically — we'll explain how to care for it.")]},
+        ("Does a wooden fence need maintenance?","We recommend refreshing the protective coating periodically. We'll explain how to care for it.")]},
 {"path":"/en/services/metal-fence/","name":"Corrugated (metal) fences","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
  "title":"Corrugated (profiled sheet) fences in Tallinn — LuxAed","desc":"Corrugated profiled-sheet fences in Tallinn and Harjumaa. Galvanised sheet, wrought iron, concrete walls. Affordable. Free measurement.",
  "kicker":"Corrugated · profiled sheet","h1":"<em>Corrugated fence</em><br>installation",
  "lead":"A practical and affordable solution: a solid fence from galvanised profiled sheet. Full privacy, protection from wind and dust, and various coating colours.",
  "intro_h":"Why profiled sheet","intro_p":"Profiled sheet is inexpensive and quick to install. A solid fence closes off the plot and lasts thanks to galvanising and a polymer coating.",
- "bens":["Full privacy — a solid fence","Galvanised sheet with polymer coating","Various colours (incl. wood-look)","Protection from wind, dust and noise","Wrought-iron and decorative details","Concrete & block fences for a solid wall"],
+ "bens":["Full privacy. A solid fence","Galvanised sheet with polymer coating","Various colours (incl. wood-look)","Protection from wind, dust and noise","Wrought-iron and decorative details","Concrete & block fences for a solid wall"],
  "variants_h":"Metal fence options",
  "variants":[("▦","Profiled sheet","A solid fence from galvanised profiled sheet at the required height."),
              ("◧","Coloured coating","Polymer coating in different colours, including wood-look."),
-             ("❦","Wrought iron","Forged elements and decorative metal for gates and fences — made to order."),
+             ("❦","Wrought iron","Forged elements and decorative metal for gates and fences. Made to order."),
              ("▣","Concrete & block","A solid wall for privacy, with brick or block posts.")],
  "cta_band":"Let's price a corrugated fence","incl":["On-site measurement","Installing steel posts and rails","Mounting the profiled sheet","Levelling","Post-installation check"],
  "factors":["Fence length and height","Sheet grade and colour","Post type (metal, brick, block)","Gates and wickets","Terrain and groundwork"],
@@ -164,16 +164,16 @@ ENSERV=[
  "faq":[("Won't the sheet fade?","Quality sheet with a polymer coating keeps its colour for a long time. We use proven materials."),
         ("Do you also pour concrete or block walls?","Yes, we build solid concrete and block walls and combine them with metal, sheet or wrought iron."),
         ("Can it be combined with brick posts?","Yes, we build combined fences: sheet between brick or block posts."),
-        ("Is profiled sheet cheaper than wood and mesh?","Usually yes — it's one of the most affordable options. We'll give an exact price after the measurement.")]},
+        ("Is profiled sheet cheaper than wood and mesh?","Usually yes. It's one of the most affordable options. We'll give an exact price after the measurement.")]},
 {"path":"/en/services/steel-picket/","name":"Steel picket fence","hero":"luxaed-w-lippaed-1","og":"/img/luxaed-w-lippaed-1.jpg",
  "title":"Steel picket (euro-picket) fences in Tallinn — LuxAed","desc":"Steel picket (euro-picket) fences in Tallinn and Harjumaa: adjustable gaps, galvanised and powder-coated. Free measurement.",
  "kicker":"Steel picket · metal","h1":"<em>Steel picket</em><br>installation",
  "lead":"A modern steel picket (euro-picket): light, tidy and long-lasting. Galvanised and powder-coated slats with an adjustable gap.",
- "intro_h":"Why a steel picket","intro_p":"A steel picket looks light and modern, lets light through and lasts for decades. It suits homes and businesses — and we make the fence and gates in one style.",
- "bens":["A modern semi-open fence","Adjustable gap between the slats","Galvanised + powder-coated — no rust","RAL colours, incl. anthracite RAL 7016","Fence and gates in one style","Single- or double-sided slats"],
+ "intro_h":"Why a steel picket","intro_p":"A steel picket looks light and modern, lets light through and lasts for decades. It suits homes and businesses. And we make the fence and gates in one style.",
+ "bens":["A modern semi-open fence","Adjustable gap between the slats","Galvanised + powder-coated. No rust","RAL colours, incl. anthracite RAL 7016","Fence and gates in one style","Single- or double-sided slats"],
  "variants_h":"Steel picket options",
- "variants":[("▤","Single-sided","Slats on one side — affordable and modern."),
-             ("▥","Double-sided","Slats on both sides (louvre effect) — more privacy, neat from both sides."),
+ "variants":[("▤","Single-sided","Slats on one side. Affordable and modern."),
+             ("▥","Double-sided","Slats on both sides (louvre effect). More privacy, neat from both sides."),
              ("◧","RAL colours","Anthracite RAL 7016, black, brown and other shades."),
              ("⛩","Picket gates","Sliding and swing gates from the same slat.")],
  "cta_band":"Let's price a steel picket fence","incl":["On-site measurement","Installing steel posts","Mounting the slats at the chosen gap","Levelling","Post-installation check"],
@@ -186,28 +186,28 @@ ENSERV=[
 {"path":"/en/services/gates-automation/","name":"Gates & automation","hero":"luxaed-w-gates-auto","og":"/img/luxaed-w-gates-auto.jpg",
  "title":"Gates, automation & barriers in Tallinn — LuxAed","desc":"Sliding and swing gates, automation, barriers and intercoms in Tallinn and Harjumaa. Turnkey installation. Free measurement.",
  "kicker":"Gates · automation · barriers","h1":"<em>Gate &amp; automation</em><br>installation",
- "lead":"Turnkey sliding and swing gates with automation and intercoms. We manufacture, install and connect everything — you drive into your yard at the press of a button.",
+ "lead":"Turnkey sliding and swing gates with automation and intercoms. We manufacture, install and connect everything. You drive into your yard at the press of a button.",
  "intro_h":"Turnkey gates with automation","intro_p":"We choose the gate type and drive for your entrance, width and terrain. We install automation, remotes, photocells, intercoms and barriers, and service existing systems too.",
  "bens":["Sliding (cantilever) gates","Swing gates","Automation: drives, remotes, photocells","Intercoms and call panels","Barriers for car parks and grounds","Servicing and repair of existing gates"],
  "variants_h":"Gate and automation types",
- "variants":[("⇄","Sliding gate","A cantilever gate with no bottom track — convenient and takes no space when opening."),
+ "variants":[("⇄","Sliding gate","A cantilever gate with no bottom track. Convenient and takes no space when opening."),
              ("⛩","Swing gate","A classic two-leaf gate with a drive on each leaf."),
              ("⚙","Automation","Drives, remote controls, safety photocells, warning light."),
              ("⊤","Barrier","Automatic barriers for car parks, housing associations and entrances."),
              ("🔔","Intercom","Call panels and intercoms that open the gate and wicket.")],
  "cta_band":"Let's pick gates and automation for your entrance","incl":["Measurement of the entrance","Making the gate and wicket","Installation and levelling","Automation mounting and setup","Intercom connection, function check"],
  "factors":["Gate type (sliding / swing)","Leaf width and weight","Automation drive brand","Intercom, barrier and extra options","Infill (wood, sheet, mesh panel)"],
- "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate — winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel wicket"),("luxaed-auto-2","Sliding gate drive"),("luxaed-w-van","LuxAed on site")],
- "faq":[("Sliding or swing — which to choose?","Sliding is handy when there's little space in front of the entrance. Swing is simpler and cheaper. We'll help you choose at the measurement."),
-        ("Can automation be fitted to existing gates?","In most cases yes — we assess the structure and pick a suitable drive."),
+ "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate, winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel wicket"),("luxaed-auto-2","Sliding gate drive"),("luxaed-w-van","LuxAed on site")],
+ "faq":[("Sliding or swing. Which to choose?","Sliding is handy when there's little space in front of the entrance. Swing is simpler and cheaper. We'll help you choose at the measurement."),
+        ("Can automation be fitted to existing gates?","In most cases yes. We assess the structure and pick a suitable drive."),
         ("Do you install intercoms?","Yes, we install and connect intercoms and call panels that open the gate and wicket."),
-        ("Do you install barriers?","Yes, we supply and install automatic barriers for car parks, housing associations and site entrances — with remotes and controls."),
+        ("Do you install barriers?","Yes, we supply and install automatic barriers for car parks, housing associations and site entrances. With remotes and controls."),
         ("What about automation safety?","We fit photocells and a warning light so the gate won't close on a car or a person.")]},
 {"path":"/en/services/fence-repair/","name":"Fence & gate repair","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Fence & gate repair in Tallinn — LuxAed","desc":"Repair of fences and gates in Tallinn and Harjumaa: replacing sections and posts, repairing sliding and swing gates, automation and hardware. Diagnostics and quote.",
  "kicker":"Repair · maintenance","h1":"<em>Fence &amp; gate</em><br>repair",
  "lead":"We restore fences, gates and automation: replacing sections and posts, adjusting leaves, repairing drives and hardware. We run diagnostics and give you a price.",
- "intro_h":"What we repair","intro_p":"You don't always need a whole new fence — often it's enough to replace damaged sections or posts, adjust the gates or restore the automation.",
+ "intro_h":"What we repair","intro_p":"You don't always need a whole new fence. Often it's enough to replace damaged sections or posts, adjust the gates or restore the automation.",
  "bens":["Replacing damaged fence sections","Replacing and levelling posts","Repairing sliding and swing gates","Automation repair and setup","Replacing rollers, tracks and hardware","Diagnostics and a price before work"],
  "variants_h":"Types of repair work",
  "variants":[("▤","Fence sections","Replacing damaged panels, boards or sheet."),
@@ -217,9 +217,9 @@ ENSERV=[
  "cta_band":"We'll run diagnostics and fix your fence","incl":["Visit and diagnostics","A price before work starts","Replacing sections, posts or hardware","Adjusting gates and automation","Function check after the repair"],
  "factors":["Extent and type of damage","Fence and gate type","Need to replace materials","Automation repair","Access to the site"],
  "gallery":[("luxaed-w-gates-winter","We work in winter too"),("luxaed-w-mesh-detail","Checking the fixings"),("luxaed-w-lock-black","Lock replacement"),("luxaed-g6","Gate drive and post"),("luxaed-g8","Sliding gate automation"),("luxaed-g9","Gate drive"),("luxaed-auto-2","Drive repair"),("luxaed-w-lock-brown","Lock replacement"),("luxaed-w-crew","Craftsman at work"),("luxaed-w-van","LuxAed on site")],
- "faq":[("Can it be repaired instead of replacing the whole fence?","Often yes — we replace only the damaged sections or posts. At the diagnostics we assess what's more cost-effective."),
+ "faq":[("Can it be repaired instead of replacing the whole fence?","Often yes. We replace only the damaged sections or posts. At the diagnostics we assess what's more cost-effective."),
         ("Do you repair gate automation?","Yes, we diagnose and repair drives, remotes and photocells, replacing them if needed."),
-        ("Do you repair gates you didn't install?","Yes, we work with other builders' structures too — we assess on site."),
+        ("Do you repair gates you didn't install?","Yes, we work with other builders' structures too. We assess on site."),
         ("How much does repair cost?","It depends on the scope. After diagnostics we give an exact price with no hidden fees.")]},
 ]
 

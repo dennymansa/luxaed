@@ -14,7 +14,7 @@ def form_html():
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
     <div class="chips" id="svcChips" role="radiogroup">{ch}</div>
-    <div class="ff" data-svc="aed"><select name="material" class="form-select" aria-label="Aia materjal"><option value="">Aia materjal</option><option>Puit</option><option>Profiilplekk</option><option>Võrkaed (keevispaneel)</option><option>Ei tea — soovitage</option></select></div>
+    <div class="ff" data-svc="aed"><select name="material" class="form-select" aria-label="Aia materjal"><option value="">Aia materjal</option><option>Puit</option><option>Profiilplekk</option><option>Võrkaed (keevispaneel)</option><option>Ei tea, soovitage</option></select></div>
     <div class="ff form-grid2" data-svc="aed"><input type="text" name="length" inputmode="numeric" placeholder="Pikkus, m"><select name="height" class="form-select" aria-label="Kõrgus"><option value="">Kõrgus</option><option>kuni 1,5 m</option><option>1,5–2 m</option><option>üle 2 m</option></select></div>
     <div class="ff" data-svc="varav,automaatika"><select name="gate_type" class="form-select" aria-label="Värava tüüp"><option value="">Värava tüüp</option><option>Lükandvärav</option><option>Tiibvärav</option><option>Ei tea</option></select></div>
     <div class="ff" data-svc="varav"><select name="automation" class="form-select" aria-label="Automaatika?"><option value="">Automaatika?</option><option>Automaatikaga</option><option>Ilma automaatikata</option><option>Ei tea</option></select></div>
@@ -34,21 +34,21 @@ def form_html():
 </div></div>'''
 
 PROCESS='''<div class="hsteps">
-  <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum — ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
-  <div class="hstep"><div class="hstep-num">2</div><h3>Leiame sobiva lahenduse</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna — ilma üllatusteta.</p></div>
+  <div class="hstep"><div class="hstep-num">1</div><h3>Jätke päring</h3><p>Üks kõne või sõnum. Ja võtame aia enda peale. Tuleme tasuta mõõdistusele teile sobival ajal.</p></div>
+  <div class="hstep"><div class="hstep-num">2</div><h3>Leiame sobiva lahenduse</h3><p>Pakume materjali ja lahenduse teie krundi ja eelarve järgi ning ütleme täpse hinna. Ilma üllatusteta.</p></div>
   <div class="hstep"><div class="hstep-num">3</div><h3>Paigaldame korralikult</h3><p>Paigaldame postid, sektsioonid, väravad ja automaatika. Hoiame teid kursis igal etapil.</p></div>
-  <div class="hstep"><div class="hstep-num">4</div><h3>Anname töö üle</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle — koos hooldussoovitustega.</p></div>
+  <div class="hstep"><div class="hstep-num">4</div><h3>Anname töö üle</h3><p>Pärast tööde lõppu vaatame tulemuse koos teiega üle ja anname valmis objekti üle. Koos hooldussoovitustega.</p></div>
 </div>'''
 
 VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Varustus</span><h2 class="big">Õige tehnika, kogenud meeskond, korralik tulemus.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed paigaldusmeeskond tööl" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Postiaugupuur ja rammer</b> — postid saavad kindlalt ja loodi maasse</li>
-    <li><b>Keevis- ja lõiketööd kohapeal</b> — teraskarkassid ja väravaraamid</li>
-    <li><b>Loodimine ja mõõtmine</b> — sektsioonid ühes joones, ka kaldega krundil</li>
-    <li><b>Automaatika ja domofonid</b> — seadistame ja ühendame võtmed kätte</li>
-    <li><b>Puhas objekt</b> — koristame enda järelt ja anname krundi korras üle</li>
+    <li><b>Postiaugupuur ja rammer</b>: postid saavad kindlalt ja loodi maasse</li>
+    <li><b>Keevis- ja lõiketööd kohapeal</b>: teraskarkassid ja väravaraamid</li>
+    <li><b>Loodimine ja mõõtmine</b>: sektsioonid ühes joones, ka kaldega krundil</li>
+    <li><b>Automaatika ja domofonid</b>: seadistame ja ühendame võtmed kätte</li>
+    <li><b>Puhas objekt</b>: koristame enda järelt ja anname krundi korras üle</li>
   </ul></div></div></div></section>'''
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
@@ -87,7 +87,7 @@ def service(c):
 <section class="section section--alt"><div class="wrap"><span class="tag">Valikud</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
   <div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Küsi pakkumist →</a></div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Ausalt hinnast</span><h2 class="big">Millest sõltub hind</h2>
-  <p class="lead">Fikseeritud hinnakirja ei ole — täpse hinna ütleme pärast tasuta mõõdistust.</p>
+  <p class="lead">Fikseeritud hinnakirja ei ole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
   <div class="honest"><div class="hon good"><h3>Alati sisaldub</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>Töötame aastaringselt, ka talvel</li><li>Garantii tehtud töödele</li></ul></div>
   <div class="hon bad"><h3>Mõjutab hinda</h3><ul>{"".join(f"<li>{x}</li>" for x in c["factors"])}</ul></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
@@ -96,7 +96,7 @@ def service(c):
 <section class="section section--alt"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Korduma kippuvad küsimused</h2>{faqx(c["faq"])}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Teised teenused</span><h2 class="big">Vaata ka</h2>{related(c["path"])}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>{c["name"].lower()}</em> teie krundile?</h2>
-  <p>Jätke päring või helistage — tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
+  <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>
 </main>
 <div class="lb" id="lb"><button class="lb-x" aria-label="Sulge">&times;</button><img src="" alt="" id="lbImg"></div>
@@ -110,35 +110,35 @@ ETSERV=[
 {"path":"/aiad/vorkaed/","name":"Võrkaed ja 3D paneelaed","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
  "title":"Võrkaed, 3D paneelaed ja aiapostid Tallinnas — LuxAed","desc":"Võrkaia ja 3D paneelaia paigaldus Tallinnas ja Harjumaal. Keevispaneelid 2D/3D, aiapostid, koeraaedikud, antratsiit RAL 7016. Tasuta mõõdistus.",
  "kicker":"Võrkaed · 3D paneelaed · aiapostid","h1":"Võrk- ja 3D-paneelaedade<br><em>paigaldus</em>",
- "lead":"Kaasaegsed keevispaneelaiad (3D aiapaneelid) jäikusribidega: tugev, korralik ja hea läbipaistvusega piire. Tsingitud ja pulbervärvitud — peab aastakümneid.",
+ "lead":"Kaasaegsed keevispaneelaiad (3D aiapaneelid) jäikusribidega: tugev, korralik ja hea läbipaistvusega piire. Tsingitud ja pulbervärvitud. Peab aastakümneid.",
  "intro_h":"Miks valida paneelaed","intro_p":"Keevispaneel (3D) hoiab vormi, ei vaju ega tuuletõmba ning näeb kaasaegne välja. Selline piirdeaed sobib eramutele, ridaelamutele ja territooriumidele. Müüme ja paigaldame ka aiaposte ning ehitame koeraaedikuid.",
- "bens":["Tugevad keevispaneelid jäikusribidega","Tsink + pulbervärv — ei roosteta","Antratsiit RAL 7016 ja teised värvid","2D ja 3D aiapaneelid, keevisvõrkaed","Tsingitud aiapostid, kübarad ja klambrid","Koeraaedikud ja loomatarad keevispaneelist"],
+ "bens":["Tugevad keevispaneelid jäikusribidega","Tsink + pulbervärv. Ei roosteta","Antratsiit RAL 7016 ja teised värvid","2D ja 3D aiapaneelid, keevisvõrkaed","Tsingitud aiapostid, kübarad ja klambrid","Koeraaedikud ja loomatarad keevispaneelist"],
  "variants_h":"Milliseid võrkaedu teeme",
- "variants":[("3D","3D aiapaneel","Keevispaneel V-kujuliste jäikusribidega — populaarseim ja tugevaim."),
-             ("2D","2D topeltvarras","Topelthorisontaalvarras — tugevdatud paneel suurte avade jaoks."),
-             ("▤","Aiapostid","Tsingitud aiapostid (metallist aiapostid) kübarate ja kinnitusklambritega — müük ja paigaldus."),
-             ("⌗","Koeraaedik","Keevispaneelidest koeraaedikud ja loomatarad — tugevad ja turvalised."),
+ "variants":[("3D","3D aiapaneel","Keevispaneel V-kujuliste jäikusribidega. Populaarseim ja tugevaim."),
+             ("2D","2D topeltvarras","Topelthorisontaalvarras. Tugevdatud paneel suurte avade jaoks."),
+             ("▤","Aiapostid","Tsingitud aiapostid (metallist aiapostid) kübarate ja kinnitusklambritega. Müük ja paigaldus."),
+             ("⌗","Koeraaedik","Keevispaneelidest koeraaedikud ja loomatarad. Tugevad ja turvalised."),
              ("◧","RAL värvid","Antratsiit RAL 7016, roheline RAL 6005, must jm.")],
  "cta_band":"Arvutame võrkaia teie krundile","incl":["Krundi mõõdistus","Tsingitud postide paigaldus","Keevispaneelide ja kinnituste montaaž","Loodimine reljeefi järgi","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja paneelide kõrgus (1.23–2.03 m)","Paneeli tüüp (2D/3D) ja värv","Aiapostide arv ja tüüp","Väravate, jalgvärava ja koeraaediku vajadus","Reljeef ja vana aia lammutus"],
  "gallery":[("luxaed-w-mesh-1","Antratsiit 3D paneelaed heki ääres"),("luxaed-w-mesh-2","3D keevispaneelaed rohelises toonis"),("luxaed-w-mesh-gate","Jalgvärav keevispaneelist"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-mesh-detail","Paneeli kinnitus postile"),("luxaed-w-panels","2D aiapaneelid enne paigaldust"),("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-night","Paneelväravad õhtuvalguses"),("luxaed-mesh-2","Võrkaed krundi ääres"),("luxaed-w-van","LuxAed meeskond objektil")],
- "faq":[("Võrkaed (aiavõrk) või paneelaed — kumb valida?","Klassikaline aiavõrk rullis on odav, aga venib ja vajub aja jooksul. Soovitame keevispaneeli või keevisvõrkaeda: sama läbipaistvus, kuid jäik ja korralik — peab kordades kauem. Arvutame mõlema hinna ja aitame valida."),
-        ("Mis vahe on keevisvõrkaial ja keevispaneelaial?","Keevisvõrkaed on tihe keevisvõrk raamil, keevispaneelaed on jäikusribidega paneel. Mõlemad tsingitud ja pulbervärvitud — paneel on jäigem, võrk soodsam."),
+ "faq":[("Võrkaed (aiavõrk) või paneelaed. Kumb valida?","Klassikaline aiavõrk rullis on odav, aga venib ja vajub aja jooksul. Soovitame keevispaneeli või keevisvõrkaeda: sama läbipaistvus, kuid jäik ja korralik. Peab kordades kauem. Arvutame mõlema hinna ja aitame valida."),
+        ("Mis vahe on keevisvõrkaial ja keevispaneelaial?","Keevisvõrkaed on tihe keevisvõrk raamil, keevispaneelaed on jäikusribidega paneel. Mõlemad tsingitud ja pulbervärvitud. Paneel on jäigem, võrk soodsam."),
         ("Millised kõrgused on?","Tavaliselt 1.23–2.03 m. Valime kõrguse vajaduse järgi."),
         ("Milline värv valida?","Populaarseimad on antratsiit RAL 7016 ja roheline RAL 6005."),
-        ("Kas müüte ka aiaposte eraldi?","Jah, müüme ja paigaldame tsingitud aiaposte (metallist aiapostid) koos kübarate ja kinnitusklambritega — nii paneelaia kui muude aedade jaoks."),
-        ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomataru — tugevad, turvalised ja pika elueaga."),
+        ("Kas müüte ka aiaposte eraldi?","Jah, müüme ja paigaldame tsingitud aiaposte (metallist aiapostid) koos kübarate ja kinnitusklambritega. Nii paneelaia kui muude aedade jaoks."),
+        ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomataru. Tugevad, turvalised ja pika elueaga."),
         ("Kas saab värava samas toonis?","Jah, teeme lük- ja tiibväravaid sama paneeliga samas värvis.")]},
 {"path":"/aiad/puitaed/","name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
  "title":"Puitaed ja puitväravad Tallinnas — LuxAed","desc":"Puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
  "kicker":"Puit · teraskarkass","h1":"Puitaedade<br><em>paigaldus</em>",
- "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil — loodusliku puidu ja vastupidava metalli kombinatsioon.",
+ "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil. Loodusliku puidu ja vastupidava metalli kombinatsioon.",
  "intro_h":"Miks puitaed","intro_p":"Puit näeb väärikas ja looduslik välja ning sobib igale krundile. Teraskarkassil ei vaju konstruktsioon ja peab kaua.",
- "bens":["Töödeldud puit Eesti kliima jaoks","Tugev teraskarkass — ei vaju","Horisontaalne, vertikaalne või ribiline","Aed ja väravad ühes stiilis","Võimalik väravaautomaatika","Individuaalne disain"],
+ "bens":["Töödeldud puit Eesti kliima jaoks","Tugev teraskarkass. Ei vaju","Horisontaalne, vertikaalne või ribiline","Aed ja väravad ühes stiilis","Võimalik väravaautomaatika","Individuaalne disain"],
  "variants_h":"Puitaedade tüübid",
- "variants":[("▤","Horisontaalne","Horisontaallauad teraskarkassil — kaasaegne populaarne lahendus."),
+ "variants":[("▤","Horisontaalne","Horisontaallauad teraskarkassil. Kaasaegne populaarne lahendus."),
              ("▥","Vertikaalaed","Klassikaline vertikaalne puitaed vahega või ilma."),
-             ("◫","Ribiline (žalusii)","Kaldu lamellid — privaatsus koos õhutusega."),
+             ("◫","Ribiline (žalusii)","Kaldu lamellid. Privaatsus koos õhutusega."),
              ("⛩","Puitväravad","Lük- ja tiibväravad puidutäitega ja automaatikaga.")],
  "cta_band":"Valime puitaia teie maja juurde","incl":["Krundi mõõdistus","Sektsioonide ja teraskarkassi valmistamine","Postide ja sektsioonide paigaldus","Puidu töötlus ja kate","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Tüüp (horisontaalne, vertikaalne, žalusii)","Puidu liik ja töötlus","Väravad ja automaatika","Reljeef ja alus"],
@@ -146,17 +146,17 @@ ETSERV=[
  "faq":[("Kas puit ei mädane?","Kasutame töödeldud puitu ja katet ning karkass on terasest. Korralik hooldus tagab pika eluea."),
         ("Kas saab horisontaallauad?","Jah, horisontaalne puitaed teraskarkassil on üks populaarsemaid."),
         ("Kas teete väravad samas stiilis?","Jah, valmistame lük- ja tiibväravaid puidutäitega ühises disainis."),
-        ("Kas puitaed vajab hooldust?","Perioodiliselt tasub uuendada puidu kaitsekihti — selgitame, kuidas hooldada.")]},
+        ("Kas puitaed vajab hooldust?","Perioodiliselt tasub uuendada puidu kaitsekihti. Selgitame, kuidas hooldada.")]},
 {"path":"/aiad/metallaed/","name":"Metallaed ja profiilplekk-aed","hero":"luxaed-svc-profnastil","og":"/img/luxaed-svc-profnastil.jpg",
  "title":"Metallaed ja profiilplekk-aed Tallinnas — LuxAed","desc":"Metallaed ja profiilplekk-aed Tallinnas ja Harjumaal. Tsingitud plekk, kunstsepis, betoonaiad, eri värvid. Soodne ja kiire. Tasuta mõõdistus.",
  "kicker":"Metall · profiilplekk","h1":"Metall- ja profiilplekk-aedade<br><em>paigaldus</em>",
  "lead":"Praktiline ja soodne lahendus: kinnine aed tsingitud profiilplekist. Täielik privaatsus, tuule- ja tolmukaitse, erinevad värvid.",
  "intro_h":"Miks profiilplekk","intro_p":"Profiilplekk on soodne ja kiiresti paigaldatav. Kinnine aed katab krundi ja peab kaua tänu tsingile ja polümeerkattele.",
- "bens":["Täielik privaatsus — kinnine aed","Tsingitud plekk polümeerkattega","Erinevad värvid, ka puidu imitatsioon","Kaitse tuule, tolmu ja müra eest","Kunstsepis ja dekoratiivdetailid","Ka betoon- ja plokkaed massiivseks müüriks"],
+ "bens":["Täielik privaatsus. Kinnine aed","Tsingitud plekk polümeerkattega","Erinevad värvid, ka puidu imitatsioon","Kaitse tuule, tolmu ja müra eest","Kunstsepis ja dekoratiivdetailid","Ka betoon- ja plokkaed massiivseks müüriks"],
  "variants_h":"Metallaia valikud",
  "variants":[("▦","Profiilplekk-aed","Kinnine aed tsingitud plekist vajalikus kõrguses."),
              ("◧","Värviline kate","Polümeerkate eri värvides, ka puidu imitatsioon."),
-             ("❦","Kunstsepis","Sepisdetailid ja dekoratiivne metallaed — tellimustöö."),
+             ("❦","Kunstsepis","Sepisdetailid ja dekoratiivne metallaed. Tellimustöö."),
              ("▣","Betoon- ja plokkaed","Massiivne müür privaatsuseks, kivi- või plokkpostidega.")],
  "cta_band":"Arvutame profiilplekk-aia","incl":["Krundi mõõdistus","Metallpostide ja -lattide paigaldus","Profiilpleki montaaž","Loodimine","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Pleki mark ja värv","Postide tüüp (metall, kivi)","Väravad ja jalgväravad","Reljeef ja alus"],
@@ -164,50 +164,50 @@ ETSERV=[
  "faq":[("Kas profiilplekk ei pleegi?","Kvaliteetne polümeerkattega plekk hoiab värvi kaua. Kasutame tõestatud materjale."),
         ("Kas valate ka betoon- või plokkaeda?","Jah, ehitame massiivseid betoon- ja plokkmüüre ning kombineerime neid metalli, pleki või sepisega."),
         ("Kas saab kombineerida kivipostidega?","Jah, teeme kombineeritud aedu: profiilplekk kivi- või plokkpostide vahel."),
-        ("Kas profiilplekk on odavam kui puit ja võrkaed?","Reeglina jah — üks soodsamaid lahendusi. Täpse hinna ütleme pärast mõõdistust.")]},
+        ("Kas profiilplekk on odavam kui puit ja võrkaed?","Reeglina jah. Üks soodsamaid lahendusi. Täpse hinna ütleme pärast mõõdistust.")]},
 {"path":"/aiad/lippaed/","name":"Metall-lippaed","hero":"luxaed-w-lippaed-1","og":"/img/luxaed-w-lippaed-1.jpg",
  "title":"Metall-lippaed ja metallpiire Tallinnas — LuxAed","desc":"Metallist lippaed ehk metallpiire Tallinnas ja Harjumaal: kaasaegne aed valitava vahega, tsingitud ja pulbervärvitud. Tasuta mõõdistus.",
  "kicker":"Metall-lippaed · štaketnik","h1":"Metall-lippaedade<br><em>paigaldus</em>",
  "lead":"Kaasaegne metallist lippaed (euro-lippaed): läbipaistev, korralik ja pika elueaga. Tsingitud ja pulbervärvitud lamellid valitava vahega.",
- "intro_h":"Miks metall-lippaed","intro_p":"Metall-lippaed ehk metallpiire näeb kerge ja kaasaegne välja, laseb valgust läbi ja peab aastakümneid. Sobib eramutele ja ettevõtetele — aia ja väravad teeme ühes stiilis.",
- "bens":["Kaasaegne läbipaistev lippaed","Valitav vahe lamellide vahel","Tsingitud ja pulbervärvitud — ei roosteta","RAL-värvid, ka antratsiit RAL 7016","Aed ja väravad ühes stiilis","Ühe- või kahepoolne lamell"],
+ "intro_h":"Miks metall-lippaed","intro_p":"Metall-lippaed ehk metallpiire näeb kerge ja kaasaegne välja, laseb valgust läbi ja peab aastakümneid. Sobib eramutele ja ettevõtetele. Aia ja väravad teeme ühes stiilis.",
+ "bens":["Kaasaegne läbipaistev lippaed","Valitav vahe lamellide vahel","Tsingitud ja pulbervärvitud. Ei roosteta","RAL-värvid, ka antratsiit RAL 7016","Aed ja väravad ühes stiilis","Ühe- või kahepoolne lamell"],
  "variants_h":"Lippaia valikud",
- "variants":[("▤","Ühepoolne lippaed","Lamellid ühel pool — soodne ja kaasaegne."),
-             ("▥","Kahepoolne lippaed","Lamellid mõlemal pool (žalusii-efekt) — privaatsem, mõlemalt poolt korralik."),
+ "variants":[("▤","Ühepoolne lippaed","Lamellid ühel pool. Soodne ja kaasaegne."),
+             ("▥","Kahepoolne lippaed","Lamellid mõlemal pool (žalusii-efekt). Privaatsem, mõlemalt poolt korralik."),
              ("◧","RAL-värvid","Antratsiit RAL 7016, must, pruun ja teised toonid."),
              ("⛩","Lippaed-väravad","Lük- ja tiibväravad sama lippaia lamelliga.")],
  "cta_band":"Arvutame metall-lippaia teie krundile","incl":["Krundi mõõdistus","Metallpostide paigaldus","Lamellide montaaž valitud vahega","Loodimine reljeefi järgi","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Lamelli vahe ja tüüp (ühe-/kahepoolne)","Värv (RAL)","Väravate ja jalgvärava arv","Reljeef ja alus"],
  "gallery":[("luxaed-w-lippaed-1","Grafiithall metall-lippaed"),("luxaed-w-lippaed-2","Hall lippaed maja juures"),("luxaed-w-lippaed-3","Pruun lippaed lähivaates"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-brown","Locinox lukk lippaia väraval"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-mesh-detail","Kinnitus postile"),("luxaed-w-crew","Meister paigaldamas"),("luxaed-w-van","LuxAed buss objektil")],
- "faq":[("Mis on metall-lippaed (štaketnik)?","Kaasaegne metallist lippaed — vertikaalsed lamellid valitava vahega, tsingitud ja pulbervärvitud. Läbipaistvam kui plekk-aed, korralik ja pika elueaga."),
+ "faq":[("Mis on metall-lippaed (štaketnik)?","Kaasaegne metallist lippaed. Vertikaalsed lamellid valitava vahega, tsingitud ja pulbervärvitud. Läbipaistvam kui plekk-aed, korralik ja pika elueaga."),
         ("Kas lippaed on läbipaistev?","Vahe lamellide vahel valite ise: tihedam privaatsuseks või hõredam kergema ilme jaoks. Kahepoolne lippaed on privaatsem."),
         ("Millised värvid on?","Populaarseim on antratsiit RAL 7016, samuti must ja pruun. Teeme teisi RAL-toone tellimusel."),
         ("Kas väravad tulevad sama moodi?","Jah, lük- ja tiibväravad teeme sama lippaia lamelliga ühes stiilis.")]},
 {"path":"/varavad/","name":"Väravad ja automaatika","hero":"luxaed-w-gates-auto","og":"/img/luxaed-w-gates-auto.jpg",
  "title":"Väravad, aiaväravad ja väravaautomaatika Tallinnas — LuxAed","desc":"Lük- ja tiibväravad, aiaväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Väravad · automaatika · tõkkepuu","h1":"Väravate ja automaatika<br><em>paigaldus</em>",
- "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame — sõidate õue ühe nupuvajutusega.",
+ "lead":"Lük- ja tiibväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
  "intro_h":"Väravad automaatikaga võtmed kätte","intro_p":"Valime väravatüübi ja ajami teie sissesõidu, laiuse ja reljeefi järgi. Paigaldame automaatika, pultid, fotoelemendid ja domofonid, samuti tõkkepuud, ning hooldame olemasolevaid.",
  "bens":["Lükandväravad (liugväravad)","Tiibväravad ja aiaväravad","Automaatika: ajamid, pultid, fotoelemendid","Domofonid ja kutsepaneelid","Tõkkepuud parklatesse ja territooriumidele","Olemasolevate väravate hooldus ja remont"],
  "variants_h":"Väravate ja automaatika tüübid",
- "variants":[("⇄","Lükandvärav","Liugvärav ilma alumise siinita — mugav, ei võta avades ruumi."),
+ "variants":[("⇄","Lükandvärav","Liugvärav ilma alumise siinita. Mugav, ei võta avades ruumi."),
              ("⛩","Tiibvärav","Klassikaline kahe tiivaga värav ajamitega."),
              ("⚙","Automaatika","Ajamid, kaugjuhtimispultid, fotoelemendid, signaallamp."),
              ("⊤","Tõkkepuu","Automaatsed tõkkepuud parklatesse, ühistutele ja sissesõitudele."),
              ("🔔","Domofon","Kutsepaneelid ja domofonid värava ja jalgvärava avamisega.")],
  "cta_band":"Valime värava ja automaatika teie sissesõidule","incl":["Sissesõidu mõõdistus","Värava ja jalgvärava valmistamine","Paigaldus ja loodimine","Automaatika montaaž ja seadistus","Domofoni ühendus, töö kontroll"],
  "factors":["Värava tüüp (lük- / tiibvärav)","Tiiva laius ja kaal","Automaatika ajami mark","Domofon, tõkkepuu ja lisavõimalused","Täide (puit, plekk, võrkpaneel)"],
- "gallery":[("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-winter","Lükandvärav — paigaldus talvel"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-black","Värava lukk ja käepide"),("luxaed-w-mesh-gate","Jalgvärav paneelist"),("luxaed-auto-2","Lükandvärava ajam"),("luxaed-w-van","LuxAed objektil")],
- "faq":[("Lük- või tiibvärav — kumb valida?","Lükandvärav on mugav, kui sissesõidu ees on vähe ruumi. Tiibvärav on lihtsam ja soodsam. Aitame valida."),
-        ("Kas saab automaatika olemasolevale väravale?","Enamasti jah — hindame konstruktsiooni ja valime sobiva ajami."),
+ "gallery":[("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-winter","Lükandvärav, paigaldus talvel"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-black","Värava lukk ja käepide"),("luxaed-w-mesh-gate","Jalgvärav paneelist"),("luxaed-auto-2","Lükandvärava ajam"),("luxaed-w-van","LuxAed objektil")],
+ "faq":[("Lük- või tiibvärav. Kumb valida?","Lükandvärav on mugav, kui sissesõidu ees on vähe ruumi. Tiibvärav on lihtsam ja soodsam. Aitame valida."),
+        ("Kas saab automaatika olemasolevale väravale?","Enamasti jah. Hindame konstruktsiooni ja valime sobiva ajami."),
         ("Kas paigaldate domofone?","Jah, paigaldame ja ühendame domofonid ning kutsepaneelid värava avamisega."),
-        ("Kas paigaldate tõkkepuid?","Jah, müüme ja paigaldame automaatseid tõkkepuid parklatesse, korteriühistutele ja territooriumide sissesõitudele — koos pultide ja juhtimisega."),
+        ("Kas paigaldate tõkkepuid?","Jah, müüme ja paigaldame automaatseid tõkkepuid parklatesse, korteriühistutele ja territooriumide sissesõitudele. Koos pultide ja juhtimisega."),
         ("Kuidas on automaatika ohutusega?","Paigaldame fotoelemendid ja signaallambi, et värav ei sulguks auto või inimese peale.")]},
 {"path":"/aia-remont/","name":"Aia ja värava remont","hero":"luxaed-g6","og":"/img/luxaed-g6.jpg",
  "title":"Aia ja värava remont Tallinnas — LuxAed","desc":"Aedade ja väravate remont Tallinnas ja Harjumaal: sektsioonide ja postide vahetus, lük- ja tiibväravate ning automaatika remont. Diagnostika ja hinnapakkumine.",
  "kicker":"Remont · hooldus","h1":"Aedade ja väravate<br><em>remont</em>",
  "lead":"Taastame aedu, väravaid ja automaatikat: sektsioonide ja postide vahetus, tiibade reguleerimine, ajamite ja furnituuri remont. Teeme diagnostika ja ütleme hinna.",
- "intro_h":"Mida remondime","intro_p":"Aia remont on sageli mõistlikum kui uue ehitus: kogu aeda ei pea alati vahetama — sageli piisab kahjustatud sektsioonide või postide vahetusest, väravate reguleerimisest või automaatika taastamisest.",
+ "intro_h":"Mida remondime","intro_p":"Aia remont on sageli mõistlikum kui uue ehitus: kogu aeda ei pea alati vahetama. Sageli piisab kahjustatud sektsioonide või postide vahetusest, väravate reguleerimisest või automaatika taastamisest.",
  "bens":["Kahjustatud sektsioonide vahetus","Postide vahetus ja loodimine","Lük- ja tiibväravate remont","Automaatika remont ja seadistus","Rullikute, siinide ja furnituuri vahetus","Diagnostika ja hind enne tööd"],
  "variants_h":"Remonditööde liigid",
  "variants":[("▤","Aia sektsioonid","Kahjustatud paneelide, laudade või pleki vahetus."),
@@ -217,9 +217,9 @@ ETSERV=[
  "cta_band":"Teeme diagnostika ja parandame aia","incl":["Väljasõit ja diagnostika","Hind enne tööde algust","Sektsioonide, postide või furnituuri vahetus","Väravate ja automaatika reguleerimine","Töö kontroll pärast remonti"],
  "factors":["Kahjustuste maht ja liik","Aia ja värava tüüp","Materjalide vahetuse vajadus","Automaatika remont","Ligipääs krundile"],
  "gallery":[("luxaed-w-gates-winter","Töötame ka talvel"),("luxaed-w-mesh-detail","Kinnituste kontroll"),("luxaed-w-lock-black","Lukkude vahetus"),("luxaed-g6","Post ja ajam"),("luxaed-g8","Lükandvärava automaatika"),("luxaed-g9","Värava ajam"),("luxaed-auto-2","Ajami remont"),("luxaed-w-lock-brown","Luku vahetus"),("luxaed-w-crew","Meister tööl"),("luxaed-w-van","LuxAed objektil")],
- "faq":[("Kas saab remontida, mitte vahetada kogu aeda?","Sageli jah — vahetame ainult kahjustatud sektsioonid või postid. Diagnostikal hindame, mis on soodsam."),
+ "faq":[("Kas saab remontida, mitte vahetada kogu aeda?","Sageli jah. Vahetame ainult kahjustatud sektsioonid või postid. Diagnostikal hindame, mis on soodsam."),
         ("Kas parandate väravaautomaatikat?","Jah, diagnoosime ja remondime ajamid, pultid ja fotoelemendid, vajadusel vahetame."),
-        ("Kas remondite ka teiste paigaldatud väravaid?","Jah, töötame ka teiste meistrite konstruktsioonidega — hindame kohapeal."),
+        ("Kas remondite ka teiste paigaldatud väravaid?","Jah, töötame ka teiste meistrite konstruktsioonidega. Hindame kohapeal."),
         ("Kui palju remont maksab?","Sõltub tööde mahust. Pärast diagnostikat ütleme täpse hinna ilma varjatud lisatasudeta.")]},
 ]
 

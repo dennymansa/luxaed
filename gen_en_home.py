@@ -37,10 +37,10 @@ tiles_html="".join(f'''<a class="step-ph" href="{u}"><div class="img-wrap"><pict
 AREAS=["Tallinn","Kesklinn","Lasnamäe","Mustamäe","Haabersti","Kristiine","Põhja-Tallinn","Pirita","Nõmme","Viimsi","Maardu","Saue","Keila","Harku","Rae","Harjumaa"]
 areas_html="".join(f'<span class="area-pill">{a}</span>' for a in AREAS)
 
-HOME_FAQ=[("How much does a fence or gate cost?","We can't give an exact price upfront — it depends on the material, fence length and height, terrain and gates. After a free measurement we give a specific price with no hidden fees."),
+HOME_FAQ=[("How much does a fence or gate cost?","We can't give an exact price upfront. It depends on the material, fence length and height, terrain and gates. After a free measurement we give a specific price with no hidden fees."),
  ("What kinds of fences do you make?","Wooden fences (on a steel frame), corrugated-sheet fences and welded mesh fences (3D). We'll help you choose the material for your budget and plot."),
  ("Do you install gate automation?","Yes, we install automation for sliding and swing gates, remotes, photocells and intercoms. We can add automation to existing gates too."),
- ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield — by arrangement, just write to us."),
+ ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield. By arrangement, just write to us."),
  ("Do you repair fences?","Yes, we repair fences and gates: replacing sections and posts, adjusting gates, repairing automation.")]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB]},ensure_ascii=False)+'</script>']
@@ -63,7 +63,7 @@ home_inner=f'''<section class="hero">
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">A solution for every plot</h2>
-  <p class="lead lead--lg">Choose a fence or gate type — we'll help you pick the right solution, come for a free measurement and calculate the price.</p>
+  <p class="lead lead--lg">Choose a fence or gate type. We'll help you pick the right solution, come for a free measurement and calculate the price.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Not sure which fence suits you?</span>
@@ -98,10 +98,10 @@ home_inner=f'''<section class="hero">
 {partners_marquee("en")}
 <section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Honest about prices</span><h2 class="big">What's always included and what depends on the project</h2>
-<p class="lead">The price depends on the material, fence length, terrain and gate complexity — so there's no fixed price list. We give the exact price after a free measurement.</p>
+<p class="lead">The price depends on the material, fence length, terrain and gate complexity. So there's no fixed price list. We give the exact price after a free measurement.</p>
 <div class="honest">
   <div class="hon good"><h3>Always included</h3><ul><li>Site measurement</li><li>Advice on material and construction</li><li>A quote before the work begins</li><li>Installing posts and sections</li><li>Fitting the hardware and, if needed, automation</li><li>Checking the gates after installation</li></ul></div>
-  <div class="hon bad"><h3>Depends on the project</h3><ul><li>Choice of material (wood, corrugated sheet, 3D mesh)</li><li>Fence length and height, number of gates</li><li>Terrain complexity and base preparation</li><li>Gate automation and intercom — optional</li><li>Removing the old fence</li></ul></div>
+  <div class="hon bad"><h3>Depends on the project</h3><ul><li>Choice of material (wood, corrugated sheet, 3D mesh)</li><li>Fence length and height, number of gates</li><li>Terrain complexity and base preparation</li><li>Gate automation and intercom. Optional</li><li>Removing the old fence</li></ul></div>
 </div></div></section>
 
 <section class="section section--dark svc-hide" id="meist" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-wide-wood.webp') center/cover no-repeat;opacity:.08"></div>
@@ -111,13 +111,13 @@ home_inner=f'''<section class="hero">
 
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed — fence and gate installation" loading="lazy"></picture></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-crew.webp"><img src="/img/luxaed-w-crew.jpg" width="750" height="1000" alt="LuxAed, fence and gate installation" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Post auger and rammer</b> — posts go in firm and level</li>
-    <li><b>Welding and cutting on site</b> — steel frames and gate frames</li>
-    <li><b>Levelling and measuring</b> — sections in one line, even on a slope</li>
-    <li><b>Automation and intercoms</b> — set up and connected turnkey</li>
-    <li><b>Clean site</b> — we clean up after ourselves and hand the plot over tidy</li>
+    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
+    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
   </ul></div></div></div></section>
 
 <section class="section"><div class="wrap"><span class="tag">Gallery</span><h2 class="big">Examples of our fences and gates</h2><p class="lead">Real photos of completed work. Click a photo to open it.</p>
@@ -137,7 +137,7 @@ home_inner=f'''<section class="hero">
 <section class="section" id="kkk"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
 
 <section class="cta-final"><div class="wrap"><h2>Ready to discuss <em>a fence or gate</em>?</h2>
-  <p>Leave a request or call — we'll come for a free measurement and give an exact price.</p>
+  <p>Leave a request or call. We'll come for a free measurement and give an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
 page("/en/","Fences and gates in Tallinn and Harjumaa — LuxAed","Fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, 3D mesh panels, gate automation. Free measurement. 100% recommend on Facebook.", home_inner, sch=lb_schema+home_faq_schema)
 
@@ -148,17 +148,17 @@ about=f'''<section class="hero hero--compact">
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 reviews on Facebook · recommend</span></div>
     <h1>Who we are</h1>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">We specialise in manufacturing and installing fences, gates and wickets in Tallinn and Harjumaa <b>since 2021</b>. We work with wood, profiled sheet and welded 3D mesh, fit gate automation and intercoms, and repair existing structures. Our craftsmen have over 15 years of experience with fences and gates.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front — no hidden extras or surprises.</p>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter. And unlike many, <b>we work year-round — even in winter</b>.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter. And unlike many, <b>we work year-round. Even in winter</b>.</p>
   </div></div>
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>Recommend on Facebook</span></div><div class="hstat"><b>34</b><span>Reviews</span></div><div class="hstat"><b>5</b><span>Years in business (since 2021)</span></div></div></div>
 </section>
 <section class="section section--alt"><div class="wrap"><span class="tag">Principles</span><h2 class="big">What matters to us</h2>
 <div class="svc-cards">
 <div class="svc-card"><div class="ic">1</div><h3>Everything with one call</h3><p>Measurement, materials, installation and repair from one place. One call, and it's all arranged.</p></div>
-<div class="svc-card"><div class="ic">2</div><h3>We work year-round</h3><p>We install fences in winter too — frozen ground is no obstacle. We don't push you to spring.</p></div>
+<div class="svc-card"><div class="ic">2</div><h3>We work year-round</h3><p>We install fences in winter too. Frozen ground is no obstacle. We don't push you to spring.</p></div>
 <div class="svc-card"><div class="ic">3</div><h3>Careful hands</h3><p>We work cleanly, protect your plot and clean up after ourselves. We hand the site over tidy.</p></div>
-<div class="svc-card"><div class="ic">4</div><h3>Exact price up front</h3><p>We name the price before we start and stick to it — no hidden extras or surprises on the invoice.</p></div>
+<div class="svc-card"><div class="ic">4</div><h3>Exact price up front</h3><p>We name the price before we start and stick to it. No hidden extras or surprises on the invoice.</p></div>
 </div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Why us</span><h2 class="big">Why LuxAed</h2>
 <ul class="svc-bens"><li>In business <b>since 2021</b> in Tallinn and Harjumaa</li><li>Fences from wood, profiled sheet and welded mesh</li><li>Sliding and swing gates, automation and intercoms</li><li>We handle buying the materials and the whole process</li><li>Free measurement, price up front, warranty on the work</li><li>We work year-round, including winter</li></ul></div></section>
@@ -167,40 +167,40 @@ about=f'''<section class="hero hero--compact">
 <p class="lead lead--lg">Customers recommend LuxAed for speed, quality and a professional approach. See the reviews on our Facebook page.</p>
 <div class="nums"><div class="num"><b>100<small>%</small></b><div class="t">Recommend</div><p>Based on Facebook reviews</p></div><div class="num"><b>34</b><div class="t">Reviews</div><p>Real customer reviews</p></div><div class="num"><b>15</b><div class="t">Years of experience</div><p>Our craftsmen's experience with fences</p></div><div class="num"><b>300</b><div class="t">Projects</div><p>Fences and gates installed</p></div></div></div></section>
 <section class="section section--alt"><div class="wrap"><div class="equip">
-  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin — a craftsman who knows fences inside out.</h2></div>
-  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin — LuxAed master craftsman" loading="lazy"></picture></div>
-  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b> — hundreds of projects across Tallinn and Harjumaa.</p><ul class="spec">
-    <li><b>15 years of experience</b> — wood, sheet, panels, gates and automation</li>
-    <li><b>Hundreds of installed projects</b> — homes, townhouses, commercial sites</li>
-    <li><b>Knows every soil</b> — clay, sand or peat: the posts stand level</li>
-    <li><b>Knows the suppliers</b> — the right materials at the right price</li>
-    <li><b>Every job under his eye</b> — the master answers for quality personally</li>
+  <div class="equip-head"><span class="tag">Master craftsman</span><h2 class="big">Artur Mustafin. A craftsman who knows fences inside out.</h2></div>
+  <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed master craftsman" loading="lazy"></picture></div>
+  <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAed's work is led by a craftsman with <b>15 years of experience</b>: hundreds of projects across Tallinn and Harjumaa.</p><ul class="spec">
+    <li><b>15 years of experience</b>: wood, sheet, panels, gates and automation</li>
+    <li><b>Hundreds of installed projects</b>: homes, townhouses, commercial sites</li>
+    <li><b>Knows every soil</b>: clay, sand or peat: the posts stand level</li>
+    <li><b>Knows the suppliers</b>: the right materials at the right price</li>
+    <li><b>Every job under his eye</b>: the master answers for quality personally</li>
   </ul></div>
 </div></div></section>
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Equipment</span><h2 class="big">The right kit, an experienced crew, a tidy result.</h2></div>
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-w-van.webp"><img src="/img/luxaed-w-van.jpg" width="750" height="563" alt="LuxAed crew and branded van on site" loading="lazy"></picture></div>
   <div class="equip-body"><ul class="spec">
-    <li><b>Post auger and rammer</b> — posts go in firm and level</li>
-    <li><b>Welding and cutting on site</b> — steel frames and gate frames</li>
-    <li><b>Levelling and measuring</b> — sections in one line, even on a slope</li>
-    <li><b>Automation and intercoms</b> — set up and connected turnkey</li>
-    <li><b>Clean site</b> — we clean up after ourselves and hand the plot over tidy</li>
+    <li><b>Post auger and rammer</b>: posts go in firm and level</li>
+    <li><b>Welding and cutting on site</b>: steel frames and gate frames</li>
+    <li><b>Levelling and measuring</b>: sections in one line, even on a slope</li>
+    <li><b>Automation and intercoms</b>: set up and connected turnkey</li>
+    <li><b>Clean site</b>: we clean up after ourselves and hand the plot over tidy</li>
   </ul></div>
 </div></div></section>
-<section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call — we'll come for a free measurement.</p>
+<section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/about/","About LuxAed — fences and gates in Tallinn","LuxAed — manufacture and installation of fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Since 2021.", about)
+page("/en/about/","About LuxAed. Fences and gates in Tallinn","LuxAed. Manufacture and installation of fences and gates in Tallinn and Harjumaa. Wood, corrugated sheet, mesh, automation and intercoms. Since 2021.", about)
 
 # ---------------- EN FAQ ----------------
 faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
-<section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write — we'll advise and come for a free measurement.</p>
+<section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write. We'll advise and come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/contact/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/faq/","FAQ — fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, sch=home_faq_schema)
+page("/en/faq/","FAQ. Fences and gates — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, sch=home_faq_schema)
 
 # ---------------- EN CONTACT ----------------
-contact=f'''{hero("Contact","Get in touch with LuxAed","Fences, gates and automation in Tallinn and Harjumaa. Call, write or leave a request — we'll come for a free measurement.", crumb="Contact")}
+contact=f'''{hero("Contact","Get in touch with LuxAed","Fences, gates and automation in Tallinn and Harjumaa. Call, write or leave a request. We'll come for a free measurement.", crumb="Contact")}
 <section class="section"><div class="wrap"><div class="equip">
   <div class="equip-head"><span class="tag">Contact</span><h2 class="big">How to reach us</h2></div>
   <div class="equip-body"><ul class="spec">
