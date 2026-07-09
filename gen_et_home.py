@@ -147,7 +147,7 @@ meist=f'''<section class="hero hero--compact">
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">100%</span><span class="ht-sep">·</span><span class="ht-label">34 arvustust Facebookis · soovitavad</span></div>
     <h1>Kes me oleme</h1>
-    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>alates 2021. aastast</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meistritel on üle 15 aasta kogemust aedade ja väravate ehituses.</p>
+    <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:24px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ja paigaldusele Tallinnas ja Harjumaal <b>juba üle 15 aasta</b>. Töötame puidu, profiilpleki ja keevispaneeliga, paigaldame väravaautomaatikat ja domofone ning remondime olemasolevaid konstruktsioone. Meie meister on näinud kõiki aiatüüpe, pinnaseid ja vee äravoolu lahendusi.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
     <p class="lead" style="color:#fff;font-size:22px;line-height:1.52;margin-top:18px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire. Ja erinevalt paljudest <b>töötame aastaringselt. Ka talvel</b>.</p>
   </div></div>
@@ -161,7 +161,7 @@ meist=f'''<section class="hero hero--compact">
 <div class="svc-card"><div class="ic">4</div><h3>Täpne hind ette</h3><p>Ütleme hinna enne algust ja peame sellest kinni. Ilma peidetud lisatasude ja üllatusteta.</p></div>
 </div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Miks meie</span><h2 class="big">Miks LuxAed</h2>
-<ul class="svc-bens"><li>Töötame <b>alates 2021. aastast</b> Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, väravaautomaatika ja domofonid</li><li>Materjalide ostu ja kogu protsessi võtame enda peale</li><li>Tasuta mõõdistus, hind enne algust, garantii tööle</li><li>Töötame aastaringselt, ka talvel</li></ul></div></section>
+<ul class="svc-bens"><li>Üle <b>15 aasta</b> kogemust Tallinnas ja Harjumaal</li><li>Aiad puidust, profiilplekist ja keevispaneelist</li><li>Lük- ja tiibväravad, väravaautomaatika ja domofonid</li><li>Materjalide ostu ja kogu protsessi võtame enda peale</li><li>Tasuta mõõdistus, hind enne algust, garantii tööle</li><li>Töötame aastaringselt, ka talvel</li></ul></div></section>
 <section class="section section--dark" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;background:url('/img/luxaed-post-install-1.webp') center/cover no-repeat;opacity:.08"></div>
 <div class="wrap" style="position:relative"><span class="tag">Meid usaldatakse</span><h2 class="big big--xl">Arvustused räägivad enda eest</h2>
 <p class="lead lead--lg">Kliendid soovitavad LuxAedi kiiruse, kvaliteedi ja professionaalse suhtumise eest. Vaadake arvustusi meie Facebooki lehel.</p>
@@ -171,9 +171,10 @@ meist=f'''<section class="hero hero--compact">
   <div class="equip-img"><picture><source type="image/webp" srcset="/img/luxaed-artur.webp"><img src="/img/luxaed-artur.jpg" width="750" height="1000" alt="Artur Mustafin, LuxAed meister" loading="lazy"></picture></div>
   <div class="equip-body"><p class="lead" style="margin-bottom:14px">LuxAedi töid juhib meister, kes on <b>15 aastat</b> aedu ja väravaid ehitanud. Sajad objektid üle Tallinna ja Harjumaa.</p><ul class="spec">
     <li><b>15 aastat kogemust</b>: puitaiad, profiilplekk, paneelid, väravad ja automaatika</li>
-    <li><b>Sajad paigaldatud objektid</b>: eramud, ridaelamud ja territooriumid</li>
-    <li><b>Tunneb kõiki pinnaseid</b>: savi, liiv või turvas, postid seisavad loodis</li>
+    <li><b>Näinud kõike</b>: kõik aiatüübid, pinnased ja vee äravoolud</li>
     <li><b>Tunneb tarnijaid</b>: õiged materjalid õige hinnaga, ilma vahendajateta</li>
+    <li><b>Terviklahendus võtmed kätte</b>: mitte ainult paigaldus, vaid lahendus teie soovide järgi</li>
+    <li><b>Teie unistuste aed</b>: meister näeb kohe, kuidas aed paigaldatakse ja milline see saab olema</li>
     <li><b>Iga objekt tema silma all</b>: kvaliteedi eest vastutab meister ise</li>
   </ul></div>
 </div></div></section>
