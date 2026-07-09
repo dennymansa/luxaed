@@ -41,7 +41,11 @@ HOME_FAQ=[("How much does a fence or gate cost?","We can't give an exact price u
  ("What kinds of fences do you make?","Wooden fences (on a steel frame), corrugated-sheet fences and welded mesh fences (3D). We'll help you choose the material for your budget and plot."),
  ("Do you install gate automation?","Yes, we install automation for sliding and swing gates, remotes, photocells and intercoms. We can add automation to existing gates too."),
  ("Which areas do you serve?","Tallinn and all of Harjumaa. Further afield by arrangement, just write to us."),
- ("Do you repair fences?","Yes, we repair fences and gates: replacing sections and posts, adjusting gates, repairing automation.")]
+ ("Do you repair fences?","Yes, we repair fences and gates: replacing sections and posts, adjusting gates, repairing automation."),
+ ("How long does installation take?","The timeline depends on the scope of work and the material. We give an estimated date after the measurement and project approval."),
+ ("Do I need to prepare anything on the plot?","Ideally, clear access along the line of the future fence. We agree the rest individually depending on the state of the plot."),
+ ("How can I reach you?","The easiest way is to call +372 5695 8285 or leave a request on the website. We are always available."),
+]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/en/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],"geo":{"@type":"GeoCoordinates","latitude":59.437,"longitude":24.7536},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","reviewCount":"34"}},ensure_ascii=False)+'</script>']
 

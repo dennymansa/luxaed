@@ -22,6 +22,7 @@ export default async function handler(req, res){
   try{
     const d = (req.body && typeof req.body==='object') ? req.body : JSON.parse(req.body||'{}');
     if(d._gotcha){ res.status(200).json({ok:true}); return; }              // honeypot → silently ok
+    if(typeof d.t==='number' && d.t>=0 && d.t<3){ res.status(200).json({ok:true}); return; } // bot-speed: submitted <3s after load
 
     const USER = process.env.GMAIL_USER;
     const PASS = process.env.GMAIL_APP_PASSWORD;
@@ -104,13 +105,26 @@ export default async function handler(req, res){
       host:'smtp.gmail.com', port:465, secure:true,
       auth:{ user:USER, pass:PASS }
     });
+    // photo attachments: client downsizes to <=1600px JPEG and sends base64 (like the
+    // PHP $_FILES + addAttachment flow, adapted to a JSON serverless function)
+    const attachments = [];
+    if(Array.isArray(d.photos_b64)){
+      let total = 0;
+      for(const p of d.photos_b64.slice(0,4)){
+        if(!p || typeof p.data !== 'string') continue;
+        const buf = Buffer.from(p.data, 'base64');
+        total += buf.length; if(total > 3.5*1024*1024) break;   // stay under the 4.5MB fn limit
+        attachments.push({ filename: String(p.name||'photo.jpg').replace(/[^\w.\-]+/g,'_').slice(0,80), content: buf });
+      }
+    }
     await transport.sendMail({
       from: `LuxAed <${USER}>`,
       to: TO,
       replyTo: email || undefined,
       subject: `${need} — ${name || 'заявка с сайта'}`,
-      html
+      html: html.replace('</table>', (attachments.length?`<tr><td style="padding:10px 26px;background:#eef4ff;color:#1d4ed8;font-size:13px;font-weight:600">&#128206; Фото во вложении: ${attachments.length} шт.</td></tr>`:'')+'</table>'),
+      attachments
     });
     res.status(200).json({ok:true});
-  }catch(e){ res.status(500).json({error:'send_failed'})}); }
+  }catch(e){ res.status(500).json({error:'send_failed'}); }
 }

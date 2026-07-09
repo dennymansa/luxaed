@@ -41,7 +41,11 @@ HOME_FAQ=[("Kui palju aed või värav maksab?","Täpset hinda ei saa ette öelda
  ("Milliseid aedu te teete?","Puitaiad (teraskarkassil), profiilplekk-aiad ja keevispaneelaiad (3D). Aitame valida materjali eelarve ja krundi järgi."),
  ("Kas paigaldate väravaautomaatikat?","Jah, paigaldame lük- ja tiibväravate automaatika, pultid, fotoelemendid ja domofonid. Saame automaatika ka olemasolevale väravale."),
  ("Millistes piirkondades töötate?","Tallinnas ja kogu Harjumaal. Kaugemale kokkuleppel, kirjutage meile."),
- ("Kas teete aedade remonti?","Jah, remondime aedu ja väravaid: sektsioonide ja postide vahetus, väravate reguleerimine, automaatika remont.")]
+ ("Kas teete aedade remonti?","Jah, remondime aedu ja väravaid: sektsioonide ja postide vahetus, väravate reguleerimine, automaatika remont."),
+ ("Kui kaua paigaldus aega võtab?","Tähtaeg sõltub töömahust ja materjalist. Orienteeruva aja ütleme pärast mõõdistust ja projekti kooskõlastamist."),
+ ("Kas pean krundil midagi ette valmistama?","Soovitavalt tagage vaba ligipääs tulevase aia joonele. Ülejäänu lepime kokku individuaalselt vastavalt krundi seisukorrale."),
+ ("Kuidas teiega ühendust saada?","Kõige lihtsam on helistada numbril +372 5695 8285 või jätta päring veebilehel. Oleme alati kättesaadavad."),
+]
 home_faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in HOME_FAQ]},ensure_ascii=False)+'</script>']
 lb_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"LuxAed","image":DOMAIN+"/img/luxaed-hero.jpg","url":DOMAIN+"/","telephone":PHONE,"email":EMAIL,"priceRange":"€€","address":{"@type":"PostalAddress","addressLocality":"Tallinn","addressRegion":"Harjumaa","addressCountry":"EE"},"areaServed":["Tallinn","Harjumaa","Estonia"],"sameAs":[FB],"geo":{"@type":"GeoCoordinates","latitude":59.437,"longitude":24.7536},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","bestRating":"5","reviewCount":"34"}},ensure_ascii=False)+'</script>']
 
