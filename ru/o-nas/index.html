@@ -280,6 +280,15 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .equip{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:10px}
 .equip-img{border-radius:22px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 26px 60px rgba(26,24,20,.14)}
 .equip-img img{height:480px;width:100%;object-fit:cover}
+.gtypes{display:flex;flex-direction:column;gap:22px;margin-top:16px}
+.gtype{display:grid;grid-template-columns:1.02fr 1fr;background:var(--body-card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(26,24,20,.07);min-height:270px}
+.gtype-img{position:relative;min-height:210px}
+.gtype-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gtype-txt{padding:26px 34px;align-self:center}
+.gtype-txt h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;margin:0 0 9px}
+.gtype-txt p{color:var(--body-text-dim);margin:0;line-height:1.55}
+.gtype:nth-child(even) .gtype-img{order:2}
+@media(max-width:760px){.gtype{grid-template-columns:1fr;min-height:0}.gtype:nth-child(even) .gtype-img{order:0}.gtype-img{height:220px;min-height:0}}
 .spec{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
 .spec li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
 .spec li span:first-child{color:var(--body-text-mute)}

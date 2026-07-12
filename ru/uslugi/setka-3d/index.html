@@ -281,6 +281,15 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .equip{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:10px}
 .equip-img{border-radius:22px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:0 26px 60px rgba(26,24,20,.14)}
 .equip-img img{height:480px;width:100%;object-fit:cover}
+.gtypes{display:flex;flex-direction:column;gap:22px;margin-top:16px}
+.gtype{display:grid;grid-template-columns:1.02fr 1fr;background:var(--body-card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(26,24,20,.07);min-height:270px}
+.gtype-img{position:relative;min-height:210px}
+.gtype-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gtype-txt{padding:26px 34px;align-self:center}
+.gtype-txt h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:21px;margin:0 0 9px}
+.gtype-txt p{color:var(--body-text-dim);margin:0;line-height:1.55}
+.gtype:nth-child(even) .gtype-img{order:2}
+@media(max-width:760px){.gtype{grid-template-columns:1fr;min-height:0}.gtype:nth-child(even) .gtype-img{order:0}.gtype-img{height:220px;min-height:0}}
 .spec{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
 .spec li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
 .spec li span:first-child{color:var(--body-text-mute)}
@@ -809,9 +818,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 <section class="section">
   <div class="wrap"><span class="tag">Что вы получаете</span><h2 class="big">Почему выбирают 3D-заборы</h2><p class="lead">Сварная панель с изгибами (3D) держит форму без парусности, не провисает и выглядит современно. Отличное решение для частных домов, таунхаусов и территорий. Ставим и заборные столбы, а также строим вольеры для собак — нужный материал подбираем и закупаем за вас.</p><ul class="svc-bens"><li>Прочные сварные панели с рёбрами жёсткости</li><li>Оцинковка + порошковая окраска. Не ржавеет</li><li>Антрацит RAL 7016 и другие цвета</li><li>Хорошая просматриваемость и минимум парусности</li><li>Оцинкованные заборные столбы с заглушками</li><li>Вольеры для собак и загоны из панелей</li></ul></div>
 </section>
+<section class="section"><div class="wrap"><span class="tag">2D и 3D</span><h2 class="big">2D и 3D панельный забор</h2><div class="gtypes"><div class="gtype"><div class="gtype-img"><picture><source type="image/webp" srcset="/img/luxaed-w-mesh-1.webp"><img src="/img/luxaed-w-mesh-1.jpg" alt="Антрацитовый 3D-панельный забор" width="640" height="480" loading="lazy"></picture></div><div class="gtype-txt"><h3>3D сварная панель</h3><p>Панель с V-образными рёбрами жёсткости — они дают прочность и современный объёмный вид. Самый прочный и популярный вариант: не провисает и не гнётся на ветру. Подходит для частных домов, таунхаусов и территорий.</p></div></div><div class="gtype"><div class="gtype-img"><picture><source type="image/webp" srcset="/img/luxaed-w-panels.webp"><img src="/img/luxaed-w-panels.jpg" alt="2D-панели перед монтажом" width="640" height="480" loading="lazy"></picture></div><div class="gtype-txt"><h3>2D сварная панель</h3><p>Плоская панель с двойным горизонтальным прутком (два прутка в ряд). Прочная и дешевле 3D — хороший выбор для длинных участков и больших площадей.</p></div></div></div></div></section>
 
 <section class="section section--alt">
-  <div class="wrap"><span class="tag">Варианты</span><h2 class="big">Какие бывают сетчатые заборы</h2><div class="svc-cards"><div class="svc-card"><div class="ic">3D</div><h3>3D-панели</h3><p>Сварная панель с V-образными рёбрами жёсткости. Самый популярный и прочный вариант.</p></div><div class="svc-card"><div class="ic">2D</div><h3>2D двойной пруток</h3><p>Двойной горизонтальный пруток. Усиленная плоская панель для больших пролётов.</p></div><div class="svc-card"><div class="ic">▤</div><h3>Заборные столбы</h3><p>Оцинкованные столбы с заглушками и крепёжными планками. Продажа и установка.</p></div><div class="svc-card"><div class="ic">⌗</div><h3>Вольеры для собак</h3><p>Вольеры и загоны из сварных панелей. Прочно и безопасно для животных.</p></div><div class="svc-card"><div class="ic">◧</div><h3>Цвета RAL</h3><p>Антрацит RAL 7016, зелёный RAL 6005, чёрный и другие цвета покрытия.</p></div></div>
+  <div class="wrap"><span class="tag">Варианты</span><h2 class="big">Дополнительно к панельным заборам</h2><div class="svc-cards"><div class="svc-card"><div class="ic">▤</div><h3>Заборные столбы</h3><p>Оцинкованные столбы с заглушками и крепёжными планками. Устанавливаем, материал закупаем сами.</p></div><div class="svc-card"><div class="ic">⌗</div><h3>Вольеры для собак</h3><p>Вольеры и загоны из сварных панелей. Прочно и безопасно для животных.</p></div><div class="svc-card"><div class="ic">◧</div><h3>Цвета RAL</h3><p>Антрацит RAL 7016, зелёный RAL 6005, чёрный и другие цвета покрытия.</p></div></div>
     <div class="svc-cta"><b>Рассчитаем 3D-забор под ваш участок</b><a class="btn" href="#form">Оставить заявку →</a></div></div>
 </section>
 

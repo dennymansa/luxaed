@@ -53,6 +53,7 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h3>{n}</h3><p>{d}</p></div>' for i,n,d in cc)+'</div>'
+def gtypes(items): return '<div class="gtypes">'+"".join(f'<div class="gtype"><div class="gtype-img"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div><div class="gtype-txt"><h3>{t}</h3><p>{d}</p></div></div>' for im,a,t,d in items)+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faqx(fq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in fq)+'</div>'
 def related(cur):
@@ -71,6 +72,7 @@ def schema(name,desc,path,fq):
 
 def service(c):
     H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
+    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}</div></section>\n' if c.get("types") else ''
     body=f'''{nav("en",c["path"])}
 <main id="main">
 <section class="hero">
@@ -84,7 +86,7 @@ def service(c):
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>recommend on Facebook</span></div><div class="hstat"><b>34</b><span>reviews</span></div><div class="hstat"><b>15</b><span>years of craft experience</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><span class="tag">What you get</span><h2 class="big">{c["intro_h"]}</h2><p class="lead">{c["intro_p"]}</p>{bens(c["bens"])}</div></section>
-<section class="section section--alt"><div class="wrap"><span class="tag">Options</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
+{types_sec}<section class="section section--alt"><div class="wrap"><span class="tag">Options</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
   <div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Get a quote →</a></div></div></section>
 <section class="section"><div class="wrap"><span class="tag">Honest about pricing</span><h2 class="big">What affects the price</h2>
   <p class="lead">There is no fixed price list. We quote after a free on-site measurement. Here's what's always included and what affects the total.</p>
@@ -113,10 +115,11 @@ ENSERV=[
  "lead":"Modern welded 3D panels with stiffening ribs: strong, tidy and with good visibility of the plot. Galvanised plus powder-coated. Lasts for decades.",
  "intro_h":"Why a 3D fence","intro_p":"A welded panel with bends (3D) holds its shape without sagging and stands up to wind and looks modern. A great fit for houses, townhouses and grounds. We also install fence posts and build dog runs — we choose and source the material for you.",
  "bens":["Strong welded panels with stiffening ribs","Galvanised + powder-coated. No rust","Anthracite RAL 7016 and other colours","2D and 3D panels, welded mesh","Galvanised fence posts, caps and clips","Dog runs and animal enclosures from panels"],
- "variants_h":"Types of mesh fence",
- "variants":[("3D","3D panels","Welded panel with V-shaped stiffening ribs. The most popular and durable option."),
-             ("2D","2D double-wire","Double horizontal wire. A reinforced flat panel for long spans."),
-             ("▤","Fence posts","Galvanised fence posts with caps, brackets and clips. Supply and installation."),
+ "types_tag":"2D and 3D","types_h":"2D and 3D panel fence",
+ "types":[("luxaed-w-mesh-1","Anthracite 3D panel fence by a hedge","3D welded panel","A panel with V-shaped stiffening ribs that give strength and a modern three-dimensional look. The strongest and most popular choice — it won't sag or bend in the wind. Suits houses, townhouses and larger grounds."),
+          ("luxaed-w-panels","2D panels before installation","2D welded panel","A flat panel with a double horizontal wire (two wires per row). Durable and cheaper than 3D — a good choice for long runs and large areas.")],
+ "variants_h":"Beyond panel fences",
+ "variants":[("▤","Fence posts","Galvanised fence posts with caps, brackets and clips. We install and source the material."),
              ("⌗","Dog runs","Dog runs and animal enclosures from welded panels. Strong and safe."),
              ("◧","RAL colours","Anthracite RAL 7016, green RAL 6005, black and other coating colours.")],
  "cta_band":"Let's price a mesh fence for your plot","incl":["On-site measurement","Installation of galvanised posts","Mounting of welded panels and fixings","Levelling to the terrain","Post-installation check"],
@@ -189,18 +192,20 @@ ENSERV=[
  "lead":"Turnkey sliding and swing gates with automation and intercoms. We manufacture, install and connect everything. You drive into your yard at the press of a button.",
  "intro_h":"Gate automation at any scale","intro_p":"We design and install gates and gate automation at any scale: from a single pedestrian gate to a full entry system for a large property. We fit automation for both sliding and swing gates, as well as barriers and garage doors. We use drives from well-known manufacturers (Nice, CAME, BFT, Sommer, DoorHan and others) and match the drive to the gate's weight and width. One remote or key fob controls every gate and barrier on the plot: open it from the remote, a phone call (GSM), an app, a keypad code or an RFID card. We fit photocells and a warning light so the gate won't close on a car or a person, plus battery backup so the gate keeps working during a power cut. Our drives use rolling-code encryption, protected against interception by common code-grabber scanners. We add and remove numbers at any time, connect intercoms and video call panels, and service and upgrade existing systems.",
  "bens":["Sliding and swing gate automation at any scale","Drives from known brands: Nice, CAME, BFT, Sommer, DoorHan","Control: remote, phone call (GSM), app, code or RFID","Photocells and warning light for safe operation","Battery backup: the gate works during a power cut","Rolling-code encryption: protected against remote grabbers","Intercoms, video panels, barriers and garage doors"],
- "variants_h":"Gates and automation — all types",
- "variants":[("⇄","Sliding gate","A cantilever gate with no bottom track. Takes no space when opening. Ideal for a driveway."),
-             ("⛩","Swing gate","A classic two-leaf gate. Suits a wider entrance and costs less."),
-             ("🚶","Pedestrian gate","A walk-through gate with a lock or electric lock, matched to the fence."),
-             ("⚙","Sliding gate automation","A drive sized to the gate weight, remote and photocells. Smooth opening."),
-             ("⚙","Swing gate automation","Arm or ram drives on both leaves. Smooth start and stop."),
+ "types_tag":"Gate types","types_h":"All gate types",
+ "types":[("luxaed-w-gates-auto","Sliding gate with automation","Sliding gate","Slides to the side and takes no space when opening — ideal when there's little room in front of the entrance. Cantilever design with no bottom track, works as a driveway gate. Infill: wood, sheet, picket or welded panel."),
+          ("luxaed-w-gates-green","Swing gates from welded panels","Swing gate","A classic two-leaf gate — simpler and cheaper when there's room for the leaves to open. Suits any fence type and automation."),
+          ("luxaed-gate-closeup-1","Pedestrian gate with wood infill and lock","Pedestrian gate","A walk-through gate matched to the fence. Mechanical or electric lock with intercom and call panel. Secure and convenient for everyday use."),
+          ("luxaed-gate-hardware-1","Sliding gate rollers and carriages","Gate hardware","Quality rollers, carriages, hinges and locks. Galvanised parts that withstand the Estonian climate and keep the gate running smoothly for years.")],
+ "variants_h":"Gate automation types",
+ "variants":[("⚙","Sliding gate automation","A drive sized to the gate weight, remote and photocells. Smooth opening and stop."),
+             ("⚙","Swing gate automation","Arm or ram drives on both leaves. Quiet and smooth operation."),
              ("⊤","Barrier","Automatic barriers for car parks, housing associations and entrances."),
              ("🚪","Garage door automation","Drives and remotes for sectional garage doors, linked to the main system."),
              ("🔔","Intercom & video panel","Call panels that open the gate and pedestrian gate, with video and remote control.")],
  "cta_band":"Let's pick gates and automation for your entrance","incl":["Measurement of the entrance","Making the gate and pedestrian gate","Installation and levelling","Automation mounting and setup","Intercom connection, function check"],
  "factors":["Gate type (sliding / swing)","Leaf width and weight","Automation drive brand and power","Control: remote, GSM, app, RFID","Battery backup, intercom, barrier, garage","Infill (wood, sheet, mesh panel)"],
- "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate, winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel pedestrian gate"),("luxaed-gate-closeup-1","Pedestrian gate with wood infill and lock"),("luxaed-auto-2","Sliding gate drive"),("luxaed-gate-hardware-1","Sliding gate rollers and carriages"),("luxaed-w-van","LuxAed on site")],
+ "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate, winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel pedestrian gate"),("luxaed-auto-2","Sliding gate drive"),("luxaed-w-van","LuxAed on site")],
  "faq":[("Sliding or swing. Which to choose?","Sliding is handy when there's little space in front of the entrance — it takes no space when opening. Swing is simpler and cheaper when there's room. We'll help you choose at the measurement."),
         ("Whose automation do you install?","We install drives from well-known brands — Nice, CAME, BFT, Sommer, DoorHan and others. We size the drive to the gate's weight, width and duty."),
         ("How can the gate be controlled?","From a remote, a phone call (GSM), an app, a keypad code or an RFID card. One remote can control every gate and barrier on the plot."),
