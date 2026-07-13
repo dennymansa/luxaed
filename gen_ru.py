@@ -61,12 +61,15 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 def bens_html(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards_html(cards): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{ic}</div><h3>{n}</h3><p>{d}</p></div>' for ic,n,d in cards)+'</div>'
 def gtypes_html(items):
-    def one(im,a,ic,eb,t,d,specs):
+    def one(i,it):
+        im,a,ic,eb,t,d,specs=it[:7]
+        pos=it[7] if len(it)>7 else ''
+        st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
-        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge">{ic}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div>'
-                f'<div class="gtype-txt"><span class="gtype-eyebrow">{eb}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
-    return '<div class="gtypes">'+"".join(one(*x) for x in items)+'</div>'
+        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
+    return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faq_html(faq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in faq)+'</div>'
 
@@ -88,8 +91,9 @@ def service_page(c):
         _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
         sb=sb+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("ru", c["path"], c["title"], c["desc"], og_img=c.get("og",f'/img/{c["hero"]}.jpg'), schema_blocks=sb)
-    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes_html(c["types"])}</div></section>\n' if c.get("types") else ''
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Оставить заявку →</a></div>'
+    _tcta=cta_band if (c.get("types") and not c.get("autotypes") and not c.get("variants")) else ''
+    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes_html(c["types"])}{_tcta}</div></section>\n' if c.get("types") else ''
     auto_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">{c.get("autotypes_tag","")}</span><h2 class="big">{c.get("autotypes_h","")}</h2>{gtypes_html(c["autotypes"])}{cta_band}</div></section>\n' if c.get("autotypes") else ''
     variants_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">Варианты</span><h2 class="big">{c["variants_h"]}</h2>{cards_html(c["variants"])}{cta_band}</div></section>\n' if c.get("variants") else ''
     body=f'''{nav("ru", c["path"])}
@@ -187,11 +191,10 @@ SERVICES=[
  "lead":"Тёплый, аккуратный вид участка. Делаем заборы и ворота из обработанного дерева на прочном стальном каркасе. Сочетание природного дерева и надёжного металла.",
  "intro_h":"Почему деревянный забор","intro_p":"Дерево выглядит дорого и естественно, вписывается в любой участок. На стальном каркасе конструкция не провисает и служит долго.",
  "bens":["Обработанная древесина под погоду Эстонии","Прочный стальной каркас. Не провисает","Горизонтальные, вертикальные и жалюзи","Заборы и ворота в едином стиле","Возможна автоматика ворот","Индивидуальный дизайн под участок"],
- "variants_h":"Виды деревянных заборов",
- "variants":[("▤","Горизонтальный","Горизонтальные доски на стальном каркасе. Современный популярный вид."),
-             ("▥","Вертикальный","Классический вертикальный деревянный забор с зазором или без."),
-             ("◫","Жалюзи (ранчо)","Наклонные ламели. Приватность с продуваемостью."),
-             ("⛩","Ворота из дерева","Откатные и распашные ворота с деревянным заполнением и автоматикой.")],
+ "types_tag":"Виды деревянных заборов","types_h":"Виды деревянных заборов",
+ "types":[("luxaed-svc-wood","Горизонтальный деревянный забор на стальном каркасе","▤","Вид забора","Горизонтальный забор","Горизонтальный деревянный забор — это забор с горизонтальными досками на стальном каркасе, самый популярный и современный вид. Зазор между досками подбираем под приватность или более лёгкий вид.",["На стальном каркасе","Регулируемый зазор","Самый популярный"]),
+          ("luxaed-wood-2","Вертикальный деревянный забор и калитка","▥","Вид забора","Вертикальный забор","Вертикальный деревянный забор — это забор из вертикальных досок, классический и аккуратный, с зазором или полностью глухой. Подходит и для уличной, и для дворовой стороны.",["Вертикальные доски","С зазором или глухой","Классический"]),
+          ("luxaed-wood-swing-gate-1","Деревянные откатные ворота на стальном каркасе","⛩","Ворота","Деревянные ворота","Деревянные ворота изготавливаем в одном стиле с забором — откатные или распашные, с деревянным заполнением и стальным каркасом, при желании с автоматикой.",["Откатные или распашные","В стиле забора","С автоматикой"])],
  "cta_band":"Подберём деревянный забор под ваш дом",
  "incl":["Выезд на замер участка","Изготовление секций и стального каркаса","Установка столбов и монтаж секций","Обработка и покрытие дерева","Проверка конструкции после монтажа"],
  "factors":["Длина и высота забора","Тип (горизонтальный, вертикальный, жалюзи)","Порода и обработка древесины","Ворота и автоматика","Рельеф и подготовка основания"],
@@ -250,7 +253,7 @@ SERVICES=[
  "desc":"Откатные и распашные ворота, автоматика, шлагбаумы и домофоны в Таллинне и Харьюмаа. Монтаж под ключ. Бесплатный замер.",
  "kicker":"Ворота · автоматика · шлагбаумы","h1":"Установка<br><em>ворот и автоматики</em>",
  "lead":"Откатные и распашные ворота под ключ с автоматикой и домофонами. Изготавливаем, устанавливаем и подключаем. Заезжаете во двор одним нажатием кнопки.",
- "intro_h":"Автоматика ворот любого масштаба","intro_p":"Проектируем и монтируем ворота и автоматику любого масштаба: от одной калитки до полной системы въезда на большой территории. Ставим автоматику откатных и распашных ворот, а также шлагбаумов и гаражных ворот. Используем приводы известных производителей (Nice, CAME, BFT, Sommer, DoorHan и др.) и подбираем привод по весу и ширине ворот. Один пульт или брелок управляет всеми воротами и шлагбаумами на участке: открытие с пульта, звонком с телефона (GSM), из приложения, по коду или картой RFID. Ставим фотоэлементы и сигнальную лампу, чтобы ворота не закрылись на машину или человека, и резервный аккумулятор, чтобы ворота работали при отключении электричества. Приводы с плавающим (rolling) кодом защищены от перехвата сигнала («грабберов»). Номера добавляем и удаляем в любой момент, подключаем домофоны и вызывные видеопанели, обслуживаем и модернизируем существующие системы.",
+ "intro_h":"Автоматика ворот любого масштаба","intro_p":"Проектируем, изготавливаем и монтируем ворота с автоматикой под ключ — от одной калитки до полной системы въезда на большой территории. Подбираем привод по весу и ширине ворот, подключаем пульты, домофоны и фотоэлементы безопасности.",
  "bens":["Автоматика откатных и распашных ворот любого масштаба","Приводы известных марок: Nice, CAME, BFT, Sommer, DoorHan","Управление: пульт, звонок (GSM), приложение, код или RFID","Фотоэлементы и сигнальная лампа для безопасности","Резервный аккумулятор: работа при отключении электричества","Плавающий (rolling) код: защита от перехвата пультов","Домофоны, видеопанели, шлагбаумы и гаражные ворота"],
  "types_tag":"Типы ворот","types_h":"Все типы ворот",
  "types":[("luxaed-w-gates-auto","Откатные ворота с автоматикой","⇄","Тип ворот","Откатные ворота","Откатные ворота — это консольная конструкция, которая сдвигается вбок без нижней направляющей и не занимает место при открытии. Идеальны как въездные, когда перед въездом мало места.",["Без нижней направляющей","С автоматикой","Дерево / профнастил / панель"]),

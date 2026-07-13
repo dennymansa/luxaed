@@ -54,12 +54,15 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h3>{n}</h3><p>{d}</p></div>' for i,n,d in cc)+'</div>'
 def gtypes(items):
-    def one(im,a,ic,eb,t,d,specs):
+    def one(i,it):
+        im,a,ic,eb,t,d,specs=it[:7]
+        pos=it[7] if len(it)>7 else ''
+        st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
-        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge">{ic}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div>'
-                f'<div class="gtype-txt"><span class="gtype-eyebrow">{eb}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
-    return '<div class="gtypes">'+"".join(one(*x) for x in items)+'</div>'
+        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
+    return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faqx(fq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in fq)+'</div>'
 def related(cur):
@@ -83,8 +86,9 @@ def service(c):
         _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
         blocks=blocks+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=blocks)
-    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}</div></section>\n' if c.get("types") else ''
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Küsi pakkumist →</a></div>'
+    _tcta=cta_band if (c.get("types") and not c.get("autotypes") and not c.get("variants")) else ''
+    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}{_tcta}</div></section>\n' if c.get("types") else ''
     auto_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">{c.get("autotypes_tag","")}</span><h2 class="big">{c.get("autotypes_h","")}</h2>{gtypes(c["autotypes"])}{cta_band}</div></section>\n' if c.get("autotypes") else ''
     variants_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">Valikud</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}{cta_band}</div></section>\n' if c.get("variants") else ''
     body=f'''{nav("et",c["path"])}
@@ -151,11 +155,10 @@ ETSERV=[
  "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil. Loodusliku puidu ja vastupidava metalli kombinatsioon.",
  "intro_h":"Miks puitaed","intro_p":"Puit näeb väärikas ja looduslik välja ning sobib igale krundile. Teraskarkassil ei vaju konstruktsioon ja peab kaua.",
  "bens":["Töödeldud puit Eesti kliima jaoks","Tugev teraskarkass. Ei vaju","Horisontaalne, vertikaalne või ribiline","Aed ja väravad ühes stiilis","Võimalik väravaautomaatika","Individuaalne disain"],
- "variants_h":"Puitaedade tüübid",
- "variants":[("▤","Horisontaalne","Horisontaallauad teraskarkassil. Kaasaegne populaarne lahendus."),
-             ("▥","Vertikaalaed","Klassikaline vertikaalne puitaed vahega või ilma."),
-             ("◫","Ribiline (žalusii)","Kaldu lamellid. Privaatsus koos õhutusega."),
-             ("⛩","Puitväravad","Lükand- ja tiibväravad puidutäitega ja automaatikaga.")],
+ "types_tag":"Puitaia tüübid","types_h":"Puitaedade tüübid",
+ "types":[("luxaed-svc-wood","Horisontaalne puitaed teraskarkassil","▤","Puitaia tüüp","Horisontaalne puitaed","Horisontaalne puitaed on teraskarkassil horisontaallaudadega aed — kõige populaarsem ja kaasaegsem valik. Laudade vahe valime privaatsuse või õhulisema ilme järgi.",["Teraskarkassil","Valitav laudade vahe","Populaarseim"]),
+          ("luxaed-wood-2","Vertikaalne puitaed ja jalgvärav","▥","Puitaia tüüp","Vertikaalne puitaed","Vertikaalne puitaed on püstlaudadega aed — klassikaline ja korralik, vahega või täiskinnine. Sobib nii tänava- kui õuepoolseks piirdeks.",["Püstlauad","Vahega või kinnine","Klassikaline"]),
+          ("luxaed-wood-swing-gate-1","Puidust lükandvärav teraskarkassil","⛩","Väravad","Puitväravad","Puitväravad valmistame aiaga ühes stiilis — lükand- või tiibväravad puidutäite ja teraskarkassiga, soovi korral automaatikaga.",["Lükand- või tiibvärav","Aiaga ühes stiilis","Automaatikaga"])],
  "cta_band":"Valime puitaia teie maja juurde","incl":["Krundi mõõdistus","Sektsioonide ja teraskarkassi valmistamine","Postide ja sektsioonide paigaldus","Puidu töötlus ja kate","Kontroll pärast paigaldust"],
  "factors":["Aia pikkus ja kõrgus","Tüüp (horisontaalne, vertikaalne, žalusii)","Puidu liik ja töötlus","Väravad ja automaatika","Reljeef ja alus"],
  "gallery":[("luxaed-svc-wood","Puitaed teraskarkassil"),("luxaed-g1","Puitaed ja lükandvärav"),("luxaed-wood-2","Puitaed krundil"),("luxaed-wood-3","Puitaed ja värav"),("luxaed-g2","Puidust tiibväravad"),("luxaed-g7","Puitaed kivisillutise ääres"),("luxaed-wood-sliding-gate-1","Puidust lükandvärav"),("luxaed-wood-swing-gate-1","Puidust tiibvärav"),("luxaed-w-crew","Meister paigaldamas"),("luxaed-w-van","LuxAed objektil")],
@@ -203,7 +206,7 @@ ETSERV=[
  "title":"Liugvärav ja väravaautomaatika paigaldus Tallinnas — LuxAed","desc":"Liugväravad (lükandväravad), tiibväravad ja autoväravad, väravaautomaatika, tõkkepuud ja domofonid Tallinnas ja Harjumaal. Paigaldus võtmed kätte. Tasuta mõõdistus.",
  "kicker":"Liugvärav · tiibvärav · automaatika","h1":"Väravate ja automaatika<br><em>paigaldus</em>",
  "lead":"Liug- ja tiibväravad, autoväravad ja jalgväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
- "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaid ja väravaautomaatikat igas mahus: ühest jalgväravast kuni terve territooriumi sissesõidusüsteemini. Paigaldame nii liugvärava automaatikat kui tiibvärava automaatikat, samuti tõkkepuude ja garaažiuste automaatikat. Kasutame tuntud tootjate ajameid (Nice, CAME, BFT, Sommer, DoorHan jt) ja sobitame ajami värava kaalu ja laiuse järgi. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil: avamine käib puldist, telefonikõnega (GSM), nutirakendusest, koodpaneelist või RFID-kaardiga. Paigaldame fotoelemendid ja signaallambi, et värav ei sulguks auto või inimese peale, ning aku-varutoite, et värav töötaks ka elektrikatkestuse ajal. Kasutame ujuva (rolling) koodiga ajameid — need on kaitstud puldisignaali pealtkuulamise (grabberite) eest. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid ning hooldame ja uuendame olemasolevaid süsteeme.",
+ "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime, valmistame ja paigaldame väravaid koos automaatikaga võtmed kätte — ühest jalgväravast kuni terve territooriumi sissesõidusüsteemini. Sobitame ajami värava kaalu ja laiuse järgi ning ühendame puldid, domofonid ja turvafotoelemendid.",
  "bens":["Liugvärava ja tiibvärava automaatika igas mahus","Tuntud tootjate ajamid: Nice, CAME, BFT, Sommer, DoorHan","Juhtimine: pult, telefonikõne (GSM), rakendus, kood või RFID","Fotoelemendid ja signaallamp turvaliseks tööks","Aku-varutoide: värav töötab ka elektrikatkestuse ajal","Ujuv (rolling) kood: kaitse puldi pealtkuulamise eest","Domofonid, videopaneelid, tõkkepuud ja garaažiuksed"],
  "types_tag":"Väravatüübid","types_h":"Kõik väravatüübid",
  "types":[("luxaed-w-gates-auto","Liugvärav automaatikaga","⇄","Väravatüüp","Liugvärav (lükandvärav)","Liugvärav on konsoolvärav, mis liigub külgsuunas ilma alumise siinita ega võta avades ruumi. Ideaalne autoväravaks, kui sissesõidu ees on vähe maad.",["Ilma alumise siinita","Automaatikaga","Puit / plekk / paneel"]),

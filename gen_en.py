@@ -54,12 +54,15 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h3>{n}</h3><p>{d}</p></div>' for i,n,d in cc)+'</div>'
 def gtypes(items):
-    def one(im,a,ic,eb,t,d,specs):
+    def one(i,it):
+        im,a,ic,eb,t,d,specs=it[:7]
+        pos=it[7] if len(it)>7 else ''
+        st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
-        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge">{ic}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div>'
-                f'<div class="gtype-txt"><span class="gtype-eyebrow">{eb}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
-    return '<div class="gtypes">'+"".join(one(*x) for x in items)+'</div>'
+        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
+    return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faqx(fq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in fq)+'</div>'
 def related(cur):
@@ -83,8 +86,9 @@ def service(c):
         _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
         blocks=blocks+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=blocks)
-    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}</div></section>\n' if c.get("types") else ''
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Get a quote →</a></div>'
+    _tcta=cta_band if (c.get("types") and not c.get("autotypes") and not c.get("variants")) else ''
+    types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}{_tcta}</div></section>\n' if c.get("types") else ''
     auto_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">{c.get("autotypes_tag","")}</span><h2 class="big">{c.get("autotypes_h","")}</h2>{gtypes(c["autotypes"])}{cta_band}</div></section>\n' if c.get("autotypes") else ''
     variants_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">Options</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}{cta_band}</div></section>\n' if c.get("variants") else ''
     body=f'''{nav("en",c["path"])}
@@ -151,11 +155,10 @@ ENSERV=[
  "lead":"A warm, tidy look for your plot. We build fences and gates from treated timber on a sturdy steel frame. Natural wood combined with reliable metal.",
  "intro_h":"Why a wooden fence","intro_p":"Wood looks premium and natural and fits any plot. On a steel frame the structure doesn't sag and lasts a long time.",
  "bens":["Treated timber for the Estonian climate","Sturdy steel frame. No sagging","Horizontal, vertical or louvre","Fence and gates in one style","Gate automation available","Custom design for your plot"],
- "variants_h":"Types of wooden fence",
- "variants":[("▤","Horizontal","Horizontal boards on a steel frame. The popular modern look."),
-             ("▥","Vertical boards","Classic vertical wooden fence, with or without a gap."),
-             ("◫","Louvre (ranch)","Angled slats. Privacy with airflow."),
-             ("⛩","Wooden gates","Sliding and swing gates with timber infill and automation.")],
+ "types_tag":"Types of wooden fence","types_h":"Types of wooden fence",
+ "types":[("luxaed-svc-wood","Horizontal wooden fence on a steel frame","▤","Fence type","Horizontal fence","A horizontal wooden fence has horizontal boards on a steel frame — the most popular, modern look. We set the gap between boards for privacy or a lighter, airier feel.",["Steel frame","Adjustable gap","Most popular"]),
+          ("luxaed-wood-2","Vertical wooden fence and pedestrian gate","▥","Fence type","Vertical fence","A vertical wooden fence has upright boards — classic and tidy, with a gap or fully closed. Works as both a street-side and yard-side screen.",["Upright boards","Gapped or solid","Classic"]),
+          ("luxaed-wood-swing-gate-1","Wooden sliding gate on a steel frame","⛩","Gates","Wooden gates","We make wooden gates to match the fence — sliding or swing, with timber infill and a steel frame, and automation if you want it.",["Sliding or swing","Matches the fence","Automation ready"])],
  "cta_band":"Let's pick a wooden fence for your home","incl":["On-site measurement","Making the sections and steel frame","Installing posts and mounting sections","Timber treatment and coating","Post-installation check"],
  "factors":["Fence length and height","Type (horizontal, vertical, louvre)","Timber species and treatment","Gates and automation","Terrain and groundwork"],
  "gallery":[("luxaed-svc-wood","Wooden fence on a steel frame"),("luxaed-g1","Wooden fence and sliding gate"),("luxaed-wood-2","Wooden fence on a plot"),("luxaed-wood-3","Wooden fence and gate"),("luxaed-g2","Wooden swing gates"),("luxaed-g7","Wooden fence by the path"),("luxaed-wood-sliding-gate-1","Wooden sliding gate"),("luxaed-wood-swing-gate-1","Wooden swing gate"),("luxaed-w-crew","Craftsman installing"),("luxaed-w-van","LuxAed on site")],
@@ -203,7 +206,7 @@ ENSERV=[
  "title":"Gate & automation installation in Tallinn — LuxAed","desc":"Sliding and swing gates, automation, barriers and intercoms in Tallinn and Harjumaa. Turnkey installation. Free measurement.",
  "kicker":"Gates · automation · barriers","h1":"<em>Gate &amp; automation</em><br>installation",
  "lead":"Turnkey sliding and swing gates with automation and intercoms. We manufacture, install and connect everything. You drive into your yard at the press of a button.",
- "intro_h":"Gate automation at any scale","intro_p":"We design and install gates and gate automation at any scale: from a single pedestrian gate to a full entry system for a large property. We fit automation for both sliding and swing gates, as well as barriers and garage doors. We use drives from well-known manufacturers (Nice, CAME, BFT, Sommer, DoorHan and others) and match the drive to the gate's weight and width. One remote or key fob controls every gate and barrier on the plot: open it from the remote, a phone call (GSM), an app, a keypad code or an RFID card. We fit photocells and a warning light so the gate won't close on a car or a person, plus battery backup so the gate keeps working during a power cut. Our drives use rolling-code encryption, protected against interception by common code-grabber scanners. We add and remove numbers at any time, connect intercoms and video call panels, and service and upgrade existing systems.",
+ "intro_h":"Gate automation at any scale","intro_p":"We design, make and install gates with automation, turnkey — from a single pedestrian gate to a full entry system for a large property. We size the drive to the gate's weight and width and connect remotes, intercoms and safety photocells.",
  "bens":["Sliding and swing gate automation at any scale","Drives from known brands: Nice, CAME, BFT, Sommer, DoorHan","Control: remote, phone call (GSM), app, code or RFID","Photocells and warning light for safe operation","Battery backup: the gate works during a power cut","Rolling-code encryption: protected against remote grabbers","Intercoms, video panels, barriers and garage doors"],
  "types_tag":"Gate types","types_h":"All gate types",
  "types":[("luxaed-w-gates-auto","Sliding gate with automation","⇄","Gate type","Sliding gate","A sliding gate is a cantilever gate that moves sideways with no bottom track and takes no space when opening. Ideal as a driveway gate when there's little room in front of the entrance.",["No bottom track","With automation","Wood / sheet / panel"]),
