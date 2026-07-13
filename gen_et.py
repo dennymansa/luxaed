@@ -60,7 +60,7 @@ def gtypes(items):
         st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
         return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy" decoding="async"{st}></picture></div>'
                 f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
     return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -83,7 +83,7 @@ def service(c):
     blocks=schema(c["name"],c["desc"],c["path"],c["faq"])
     _tl=(c.get("types",[]) or [])+(c.get("autotypes",[]) or [])
     if _tl:
-        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
+        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5],"image":DOMAIN+"/img/"+x[0]+".jpg"} for i,x in enumerate(_tl)]
         blocks=blocks+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=blocks)
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Küsi pakkumist →</a></div>'
@@ -215,7 +215,7 @@ ETSERV=[
  "autotypes":[("luxaed-g9","Liugvärava BFT ajam","⚙","Automaatika","Liugvärava automaatika","Liugvärava automaatika on ajam, mis sobitatakse värava kaalu ja laiuse järgi. Komplektis kaugjuhtimispult, fotoelemendid ja sujuv käivitus.",["Ajam kaalu järgi","Pult ja fotoelemendid","BFT / Nice / CAME"]),
               ("luxaed-g6","Tiibvärava hoobajam","⚙","Automaatika","Tiibvärava automaatika","Tiibvärava automaatika on hoob- või kruviajamid mõlemale tiivale. Vaikne ja sujuv avamine ning seiskamine ilma tõmblemiseta.",["Hoob- või kruviajam","Vaikne töö","Mõlemale tiivale"]),
               ("luxaed-barrier-tmp","Automaatne tõkkepuu sissesõidul","⊤","Automaatika","Tõkkepuu","Tõkkepuu on automaatne piirdepoom sissesõidu või parkla juhtimiseks. Sobib korteriühistutele, parklatele ja territooriumidele.",["Parklad ja ühistud","Pult või kood","Kiire avamine"]),
-              ("luxaed-reel-domofon-poster","Hikvisioni domofon väraval","🔔","Automaatika","Domofon ja videopaneel","Domofon ja videopaneel avavad värava ja jalgvärava kaugelt. Näete külalist ekraanil või telefonis ja avate värava ühe puudutusega.",["Video ja kõne","Kaugjuhtimine","Värava avamine"])],
+              ("luxaed-reel-domofon-poster","Hikvisioni domofon väraval","🔔","Automaatika","Domofon ja videopaneel","Domofon ja videopaneel avavad värava ja jalgvärava kaugelt. Näete külalist ekraanil või telefonis ja avate värava ühe puudutusega.",["Video ja kõne","Kaugjuhtimine","Värava avamine"],"left center")],
  "cta_band":"Valime värava ja automaatika teie sissesõidule","incl":["Sissesõidu mõõdistus","Värava ja jalgvärava valmistamine","Paigaldus ja loodimine","Automaatika montaaž ja seadistus","Domofoni ühendus, töö kontroll"],
  "factors":["Värava tüüp (liug- / tiibvärav)","Tiiva/lehe laius ja kaal","Automaatika ajami mark ja võimsus","Juhtimine: pult, GSM, rakendus, RFID","Aku-varutoide, domofon, tõkkepuu, garaažiuks","Täide (puit, plekk, võrkpaneel)"],
  "gallery":[("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-winter","Lükandvärav, paigaldus talvel"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-black","Värava lukk ja käepide"),("luxaed-w-mesh-gate","Jalgvärav paneelist"),("luxaed-auto-2","Lükandvärava ajam"),("luxaed-w-van","LuxAed objektil")],

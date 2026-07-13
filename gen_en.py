@@ -60,7 +60,7 @@ def gtypes(items):
         st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
         return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy" decoding="async"{st}></picture></div>'
                 f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
     return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -83,7 +83,7 @@ def service(c):
     blocks=schema(c["name"],c["desc"],c["path"],c["faq"])
     _tl=(c.get("types",[]) or [])+(c.get("autotypes",[]) or [])
     if _tl:
-        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
+        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5],"image":DOMAIN+"/img/"+x[0]+".jpg"} for i,x in enumerate(_tl)]
         blocks=blocks+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("en",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=blocks)
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Get a quote →</a></div>'
@@ -215,7 +215,7 @@ ENSERV=[
  "autotypes":[("luxaed-g9","BFT sliding gate drive","⚙","Automation","Sliding gate automation","Sliding gate automation is a drive sized to the gate's weight and width. It comes with a remote, photocells and a smooth soft start.",["Sized to weight","Remote & photocells","BFT / Nice / CAME"]),
               ("luxaed-g6","Swing gate ram drive","⚙","Automation","Swing gate automation","Swing gate automation uses arm or ram drives on both leaves. Quiet, smooth opening and stop with no jerking.",["Arm / ram drive","Quiet operation","Both leaves"]),
               ("luxaed-barrier-tmp","Automatic barrier at an entrance","⊤","Automation","Barrier","A barrier is an automatic boom arm that controls an entrance or car park. Suits housing associations, car parks and sites.",["Car parks & sites","Remote or code","Fast opening"]),
-              ("luxaed-reel-domofon-poster","Hikvision intercom on the gate","🔔","Automation","Intercom & video panel","An intercom and video panel open the gate and pedestrian gate remotely. See the visitor on screen or on your phone and open with one tap.",["Video & call","Remote control","Opens the gate"])],
+              ("luxaed-reel-domofon-poster","Hikvision intercom on the gate","🔔","Automation","Intercom & video panel","An intercom and video panel open the gate and pedestrian gate remotely. See the visitor on screen or on your phone and open with one tap.",["Video & call","Remote control","Opens the gate"],"left center")],
  "cta_band":"Let's pick gates and automation for your entrance","incl":["Measurement of the entrance","Making the gate and pedestrian gate","Installation and levelling","Automation mounting and setup","Intercom connection, function check"],
  "factors":["Gate type (sliding / swing)","Leaf width and weight","Automation drive brand and power","Control: remote, GSM, app, RFID","Battery backup, intercom, barrier, garage","Infill (wood, sheet, mesh panel)"],
  "gallery":[("luxaed-w-gates-auto","Sliding gate with automation"),("luxaed-w-gates-green","Swing gates from welded panels"),("luxaed-w-gates-graphite","Graphite swing gates"),("luxaed-w-gates-winter","Sliding gate, winter install"),("luxaed-w-gates-night","Gates in the evening"),("luxaed-w-gates-picket","Sliding picket gate"),("luxaed-w-lock-black","Gate lock and handle"),("luxaed-w-mesh-gate","Panel pedestrian gate"),("luxaed-auto-2","Sliding gate drive"),("luxaed-w-van","LuxAed on site")],

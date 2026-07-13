@@ -67,7 +67,7 @@ def gtypes_html(items):
         st=f' style="object-position:{pos}"' if pos else ''
         chips="".join(f"<li>{s}</li>" for s in specs)
         return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge"><span class="gt-ic">{ic}</span>{eb}</span>'
-                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"{st}></picture></div>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy" decoding="async"{st}></picture></div>'
                 f'<div class="gtype-txt"><span class="gtype-num">{i:02d}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
     return '<div class="gtypes">'+"".join(one(i+1,x) for i,x in enumerate(items))+'</div>'
 def gal_html(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
@@ -88,7 +88,7 @@ def service_page(c):
     sb=schema_service(c["name"], c["desc"], c["path"], c["faq"])
     _tl=(c.get("types",[]) or [])+(c.get("autotypes",[]) or [])
     if _tl:
-        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
+        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5],"image":DOMAIN+"/img/"+x[0]+".jpg"} for i,x in enumerate(_tl)]
         sb=sb+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
     H=head("ru", c["path"], c["title"], c["desc"], og_img=c.get("og",f'/img/{c["hero"]}.jpg'), schema_blocks=sb)
     cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Оставить заявку →</a></div>'
@@ -262,7 +262,7 @@ SERVICES=[
  "autotypes":[("luxaed-g9","Привод BFT откатных ворот","⚙","Автоматика","Автоматика откатных ворот","Привод подбираем по весу и ширине ворот. В комплекте пульт ДУ, фотоэлементы и плавный старт.",["Привод по весу","Пульт и фотоэлементы","BFT / Nice / CAME"]),
               ("luxaed-g6","Рычажный привод распашных ворот","⚙","Автоматика","Автоматика распашных ворот","Рычажные или винтовые приводы на обе створки. Тихое, плавное открытие и остановка без рывков.",["Рычажный / винтовой","Тихая работа","На обе створки"]),
               ("luxaed-barrier-tmp","Автоматический шлагбаум на въезде","⊤","Автоматика","Шлагбаум","Автоматическая стрела для управления въездом или парковкой. Подходит для ЖК, парковок и территорий.",["Парковки и ЖК","Пульт или код","Быстрое открытие"]),
-              ("luxaed-reel-domofon-poster","Домофон Hikvision на калитке","🔔","Автоматика","Домофон и видеопанель","Домофон и видеопанель открывают ворота и калитку удалённо. Видите гостя на экране или в телефоне и открываете одним касанием.",["Видео и вызов","Дистанционно","Открытие ворот"])],
+              ("luxaed-reel-domofon-poster","Домофон Hikvision на калитке","🔔","Автоматика","Домофон и видеопанель","Домофон и видеопанель открывают ворота и калитку удалённо. Видите гостя на экране или в телефоне и открываете одним касанием.",["Видео и вызов","Дистанционно","Открытие ворот"],"left center")],
  "cta_band":"Подберём ворота и автоматику под ваш въезд",
  "incl":["Выезд на замер въезда","Изготовление ворот и калитки","Установка и выравнивание конструкции","Монтаж и настройка автоматики","Подключение домофона, проверка работы"],
  "factors":["Тип ворот (откатные / распашные)","Ширина и вес створки","Марка и мощность привода","Управление: пульт, GSM, приложение, RFID","Резервный аккумулятор, домофон, шлагбаум, гараж","Заполнение (дерево, профнастил, 3D-сетка)"],
