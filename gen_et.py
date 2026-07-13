@@ -53,7 +53,13 @@ VARUSTUS='''<section class="section"><div class="wrap"><div class="equip">
 
 def bens(items): return '<ul class="svc-bens">'+"".join(f"<li>{x}</li>" for x in items)+'</ul>'
 def cards(cc): return '<div class="svc-cards">'+"".join(f'<div class="svc-card"><div class="ic">{i}</div><h3>{n}</h3><p>{d}</p></div>' for i,n,d in cc)+'</div>'
-def gtypes(items): return '<div class="gtypes">'+"".join(f'<div class="gtype"><div class="gtype-img"><picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div><div class="gtype-txt"><h3>{t}</h3><p>{d}</p></div></div>' for im,a,t,d in items)+'</div>'
+def gtypes(items):
+    def one(im,a,ic,eb,t,d,specs):
+        chips="".join(f"<li>{s}</li>" for s in specs)
+        return (f'<div class="gtype"><div class="gtype-img"><span class="gtype-badge">{ic}</span>'
+                f'<picture><source type="image/webp" srcset="/img/{im}.webp"><img src="/img/{im}.jpg" alt="{html.escape(a)}" width="640" height="480" loading="lazy"></picture></div>'
+                f'<div class="gtype-txt"><span class="gtype-eyebrow">{eb}</span><h3>{t}</h3><p>{d}</p><ul class="gtype-specs">{chips}</ul></div></div>')
+    return '<div class="gtypes">'+"".join(one(*x) for x in items)+'</div>'
 def gal(imgs): return '<div class="gal" id="gal">'+"".join(f'<a href="/img/{i}.jpg" data-lb="1"><picture><source type="image/webp" srcset="/img/{i}.webp"><img src="/img/{i}.jpg" alt="{html.escape(a)}" width="600" height="400" loading="lazy"></picture></a>' for i,a in imgs)+'</div>'
 def faqx(fq): return '<div class="faq" id="faqList">'+"".join(f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>' for q,a in fq)+'</div>'
 def related(cur):
@@ -71,8 +77,16 @@ def schema(name,desc,path,fq):
             j({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in fq]})]
 
 def service(c):
-    H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=schema(c["name"],c["desc"],c["path"],c["faq"]))
+    blocks=schema(c["name"],c["desc"],c["path"],c["faq"])
+    _tl=(c.get("types",[]) or [])+(c.get("autotypes",[]) or [])
+    if _tl:
+        _items=[{"@type":"ListItem","position":i+1,"name":x[4],"description":x[5]} for i,x in enumerate(_tl)]
+        blocks=blocks+['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"ItemList","name":c.get("types_h",c["name"]),"itemListElement":_items},ensure_ascii=False)+'</script>']
+    H=head("et",c["path"],c["title"],c["desc"],og_img=c.get("og",f'/img/{c["hero"]}.jpg'),schema_blocks=blocks)
     types_sec=f'<section class="section"><div class="wrap"><span class="tag">{c["types_tag"]}</span><h2 class="big">{c["types_h"]}</h2>{gtypes(c["types"])}</div></section>\n' if c.get("types") else ''
+    cta_band=f'<div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Küsi pakkumist →</a></div>'
+    auto_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">{c.get("autotypes_tag","")}</span><h2 class="big">{c.get("autotypes_h","")}</h2>{gtypes(c["autotypes"])}{cta_band}</div></section>\n' if c.get("autotypes") else ''
+    variants_sec=f'<section class="section section--alt"><div class="wrap"><span class="tag">Valikud</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}{cta_band}</div></section>\n' if c.get("variants") else ''
     body=f'''{nav("et",c["path"])}
 <main id="main">
 <section class="hero">
@@ -86,8 +100,7 @@ def service(c):
   <div class="hero-stats"><div class="hstat"><b>100%</b><span>soovitavad Facebookis</span></div><div class="hstat"><b>34</b><span>arvustust</span></div><div class="hstat"><b>15</b><span>aastat meistrite kogemust</span></div></div></div>
 </section>
 <section class="section"><div class="wrap"><span class="tag">Mida saate</span><h2 class="big">{c["intro_h"]}</h2><p class="lead">{c["intro_p"]}</p>{bens(c["bens"])}</div></section>
-{types_sec}<section class="section section--alt"><div class="wrap"><span class="tag">Valikud</span><h2 class="big">{c["variants_h"]}</h2>{cards(c["variants"])}
-  <div class="svc-cta"><b>{c["cta_band"]}</b><a class="btn" href="#form">Küsi pakkumist →</a></div></div></section>
+{types_sec}{auto_sec}{variants_sec}
 <section class="section"><div class="wrap"><span class="tag">Ausalt hinnast</span><h2 class="big">Millest sõltub hind</h2>
   <p class="lead">Fikseeritud hinnakirja ei ole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
   <div class="honest"><div class="hon good"><h3>Alati sisaldub</h3><ul>{"".join(f"<li>{x}</li>" for x in c["incl"])}<li>Töötame aastaringselt, ka talvel</li><li>Garantii tehtud töödele</li></ul></div>
@@ -116,8 +129,8 @@ ETSERV=[
  "intro_h":"Miks valida paneelaed","intro_p":"Keevispaneel (3D) hoiab vormi, ei vaju ega paindu tuules ning näeb kaasaegne välja. Selline piirdeaed sobib eramutele, ridaelamutele ja territooriumidele. Paigaldame ka aiaposte ja ehitame koeraaedikuid — vajaliku materjali valime ja hangime teie eest.",
  "bens":["Tugevad keevispaneelid jäikusribidega","Tsink + pulbervärv. Ei roosteta","Antratsiit RAL 7016 ja teised värvid","2D ja 3D aiapaneelid, keevisvõrkaed","Tsingitud aiapostid, kübarad ja klambrid","Koeraaedikud ja loomatarad keevispaneelist"],
  "types_tag":"2D ja 3D","types_h":"2D ja 3D paneelaed",
- "types":[("luxaed-w-mesh-1","Antratsiit 3D paneelaed heki ääres","3D keevispaneel","Paneel V-kujuliste jäikusribidega, mis annavad jäikuse ja kaasaegse mahulise ilme. Kõige tugevam ja populaarseim valik — ei vaju ega paindu tuules. Sobib eramutele, ridaelamutele ja territooriumidele."),
-          ("luxaed-w-panels","2D aiapaneelid enne paigaldust","2D keevispaneel","Sile paneel topelthorisontaalvarrastega (kaks varrast reas). Vastupidav ja soodsam kui 3D, hea valik pikkadele lõikudele ja suurtele aladele.")],
+ "types":[("luxaed-w-mesh-1","Antratsiit 3D paneelaed heki ääres","3D","Paneelaed","3D keevispaneel","3D keevispaneel on V-kujuliste jäikusribidega paneel, mis annab jäikuse ja kaasaegse mahulise ilme. Kõige tugevam ja populaarseim valik — ei vaju ega paindu tuules.",["V-jäikusribid","Kõige tugevam","Antratsiit RAL 7016"]),
+          ("luxaed-w-panels","2D aiapaneelid enne paigaldust","2D","Paneelaed","2D keevispaneel","2D keevispaneel on sile paneel topelthorisontaalvarrastega (kaks varrast reas). Vastupidav ja soodsam kui 3D — hea valik pikkadele lõikudele.",["Topeltvarras","Soodsam kui 3D","Pikkadele lõikudele"])],
  "variants_h":"Lisaks paneelaedadele",
  "variants":[("▤","Aiapostid","Tsingitud aiapostid (metallist aiapostid) kübarate ja kinnitusklambritega. Paigaldame ja hangime materjali."),
              ("⌗","Koeraaedik","Keevispaneelidest koeraaedikud ja loomatarad. Tugevad ja turvalised."),
@@ -192,17 +205,16 @@ ETSERV=[
  "lead":"Liug- ja tiibväravad, autoväravad ja jalgväravad võtmed kätte koos automaatika ja domofonidega. Valmistame, paigaldame ja ühendame. Sõidate õue ühe nupuvajutusega.",
  "intro_h":"Väravaautomaatika igas mahus","intro_p":"Projekteerime ja paigaldame väravaid ja väravaautomaatikat igas mahus: ühest jalgväravast kuni terve territooriumi sissesõidusüsteemini. Paigaldame nii liugvärava automaatikat kui tiibvärava automaatikat, samuti tõkkepuude ja garaažiuste automaatikat. Kasutame tuntud tootjate ajameid (Nice, CAME, BFT, Sommer, DoorHan jt) ja sobitame ajami värava kaalu ja laiuse järgi. Üks pult või võtmehoidja juhib kõiki väravaid ja tõkkepuid krundil: avamine käib puldist, telefonikõnega (GSM), nutirakendusest, koodpaneelist või RFID-kaardiga. Paigaldame fotoelemendid ja signaallambi, et värav ei sulguks auto või inimese peale, ning aku-varutoite, et värav töötaks ka elektrikatkestuse ajal. Kasutame ujuva (rolling) koodiga ajameid — need on kaitstud puldisignaali pealtkuulamise (grabberite) eest. Numbreid lisame ja eemaldame igal ajal, ühendame domofonid ja videopaneelid ning hooldame ja uuendame olemasolevaid süsteeme.",
  "bens":["Liugvärava ja tiibvärava automaatika igas mahus","Tuntud tootjate ajamid: Nice, CAME, BFT, Sommer, DoorHan","Juhtimine: pult, telefonikõne (GSM), rakendus, kood või RFID","Fotoelemendid ja signaallamp turvaliseks tööks","Aku-varutoide: värav töötab ka elektrikatkestuse ajal","Ujuv (rolling) kood: kaitse puldi pealtkuulamise eest","Domofonid, videopaneelid, tõkkepuud ja garaažiuksed"],
- "types_tag":"Väravate tüübid","types_h":"Kõik väravatüübid",
- "types":[("luxaed-w-gates-auto","Liugvärav automaatikaga","Liugvärav (lükandvärav)","Liigub külgsuunas ega võta avades ruumi — ideaalne, kui sissesõidu ees on vähe maad. Konsoolkonstruktsioon ilma alumise siinita, sobib autoväravaks. Täide: puit, plekk, lippaed või keevispaneel."),
-          ("luxaed-w-gates-green","Tiibväravad keevispaneelist","Tiibvärav","Klassikaline kahe tiivaga värav — soodne ja lihtne, kui sissesõidu ees on ruumi tiibade avanemiseks. Sobib igale aiatüübile ja automaatikale."),
-          ("luxaed-gate-closeup-1","Jalgvärav puittäidise ja lukuga","Jalgvärav","Käigutee värav aiaga ühes stiilis. Mehaaniline lukk või elektrilukk domofoni ja kutsepaneeliga. Turvaline ja mugav igapäevaseks kasutuseks."),
-          ("luxaed-gate-hardware-1","Liugvärava rullikud ja kandurid","Väravafurnituur","Kvaliteetsed rullikud, kandurid, hinged ja lukud. Tsingitud detailid, mis peavad Eesti kliimas vastu ja tagavad aastateks sujuva liikumise.")],
- "variants_h":"Väravaautomaatika tüübid",
- "variants":[("⚙","Liugvärava automaatika","Ajam värava kaalu järgi, kaugjuhtimispult ja fotoelemendid. Sujuv avamine ja seiskamine."),
-             ("⚙","Tiibvärava automaatika","Hoob- või kruviajamid mõlemale tiivale. Vaikne ja sujuv töö."),
-             ("⊤","Tõkkepuu","Automaatsed tõkkepuud parklatesse, ühistutele ja territooriumide sissesõitudele."),
-             ("🚪","Garaažiukse automaatika","Sektsiooniliste garaažiuste ajamid ja pultid, ühendus üldsüsteemiga."),
-             ("🔔","Domofon ja videopaneel","Kutsepaneelid värava ja jalgvärava avamisega, video ja kaugjuhtimine.")],
+ "types_tag":"Väravatüübid","types_h":"Kõik väravatüübid",
+ "types":[("luxaed-w-gates-auto","Liugvärav automaatikaga","⇄","Väravatüüp","Liugvärav (lükandvärav)","Liugvärav on konsoolvärav, mis liigub külgsuunas ilma alumise siinita ega võta avades ruumi. Ideaalne autoväravaks, kui sissesõidu ees on vähe maad.",["Ilma alumise siinita","Automaatikaga","Puit / plekk / paneel"]),
+          ("luxaed-w-gates-green","Tiibväravad keevispaneelist","⛩","Väravatüüp","Tiibvärav","Tiibvärav on kahe tiivaga värav, mis avaneb sisse- või väljapoole. Soodne ja lihtne lahendus, kui sissesõidu ees on piisavalt ruumi.",["Kaks tiiba","Soodne lahendus","Sobib automaatikale"]),
+          ("luxaed-gate-closeup-1","Jalgvärav puittäidise ja lukuga","🚶","Väravatüüp","Jalgvärav","Jalgvärav on käigutee värav, mis tehakse aiaga ühes stiilis. Mehaaniline lukk või elektrilukk domofoni ja kutsepaneeliga.",["Käigutee värav","Lukk / elektrilukk","Aiaga ühes stiilis"]),
+          ("luxaed-gate-hardware-1","Liugvärava rullikud ja kandurid","⚙","Detailid","Väravafurnituur","Kasutame kvaliteetseid rullikuid, kandureid, hingi ja lukke. Tsingitud detailid peavad Eesti kliimas vastu ja tagavad sujuva liikumise aastateks.",["Tsingitud detailid","Rullikud ja kandurid","Vastupidav"])],
+ "autotypes_tag":"Väravaautomaatika","autotypes_h":"Väravaautomaatika tüübid",
+ "autotypes":[("luxaed-g9","Liugvärava BFT ajam","⚙","Automaatika","Liugvärava automaatika","Liugvärava automaatika on ajam, mis sobitatakse värava kaalu ja laiuse järgi. Komplektis kaugjuhtimispult, fotoelemendid ja sujuv käivitus.",["Ajam kaalu järgi","Pult ja fotoelemendid","BFT / Nice / CAME"]),
+              ("luxaed-g6","Tiibvärava hoobajam","⚙","Automaatika","Tiibvärava automaatika","Tiibvärava automaatika on hoob- või kruviajamid mõlemale tiivale. Vaikne ja sujuv avamine ning seiskamine ilma tõmblemiseta.",["Hoob- või kruviajam","Vaikne töö","Mõlemale tiivale"]),
+              ("luxaed-barrier-tmp","Automaatne tõkkepuu sissesõidul","⊤","Automaatika","Tõkkepuu","Tõkkepuu on automaatne piirdepoom sissesõidu või parkla juhtimiseks. Sobib korteriühistutele, parklatele ja territooriumidele.",["Parklad ja ühistud","Pult või kood","Kiire avamine"]),
+              ("luxaed-reel-domofon-poster","Hikvisioni domofon väraval","🔔","Automaatika","Domofon ja videopaneel","Domofon ja videopaneel avavad värava ja jalgvärava kaugelt. Näete külalist ekraanil või telefonis ja avate värava ühe puudutusega.",["Video ja kõne","Kaugjuhtimine","Värava avamine"])],
  "cta_band":"Valime värava ja automaatika teie sissesõidule","incl":["Sissesõidu mõõdistus","Värava ja jalgvärava valmistamine","Paigaldus ja loodimine","Automaatika montaaž ja seadistus","Domofoni ühendus, töö kontroll"],
  "factors":["Värava tüüp (liug- / tiibvärav)","Tiiva/lehe laius ja kaal","Automaatika ajami mark ja võimsus","Juhtimine: pult, GSM, rakendus, RFID","Aku-varutoide, domofon, tõkkepuu, garaažiuks","Täide (puit, plekk, võrkpaneel)"],
  "gallery":[("luxaed-w-gates-auto","Lükandvärav automaatikaga"),("luxaed-w-gates-green","Tiibväravad keevispaneelist"),("luxaed-w-gates-graphite","Grafiithallid tiibväravad"),("luxaed-w-gates-winter","Lükandvärav, paigaldus talvel"),("luxaed-w-gates-night","Väravad õhtuvalguses"),("luxaed-w-gates-picket","Lükandvärav lippaiast"),("luxaed-w-lock-black","Värava lukk ja käepide"),("luxaed-w-mesh-gate","Jalgvärav paneelist"),("luxaed-auto-2","Lükandvärava ajam"),("luxaed-w-van","LuxAed objektil")],
