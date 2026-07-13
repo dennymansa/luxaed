@@ -313,8 +313,8 @@ h2.big--xl{font-size:clamp(36px,5.2vw,58px);font-weight:800;letter-spacing:-.02e
 .big{text-wrap:balance}
 a.ht-label{color:inherit}a.ht-label:hover{text-decoration:underline;text-underline-offset:3px}
 .form-sub{margin:1px 0 15px;font-size:13px;line-height:1.45;color:var(--body-text-mute)}
-.form-assure{display:flex;flex-wrap:wrap;gap:7px 15px;justify-content:center;margin:13px 0 3px}
-.form-assure span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--body-text-dim)}
+.form-assure{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:13px 0 3px}
+.form-assure span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--body-text-dim);white-space:nowrap}
 .form-assure span::before{content:"✓";color:var(--accent);font-weight:800;font-size:12px}
 .spec{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
 .spec li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
@@ -836,7 +836,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     <div class="ff"><textarea name="msg" placeholder="Comment: details, wishes, what to repair..."></textarea></div>
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Attach a photo (optional)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Send request →</button>
-    <div class="form-assure"><span>Free measurement</span><span>Work guarantee</span><span>Fast reply</span></div>
+    <div class="form-assure"><span>Work guarantee</span><span>Reply within 30 minutes</span></div>
     <p class="form-consent">By submitting you agree to our <a href="/en/privacy/">privacy policy</a> and <a href="/en/terms/">terms</a></p>
     <div class="form-ok" id="formOk" role="status"><b>Thank you, request received.</b><br>We'll get back to you shortly.</div>
   </form>
