@@ -10,6 +10,7 @@ def form_html():
     return f'''<div class="form-slot"><div class="form-card" id="form">
   <span class="form-tag">Get a quote</span>
   <h2>What do you need? <span class="pick-hint">(choose)</span></h2>
+  <p class="form-sub">Fill only the main fields. We'll clarify the rest at the measurement.</p>
   <form id="leadForm">
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
@@ -28,6 +29,7 @@ def form_html():
     <div class="ff"><textarea name="msg" placeholder="Comment: details, wishes, what to repair..."></textarea></div>
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Attach a photo (optional)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Send request →</button>
+    <div class="form-assure"><span>Free measurement</span><span>Work guarantee</span><span>Fast reply</span></div>
     <p class="form-consent">By submitting you agree to our <a href="/en/privacy/">privacy policy</a> and <a href="/en/terms/">terms</a></p>
     <div class="form-ok" id="formOk" role="status"><b>Thank you, request received.</b><br>We'll get back to you shortly.</div>
   </form>

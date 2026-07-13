@@ -10,6 +10,7 @@ def form_html(lang="ru"):
     return f'''<div class="form-slot"><div class="form-card" id="form">
   <span class="form-tag">Оформить заявку</span>
   <h2>Что нужно сделать? <span class="pick-hint">(выберите)</span></h2>
+  <p class="form-sub">Заполните только основные поля. Остальное уточним на замере.</p>
   <form id="leadForm">
     <input type="hidden" name="service" id="serviceField">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;overflow:hidden">
@@ -28,6 +29,7 @@ def form_html(lang="ru"):
     <div class="ff"><textarea name="msg" placeholder="Комментарий: детали, пожелания, что отремонтировать..."></textarea></div>
     <label class="photo-upload ff" id="photoLabel"><input type="file" name="photos" accept="image/*" multiple id="photoInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabel-txt">Прикрепить фото (необязательно)</span></label>
     <button class="btn btn-accent" type="submit" style="width:100%;padding:13px;font-size:15px">Отправить заявку →</button>
+    <div class="form-assure"><span>Бесплатный замер</span><span>Гарантия на работы</span><span>Отвечаем быстро</span></div>
     <p class="form-consent">Отправляя форму, вы соглашаетесь с <a href="/ru/privaatsus/">политикой конфиденциальности</a> и <a href="/ru/tingimused/">условиями</a></p>
     <div class="form-ok" id="formOk" role="status"><b>Спасибо, заявка принята.</b><br>Мы свяжемся с вами в ближайшее время.</div>
   </form>
