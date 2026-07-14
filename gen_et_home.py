@@ -62,11 +62,11 @@ home_inner=f'''<section class="hero">
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame ja paigaldame.<br>Võtame kogu töö enda peale.</h2></div>
+  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame ja paigaldame aiad ja väravad.<br>Võtame kogu töö enda peale.</h2></div>
   <div><p>Aitame valida, valmistame ja paigaldame <b>aedu, väravaid ja jalgväravaid</b> era- ja ärikinnistutele Tallinnas ja Harjumaal. Samuti paigaldame <b>väravaautomaatikat</b> ja remondime olemasolevaid konstruktsioone.</p></div>
 </div></div></section>
 
-<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Lahendus igale krundile</h2>
+<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Aiad ja väravad igale krundile</h2>
   <p class="lead lead--lg">Valige aia või värava tüüp. Aitame valida sobiva lahenduse, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
@@ -99,8 +99,8 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Neli lihtsat sammu</h2>{PROCESS}</div></section>
-<section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Mis kuulub hinna sisse ja mis sõltub projektist</h2>
+<section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Aia paigaldus: neli lihtsat sammu</h2>{PROCESS}</div></section>
+<section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Aia ja värava hind: mis kuulub sisse ja mis sõltub projektist</h2>
 <p class="lead">Hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest. Seepärast fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
 <div class="honest">
   <div class="hon good"><h3>Alati hinna sees</h3><ul><li>Krundi mõõdistamine</li><li>Materjali ja konstruktsiooni konsultatsioon</li><li>Hinnaarvestus enne tööde algust</li><li>Postide ja sektsioonide paigaldus</li><li>Furnituuri ja vajadusel automaatika paigaldus</li><li>Väravate kontroll pärast paigaldust</li></ul></div>
@@ -139,7 +139,7 @@ home_inner=f'''<section class="hero">
 
 {video_block("et")}
 
-<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Kus me töötame</h2>
+<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Aedade ja väravate paigaldus Tallinnas ja Harjumaal</h2>
   <p class="lead">Aiad, väravad ja automaatika Tallinnas ja kogu Harjumaal.</p><div class="area-pills">{areas_html}</div></div></section>
 
 <section class="section" id="kkk"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>

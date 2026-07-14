@@ -66,7 +66,7 @@ home_inner=f'''<section class="hero">
   <div><p>We help choose, build and install <b>fences, gates and pedestrian gates</b> for private homes and commercial sites in Tallinn and Harjumaa. We also fit <b>gate automation</b> and repair existing structures.</p></div>
 </div></div></section>
 
-<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">A solution for every plot</h2>
+<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">Fences and gates for every plot</h2>
   <p class="lead lead--lg">Choose a fence or gate type. We'll help you pick the right solution, come for a free measurement and calculate the price.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
@@ -99,8 +99,8 @@ home_inner=f'''<section class="hero">
     </div>
   </div></div></section>
 
-<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Four simple steps</h2>{PROCESS}</div></section>
-<section class="section"><div class="wrap"><span class="tag">Honest about prices</span><h2 class="big">What's always included and what depends on the project</h2>
+<section class="section section--alt"><div class="wrap"><span class="tag">How we work</span><h2 class="big">Fence installation: four simple steps</h2>{PROCESS}</div></section>
+<section class="section"><div class="wrap"><span class="tag">Honest about prices</span><h2 class="big">Fence and gate price: what's included and what depends</h2>
 <p class="lead">The price depends on the material, fence length, terrain and gate complexity. So there's no fixed price list. We give the exact price after a free measurement.</p>
 <div class="honest">
   <div class="hon good"><h3>Always included</h3><ul><li>Site measurement</li><li>Advice on material and construction</li><li>A quote before the work begins</li><li>Installing posts and sections</li><li>Fitting the hardware and, if needed, automation</li><li>Checking the gates after installation</li></ul></div>
@@ -139,7 +139,7 @@ home_inner=f'''<section class="hero">
 
 {video_block("en")}
 
-<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Service area"><div class="wrap"><span class="tag">Service area</span><h2 class="big">Where we work</h2>
+<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Service area"><div class="wrap"><span class="tag">Service area</span><h2 class="big">Fence and gate installation in Tallinn and Harjumaa</h2>
   <p class="lead">Fences, gates and automation in Tallinn and all of Harjumaa.</p><div class="area-pills">{areas_html}</div></div></section>
 
 <section class="section" id="kkk"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(HOME_FAQ)}</div></section>
