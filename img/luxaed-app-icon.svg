@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="LuxAed">
+  <rect width="180" height="180" rx="36" fill="#0d141c"/>
+  <g transform="translate(30 28) scale(2.3)" fill="none" stroke="#f7f3ef" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 18H49M3 37H49M3 48H49"/>
+    <path d="M4.5 48V15M47.5 48V15"/>
+    <path d="M9 48V13L12 7L15 13V48M17 48V13L20 7L23 13V48M25 48V13L28 7L31 13V48M33 48V13L36 7L39 13V48M41 48V13L44 7L47 13V48"/>
+  </g>
+</svg>

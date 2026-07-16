@@ -48,7 +48,7 @@ def block(i,name,desc,hexc,v):
       <span class="tag">Наши услуги</span>
       <div class="tchips"><span class="chip on">3D-сетка</span><span class="chip">Деревянный</span><span class="chip">Профнастил</span><span class="chip">Ворота</span></div>
       <div class="tcards">
-        <div class="tcard"><div class="tic" style="background:var(--accent-soft);color:var(--accent)">▤</div><h4>Сетчатые/3D-заборы</h4><p>Сварные панели, антрацит RAL.</p></div>
+        <div class="tcard"><div class="tic" style="background:var(--accent-soft);color:var(--accent)">▤</div><h4>Сетчатые/3D-заборы</h4><p>Жёсткие секции сварной сетки, антрацит RAL.</p></div>
         <div class="thon">
           <b style="color:var(--green)">Всегда входит</b>
           <ul><li>Бесплатный замер</li><li>Расчёт до начала работ</li><li>Монтаж под ключ</li></ul>

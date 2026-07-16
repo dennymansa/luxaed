@@ -7,47 +7,90 @@
 //   GMAIL_APP_PASSWORD  — 16-char App Password from Google Account → Security → App passwords
 //                         (needs 2-Step Verification on). NOT the normal Gmail password.
 //   LEAD_TO             — recipient inbox (default iamdenisg@gmail.com for testing).
-// Without GMAIL_USER/APP_PASSWORD the form still succeeds (email is just skipped).
+// Without GMAIL_USER/APP_PASSWORD the endpoint returns 503 so the site never
+// shows a false success or records a conversion for an undelivered lead.
 
 import nodemailer from 'nodemailer';
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
 // smart-form chip codes → readable label + "needs …" headline
-const SVC  = { aed:'Забор', varav:'Ворота / калитка', automaatika:'Автоматика', remont:'Ремонт' };
-const NEED = { aed:'Забор ннада?', varav:'Ворота ннада?', automaatika:'Автоматика ннада?', remont:'Ремонт ннада?' };
+const SVC  = { aed:'Забор', varav:'Въездные ворота', jalgvarav:'Калитка', automaatika:'Автоматика', remont:'Ремонт' };
+const NEED = { aed:'Забор ннада?', varav:'Ворота ннада?', jalgvarav:'Калитка ннада?', automaatika:'Автоматика ннада?', remont:'Ремонт ннада?' };
+const RATE_WINDOW = 10*60*1000;
+const RATE_LIMIT = 8;
+const rateStore = globalThis.__luxaedLeadRate || (globalThis.__luxaedLeadRate = new Map());
+const dedupeStore = globalThis.__luxaedLeadDedupe || (globalThis.__luxaedLeadDedupe = new Map());
+
+function tooMany(req){
+  const raw = String(req.headers?.['x-forwarded-for'] || req.headers?.['x-real-ip'] || '').split(',')[0].trim();
+  if(!raw) return false;
+  const now = Date.now();
+  const recent = (rateStore.get(raw) || []).filter(ts=>now-ts<RATE_WINDOW);
+  recent.push(now); rateStore.set(raw,recent);
+  if(rateStore.size>1000){ for(const [ip,hits] of rateStore){ if(!hits.some(ts=>now-ts<RATE_WINDOW)) rateStore.delete(ip); } }
+  return recent.length>RATE_LIMIT;
+}
 
 export default async function handler(req, res){
   if(req.method!=='POST'){ res.status(405).json({error:'Method not allowed'}); return; }
+  let submissionId = '';
   try{
     const d = (req.body && typeof req.body==='object') ? req.body : JSON.parse(req.body||'{}');
     if(d._gotcha){ res.status(200).json({ok:true}); return; }              // honeypot → silently ok
-    if(typeof d.t==='number' && d.t>=0 && d.t<3){ res.status(200).json({ok:true}); return; } // bot-speed: submitted <3s after load
+    if(tooMany(req)){ res.status(429).json({error:'rate_limited'}); return; }
 
     const USER = process.env.GMAIL_USER;
     const PASS = process.env.GMAIL_APP_PASSWORD;
     const _to = process.env.LEAD_TO || USER || 'iamdenisg@gmail.com';
-    const TO   = [..._to.split(','), 'luxaed9@gmail.com'].map(x=>x.trim()).filter((x,i,a)=>x && a.indexOf(x)===i).join(',');
+    const owner = process.env.VERCEL_ENV==='production' ? ['luxaed9@gmail.com'] : [];
+    const TO   = [..._to.split(','), ...owner].map(x=>x.trim()).filter((x,i,a)=>x && a.indexOf(x)===i).join(',');
     const AC = '#b5542e';   // brand terracotta
 
-    const f = k => (d[k]==null ? '' : String(d[k]).trim());
-    const name = f('name'), phone = f('phone'), email = f('email');
-    const addr = f('address');
+    const f = (k,max=1200) => (d[k]==null ? '' : String(d[k]).trim().slice(0,max));
+    const name = f('name',100), phone = f('phone',40), email = f('email',160);
+    const phoneDigits = phone.replace(/\D/g,'');
+    const addr = f('address',200);
+    const isV2 = f('form_version',10)==='2';
+    submissionId = f('submission_id',80).replace(/[^A-Za-z0-9_-]/g,'');
+    const serviceCodes = f('services',100).split(',').map(x=>x.trim()).filter((x,i,a)=>SVC[x] && a.indexOf(x)===i);
+    const primaryService = f('service',40);
+    if(!serviceCodes.length && SVC[primaryService]) serviceCodes.push(primaryService);
+    const validEmail = /^[^\s@]{1,80}@[^\s@]{1,120}\.[^\s@]{2,30}$/.test(email);
+    const invalidV2 = !submissionId || !serviceCodes.length || !name || phoneDigits.length < 7 || phoneDigits.length > 15 || !validEmail || !addr;
+    // Every public form is V2 now. Keeping the old permissive branch would let a
+    // direct POST omit the service, email and address even though the UI requires them.
+    if(!isV2 || invalidV2){
+      res.status(400).json({error:'required_fields'});
+      return;
+    }
     const enc  = encodeURIComponent(addr);
     const gmaps = addr ? `https://www.google.com/maps/search/?api=1&query=${enc}` : '';
     const waze  = addr ? `https://waze.com/ul?q=${enc}&navigate=yes` : '';
-    const sc    = f('service');
-    const svc   = SVC[sc] || sc;
-    const need  = NEED[sc] || (svc ? ('Заявка: '+svc) : 'Новая заявка');
-    const msg   = f('msg');
-    const page  = f('page');
+    const sc    = primaryService;
+    const serviceLabels = serviceCodes.map(code=>SVC[code]);
+    const svc   = serviceLabels.join(' + ') || SVC[sc] || sc;
+    const need  = serviceLabels.length > 1 ? ('Новая заявка: '+svc) : (NEED[sc] || (svc ? ('Заявка: '+svc) : 'Новая заявка'));
+    const msg   = f('msg',1200);
+    const page  = f('page',500);
+    const requestContextCode = f('request_context',40);
+    const requestContext = SVC[requestContextCode] || requestContextCode;
 
     // detail rows (name/phone/email/address/comment shown separately)
     const fields = [
-      ['Материал', f('material')], ['Длина, м', f('length')], ['Высота', f('height')],
-      ['Тип ворот', f('gate_type')], ['Автоматика', f('automation')],
-      ['Участок', f('plot')], ['Когда', f('timeline')],
+      ['Что нужно', svc], ['Контекст страницы', requestContext], ['Материал', f('material',120)], ['Примерная длина', f('length',80)], ['Высота', f('height',80)],
+      ['Тип ворот', f('gate_type',80)], ['Автоматика', f('automation',80)],
+      ['Участок', f('plot',120)], ['Когда', f('timeline',120)],
     ].filter(([,v])=>v);
+
+    const attr = d.attribution && typeof d.attribution==='object' ? d.attribution : {};
+    const af = k => (attr[k]==null ? '' : String(attr[k]).trim().slice(0,500));
+    const attributionFields = [
+      ['Источник', [af('utm_source'),af('utm_medium')].filter(Boolean).join(' / ')],
+      ['Кампания', af('utm_campaign')], ['Ключ / объявление', [af('utm_term'),af('utm_content')].filter(Boolean).join(' / ')],
+      ['Google click ID', af('gclid') || af('gbraid') || af('wbraid')], ['Первый вход', af('landing_page')], ['Реферер', af('referrer')]
+    ].filter(([,v])=>v);
+    fields.push(...attributionFields);
 
     const rows = fields.map(([k,v],i)=>{
       const bd = i<fields.length-1 ? 'border-bottom:1px solid #f0e7de' : '';
@@ -99,11 +142,14 @@ export default async function handler(req, res){
         </td></tr>
       </table></body></html>`;
 
-    if(!USER || !PASS){ res.status(200).json({ok:true, note:'GMAIL_USER/APP_PASSWORD not set — email skipped (form flow still works)'}); return; }
+    // Never report a successful lead (and therefore an Ads conversion) when
+    // delivery is not configured. The browser will show its normal retry/call
+    // fallback for this 503 response.
+    if(!USER || !PASS){ res.status(503).json({error:'mail_not_configured'}); return; }
 
     const transport = nodemailer.createTransport({
       host:'smtp.gmail.com', port:465, secure:true,
-      auth:{ user:USER, pass:PASS }
+      auth:{ user:USER, pass:PASS }, connectionTimeout:10000, greetingTimeout:10000, socketTimeout:15000
     });
     // photo attachments: client downsizes to <=1600px JPEG and sends base64 (like the
     // PHP $_FILES + addAttachment flow, adapted to a JSON serverless function)
@@ -111,20 +157,63 @@ export default async function handler(req, res){
     if(Array.isArray(d.photos_b64)){
       let total = 0;
       for(const p of d.photos_b64.slice(0,4)){
-        if(!p || typeof p.data !== 'string') continue;
+        if(!p || typeof p.data !== 'string' || p.data.length > 950000 || !/^[A-Za-z0-9+/]+={0,2}$/.test(p.data)) continue;
         const buf = Buffer.from(p.data, 'base64');
+        // Canvas-generated uploads must be a complete JPEG, not just data with a
+        // forged three-byte header. The client always emits the standard SOI/EOI pair.
+        if(buf.length < 128 || buf[0]!==0xff || buf[1]!==0xd8 || buf[2]!==0xff || buf.at(-2)!==0xff || buf.at(-1)!==0xd9) continue;
         total += buf.length; if(total > 3.5*1024*1024) break;   // stay under the 4.5MB fn limit
-        attachments.push({ filename: String(p.name||'photo.jpg').replace(/[^\w.\-]+/g,'_').slice(0,80), content: buf });
+        const base = String(p.name||'photo.jpg').replace(/\.[^.]*$/,'').replace(/[^\w\-]+/g,'_').slice(0,70) || 'photo';
+        attachments.push({ filename: base+'.jpg', content: buf, contentType:'image/jpeg' });
       }
     }
-    await transport.sendMail({
+    const photosExpected = Math.max(0,Math.min(4,Number.parseInt(f('photos_expected',2),10)||0));
+    if(isV2 && photosExpected!==attachments.length){ res.status(400).json({error:'invalid_photos'}); return; }
+    const mail = {
       from: `LuxAed <${USER}>`,
       to: TO,
       replyTo: email || undefined,
+      messageId: `<${submissionId}@luxaed.ee>`,
       subject: `${need} — ${name || 'заявка с сайта'}`,
       html: html.replace('</table>', (attachments.length?`<tr><td style="padding:10px 26px;background:#eef4ff;color:#1d4ed8;font-size:13px;font-weight:600">&#128206; Фото во вложении: ${attachments.length} шт.</td></tr>`:'')+'</table>'),
       attachments
-    });
+    };
+    // Share the in-flight SMTP promise inside one warm serverless instance. A
+    // parallel retry now waits for the original result instead of reporting a
+    // false success while the original delivery may still fail.
+    while(true){
+      const now = Date.now();
+      const existing = dedupeStore.get(submissionId);
+      if(existing && now-existing.ts<30*60*1000){
+        if(existing.status==='sent'){ res.status(200).json({ok:true,duplicate:true}); return; }
+        try{
+          await existing.promise;
+          res.status(200).json({ok:true,duplicate:true});
+          return;
+        }catch{
+          if(dedupeStore.get(submissionId)===existing) dedupeStore.delete(submissionId);
+          continue;
+        }
+      }
+      if(existing) dedupeStore.delete(submissionId);
+      if(dedupeStore.size>1000){
+        for(const [id,entry] of dedupeStore){ if(now-entry.ts>=30*60*1000) dedupeStore.delete(id); }
+      }
+      const promise = transport.sendMail(mail);
+      const entry = {ts:now,status:'pending',promise};
+      dedupeStore.set(submissionId,entry);
+      try{
+        await promise;
+        if(dedupeStore.get(submissionId)===entry) dedupeStore.set(submissionId,{ts:Date.now(),status:'sent'});
+        break;
+      }catch(err){
+        if(dedupeStore.get(submissionId)===entry) dedupeStore.delete(submissionId);
+        throw err;
+      }
+    }
     res.status(200).json({ok:true});
-  }catch(e){ res.status(500).json({error:'send_failed'}); }
+  }catch(e){
+    console.error('LuxAed lead send failed:', e && e.message ? e.message : 'unknown error');
+    res.status(500).json({error:'send_failed'});
+  }
 }

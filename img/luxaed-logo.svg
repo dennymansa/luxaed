@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="340" viewBox="-6 -4 248 68" role="img" aria-labelledby="title desc">
+  <title id="title">LuxAed</title>
+  <desc id="desc">LuxAed wordmark with the fence symbol used on the company vehicles</desc>
+  <g fill="none" stroke="#152132" stroke-width="3.4" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M2 3V35H22"/>
+    <path d="M29 3V24.5C29 31.5 33 35 39.5 35S50 31.5 50 24.5V3"/>
+    <path d="M57 3L79 35M79 3L57 35"/>
+    <path d="M84 35L96.5 3L109 35"/>
+    <path d="M115 3H138M115 3V35H138M115 19H135"/>
+    <path d="M145 3V35H155C166 35 172 29.3 172 19S166 3 155 3H145"/>
+  </g>
+  <text x="86" y="54" fill="#152132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" letter-spacing="1">AIAD JA VÄRAVAD</text>
+  <g fill="none" stroke="#152132" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M187 18H232M187 36H232M187 46H232"/>
+    <path d="M188.5 46V15.5M230.5 46V15.5"/>
+    <path d="M193 46V13L196 8L199 13V46M201 46V13L204 8L207 13V46M209 46V13L212 8L215 13V46M217 46V13L220 8L223 13V46"/>
+  </g>
+</svg>

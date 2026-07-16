@@ -1,13 +1,14 @@
-# LuxAed — заборы и ворота в Таллинне
+# LuxAed — fences and gates in Tallinn
 
-Билингвальный (RU + ET) статический сайт компании LuxAed: заборы, ворота, автоматика и ремонт в Таллинне и Харьюмаа.
+Трёхъязычный статический сайт LuxAed: заборы, ворота, автоматика и ремонт в Таллинне и Харьюмаа. Эстонский язык находится в корне, русский — в `/ru/`, английский — в `/en/`.
 
 ## Структура
 
-- `index.html` — главная (RU)
-- `uslugi/` — страницы услуг (RU): деревянные заборы, профнастил, 3D-сетка, ворота/автоматика, ремонт
-- `o-nas/`, `faq/`, `kontakty/`, `privaatsus/`, `tingimused/` — RU-страницы
-- `et/` — эстонская версия (зеркало, `/et/aiad/*`, `/et/varavad/`, `/et/meist/` …)
+- `index.html` — главная ET
+- `aiad/`, `varavad/`, `aia-remont/` — услуги ET
+- `ru/zabory/`, `ru/vorota-avtomatika/`, `ru/remont-zaborov/` — услуги RU
+- `en/fences/`, `en/gates-automation/`, `en/fence-repair/` — услуги EN
+- `meist/`, `kkk/`, `privaatsus/`, `tingimused/` и языковые аналоги — вспомогательные страницы
 - `assets/luxaed.css` — общий CSS (дизайн-система на CSS-переменных)
 - `img/`, `fonts/` — изображения и шрифты
 - `sitemap.xml`, `robots.txt`
@@ -17,15 +18,18 @@
 
 Страницы генерируются из общих шаблонов:
 
+Полная сборка:
+
 ```bash
-python3 gen_ru.py          # RU-страницы услуг
-python3 gen_ru_support.py  # RU: о нас, faq, контакты, юр.
-python3 gen_et_home.py     # ET: главная + все страницы (импортирует gen_et)
-python3 gen_demo.py        # демо палитр
+python3 build_site.py
 ```
 
-- `build_pages.py` — общая библиотека (nav, footer, head, hreflang, scripts)
+- `service_catalog.py` — единая обязательная матрица 8 услуг × ET/RU/EN
+- `service_layout.py` — общий layout и schema всех сервисных страниц
+- `build_pages.py` — общая библиотека (nav, footer, head, hreflang, scripts и карта URL)
+- `validate_site.py` — блокирует сборку при расхождении переводов, sitemap, schema, ссылок или redirects
 - `reviews_data.py` — отзывы с Facebook
+- `ru/index.html` — единственная вручную собранная главная; общие скрипты и видео синхронизирует `sync_ru_home.py`
 
 ## Локальный запуск
 
@@ -35,7 +39,7 @@ python3 -m http.server 8127
 
 ## SEO
 
-hreflang RU↔ET, JSON-LD (HomeAndConstructionBusiness, Service, FAQPage, BreadcrumbList), страницы под ключевые запросы (võrkaed, puitaed, liugvärav, väravaautomaatika и др.).
+hreflang ET↔RU↔EN, canonical, sitemap и JSON-LD (HomeAndConstructionBusiness, Service, FAQPage, BreadcrumbList, ItemList, VideoObject, Person).
 
 ## Деплой на GitHub Pages (подпапка /luxaed/)
 

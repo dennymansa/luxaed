@@ -5,6 +5,6 @@
   "type": "module",
   "description": "LuxAed static site (Vercel) + /api/lead serverless mailer",
   "dependencies": {
-    "nodemailer": "^6.9.16"
+    "nodemailer": "9.0.3"
   }
 }

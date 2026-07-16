@@ -52,6 +52,11 @@ def title_case(title, lang):
 def apply_titlecase(html):
     m=re.search(r'<html lang="([a-z]{2})"', html)
     lang=m.group(1) if m else 'et'
+    # English marketing titles conventionally use title case. Estonian and
+    # Russian titles use sentence case, so preserve the wording supplied by
+    # their generators instead of applying English capitalisation rules.
+    if lang != 'en':
+        return html
     def sub_title(mm): return '<title>'+title_case(mm.group(1), lang)+'</title>'
     html=re.sub(r'<title>(.*?)</title>', sub_title, html, count=1, flags=re.DOTALL)
     for prop in ('og:title','twitter:title'):

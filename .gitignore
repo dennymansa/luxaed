@@ -6,3 +6,7 @@ __pycache__/
 .claude/
 project-playbook.md
 /luxaed
+.vercel
+node_modules/
+.env*
+gcs-*.json

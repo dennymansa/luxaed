@@ -7,3 +7,13 @@ build_zip.py
 validate.py
 .gitignore
 demo-colors
+.vercel
+node_modules
+.env*
+gcs-*.json
+# High-resolution AI source masters; the optimized JPG/WebP variants are public.
+img/luxaed-rullvork-*.png
+img/luxaed-varbaed-*.png
+# Audit stills kept locally for reference; rejected for the public site due to source resolution.
+img/luxaed-wood-real-v1*
+img/luxaed-gate-real-v1*
