@@ -52,7 +52,7 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Hei! Vajad uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}%</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis · soovitavad</a></div>
-    <h1>Aiad ja väravad</h1>
+    <h1>Piirdeaiad ja väravad</h1>
     <p class="hero-claim"><em>terviklahendusena</em><br>mõõdistusest paigalduseni</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
@@ -61,7 +61,7 @@ home_inner=f'''<section class="hero">
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mõõdame, valmistame ja paigaldame aedu ning väravaid.<br>Võtame kogu töö enda peale.</h2></div>
-  <div><p>Valmistame ja paigaldame <b>puitaedu, rullvõrkaedu, 2D- ja 3D-keevisvõrkaedu, metall-lippaedu, varbaedu ning profiilplekk-aedu</b>. Teeme ka plokkposte ja eri materjale ühendavaid piirdeid. Aia juurde valmistame jalg-, tiib- või liugväravad ning paigaldame sobiva <b>väravaautomaatika</b>.</p></div>
+  <div><p>Valmistame ja paigaldame piirdeaedu: <b>puitaedu, rullvõrkaedu, 2D- ja 3D-keevisvõrkaedu, metall-lippaedu, varbaedu ning profiilplekk-aedu</b>. Teeme ka plokkposte ja eri materjale ühendavaid piirdeid. Aia juurde valmistame aiaväravad: jalgväravad, tiib- ja liugväravad ning paigaldame sobiva <b>väravaautomaatika</b>.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Aiad ja väravad igale krundile</h2>
@@ -98,7 +98,7 @@ home_inner=f'''<section class="hero">
   </div></div></section>
 
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Aia paigaldus: neli lihtsat sammu</h2>{PROCESS}</div></section>
-<section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Aia ja värava hind: mis kuulub sisse ja mis sõltub projektist</h2>
+<section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Piirdeaia ja värava hind: mis kuulub sisse ja mis sõltub projektist</h2>
 <p class="lead">Aia ehitus algab krundi mõõdistusest. Lõplik hind sõltub materjalist, aia pikkusest, reljeefist ja väravate keerukusest, seetõttu fikseeritud hinnakirja pole. Täpse hinna ütleme pärast tasuta mõõdistust.</p>
 <div class="honest">
   <div class="hon good"><h3>Alati hinna sees</h3><ul><li>Krundi mõõdistamine</li><li>Materjali ja konstruktsiooni konsultatsioon</li><li>Hinnaarvestus enne tööde algust</li><li>Postide ja sektsioonide paigaldus</li><li>Furnituuri ja vajadusel automaatika paigaldus</li><li>Väravate kontroll pärast paigaldust</li></ul></div>
@@ -145,7 +145,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate valmistamine ning paigaldus Tallinnas ja Harjumaal. Puit-, võrk-, paneel-, metall- ja profiilplekk-aiad ning automaatika.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("et"),"et"))
+page("/","Piirdeaedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Piirdeaedade, aiaväravate ja jalgväravate valmistamine ning paigaldus Tallinnas ja Harjumaal. Puit-, võrk-, 3D-paneel-, metall- ja profiilplekk-aiad ning automaatika.", home_inner, sch=lb_schema+home_faq_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">
