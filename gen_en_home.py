@@ -214,11 +214,35 @@ legal("/en/privacy/","Privacy policy — LuxAed","Privacy policy","Privacy",[
  ("Data controller","The controller of personal data is LuxAed, Tallinn, Estonia. For data protection matters, contact us by email at "+EMAIL+" or by phone at "+PHONE+"."),
  ("What data we collect","When you send an enquiry via the web form, by phone, email or Facebook, we may process your name, phone number, email address, site address or area, requested service, message and any attached photos. A form enquiry may also include the first landing page, referrer and advertising campaign parameters so that we can understand which channel generated the enquiry. To maintain security and reliability, the web server may also process technical data such as your IP address, request time, browser type and log entries."),
  ("Purposes and legal bases of processing","We use contact and site details to respond to your enquiry, arrange a site survey, prepare a quotation and provide the service. The legal basis is taking steps before entering into a contract or performing a contract. We may rely on legitimate interests for security, prevention of misuse and administration. We use Google Ads measurement based on your consent."),
- ("Service providers and data transfers","We do not sell your personal data. To the extent necessary, service providers process data on our behalf: Vercel for website hosting and technical processing of the web form, and Google Gmail for forwarding enquiries and storing them in email. With your consent, we use Google Ads to measure conversions. Service providers may use subprocessors and process data outside the European Economic Area; in that case, safeguards provided for in the service provider’s terms are applied, such as the European Commission’s standard contractual clauses."),
+ ("Service providers and data transfers","We do not sell your personal data. To the extent necessary, service providers process data on our behalf: Vercel Inc. for website hosting, technical processing of the web form and cookieless visit statistics (Vercel Web Analytics), and Google Gmail for forwarding enquiries and storing them in email. With your consent, we use Google Ads to measure conversions. Service providers may use subprocessors and process data outside the European Economic Area; in that case, safeguards provided for in the service provider’s terms are applied, such as the European Commission’s standard contractual clauses."),
  ("Cookies and Google Ads","The website stores your cookie choice in the browser’s local storage. By default, the Google Ads measurement code operates in Consent Mode with consent denied. Advertising and analytics storage is enabled only after you select “Accept”. You can change your choice by deleting the luxaed.ee site data from your browser and choosing again."),
+ ("Enquiry source data in your browser",
+  "The website runs a script that remembers how you arrived on the site. "
+  "First-visit data (landing page, referrer, any utm_* tags and ad click IDs gclid, gbraid, wbraid, fbclid, msclkid in the link, and the time of the visit) is kept in the browser’s local storage (localStorage) only after you select “Accept” in the cookie banner; "
+  "otherwise it is kept only in session storage (sessionStorage), which is cleared when you close the tab. "
+  "Session storage also holds the current visit and up to 15 most recently viewed pages with their times. "
+  "No cookies are used for this. "
+  "This data stays in your browser and is sent to us only together with an enquiry you submit through the web form yourself, never otherwise. "
+  "With the enquiry we also receive the browser language, screen size and time zone; "
+  "the server reads the device type (phone, tablet or computer, operating system and browser) from the browser’s User-Agent header at the moment of submission. "
+  "The purpose is to see which channel brought the enquiry and to respond to it. "
+  "We process the data needed to respond to your enquiry to take steps at your request before entering into a contract; "
+  "analysing the source of the enquiry is based on our legitimate interest. "
+  "In the browser, the data remains until you delete it; "
+  "as part of an enquiry, we keep it for as long as the other enquiry data (see “Retention and security”). "
+  "If you do not want to share this data, delete the luxaed.ee site data from your browser or do not submit the web form: "
+  "without an enquiry, this data never reaches us."),
+ ("Vercel Web Analytics",
+  "For visit statistics we use Vercel Web Analytics. "
+  "It does not use cookies and shows us only aggregated data: "
+  "pages viewed, referrers, countries and device type, plus the fact that a form was submitted successfully, without contact details or the enquiry text. "
+  "No personal profiles are created. "
+  "The data is processed by Vercel Inc. "
+  "The legal basis is our legitimate interest in general visit statistics. "
+  "The statistics are aggregated and do not allow us to identify an individual visitor."),
  ("Retention and security","We retain enquiry data for as long as necessary to handle the enquiry, prepare the quotation and perform any resulting contract, resolve claims or comply with a legal obligation. Once the data is no longer needed, it is deleted or anonymised. We restrict access to data and use reasonable technical and organisational security measures."),
  ("Your rights","You have the right to request access to your personal data, require its rectification or erasure, restrict processing, object to processing based on legitimate interests and withdraw consent at any time. Where processing is based on consent or a contract and the applicable conditions are met, you may request data portability. To submit a request, write to "+EMAIL+". You also have the right to lodge a complaint with the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon)."),
- ("Policy updates","We may update this privacy policy if our services or legal requirements change. The current version is published on this page. Last updated: 16.07.2026."),
+ ("Policy updates","We may update this privacy policy if our services or legal requirements change. The current version is published on this page. Last updated: 22.10.2026."),
 ])
 legal("/en/terms/","Terms of service — LuxAed","Terms of service","Terms",[
  ("General","These terms describe how LuxAed provides services for manufacturing, installing and repairing fences, gates and automation in Tallinn and Harjumaa."),

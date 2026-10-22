@@ -217,11 +217,34 @@ legal("/privaatsus/","Privaatsuspoliitika — LuxAed","Privaatsuspoliitika","Pri
  ("Vastutav töötleja","Isikuandmete vastutav töötleja on LuxAed, Tallinn, Eesti. Andmekaitseküsimustes võtke ühendust e-posti aadressil "+EMAIL+" või telefonil "+PHONE+"."),
  ("Milliseid andmeid kogume","Kui saadate päringu veebivormi, telefoni, e-posti või Facebooki kaudu, võime töödelda teie nime, telefoni, e-posti aadressi, objekti aadressi või piirkonda, teenuse soovi, sõnumit ja lisatud fotosid. Veebivormi päringule võidakse lisada ka sisenemisleht, viitaja ja reklaamikampaania parameetrid, et saaksime aru, millisest kanalist päring tuli. Veebiserver võib turvalisuse ning töökindluse tagamiseks töödelda ka tehnilisi andmeid, näiteks IP-aadressi, päringu aega, brauseri tüüpi ja logikirjeid."),
  ("Töötlemise eesmärgid ja õiguslik alus","Kasutame kontakt- ja objektandmeid päringule vastamiseks, mõõdistuse korraldamiseks, pakkumise koostamiseks ning teenuse osutamiseks. Selle õiguslik alus on lepingu sõlmimisele eelnevate sammude tegemine või lepingu täitmine. Turvalisuse, kuritarvituste vältimise ja asjaajamise jaoks võime tugineda õigustatud huvile. Google Adsi mõõtmist kasutame teie nõusoleku alusel."),
- ("Teenusepakkujad ja andmete edastamine","Me ei müü teie isikuandmeid. Vajalikus ulatuses töötlevad andmeid meie nimel teenusepakkujad: Vercel veebisaidi majutamiseks ja veebivormi tehniliseks töötlemiseks ning Google'i Gmail päringute edastamiseks ja säilitamiseks e-postis. Nõusoleku korral kasutame Google Adsi konversioonide mõõtmiseks. Teenusepakkujad võivad kasutada oma alltöötlejaid ja töödelda andmeid väljaspool Euroopa Majanduspiirkonda; sellisel juhul rakendatakse teenusepakkuja tingimuste kohaseid andmekaitsemeetmeid, näiteks Euroopa Komisjoni lepingu tüüptingimusi."),
+ ("Teenusepakkujad ja andmete edastamine","Me ei müü teie isikuandmeid. Vajalikus ulatuses töötlevad andmeid meie nimel teenusepakkujad: Vercel Inc. veebisaidi majutamiseks, veebivormi tehniliseks töötlemiseks ja küpsisteta külastusstatistikaks (Vercel Web Analytics) ning Google'i Gmail päringute edastamiseks ja säilitamiseks e-postis. Nõusoleku korral kasutame Google Adsi konversioonide mõõtmiseks. Teenusepakkujad võivad kasutada oma alltöötlejaid ja töödelda andmeid väljaspool Euroopa Majanduspiirkonda; sellisel juhul rakendatakse teenusepakkuja tingimuste kohaseid andmekaitsemeetmeid, näiteks Euroopa Komisjoni lepingu tüüptingimusi."),
  ("Küpsised ja Google Ads","Veebisait salvestab teie küpsisevaliku brauseri kohalikku salvestusruumi. Google Adsi mõõtmiskood töötab vaikimisi keelatud nõusolekurežiimis. Reklaami- ja analüütikasalvestus lubatakse alles siis, kui valite „Nõustun“. Valikut saate muuta, kustutades brauserist luxaed.ee saidiandmed ja tehes uue valiku."),
+ ("Päringu allika andmed brauseris",
+  "Saidil töötab skript, mis jätab meelde, kuidas te saidile jõudsite. "
+  "Esimese külastuse andmed (sisenemisleht, viitaja, lingis olnud utm_* sildid ja reklaamiklõpsu tunnused gclid, gbraid, wbraid, fbclid, msclkid ning külastuse aeg) salvestatakse brauseri kohalikku salvestusruumi (localStorage) ainult siis, kui olete küpsiseribal valinud „Nõustun“; "
+  "muul juhul hoitakse neid ainult sessioonimälus (sessionStorage), mis tühjeneb brauseri vahelehe sulgemisel. "
+  "Sessioonimälus hoitakse ka praeguse külastuse andmeid ja kuni 15 viimati vaadatud lehte koos vaatamise ajaga. "
+  "Küpsiseid selleks ei kasutata. "
+  "Need andmed jäävad teie brauserisse ja need saadetakse meile ainult koos päringuga, mille te ise veebivormi kaudu saadate, mitte kunagi muul viisil. "
+  "Koos päringuga saame ka brauseri keele, ekraani suuruse ja ajavööndi; "
+  "seadme tüübi (telefon, tahvelarvuti või arvuti, operatsioonisüsteem ja brauser) määrab server saatmise hetkel brauseri User-Agent päise järgi. "
+  "Eesmärk on näha, millisest kanalist päring tuli, ja päringule vastata. "
+  "Päringule vastamiseks vajalikke andmeid töötleme teie soovil lepingu sõlmimisele eelnevate sammude tegemiseks, päringu allika analüüs põhineb meie õigustatud huvil. "
+  "Brauseris säilivad andmed seni, kuni te need kustutate; "
+  "päringu koosseisus säilitame neid sama kaua kui muid päringuandmeid (vt „Säilitamine ja turvalisus“). "
+  "Kui te ei soovi neid andmeid jagada, kustutage brauserist luxaed.ee saidiandmed või ärge saatke veebivormi: "
+  "ilma päringuta need andmed meieni ei jõua."),
+ ("Vercel Web Analytics",
+  "Külastusstatistika jaoks kasutame Vercel Web Analyticsit. "
+  "See ei kasuta küpsiseid ja näitab meile ainult koondandmeid: "
+  "vaadatud lehed, viitajad, riigid ja seadme tüüp ning eduka vormisaatmise fakt ilma kontaktandmete ja päringu tekstita. "
+  "Isikuprofiile ei koostata. "
+  "Andmeid töötleb Vercel Inc. "
+  "Õiguslik alus on meie õigustatud huvi saada üldist külastusstatistikat. "
+  "Statistika on koondatud ega võimalda meil üksikut külastajat tuvastada."),
  ("Säilitamine ja turvalisus","Säilitame päringuandmeid nii kaua, kui see on vajalik päringu menetlemiseks, pakkumise ja võimaliku lepingu täitmiseks, nõuete lahendamiseks või seadusest tuleneva kohustuse täitmiseks. Kui andmeid enam ei vajata, need kustutatakse või anonüümitakse. Piirame andmetele ligipääsu ning kasutame mõistlikke tehnilisi ja korralduslikke turvameetmeid."),
  ("Teie õigused","Teil on õigus küsida juurdepääsu oma isikuandmetele, nõuda nende parandamist või kustutamist, piirata töötlemist, esitada õigustatud huvil põhinevale töötlemisele vastuväide ning võtta nõusolek igal ajal tagasi. Kui töötlemine põhineb nõusolekul või lepingul ja tingimused on täidetud, võite taotleda andmete ülekandmist. Taotluse saatmiseks kirjutage aadressil "+EMAIL+". Samuti on teil õigus esitada kaebus Andmekaitse Inspektsioonile."),
- ("Poliitika ajakohastamine","Võime privaatsuspoliitikat muuta, kui teenused või õigusnõuded muutuvad. Kehtiv versioon avaldatakse sellel lehel. Viimati uuendatud 16.07.2026."),
+ ("Poliitika ajakohastamine","Võime privaatsuspoliitikat muuta, kui teenused või õigusnõuded muutuvad. Kehtiv versioon avaldatakse sellel lehel. Viimati uuendatud 22.10.2026."),
 ], "Kuidas LuxAed töötleb päringute, veebivormi, Verceli, Gmaili ja Google Adsi kasutamisel isikuandmeid ning millised on teie õigused.")
 legal("/tingimused/","Kasutustingimused — LuxAed","Kasutustingimused","Tingimused",[
  ("Üldsätted","Käesolevad tingimused kirjeldavad LuxAedi teenuste osutamist aedade, väravate ja automaatika valmistamisel, paigaldusel ja remondil Tallinnas ja Harjumaal."),
