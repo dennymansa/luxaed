@@ -398,6 +398,11 @@ function ccChoose(all){try{localStorage.setItem('cc',all?'all':'necessary');}cat
 </script>'''
 LEAD_FORM_VERSION = hashlib.sha256(open(os.path.join(SITE, "assets", "lead-form.js"), "rb").read()).hexdigest()[:8]
 SCRIPTS = SCRIPTS.replace('__AW_LEAD_LABEL__', AW_LEAD_LABEL) + f'\n<script src="/assets/lead-form.js?v={LEAD_FORM_VERSION}" defer></script>'
+# Vercel Web Analytics: cookieless, no personal data, so it does not wait for the cookie banner.
+# Enable it in Vercel -> Project -> Analytics. The 'lead' custom event is sent from lead-form.js.
+VERCEL_ANALYTICS = ('<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>'
+                    '\n<script defer src="/_vercel/insights/script.js"></script>')
+SCRIPTS += '\n' + VERCEL_ANALYTICS
 
 def head(lang, path, title, desc, og_img="/img/luxaed-hero.jpg", schema_blocks=None):
     row = _row(path) or {lang:path}
