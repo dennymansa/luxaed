@@ -119,7 +119,7 @@ shared_tail = build_pages.footer('ru') + f'''\n<div class="mob-bar"><a class="bt
 sub_once(r'(?:<!-- FOOTER -->|<footer class="foot">).*?(?=<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob)', shared_tail, 'footer')
 
 # 1) shared <script> block (anchored on the unique 'function closeMob')
-sub_once(r'<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob\(\).*?</script>(?:\s*<script src="/assets/lead-form\.js\?v=[^"]+" defer></script>)*', build_pages.SCRIPTS, 'SCRIPTS')
+sub_once(r'<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob\(\).*?</script>(?:\s*<script src="/assets/lead-form\.js\?v=[^"]+" defer></script>)*(?:\s*<script>window\.va = [^\n]*</script>)?(?:\s*<script defer src="/_vercel/insights/script\.js"></script>)?', build_pages.SCRIPTS, 'SCRIPTS')
 # 2) the same lead form as every generated RU landing page
 sub_once(r'(?:<!-- LEAD_FORM_START -->\s*)?<div class="form-slot">\s*<div class="form-card[^\"]*" id="form">.*?</form>\s*</div>\s*</div>\s*(?:<!-- LEAD_FORM_END -->)?', render_lead_form('ru'), 'lead_form')
 # 3) video section (dark sunset + looping carousel)

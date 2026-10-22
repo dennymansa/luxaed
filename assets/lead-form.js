@@ -1,3 +1,51 @@
+// Visitor attribution, runs on every page (this file is loaded site-wide).
+// First visit: localStorage once cookies are accepted (cc=all), otherwise only for this tab
+// session. This visit + the last 15 pages: sessionStorage. Nothing leaves the browser
+// until the person submits the form.
+(function () {
+  'use strict';
+  var FIRST = 'luxaed_first_touch', SESSION = 'luxaed_session', KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
+  function read(store, key) { try { return JSON.parse(store.getItem(key) || 'null'); } catch (_) { return null; } }
+  function write(store, key, value) { try { store.setItem(key, JSON.stringify(value)); } catch (_) {} }
+  function consented() { try { return localStorage.getItem('cc') === 'all'; } catch (_) { return false; } }
+  function touchNow() {
+    var t = { ts: Date.now(), landing: location.href.slice(0, 500), referrer: (document.referrer || '').slice(0, 500) };
+    var q = new URLSearchParams(location.search);
+    KEYS.forEach(function (k) { if (q.get(k)) t[k] = q.get(k).slice(0, 200); });
+    return t;
+  }
+  function strip(x) { if (!x) return null; var t = {}; Object.keys(x).forEach(function (k) { if (k !== 'journey') t[k] = x[k]; }); return t; }
+  function record() {
+    try {
+      var path = (location.pathname + (location.search.length > 1 ? location.search : '')).slice(0, 200);
+      var session = read(sessionStorage, SESSION) || Object.assign(touchNow(), { journey: [] });
+      var last = session.journey[session.journey.length - 1];
+      if (!last || last.p !== path) session.journey = session.journey.concat([{ p: path, t: Date.now() }]).slice(-15);
+      write(sessionStorage, SESSION, session);
+      var first = read(localStorage, FIRST) || read(sessionStorage, FIRST);
+      if (!first) { first = strip(session); write(sessionStorage, FIRST, first); }
+      if (consented() && !read(localStorage, FIRST)) write(localStorage, FIRST, first);
+    } catch (_) {}
+  }
+  record();
+  window.luxaedAttribution = function () {
+    record();
+    var session = read(sessionStorage, SESSION);
+    var first = read(localStorage, FIRST) || read(sessionStorage, FIRST) || strip(session) || {};
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (_) {}
+    var out = {
+      v: 2, first: first, session: strip(session), journey: (session && session.journey) || [], now: Date.now(),
+      lang: navigator.language || '', langs: (navigator.languages || []).slice(0, 3).join(', '),
+      screen: screen.width + 'x' + screen.height, tz: tz,
+      // flat copy of the first visit, the shape older handlers read
+      landing_page: first.landing || '', referrer: first.referrer || ''
+    };
+    KEYS.forEach(function (k) { if (first[k]) out[k] = first[k]; });
+    return out;
+  };
+})();
+
 (function () {
   'use strict';
   var form = document.getElementById('leadFormV2');
@@ -164,18 +212,7 @@
   });
 
   function getAttribution() {
-    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
-    var params = new URLSearchParams(location.search);
-    var value = { landing_page: location.href, referrer: document.referrer || '' };
-    keys.forEach(function (key) {
-      if (params.get(key)) value[key] = params.get(key).slice(0, 300);
-    });
-    try {
-      var first = JSON.parse(sessionStorage.getItem('luxaed_attribution') || 'null');
-      if (first) return first;
-      sessionStorage.setItem('luxaed_attribution', JSON.stringify(value));
-    } catch (_) {}
-    return value;
+    return window.luxaedAttribution ? window.luxaedAttribution() : { landing_page: location.href, referrer: document.referrer || '' };
   }
   form._attribution = getAttribution();
 
@@ -286,7 +323,7 @@
     data.submission_id = form._submissionId;
     data.page = location.href;
     data.t = Math.round((Date.now() - (window.__t0 || Date.now())) / 1000);
-    data.attribution = form._attribution;
+    data.attribution = getAttribution();
 
     try {
       data.photos_expected = form._photoFiles.length;
@@ -311,6 +348,7 @@
       success.style.display = 'block';
       success.focus();
       card.classList.remove('is-loading');
+      try { if (window.va) window.va('event', { name: 'lead', data: { form: 'lead-v2', services: data.services || '', photos: data.photos_b64.length } }); } catch (_) {}
       (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead', form_service: data.service || '', form_services: data.services || '', lead_id: data.submission_id });
       if (window.gtag) {
         window.gtag('event', 'generate_lead', { form_service: data.service || '', form_services: data.services || '', event_id: data.submission_id });
