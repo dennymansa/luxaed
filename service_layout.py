@@ -187,8 +187,8 @@ OUTCOME_COPY = {
         },
         "gates": {
             "name": "Automaatväravate valmistamine ja paigaldus",
-            "title": "Automaatväravate paigaldus Tallinnas — LuxAed",
-            "desc": "Automaatväravate valmistamine ja paigaldus Tallinnas ning Harjumaal: liug- ja tiibväravad, ajam, fotoelemendid ja juhtimine. Tasuta mõõdistus.",
+            "title": "Automaatväravate ja aiaväravate paigaldus Tallinnas — LuxAed",
+            "desc": "Automaatväravate ja aiaväravate valmistamine ja paigaldus Tallinnas ning Harjumaal: liug- ja tiibväravad, jalgväravad, ajam, fotoelemendid ja juhtimine. Tasuta mõõdistus.",
             "kicker": "Automaatväravad · valmistamine · paigaldus",
             "h1": "Automaatväravate<br><em>paigaldus</em>",
             "hero_prompt": "Soovite avada värava autost väljumata?",

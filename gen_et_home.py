@@ -61,7 +61,7 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Hei! Vajate uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% soovitab</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis</a></div>
-    <h1>Aiad ja väravad</h1>
+    <h1>Piirdeaiad ja väravad</h1>
     <p class="hero-claim"><em>terviklahendusena</em><br>mõõdistusest paigalduseni</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
@@ -146,7 +146,7 @@ home_inner=f'''<section class="hero">
 
 {video_block("et")}
 
-<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Aedade ja väravate paigaldus Tallinnas ja Harjumaal</h2>
+<section class="section section--alt svc-hide" id="piirkonnad" aria-label="Teeninduspiirkond"><div class="wrap"><span class="tag">Teeninduspiirkond</span><h2 class="big">Piirdeaedade ja väravate paigaldus Tallinnas ja Harjumaal</h2>
   <p class="lead">Aiad, väravad ja automaatika Tallinnas ja kogu Harjumaal.</p><div class="area-pills">{areas_html}</div></div></section>
 
 <section class="section" id="kkk"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(HOME_FAQ)}</div></section>
@@ -154,7 +154,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Aedade ja väravate valmistamine ning paigaldus Tallinnas ja Harjumaal. Puit-, võrk-, paneel-, metall- ja profiilplekk-aiad ning automaatika.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
+page("/","Piirdeaedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Piirdeaedade, aiaväravate ja jalgväravate valmistamine ning paigaldus Tallinnas ja Harjumaal. Puit-, võrk-, paneel-, metall- ja profiilplekk-aiad ning automaatika.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">

@@ -153,7 +153,7 @@ ETSERV=[
         ("Kas teete koeraaedikuid?","Jah, ehitame keevispaneelidest koeraaedikuid ja loomatarasid. Tugevad, turvalised ja pika elueaga."),
         ("Kas värava saab samas toonis?","Jah, valmistame lükand- ja tiibväravaid sama paneeliga ning samas värvitoonis.")]},
 {"path":"/aiad/puitaed/","video":("luxaed-video-puitvarav","Valmis puidust liugvärav automaatikaga"),"name":"Puitaed","hero":"luxaed-svc-wood","og":"/img/luxaed-svc-wood.jpg",
- "title":"Puitaedade ja väravate paigaldus Tallinnas — LuxAed","desc":"Puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
+ "title":"Puitaed ja puidust väravad: paigaldus Tallinnas — LuxAed","desc":"Puidust aed teraskarkassil: puitaedade ja -väravate valmistamine ja paigaldus Tallinnas ja Harjumaal. Horisontaalne puitaed, teraskarkass, töötlus. Tasuta mõõdistus ja pakkumine.",
  "kicker":"Puit · teraskarkass","h1":"Puitaedade<br><em>paigaldus</em>",
  "lead":"Soe ja korralik välimus. Valmistame puitaedu ja -väravaid tugeval teraskarkassil. Loodusliku puidu ja vastupidava metalli kombinatsioon.",
  "intro_h":"Miks puitaed","intro_p":"Puit näeb väärikas ja looduslik välja ning sobib eri stiiliga kruntidele. Tugev teraskarkass aitab konstruktsioonil püsida sirge ja kaua kesta.",
@@ -283,7 +283,7 @@ ET_OVERRIDES={
  "local_h":"Puitaedade valmistamine Tallinnas ja Harjumaal","local_p":"Valmistame puitaedu Tallinnas ja Harjumaal. Objektil täpsustame laudise suuna ja vahe, teraskarkassi, pinnakatte ning väravate lahenduse."},
 "/aiad/metallaed/":{
  "name":"Metallaed ja varbaed","hero":"luxaed-varbaed-gate-v2","og":"/img/luxaed-varbaed-gate-v2.jpg",
- "title":"Metallaia ja varbaia paigaldus Tallinnas — LuxAed","desc":"Metall- ja varbaedade valmistamine ning paigaldus Tallinnas ja Harjumaal. Keevitatud sektsioonid, väravad, tsinkimine ja RAL-toonid.",
+ "title":"Metallaed ja varbaed: paigaldus Tallinnas — LuxAed","desc":"Metall- ja varbaedade valmistamine ning paigaldus Tallinnas ja Harjumaal. Keevitatud sektsioonid, väravad, tsinkimine ja RAL-toonid.",
  "kicker":"Metallaed · varbaed · metallpiire","h1":"Metall- ja varbaedade<br><em>paigaldus</em>",
  "lead":"Keevitatud terasprofiilidest tugev ja esinduslik piire. Valmistame lihtsa joonega varbaedu, dekoratiivseid metallpiirdeid ning aiaga sobivaid väravaid.",
  "intro_h":"Metallaed vastavalt teie krundile","intro_p":"Metallaia sektsioonid valmistatakse objekti mõõtude ja soovitud kujunduse järgi. Valida saab varbade profiili, vahe, kõrguse, ülaserva ja dekoratiivdetailid. Pinnakaitse, näiteks tsinkimine ja pulbervärvimine, valitakse vastavalt projektile ning kasutuskohale.",
@@ -328,7 +328,7 @@ ET_OVERRIDES={
 
 NEW_ETSERV=[
 {"path":"/aiad/paneelaed/","videos":[("luxaed-reel-vorkaed","Valmis 3D paneelaed"),("luxaed-reel-vorkaed2","Vana rullvõrkaia asendamine 3D paneelaiaga")],"name":"3D paneelaed ja 2D/3D keevisvõrkaed","hero":"luxaed-w-mesh-1","og":"/img/luxaed-w-mesh-1.jpg",
- "title":"3D paneelaed ja paneelaia paigaldus Tallinnas | LuxAed","desc":"3D paneelaed ja paneelaia paigaldus Tallinnas ja Harjumaal. Jäigad 2D- ja 3D-keevisvõrgust aiapaneelid, postid, aluslauad, väravad ja koeraaedikud. Tasuta mõõdistus.",
+ "title":"3D paneelaed ja keevisvõrkaed: paigaldus Tallinnas | LuxAed","desc":"3D paneelaed ja keevisvõrkaed: paigaldus Tallinnas ja Harjumaal. Jäigad 2D- ja 3D-keevisvõrgust aiapaneelid, postid, aluslauad, väravad ja koeraaedikud. Tasuta mõõdistus.",
  "kicker":"3D paneelaed · 2D · keevisvõrk","h1":"3D paneelaedade<br><em>paigaldus</em>",
  "lead":"3D paneelaed ehk 3D-keevisvõrkaed koosneb jäikadest keevisvõrgust aiapaneelidest ja sobib eramule, korteriühistule või ettevõtte territooriumile. Paigaldame 3D paneelaedu Tallinnas ja Harjumaal ning valime 2D- või 3D-paneeli vastavalt kasutuskohale ja soovitud jäikusele.",
  "intro_h":"3D paneelaia paigaldus 2D/3D-keevisvõrgust","intro_p":"Erinevalt rullvõrgust on 2D- ja 3D-võrk keevitatud jäikadeks sektsioonideks. 3D-võrgusektsioon saab jäikuse V-kujulistest painetest. 2D-võrgusektsioon on sile ning selle vertikaaltraate toetavad topelt-horisontaaltraadid. Lõplik tugevus sõltub traadi läbimõõdust, postidest, kinnitustest ja paigaldusest.",
