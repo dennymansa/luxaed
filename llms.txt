@@ -1,28 +1,84 @@
 # LuxAed
 
-> Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Заборы, ворота и калитки под ключ в Таллинне и Харьюмаа. Fences, gates and wickets in Tallinn and Harju County, Estonia. Puit, rullvõrk, 2D/3D-keevisvõrk, metall-lipp, varbaed, profiilplekk ja väravaautomaatika. Üle 15 aasta kogemust, tasuta mõõdistus, 100% soovitab (34 arvustust Facebookis).
+> Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Заборы, ворота и калитки под ключ в Таллинне и Харьюмаа. Fences, gates and pedestrian gates in Tallinn and Harju County, Estonia. Puit, rullvõrk, 2D/3D-keevisvõrk, metall-lipp, varbaed, profiilplekk, väravaautomaatika ja domofonid. Üle 15 aasta kogemust, tasuta mõõdistus, 100% soovitab (34 arvustust Facebookis).
 
 ## Main pages
 - [Avaleht — Eesti (ET)](https://luxaed.ee/)
 - [Главная — Русский (RU)](https://luxaed.ee/ru/)
 - [Home — English (EN)](https://luxaed.ee/en/)
-- [Meist / О компании / About](https://luxaed.ee/meist/)
-- [KKK / Вопросы / FAQ](https://luxaed.ee/kkk/)
+- About / Meist / О компании: [ET](https://luxaed.ee/meist/) · [RU](https://luxaed.ee/ru/o-nas/) · [EN](https://luxaed.ee/en/about/)
+- FAQ / KKK / Вопросы: [ET](https://luxaed.ee/kkk/) · [RU](https://luxaed.ee/ru/faq/) · [EN](https://luxaed.ee/en/faq/)
+- Prices / Hinnad / Цены: [ET](https://luxaed.ee/hinnad/) · [RU](https://luxaed.ee/ru/ceny/) · [EN](https://luxaed.ee/en/prices/)
+- Fence selection guide / Kuidas valida aeda / Как выбрать забор: [ET](https://luxaed.ee/kuidas-valida-aeda/) · [RU](https://luxaed.ee/ru/kak-vybrat-zabor/) · [EN](https://luxaed.ee/en/how-to-choose-a-fence/)
+- Harju County service area / Teeninduspiirkond / Зона обслуживания: [ET](https://luxaed.ee/piirkonnad/harjumaa/) · [RU](https://luxaed.ee/ru/rajony/harjumaa/) · [EN](https://luxaed.ee/en/areas/harju-county/)
 
 ## Services
 - Puitaed / Деревянные заборы / Wooden fences: [ET](https://luxaed.ee/aiad/puitaed/) · [RU](https://luxaed.ee/ru/zabory/derevyannye/) · [EN](https://luxaed.ee/en/fences/wooden/)
 - Rullvõrkaed / Заборы из сетки-рабицы / Roll mesh fences: [ET](https://luxaed.ee/aiad/vorkaed/) · [RU](https://luxaed.ee/ru/zabory/setka-rabitsa/) · [EN](https://luxaed.ee/en/fences/roll-mesh/)
-- Keevisvõrkaed / Заборы из 2D/3D-сетки / Welded mesh fences: [ET](https://luxaed.ee/aiad/paneelaed/) · [RU](https://luxaed.ee/ru/zabory/2d-3d-setka/) · [EN](https://luxaed.ee/en/fences/mesh/)
+- 3D paneelaed / Заборы из 2D/3D-сетки / Welded mesh fences: [ET](https://luxaed.ee/aiad/paneelaed/) · [RU](https://luxaed.ee/ru/zabory/2d-3d-setka/) · [EN](https://luxaed.ee/en/fences/mesh/)
 - Metall-lippaed / Металлический штакетник / Steel picket fences: [ET](https://luxaed.ee/aiad/lippaed/) · [RU](https://luxaed.ee/ru/zabory/metallicheskie-lameli/) · [EN](https://luxaed.ee/en/fences/steel-picket/)
 - Metallaed ja varbaed / Металлические прутковые заборы / Metal bar fences: [ET](https://luxaed.ee/aiad/metallaed/) · [RU](https://luxaed.ee/ru/zabory/prutkovye/) · [EN](https://luxaed.ee/en/fences/metal-bar/)
-- Profiilplekk-aed / Заборы из профнастила / Profiled-sheet fences: [ET](https://luxaed.ee/aiad/profiilplekk-aed/) · [RU](https://luxaed.ee/ru/zabory/profnastil/) · [EN](https://luxaed.ee/en/fences/profiled-sheet/)
-- Väravad ja automaatika / Ворота и автоматика / Gates & automation: [ET](https://luxaed.ee/varavad/) · [RU](https://luxaed.ee/ru/vorota-avtomatika/) · [EN](https://luxaed.ee/en/gates-automation/)
+- Profiilplekk-aed koos paigaldusega / Забор из профнастила с установкой / Profiled-sheet fence installation: [ET](https://luxaed.ee/aiad/profiilplekk-aed/) · [RU](https://luxaed.ee/ru/zabory/profnastil/) · [EN](https://luxaed.ee/en/fences/profiled-sheet/)
+- Automaatväravate paigaldus / Установка автоматических ворот / Automatic gate installation: [ET](https://luxaed.ee/varavad/) · [RU](https://luxaed.ee/ru/vorota-avtomatika/) · [EN](https://luxaed.ee/en/gates-automation/)
+- Domofonid ja videodomofonid / Домофоны и видеодомофоны / Intercoms and video intercoms: [ET](https://luxaed.ee/varavad/domofonid/) · [RU](https://luxaed.ee/ru/domofony-videodomofony/) · [EN](https://luxaed.ee/en/intercoms-video-intercoms/)
 - Aia ja värava remont / Ремонт заборов и ворот / Fence & gate repair: [ET](https://luxaed.ee/aia-remont/) · [RU](https://luxaed.ee/ru/remont-zaborov/) · [EN](https://luxaed.ee/en/fence-repair/)
+
+## Repair problems
+- Gate won't open or close / Värav ei avane / Не открываются ворота: [ET](https://luxaed.ee/aia-remont/varav-ei-avane/) · [RU](https://luxaed.ee/ru/remont-zaborov/vorota-ne-otkryvayutsya/) · [EN](https://luxaed.ee/en/fence-repair/gate-wont-open/)
+- Sliding gate sticking or sagging / Liugvärava remont / Ремонт откатных ворот: [ET](https://luxaed.ee/aia-remont/liugvarava-remont/) · [RU](https://luxaed.ee/ru/remont-zaborov/remont-otkatnyh-vorot/) · [EN](https://luxaed.ee/en/fence-repair/sliding-gate-repair/)
+- Leaning fence or loose post / Viltu aed / Покосился забор: [ET](https://luxaed.ee/aia-remont/viltu-aed/) · [RU](https://luxaed.ee/ru/remont-zaborov/pokosilsya-zabor/) · [EN](https://luxaed.ee/en/fence-repair/leaning-fence/)
+- Fence damaged by a storm or car / Kahjustatud aed / Повреждённый забор: [ET](https://luxaed.ee/aia-remont/kahjustatud-aed/) · [RU](https://luxaed.ee/ru/remont-zaborov/povrezhdennyj-zabor/) · [EN](https://luxaed.ee/en/fence-repair/damaged-fence/)
+
+## Guides
+- Fence permits and neighbours / Kas aia ehitamiseks on vaja luba / Разрешение на забор: [ET](https://luxaed.ee/aia-ehitusteatis/) · [RU](https://luxaed.ee/ru/razreshenie-na-zabor/) · [EN](https://luxaed.ee/en/fence-permit/)
+- Sliding or swing gate / Liugvärav või tiibvärav / Откатные или распашные ворота: [ET](https://luxaed.ee/liugvarav-voi-tiibvarav/) · [RU](https://luxaed.ee/ru/otkatnye-ili-raspashnye-vorota/) · [EN](https://luxaed.ee/en/sliding-or-swing-gate/)
+- All guides / Nõuanded / Советы: [ET](https://luxaed.ee/nouanded/) · [RU](https://luxaed.ee/ru/sovety/) · [EN](https://luxaed.ee/en/guides/)
+- Chain-link or 3D mesh panels? / Võrkaed või 3D paneelaed? / Сетка-рабица или 3D-панели?: [ET](https://luxaed.ee/paneelaed-voi-vorkaed/) · [RU](https://luxaed.ee/ru/3d-zabor-ili-setka-rabitsa/) · [EN](https://luxaed.ee/en/mesh-panels-or-chain-link/)
+- Privacy fence: sheet, timber or picket? / Kinnine aed: plekk-, puit- või lippaed? / Глухой забор: профнастил, дерево или штакетник?: [ET](https://luxaed.ee/kinnine-aed/) · [RU](https://luxaed.ee/ru/gluhoj-zabor/) · [EN](https://luxaed.ee/en/privacy-fence/)
+- Common fence-building mistakes / Levinud vead aia ehitamisel / Частые ошибки при установке забора: [ET](https://luxaed.ee/aia-ehituse-vead/) · [RU](https://luxaed.ee/ru/oshibki-pri-ustanovke-zabora/) · [EN](https://luxaed.ee/en/fence-building-mistakes/)
+- How to choose a fence contractor / Kuidas valida aiafirmat / Как выбрать фирму для забора: [ET](https://luxaed.ee/kuidas-valida-aiafirmat/) · [RU](https://luxaed.ee/ru/kak-vybrat-firmu-dlya-zabora/) · [EN](https://luxaed.ee/en/how-to-choose-a-fence-contractor/)
+- A boundary fence with your neighbour / Aed naabri piiril / Забор между соседями: [ET](https://luxaed.ee/aed-naabri-piiril/) · [RU](https://luxaed.ee/ru/zabor-s-sosedom/) · [EN](https://luxaed.ee/en/boundary-fence-neighbour/)
+- Fences near roads and utilities / Aed tee kaitsevööndis ja trasside lähedal / Забор у дороги и коммуникаций: [ET](https://luxaed.ee/aed-tee-ja-trasside-lahedal/) · [RU](https://luxaed.ee/ru/zabor-u-dorogi-i-kommunikacij/) · [EN](https://luxaed.ee/en/fence-near-road-and-utilities/)
+- Fence height rules in Harju County / Lubatud aia kõrgus Harjumaal / Высота забора в Харьюмаа: [ET](https://luxaed.ee/aia-korgus-harjumaal/) · [RU](https://luxaed.ee/ru/vysota-zabora-v-harjumaa/) · [EN](https://luxaed.ee/en/fence-height-rules-harju-county/)
+- Automatic gate safety / Automaatvärava ohutus / Безопасность автоматических ворот: [ET](https://luxaed.ee/automaatvarava-ohutus/) · [RU](https://luxaed.ee/ru/bezopasnost-avtomaticheskih-vorot/) · [EN](https://luxaed.ee/en/automatic-gate-safety/)
+
+## Service finder by customer need
+- Privacy fence / privaatne aed / забор для приватности: close-boarded timber, profiled sheet or a dense double-sided steel-picket layout. Use solid sections towards the street and open mesh elsewhere when appropriate.
+- Fence for dogs or children / koera- ja lastekindel aed / забор для собаки и детей: rigid 2D/3D welded panels are often practical; height, mesh size, bottom clearance, pedestrian-gate gaps and locks must suit the household.
+- Fence for a windy site / aed tuulisele krundile / забор для ветреного участка: roll mesh, welded panels and metal-bar fencing let air pass. Solid timber and profiled sheet need posts and foundations sized for exposure.
+- Fence for a slope / aed kaldega krundile / забор на склоне: roll mesh follows a gentle slope; rigid panels, timber and metal can follow the levels or be stepped after measurement.
+- Long affordable boundary / soodne aed pikale piirile / недорогой забор для длинной границы: roll mesh is usually the lowest-cost solution; 3D panels provide a more rigid line at a higher budget.
+- Low-maintenance modern frontage / vähese hooldusega moodne aed / современный забор без постоянной покраски: steel pickets, horizontal metal slats, coated welded panels, metal bars and profiled sheet.
+- Automatic gates for a fence / automaatväravad aiale / автоматические ворота для забора: LuxAed measures, manufactures and installs sliding or swing gates, drives, photocells and remote, phone, app, code or RFID control where supported.
+- Video intercom / videodomofon / видеодомофон: visitor calls, two-way talk, supported mobile access, PIN/RFID entry, event history and pedestrian-gate electric-lock release in one specified system.
+- Fence and gate repair / aia ja värava remont / ремонт забора и ворот: sections, posts, hinges, rollers, locks, foundations, controls, photocells and gate drives are inspected before repair or replacement is recommended.
 
 ## About
 - LuxAed team: 15+ years building fences and gates.
 - Turnkey: free on-site measurement, materials, installation, exact price up front, no hidden fees.
 - Works year-round across Tallinn and all of Harju County.
+- Core service area: Tallinn and Harju County; not a nationwide Estonia service.
+- Warranty: 24 months on installation and repair work, plus the manufacturer's warranty on materials and equipment. Automatic gates are handed over with the EC declaration of conformity, CE marking and instructions in Estonian. LuxAed also installs automatic barriers.
+
+## Direct answers
+- Indicative installed fence budgets: roll mesh 25–45 €/m, 3D panel 30–60 €/m, 2D panel 50–85 €/m, profiled sheet 70–135 €/m, timber 65–160 €/m, steel picket 85–155 €/m. These are provisional market ranges; the written quotation after measurement is authoritative.
+- Best privacy: close-boarded timber, profiled sheet, or dense/double-sided steel picket.
+- Best for exposed windy sites: open roll mesh, welded panels, or metal-bar fencing. Solid fences require stronger posts and foundations sized for wind load.
+- Noise: a normal timber or profiled-sheet fence may slightly reduce perceived road noise but is not a certified acoustic barrier.
+- Lowest-maintenance options: galvanised coated mesh panels, steel pickets, metal bars and profiled sheet. Timber needs periodic finish renewal.
+- Permit requirements vary by municipality, detailed plan, location and digging depth; check the local authority and Building Register before work.
+- Estonian Building Code, Annex 1 (in force since 01.08.2026): building a fence or gate that involves digging deeper than 30 cm requires a building notice and a building design (ehitusteatis ja ehitusprojekt); extending or demolishing it requires a building notice; reconstructing (altering) it or replacing a single part with an equivalent one requires neither; demolishing a fence to build a substantively new one counts as demolition plus new construction (§ 4(4)). A notice allows building for four years (§ 37), and a municipality may require a notice in justified cases even when Annex 1 does not (§ 35(4)). Law of Property Act § 151: a boundary structure between two plots is in the neighbours' joint use; if both use it, they share its maintenance costs equally.
+- There is no national maximum fence height in Estonia; height and transparency come from the detailed or general plan. In most Harju County plans checked on 27.09.2026 the limit for a house fence is 1.5 m (Kiili street side 1.4 m; Loo, Liivamäe and northern Saha 1.2 m); Saku, Keila and Maardu require at least 25% transparency.
+- A gate with an electric drive is a machine under the Equipment Safety Act and the Machinery Directive (Regulation (EU) 2023/1230 from 20.01.2027): the manufacturer, usually the installer when a gate and drive are assembled on site, provides the EC declaration of conformity, CE marking and instructions in Estonian; connecting a 230 V drive is not work a layperson may do.
+- Automatic gate won't open or close: check breakers, the remote battery, clean photocells, that the manual release is locked, and ice or debris in the gate's path; otherwise the drive, control board or mechanics need diagnosis. LuxAed repairs gates and automation in Tallinn and Harju County, including gates installed by others; repair and diagnostics from €90.
+- Sliding gate sticking or sagging: usually worn carriage rollers, loose carriages, a shifted top guide or a settled base; rollers and guides are normally replaced or adjusted on site.
+- Leaning fence: mostly frost heave, wind load on solid fences, or posts rotted or rusted at ground level; single posts can be straightened, re-concreted or replaced.
+- Fence hit by a car in Estonia: a known vehicle's compulsory motor insurance (liikluskindlustus) normally covers the damage; if the vehicle is unidentified, the Estonian Traffic Insurance Fund (LKF) can be contacted. LuxAed provides a written repair quote after inspection.
+- Automatic gate installation: sliding gates save space in front of the entrance; swing gates are often simpler where there is enough room for the leaves. The drive is selected for gate weight, width, usage and wind exposure, with photocells, emergency release and suitable controls.
+- Indicative automatic-gate budgets: an installed sliding gate with automation is about €2,100–3,000; automation fitted to a suitable existing gate is about €500–1,250. The exact written quotation follows measurement and a structural check.
+- Intercoms: LuxAed installs audio and video intercoms, outdoor panels, indoor monitors, supported mobile access, PIN/RFID entry and electric pedestrian-gate locks in Tallinn and Harju County. A standard system releases the lock; motorised physical opening needs a separate drive and safety design.
+- Supported video-intercom systems can send call or event alerts to a phone, show live video, support two-way talk, release the electric lock, and provide snapshots, clips or call history. Recording, motion detection, storage and multi-user access depend on the selected model, network and storage. The camera should be aimed mainly at the owner's entrance and must not record a neighbour's property; continuous audio is not configured as video surveillance.
+- Indicative video-intercom budget for one pedestrian gate: about €650–1,600 for equipment, electric lock and standard installation. Cabling, power, monitors, mobile support and gate alterations affect the final quotation.
 
 ## Contact
 - Phone: +372 5695 8285

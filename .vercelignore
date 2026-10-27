@@ -17,3 +17,12 @@ img/luxaed-varbaed-*.png
 # Audit stills kept locally for reference; rejected for the public site due to source resolution.
 img/luxaed-wood-real-v1*
 img/luxaed-gate-real-v1*
+# Internal notes and stray screenshots are never public.
+docs
+.codex-tmp
+Screenshot*
+
+# Local tool config and data exports are never public.
+.claude
+*.csv
+seo_page_state.json
