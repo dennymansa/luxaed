@@ -6,7 +6,7 @@
 # so a change there propagates everywhere EXCEPT the RU home. That gap caused real desyncs
 # (RU videos not playing, stale sunset, old carousel arrows). Run this after every build so the
 # RU home can never drift again:  python3 build_pages... gens ...; python3 sync_ru_home.py
-import io, re, json, importlib
+import io, re, importlib
 import build_pages
 from lead_form import render_lead_form
 importlib.reload(build_pages)
@@ -16,16 +16,10 @@ s = io.open(P, encoding='utf-8').read()
 orig = s
 changed = []
 
-RU_HOME_FAQ = [
-    ("Сколько стоит забор или ворота?", "Стоимость зависит от материала, длины и высоты ограждения, грунта, рельефа и ворот. После бесплатного замера называем конкретную цену до начала работ."),
-    ("Какие заборы вы делаете?", "Делаем деревянные заборы, ограждения из рулонной сетки и рабицы, сварной 2D/3D-сетки, металлического штакетника, прутковых металлических секций и профнастила. Если нужен другой вариант, пришлите фотографию или пример."),
-    ("Делаете ли вы ворота вместе с автоматикой?", "Да. Изготавливаем откатные, распашные и пешеходные ворота и подбираем автоматику для въездных ворот. Существующие ворота можно автоматизировать после проверки конструкции."),
-    ("Какие районы вы обслуживаете?", "Работаем в Таллинне и по всей Харьюмаа. Выезд дальше обсуждаем отдельно."),
-    ("Вы ремонтируете заборы и ворота?", "Да. Меняем повреждённые секции и столбы, регулируем ворота, ремонтируем фурнитуру и автоматику."),
-    ("Сколько времени занимает установка?", "Срок зависит от объёма работ, материала и условий участка. Ориентировочный график называем после замера и согласования решения."),
-    ("Нужно ли готовить участок заранее?", "Желательно обеспечить свободный доступ к будущей линии забора. Остальную подготовку согласуем по состоянию участка."),
-    ("Как оставить заявку?", f"Позвоните по телефону {build_pages.PHONE} или заполните форму на сайте. Можно приложить фотографии участка, линии забора, въезда и грунта."),
-]
+# One Russian FAQ list for the homepage and /ru/faq/. It lives in
+# gen_ru_support.py; importing it writes nothing (that script builds its pages
+# only when run directly).
+from gen_ru_support import RU_HOME_FAQ
 
 def sub_once(pattern, repl_str, label):
     global s
@@ -35,6 +29,37 @@ def sub_once(pattern, repl_str, label):
     if new != s:
         changed.append(label)
     s = new
+
+# Keep the hand-built RU head/body on the same single-container tracking
+# architecture as every generated page. Remove both our managed block and the
+# obsolete direct Ads gtag before inserting the current shared snippets.
+before_tracking = s
+s = re.sub(r'\s*<!-- LUX_TRACKING_START -->.*?<!-- LUX_TRACKING_END -->\s*', '\n', s, flags=re.DOTALL)
+s = re.sub(
+    r'\s*<script>(?=(?:(?!</script>).)*(?:AW-960623543|googletagmanager\.com/gtag/js))(?:(?!</script>).)*</script>\s*',
+    '\n', s, flags=re.DOTALL,
+)
+s = re.sub(r'\s*<!-- LUX_GTM_NOSCRIPT_START -->.*?<!-- LUX_GTM_NOSCRIPT_END -->\s*', '\n', s, flags=re.DOTALL)
+tracking_head = build_pages.tracking_head()
+if tracking_head:
+    s, tracking_head_count = re.subn(
+        r'(<meta name="viewport"[^>]*>\s*)',
+        lambda m: m.group(1) + tracking_head + '\n',
+        s, count=1,
+    )
+    if tracking_head_count != 1:
+        raise SystemExit("sync_ru_home: viewport anchor for tracking not found")
+tracking_body = build_pages.tracking_body()
+if tracking_body:
+    s, tracking_body_count = re.subn(
+        r'(<body[^>]*>\s*)',
+        lambda m: m.group(1) + tracking_body + '\n',
+        s, count=1,
+    )
+    if tracking_body_count != 1:
+        raise SystemExit("sync_ru_home: body anchor for GTM noscript not found")
+if s != before_tracking:
+    changed.append('tracking')
 
 # 0) shared navigation and the complete eight-service homepage module
 sub_once(r'<header class="nav-wrap">.*?<main id="main">', build_pages.nav('ru', '/ru/') + '\n\n<main id="main">', 'nav')
@@ -48,7 +73,7 @@ sub_once(r'<!-- SERVICES -->\s*<section class="section svc-hide" id="uslugi">.*?
 
 # Keep the service scope, trust facts and FAQ identical to the translated site model.
 sub_once(r'<link rel="icon" href="[^"]+">',
-         '<link rel="icon" href="/img/luxaed-mark.svg">', 'favicon')
+         f'<link rel="icon" href="{build_pages.FAVICON}">', 'favicon')
 meta_desc = ("Производство и установка заборов, ворот и калиток в Таллинне и Харьюмаа. "
              "Дерево, рабица, сварная 2D/3D-сетка, штакетник, прутковые секции, профнастил и автоматика.")
 sub_once(r'<meta name="description" content="[^"]*">',
@@ -73,19 +98,18 @@ sub_once(r'<script type="application/ld\+json">(?:(?!</script>).)*?"@type"\s*:\s
          build_pages.website_schema(), 'website_schema')
 
 info = '''<section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Что мы предлагаем</span><h2 class="info-title">Заборы и ворота<br>под ключ.</h2></div>
-  <div><p>Изготавливаем и устанавливаем <b>деревянные, сетчатые, сварные 2D/3D, штакетные, прутковые и профнастильные заборы</b>. Делаем калитки, откатные и распашные ворота, подбираем <b>автоматику</b> и ремонтируем существующие конструкции.</p></div>
+  <div><span class="tag">Что мы предлагаем</span><h2 class="info-title">Строительство и установка заборов</h2></div>
+  <div><p>LuxAed устанавливает заборы под ключ в Таллинне и Харьюмаа, от замера до готового ограждения. Работаем с деревом, профнастилом, металлическим штакетником, рулонной и 2D/3D-сеткой. Закажите у нас <a href="/ru/vorota-avtomatika/">установку автоматических ворот</a> и <a href="/ru/domofony-videodomofony/">видеодомофон с открыванием калитки</a>, чтобы весь въезд работал как одна система.</p></div>
 </div></div></section>'''
 sub_once(r'<section class="info-strip">.*?</section>', info, 'service_scope')
 
-faq_schema = '<script type="application/ld+json">' + json.dumps({
-    "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": q,
-         "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in RU_HOME_FAQ
-    ]
-}, ensure_ascii=False) + '</script>'
-sub_once(r'<script type="application/ld\+json">\s*\{\s*"@context"\s*:\s*"https://schema\.org"\s*,\s*"@type"\s*:\s*"FAQPage".*?</script>',
-         faq_schema, 'faq_schema')
+# The homepage keeps its visible FAQ without FAQPage markup (/ru/faq/ carries
+# the FAQPage schema). Remove any FAQPage block left from earlier builds.
+s, removed_faq_schema = re.subn(
+    r'<script type="application/ld\+json">\s*\{\s*"@context"\s*:\s*"https://schema\.org"\s*,\s*"@type"\s*:\s*"FAQPage".*?</script>\n?',
+    '', s, flags=re.DOTALL)
+if removed_faq_schema:
+    changed.append('faq_schema_removed')
 faq_items = ''.join(
     f'<div class="faq-item"><button class="faq-q">{q}</button><div class="faq-a"><p>{a}</p></div></div>'
     for q, a in RU_HOME_FAQ
@@ -97,9 +121,9 @@ faq_visible = f'''<!-- FAQ -->
 sub_once(r'<!-- FAQ -->\s*<section class="section" id="kkk">.*?</section>', faq_visible, 'faq_visible')
 
 fact_replacements = [
-    (r'<span class="ht-score">\d+%</span>', f'<span class="ht-score">{build_pages.RECOMMEND_PERCENT}%</span>'),
-    (r'<div class="hstat"><b>\d+%</b><span>рекомендуют на Facebook</span></div>', f'<div class="hstat"><b>{build_pages.RECOMMEND_PERCENT}%</b><span>рекомендуют на Facebook</span></div>'),
-    (r'<div class="hstat"><b>\d+</b><span>отзыва на странице</span></div>', f'<div class="hstat"><b>{build_pages.REVIEW_COUNT}</b><span>отзыва на странице</span></div>'),
+    (r'<span class="ht-score">\d+% рекомендуют</span>', f'<span class="ht-score">{build_pages.RECOMMEND_PERCENT}% рекомендуют</span>'),
+    (r'<div class="hstat"><b>\d+%</b><span>рекомендуют в Facebook</span></div>', f'<div class="hstat"><b>{build_pages.RECOMMEND_PERCENT}%</b><span>рекомендуют в Facebook</span></div>'),
+    (r'<div class="hstat"><b>\d+</b><span>отзыва в Facebook</span></div>', f'<div class="hstat"><b>{build_pages.REVIEW_COUNT}</b><span>отзыва в Facebook</span></div>'),
     (r'<div class="hstat"><b>\d+\+?</b><span>лет опыта мастеров</span></div>', f'<div class="hstat"><b>{build_pages.EXPERIENCE_YEARS}+</b><span>лет опыта мастеров</span></div>'),
     (r'>\d+ отзыва в Facebook</a>', f'>{build_pages.REVIEW_COUNT} отзыва в Facebook</a>'),
     (r'<span class="gbp-rev-score">\d+</span>', f'<span class="gbp-rev-score">{build_pages.REVIEW_COUNT}</span>'),
@@ -120,8 +144,9 @@ sub_once(r'(?:<!-- FOOTER -->|<footer class="foot">).*?(?=<script>\s*\n(?:window
 
 # 1) shared <script> block (anchored on the unique 'function closeMob')
 sub_once(r'<script>\s*\n(?:window\.__t0[^\n]*\n)?function closeMob\(\).*?</script>(?:\s*<script src="/assets/lead-form\.js\?v=[^"]+" defer></script>)*(?:\s*<script>window\.va = [^\n]*</script>)?(?:\s*<script defer src="/_vercel/insights/script\.js"></script>)?', build_pages.SCRIPTS, 'SCRIPTS')
-# 2) the same lead form as every generated RU landing page
-sub_once(r'(?:<!-- LEAD_FORM_START -->\s*)?<div class="form-slot">\s*<div class="form-card[^\"]*" id="form">.*?</form>\s*</div>\s*</div>\s*(?:<!-- LEAD_FORM_END -->)?', render_lead_form('ru'), 'lead_form')
+# 2) the same lead form as every generated RU landing page.
+ru_lead_form = render_lead_form('ru')
+sub_once(r'(?:<!-- LEAD_FORM_START -->\s*)?<div class="form-slot">\s*<div class="form-card[^\"]*" id="form">.*?</form>\s*</div>\s*</div>\s*(?:<!-- LEAD_FORM_END -->)?', ru_lead_form, 'lead_form')
 # 3) video section (dark sunset + looping carousel)
 sub_once(r'<section class="section section--dark vidsec".*?</section>', build_pages.video_block('ru'), 'video_block')
 

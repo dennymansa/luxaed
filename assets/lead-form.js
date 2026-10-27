@@ -1,5 +1,5 @@
 // Visitor attribution, runs on every page (this file is loaded site-wide).
-// First visit: localStorage once cookies are accepted (cc=all), otherwise only for this tab
+// First visit: localStorage once analytics cookies are accepted (luxaed_consent_v3), otherwise only for this tab
 // session. This visit + the last 15 pages: sessionStorage. Nothing leaves the browser
 // until the person submits the form.
 (function () {
@@ -7,7 +7,7 @@
   var FIRST = 'luxaed_first_touch', SESSION = 'luxaed_session', KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'];
   function read(store, key) { try { return JSON.parse(store.getItem(key) || 'null'); } catch (_) { return null; } }
   function write(store, key, value) { try { store.setItem(key, JSON.stringify(value)); } catch (_) {} }
-  function consented() { try { return localStorage.getItem('cc') === 'all'; } catch (_) { return false; } }
+  function consented() { try { var v = JSON.parse(localStorage.getItem('luxaed_consent_v3') || 'null'); return !!(v && v.a === true) || localStorage.getItem('cc') === 'all'; } catch (_) { return false; } }
   function touchNow() {
     var t = { ts: Date.now(), landing: location.href.slice(0, 500), referrer: (document.referrer || '').slice(0, 500) };
     var q = new URLSearchParams(location.search);
@@ -54,9 +54,10 @@
   var lang = form.dataset.lang || document.documentElement.lang || 'et';
   var messages = {
     et: {
-      choose: 'Valige vähemalt üks: aed, väravad või automaatika.',
-      required: 'Palun täitke nimi, telefon, e-post ja objekti aadress.',
+      choose: 'Valige vähemalt üks: aed, väravad, automaatika või domofon.',
+      required: 'Palun sisestage nimi ja telefon.',
       email: 'Kontrollige e-posti aadressi.',
+      emailRequired: 'Palun sisestage e-posti aadress. Saadame sinna kinnituse.',
       phone: 'Kontrollige telefoninumbrit.',
       photoMax: 'Lisada saab kuni 4 fotot.',
       photoSize: 'Ühe foto suurus võib olla kuni 15 MB.',
@@ -67,12 +68,13 @@
       remove: 'Eemalda foto'
     },
     ru: {
-      choose: 'Выберите хотя бы одно: забор, ворота или автоматику.',
-      required: 'Заполните имя, телефон, email и адрес объекта.',
+      choose: 'Выберите хотя бы одно: забор, ворота, автоматику или домофон.',
+      required: 'Укажите имя и телефон.',
       email: 'Проверьте адрес email.',
+      emailRequired: 'Укажите email, мы отправим на него подтверждение.',
       phone: 'Проверьте номер телефона.',
       photoMax: 'Можно добавить не более 4 фотографий.',
-      photoSize: 'Размер одной фотографии — не более 15 МБ.',
+      photoSize: 'Размер одной фотографии не более 15 МБ.',
       photoType: 'Выберите файлы изображений.',
       photoFail: 'Одну из фотографий не удалось обработать. Попробуйте другой файл.',
       send: 'Не удалось отправить. Попробуйте ещё раз или позвоните.',
@@ -80,9 +82,10 @@
       remove: 'Удалить фотографию'
     },
     en: {
-      choose: 'Choose at least one: fence, gates or automation.',
-      required: 'Enter your name, phone, email and site address.',
+      choose: 'Choose at least one: fence, gates, automation or intercom.',
+      required: 'Enter your name and phone number.',
       email: 'Check the email address.',
+      emailRequired: 'Enter your email so we can send you a confirmation.',
       phone: 'Check the phone number.',
       photoMax: 'You can add up to 4 photos.',
       photoSize: 'Each photo can be up to 15 MB.',
@@ -103,7 +106,12 @@
   var lengthSelect = form.querySelector('#lengthSelect');
   var gateTypeSelect = form.querySelector('#gateTypeSelect');
 
+  // Service landing pages render no chips: the page itself already says which
+  // service the visitor came for, so it travels in data-default-service instead.
+  var pageService = (form.dataset.defaultService || '').trim();
+
   function selectedServices() {
+    if (!choices.length) return pageService ? [pageService] : [];
     return choices.filter(function (button) {
       return button.classList.contains('on');
     }).map(function (button) {
@@ -129,7 +137,7 @@
     form.querySelector('#materialField').value = selected.indexOf('aed') >= 0 ? optionLabel(materialSelect) : '';
     form.querySelector('#lengthField').value = selected.indexOf('aed') >= 0 ? optionLabel(lengthSelect) : '';
     form.querySelector('#gateTypeField').value = (selected.indexOf('varav') >= 0 || selected.indexOf('automaatika') >= 0) ? optionLabel(gateTypeSelect) : '';
-    var automationChoice = choices.find(function (button) { return button.dataset.service === 'automaatika'; });
+    var automationChoice = choices.filter(function (button) { return button.dataset.service === 'automaatika'; })[0];
     form.querySelector('#automationField').value = selected.indexOf('automaatika') >= 0 && automationChoice ? automationChoice.dataset.label : '';
   }
 
@@ -138,8 +146,9 @@
       var on = !button.classList.contains('on');
       button.classList.toggle('on', on);
       button.setAttribute('aria-pressed', on ? 'true' : 'false');
-      projectError.classList.remove('is-visible');
-      form.querySelector('#projectChoices').classList.remove('has-error');
+      if (projectError) projectError.classList.remove('is-visible');
+      var box = form.querySelector('#projectChoices');
+      if (box) box.classList.remove('has-error');
       syncProject();
     });
   });
@@ -279,17 +288,21 @@
     event.preventDefault();
     if (form._gotcha && form._gotcha.value) return;
     syncProject();
-    if (!selectedServices().length) {
-      projectError.textContent = messages.choose;
-      projectError.classList.add('is-visible');
-      form.querySelector('#projectChoices').classList.add('has-error');
+    if (choices.length && !selectedServices().length) {
+      if (projectError) {
+        projectError.textContent = form.dataset.chooseError || messages.choose;
+        projectError.classList.add('is-visible');
+      }
+      var choiceBox = form.querySelector('#projectChoices');
+      if (choiceBox) choiceBox.classList.add('has-error');
       choices[0].focus();
       return;
     }
     formError.classList.remove('is-visible');
     var required = Array.prototype.slice.call(form.querySelectorAll('[required]'));
     required.forEach(function (field) { field.removeAttribute('aria-invalid'); });
-    var invalid = required.find(function (field) { return !field.value.trim() || !field.checkValidity(); });
+    var invalid = required.filter(function (field) { return field.name !== 'email'; })
+      .find(function (field) { return !field.value.trim() || !field.checkValidity(); });
     if (invalid) {
       invalid.setAttribute('aria-invalid', 'true');
       showError(messages.required);
@@ -297,9 +310,10 @@
       return;
     }
     var phoneDigits = form.elements.phone.value.replace(/\D/g, '');
-    if (!/^[^\s@]{1,80}@[^\s@]{1,120}\.[^\s@]{2,30}$/.test(form.elements.email.value.trim())) {
+    var emailValue = form.elements.email.value.trim();
+    if (!emailValue || !/^[^\s@]{1,80}@[^\s@]{1,120}\.[^\s@]{2,30}$/.test(emailValue)) {
       form.elements.email.setAttribute('aria-invalid', 'true');
-      showError(messages.email);
+      showError(emailValue ? messages.email : messages.emailRequired);
       form.elements.email.focus();
       return;
     }
@@ -319,6 +333,7 @@
       if (key !== 'photos') data[key] = value;
     });
     data.form_version = '2';
+    data.lang = lang;
     if (!form._submissionId) form._submissionId = (window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID() : (Date.now().toString(36) + '-' + Math.random().toString(36).slice(2));
     data.submission_id = form._submissionId;
     data.page = location.href;
@@ -349,11 +364,17 @@
       success.focus();
       card.classList.remove('is-loading');
       try { if (window.va) window.va('event', { name: 'lead', data: { form: 'lead-v2', services: data.services || '', photos: data.photos_b64.length } }); } catch (_) {}
-      (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead', form_service: data.service || '', form_services: data.services || '', lead_id: data.submission_id });
-      if (window.gtag) {
-        window.gtag('event', 'generate_lead', { form_service: data.service || '', form_services: data.services || '', event_id: data.submission_id });
-        window.gtag('event', 'conversion', { send_to: 'AW-960623543/dU7wCMWR9swcELfnh8oD', value: 1.0, currency: 'EUR', transaction_id: data.submission_id });
-      }
+      (window.dataLayer = window.dataLayer || []).push({
+        event: 'generate_lead',
+        form_id: 'leadFormV2',
+        form_service: data.service || '',
+        form_services: data.services || '',
+        lead_id: data.submission_id,
+        transaction_id: data.submission_id,
+        value: 1,
+        currency: 'EUR',
+        page_path: location.pathname
+      });
     } catch (error) {
       button.disabled = false;
       card.classList.remove('is-loading');

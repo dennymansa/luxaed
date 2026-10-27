@@ -6,12 +6,13 @@ import html
 
 COPY = {
     "et": {
-        "tag": "Tasuta konsultatsioon", "title": "Kirjeldage projekti — võtame ühendust",
-        "sub": "Valige teenus ja jätke kontaktandmed.",
-        "what": "Mida vajate?", "multi": "Võite valida mitu",
-        "services": [("aed", "Aed"), ("varav", "Väravad"), ("automaatika", "Automaatika")],
+        "tag": "Tasuta konsultatsioon", "title": "Küsige pakkumist",
+        "sub": "Valige teenus ja jätke kontaktid. Ülejäänu täpsustame telefoni teel.",
+        "sub_service": "Jätke nimi, telefon ja e-post. Ülejäänu täpsustame telefoni teel.",
+        "what": "Mida soovite paigaldada?", "multi": "Võite valida mitu",
+        "services": [("aed", "Aed"), ("varav", "Väravad"), ("automaatika", "Automaatika"), ("intercom", "Domofon")],
         "fence_type": "Aia tüüp",
-        "materials": [("unknown", "Ei tea — aidake valida"), ("panel_mesh", "2D/3D keevisvõrkaed"),
+        "materials": [("unknown", "Ei tea, aidake valida"), ("panel_mesh", "2D/3D-keevisvõrkaed"),
                       ("roll_mesh", "Rullvõrkaed"), ("wood", "Puitaed"), ("steel_picket", "Metall-lippaed"),
                       ("bar_metal", "Metallaed / varbaed"), ("profiled_sheet", "Profiilplekk-aed"),
                       ("other", "Muu / näidisfoto järgi")],
@@ -19,67 +20,89 @@ COPY = {
         "lengths": [("unknown", "Ei tea veel"), ("up_to_50", "Kuni 50 m"),
                     ("over_50", "Üle 50 m")],
         "gate_type": "Värava tüüp", "gate_types": [("unknown", "Ei tea veel"), ("sliding", "Liugvärav"), ("swing", "Tiibvärav")],
-        "choose_error": "Valige vähemalt üks: aed, väravad või automaatika.",
-        "contact_title": "Kontaktandmed", "name": "Nimi *", "phone": "Telefon *",
-        "email": "E-post *", "address": "Objekti aadress *",
+        "choose_error": "Valige vähemalt üks: aed, väravad, automaatika või domofon.",
+        "contact_title": "Kuidas teiega ühendust võtta?", "name": "Nimi *", "phone": "Telefon *",
+        "email": "E-post *", "address": "Objekti aadress (valikuline)",
         "photo_title": "Krundi fotod", "photo_optional": "valikuline · kuni 4",
         "photo_hint": "Üldvaade, sissepääs ja pinnas.", "photo_button": "Valige fotod",
         "comment": "Kommentaar", "comment_optional": "valikuline",
         "comment_placeholder": "Kirjeldage oma soovi.", "send": "Saada hinnapäring →",
-        "assure1": "Vastame tööpäevaga", "assure2": "Tasuta mõõdistus",
-        "consent": "Saates nõustute <a href=\"/privaatsus/\">privaatsuse</a> ja <a href=\"/tingimused/\">tingimustega</a>.",
-        "success": "<b>Aitäh, päring on vastu võetud.</b><br>Võtame teiega ühe tööpäeva jooksul ühendust.",
+        "assure1": "Vastame ühe tööpäeva jooksul", "assure2": "Tasuta mõõdistus",
+        "consent": "Vormi saatmisel töötleme teie andmeid päringule vastamiseks ja pakkumise koostamiseks. <a href=\"/privaatsus/\">Lisateave</a>.",
+        "success": "<b>Aitäh, päring on vastu võetud.</b><br>Võtame teiega ühe tööpäeva jooksul ühendust.<br>Kinnituse saatsime teie e-postile.",
     },
     "ru": {
-        "tag": "Бесплатная консультация", "title": "Расскажите о проекте — мы свяжемся",
-        "sub": "Выберите услугу и оставьте контакты.",
-        "what": "Что вам нужно?", "multi": "Можно выбрать несколько",
-        "services": [("aed", "Забор"), ("varav", "Ворота"), ("automaatika", "Автоматика")],
+        "tag": "Бесплатная консультация", "title": "Получите предложение",
+        "sub": "Выберите услугу и оставьте контакты. Остальное уточним по телефону.",
+        "sub_service": "Оставьте имя, телефон и email. Остальное уточним по телефону.",
+        "what": "Что планируете установить?", "multi": "Можно выбрать несколько",
+        "services": [("aed", "Забор"), ("varav", "Ворота"), ("automaatika", "Автоматика"), ("intercom", "Домофон")],
         "fence_type": "Тип забора",
-        "materials": [("unknown", "Не знаю — помогите выбрать"), ("panel_mesh", "Сетка 2D/3D"),
+        "materials": [("unknown", "Не знаю, помогите выбрать"), ("panel_mesh", "Сетка 2D/3D"),
                       ("roll_mesh", "Рулонная сетка"), ("wood", "Деревянный"),
-                      ("steel_picket", "Металлический штакетник"), ("bar_metal", "Металлический / прутковый"),
+                      ("steel_picket", "Металлический штакетник"), ("bar_metal", "Прутковый металлический"),
                       ("profiled_sheet", "Профнастил"), ("other", "Другой / по фотографии")],
         "length": "Длина забора",
         "lengths": [("unknown", "Пока не знаю"), ("up_to_50", "До 50 м"),
                     ("over_50", "Более 50 м")],
         "gate_type": "Тип ворот", "gate_types": [("unknown", "Пока не знаю"), ("sliding", "Откатные"), ("swing", "Распашные")],
-        "choose_error": "Выберите хотя бы одно: забор, ворота или автоматику.",
-        "contact_title": "Контактные данные", "name": "Имя *", "phone": "Телефон *",
-        "email": "Email *", "address": "Адрес объекта *",
+        "choose_error": "Выберите хотя бы одно: забор, ворота, автоматику или домофон.",
+        "contact_title": "Как с вами связаться?", "name": "Имя *", "phone": "Телефон *",
+        "email": "Email *", "address": "Адрес объекта (необязательно)",
         "photo_title": "Фото участка", "photo_optional": "необязательно · до 4",
         "photo_hint": "Общий вид, въезд и грунт.", "photo_button": "Выбрать фотографии",
         "comment": "Комментарий", "comment_optional": "необязательно",
         "comment_placeholder": "Опишите пожелания.", "send": "Отправить заявку →",
-        "assure1": "Ответим за рабочий день", "assure2": "Бесплатный замер",
-        "consent": "Отправляя, вы принимаете <a href=\"/ru/privaatsus/\">политику</a> и <a href=\"/ru/tingimused/\">условия</a>.",
-        "success": "<b>Спасибо, заявка принята.</b><br>Мы свяжемся с вами в течение рабочего дня.",
+        "assure1": "Ответим в течение одного рабочего дня", "assure2": "Бесплатный замер",
+        "consent": "После отправки формы мы обработаем данные, чтобы ответить на запрос и подготовить предложение. <a href=\"/ru/privaatsus/\">Подробнее</a>.",
+        "success": "<b>Спасибо, заявка принята.</b><br>Мы свяжемся с вами в течение одного рабочего дня.<br>Подтверждение отправили на вашу почту.",
     },
     "en": {
-        "tag": "Free consultation", "title": "Tell us about the project — we’ll get in touch",
-        "sub": "Choose a service and leave your details.",
-        "what": "What do you need?", "multi": "Select all that apply",
-        "services": [("aed", "Fence"), ("varav", "Gates"), ("automaatika", "Automation")],
+        "tag": "Free consultation", "title": "Request a quote",
+        "sub": "Choose a service and leave your contact details. We'll confirm the rest by phone.",
+        "sub_service": "Leave your name, phone and email. We'll confirm the rest by phone.",
+        "what": "What would you like installed?", "multi": "Select all that apply",
+        "services": [("aed", "Fence"), ("varav", "Gates"), ("automaatika", "Automation"), ("intercom", "Intercom")],
         "fence_type": "Fence type",
-        "materials": [("unknown", "Not sure — help me choose"), ("panel_mesh", "2D/3D welded mesh"),
+        "materials": [("unknown", "Not sure, help me choose"), ("panel_mesh", "2D/3D welded mesh"),
                       ("roll_mesh", "Roll mesh"), ("wood", "Wooden fence"), ("steel_picket", "Steel picket"),
-                      ("bar_metal", "Metal / bar fence"), ("profiled_sheet", "Profiled sheet"),
+                      ("bar_metal", "Metal bar fence"), ("profiled_sheet", "Profiled sheet"),
                       ("other", "Other / from a reference photo")],
         "length": "Fence length",
         "lengths": [("unknown", "Not sure yet"), ("up_to_50", "Up to 50 m"),
                     ("over_50", "Over 50 m")],
         "gate_type": "Gate type", "gate_types": [("unknown", "Not sure yet"), ("sliding", "Sliding"), ("swing", "Swing")],
-        "choose_error": "Choose at least one: fence, gates or automation.",
-        "contact_title": "Contact details", "name": "Name *", "phone": "Phone *",
-        "email": "Email *", "address": "Site address *",
+        "choose_error": "Choose at least one: fence, gates, automation or intercom.",
+        "contact_title": "How should we contact you?", "name": "Name *", "phone": "Phone *",
+        "email": "Email *", "address": "Site address (optional)",
         "photo_title": "Site photos", "photo_optional": "optional · up to 4",
         "photo_hint": "Overview, entrance and ground.", "photo_button": "Choose photos",
         "comment": "Comment", "comment_optional": "optional",
         "comment_placeholder": "Describe your request.", "send": "Send quote request →",
-        "assure1": "Reply within 1 workday", "assure2": "Free site measurement",
-        "consent": "By sending, you accept our <a href=\"/en/privacy/\">privacy</a> and <a href=\"/en/terms/\">terms</a>.",
-        "success": "<b>Thank you, we have received your request.</b><br>We will contact you within one working day.",
+        "assure1": "We reply within one working day", "assure2": "Free site measurement",
+        "consent": "After you submit the form, we process your data to answer your enquiry and prepare a quotation. <a href=\"/en/privacy/\">Learn more</a>.",
+        "success": "<b>Thank you, we have received your request.</b><br>We will contact you within one working day.<br>We have sent a confirmation to your email.",
     },
+}
+
+# Repair pages (/aia-remont/ and the problem pages) send request_context "remont":
+# the visitor needs a repair, not an installation or a free measurement.
+REPAIR_COPY = {
+    "et": {"tag": "Remont ja diagnostika", "title": "Küsige remondi hinda",
+           "sub": "Kirjeldage probleemi ja jätke kontaktid. Fotod aitavad rikke kiiremini hinnata.",
+           "what": "Mida on vaja parandada?", "choose_error": "Valige, mida on vaja parandada: aed, väravad, automaatika või domofon.",
+           "photo_title": "Fotod kahjustusest", "photo_hint": "Kahjustus lähedalt ja kaugelt, ajami andmesilt.",
+           "comment_placeholder": "Kirjeldage, mis juhtus.", "send": "Saada remondipäring →", "assure2": "Hind enne tööd"},
+    "ru": {"tag": "Ремонт и диагностика", "title": "Узнайте цену ремонта",
+           "sub": "Опишите проблему и оставьте контакты. Фото помогут быстрее оценить ремонт.",
+           "what": "Что нужно отремонтировать?", "choose_error": "Выберите, что нужно отремонтировать: забор, ворота, автоматику или домофон.",
+           "photo_title": "Фото повреждения", "photo_hint": "Повреждение вблизи и издалека, шильдик привода.",
+           "comment_placeholder": "Опишите, что случилось.", "send": "Отправить заявку на ремонт →", "assure2": "Цена до начала работ"},
+    "en": {"tag": "Repair and diagnostics", "title": "Get a repair price",
+           "sub": "Describe the problem and leave your details. Photos help us assess the repair faster.",
+           "what": "What needs repairing?", "choose_error": "Choose what needs repairing: fence, gates, automation or intercom.",
+           "photo_title": "Photos of the damage", "photo_hint": "Damage close up and from a distance, plus the drive label.",
+           "comment_placeholder": "Describe what happened.", "send": "Send repair request →", "assure2": "Price agreed before work"},
 }
 
 MATERIAL_ALIASES = {
@@ -96,27 +119,38 @@ def _options(items, selected):
 
 
 def render_lead_form(lang="et", default_service="", default_material=""):
-    c = COPY[lang]
+    c = dict(COPY[lang])
     material_code = MATERIAL_ALIASES.get(default_material, "unknown")
     request_context = default_service if default_service == "remont" else ""
     visible_services = {code for code, _ in c["services"]}
     selected = {default_service} if default_service in visible_services else set()
+    if request_context == "remont":
+        c.update(REPAIR_COPY[lang])
+    elif selected:
+        c["sub"] = c["sub_service"]
     buttons = "".join(
         f'<button class="project-choice{" on" if code in selected else ""}" type="button" data-service="{code}" data-label="{html.escape(label)}" aria-pressed="{"true" if code in selected else "false"}"><span class="project-choice-check" aria-hidden="true">✓</span>{html.escape(label)}</button>'
         for code, label in c["services"]
     )
     fence_hidden = "" if "aed" in selected else " hidden"
     gate_hidden = "" if selected.intersection({"varav", "automaatika"}) else " hidden"
+    # When the page already tells us the service (every service landing page), the
+    # "what do you want installed" question is noise: it asks the visitor to repeat
+    # what they just clicked. Drop it and carry the service in the hidden field.
+    choice_block = "" if selected else (
+        f'<div class="form-question"><b>{c["what"]}</b><span>{c["multi"]}</span></div>'
+        f'<div class="project-choices" id="projectChoices">{buttons}</div>'
+    )
     return f'''<!-- LEAD_FORM_START -->
 <div class="form-slot"><div class="form-card form-card-v2" id="form">
   <span class="form-tag">{c["tag"]}</span><h2>{c["title"]}</h2><p class="form-sub">{c["sub"]}</p>
-  <form id="leadFormV2" data-form-version="2" data-lang="{lang}" data-default-service="{html.escape(default_service)}" data-default-material="{html.escape(material_code)}" novalidate>
+  <form id="leadFormV2" data-form-version="2" data-lang="{lang}" data-default-service="{html.escape(default_service)}" data-default-material="{html.escape(material_code)}" data-choose-error="{html.escape(c["choose_error"])}" novalidate>
     <input type="hidden" name="service" id="serviceField" value="{html.escape(default_service)}"><input type="hidden" name="services" id="servicesField" value="{html.escape(default_service)}">
     <input type="hidden" name="material" id="materialField"><input type="hidden" name="length" id="lengthField"><input type="hidden" name="gate_type" id="gateTypeField"><input type="hidden" name="automation" id="automationField">
     <input type="hidden" name="request_context" value="{html.escape(request_context)}">
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
     <div class="form-fields">
-      <div class="form-question"><b>{c["what"]}</b><span>{c["multi"]}</span></div><div class="project-choices" id="projectChoices">{buttons}</div>
+      {choice_block}
       <div class="form-inline-error" id="projectError" role="alert"></div>
       <div class="conditional-fields" data-condition="aed"{fence_hidden}>
         <label class="ff"><span>{c["fence_type"]}</span><select id="materialSelect" name="material_code">{_options(c["materials"], material_code)}</select></label>
@@ -129,8 +163,8 @@ def render_lead_form(lang="et", default_service="", default_material=""):
       <div class="form-grid form-grid--contact">
         <label><span class="form-field-label">{c["name"]}</span><input type="text" name="name" autocomplete="name" maxlength="100" required></label>
         <label><span class="form-field-label">{c["phone"]}</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required></label>
-        <label><span class="form-field-label">{c["email"]}</span><input type="email" name="email" autocomplete="email" maxlength="160" required></label>
-        <label><span class="form-field-label">{c["address"]}</span><input type="text" name="address" autocomplete="street-address" maxlength="200" required></label>
+        <label><span class="form-field-label">{c["email"]}</span><input type="email" name="email" autocomplete="email" inputmode="email" maxlength="160" required></label>
+        <label><span class="form-field-label">{c["address"]}</span><input type="text" name="address" autocomplete="street-address" maxlength="200"></label>
       </div>
       <div class="photo-box"><div class="photo-box-head"><b>{c["photo_title"]}</b><span>{c["photo_optional"]}</span></div><p>{c["photo_hint"]}</p>
         <label class="photo-upload" id="photoLabelV2"><input type="file" name="photos" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple id="photoInputV2"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span id="photoLabelTxtV2">{c["photo_button"]}</span></label><div class="photo-previews" id="photoPreviews"></div>
