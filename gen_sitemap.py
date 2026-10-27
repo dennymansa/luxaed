@@ -3,14 +3,16 @@
 # (xhtml:link) so Google pairs the et/ru/en versions of every page. Run in the build.
 import io
 from build_pages import PAGES, DOMAIN
-
-LASTMOD = "2026-07-16"  # bump on meaningful content or URL changes
+from problem_content import PROBLEM_ROWS, GUIDE_ROWS
+from seo_lastmod import update_dates
 
 # Priority by page role, independent of how many ET-only service rows exist.
 def prio(row):
     et = row.get("et", "")
     if et == "/": return "1.0"
-    if et.startswith("/aiad/") or et in ("/varavad/", "/aia-remont/"): return "0.8"
+    if et.startswith("/aiad/") or et.startswith("/varavad/") or et in ("/varavad/", "/aia-remont/"): return "0.8"
+    if et in ("/hinnad/", "/kuidas-valida-aeda/", "/piirkonnad/harjumaa/"): return "0.7"
+    if et.startswith("/aia-remont/") or any(et == row["et"] for row in GUIDE_ROWS): return "0.7"
     if et in ("/meist/", "/kkk/"): return "0.6"
     return "0.4"
 
@@ -24,18 +26,20 @@ def alts_xml(row):
 
 out = ['<?xml version="1.0" encoding="UTF-8"?>',
        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-if len(PAGES) != 13:
-    raise RuntimeError(f"Expected 13 translated page groups, got {len(PAGES)}")
+EXPECTED_GROUPS = 17 + len(PROBLEM_ROWS) + len(GUIDE_ROWS)
+if len(PAGES) != EXPECTED_GROUPS:
+    raise RuntimeError(f"Expected {EXPECTED_GROUPS} translated page groups, got {len(PAGES)}")
 
+dates = update_dates([path for row in PAGES for path in row.values()])
 for row in PAGES:
     p = prio(row)
     alts = alts_xml(row)
     for lang in ("et", "ru", "en"):
         loc = DOMAIN + row[lang]
-        out.append(f'  <url><loc>{loc}</loc><lastmod>{LASTMOD}</lastmod><priority>{p}</priority>{alts}</url>')
+        out.append(f'  <url><loc>{loc}</loc><lastmod>{dates[row[lang]]}</lastmod><priority>{p}</priority>{alts}</url>')
 out.append('</urlset>')
 io.open("sitemap.xml", "w", encoding="utf-8").write("\n".join(out) + "\n")
 url_count = sum(len(row) for row in PAGES)
-if url_count != 39:
-    raise RuntimeError(f"Expected 39 sitemap URLs, got {url_count}")
-print(f"sitemap.xml: {url_count} urls, lastmod {LASTMOD}, complete hreflang alternates added")
+if url_count != EXPECTED_GROUPS * 3:
+    raise RuntimeError(f"Expected {EXPECTED_GROUPS * 3} sitemap URLs, got {url_count}")
+print(f"sitemap.xml: {url_count} urls, per-page lastmod, complete hreflang alternates added")

@@ -13,6 +13,7 @@
 // shows a false success or records a conversion for an undelivered lead.
 
 import nodemailer from 'nodemailer';
+import { describeAttribution, attributionHtml, attributionText } from './_attribution.js';
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
@@ -363,14 +364,12 @@ export default async function handler(req, res){
       ['Участок', f('plot',120)], ['Когда', f('timeline',120)],
     ].filter(([,v])=>v);
 
-    const attr = d.attribution && typeof d.attribution==='object' ? d.attribution : {};
-    const af = k => (attr[k]==null ? '' : String(attr[k]).trim().slice(0,500));
-    const attributionFields = [
-      ['Источник', [af('utm_source'),af('utm_medium')].filter(Boolean).join(' / ')],
-      ['Кампания', af('utm_campaign')], ['Ключ / объявление', [af('utm_term'),af('utm_content')].filter(Boolean).join(' / ')],
-      ['Google click ID', af('gclid') || af('gbraid') || af('wbraid')], ['Первый вход', af('landing_page')], ['Реферер', af('referrer')]
-    ].filter(([,v])=>v);
-    fields.push(...attributionFields);
+    // How the visitor came: AI assistants, Google Ads, search, social, other site, direct
+    const ownHosts = ['luxaed.ee','luxaed.vercel.app','localhost', String(req.headers?.host||'').split(':')[0].replace(/^www\./,'')].filter(Boolean);
+    const attrView = describeAttribution(d.attribution, String(req.headers?.['user-agent']||''), ownHosts);
+    const src = attrView.source;
+    const tSec = Number.parseInt(f('t',10),10);
+    if(tSec>0) fields.push(['Заполнял форму', `${tSec} с`]);
 
     const rows = fields.map(([k,v],i)=>{
       const bd = i<fields.length-1 ? 'border-bottom:1px solid #f0e7de' : '';
@@ -407,7 +406,8 @@ export default async function handler(req, res){
           <div style="color:#f3d9cc;font-size:13px;margin-top:2px">Новая заявка с сайта luxaed.ee</div>
         </td></tr>
         <tr><td style="padding:18px 26px 2px">
-          <div style="display:inline-block;background:#f7e7dd;color:${AC};font-size:13px;font-weight:800;padding:6px 14px;border-radius:20px">🔔 ${esc(need)}</div>
+          <div style="display:inline-block;background:#f7e7dd;color:${AC};font-size:13px;font-weight:800;padding:6px 14px;border-radius:20px;margin:0 4px 6px 0">🔔 ${esc(need)}</div>
+          <div style="display:inline-block;background:#fff4cc;color:#5e4800;font-size:13px;font-weight:700;padding:6px 12px;border-radius:20px;margin:0 0 6px">${src.icon} Откуда: ${esc(src.label)}</div>
         </td></tr>
         <tr><td style="padding:12px 26px 4px">
           <div style="font-size:22px;font-weight:800;color:#201812">${esc(name)||'Без имени'}</div>
@@ -415,7 +415,9 @@ export default async function handler(req, res){
         </td></tr>
         ${addrBlock}
         ${rowsBlock}
+        <!--PHOTOS-->
         ${msgBlock}
+        <tr><td style="padding:12px 26px 16px">${attributionHtml(attrView,{accent:AC,soft:'#fbf3ee',line:'#f0dccf',ink:'#201812',muted:'#8a7a6c',rowLine:'#f0e7de'})}</td></tr>
         <tr><td style="background:#faf7f4;padding:13px 26px;color:#9a8c80;font-size:12px;border-top:1px solid #f0e7de">
           ${page?`Со страницы: ${esc(page)}<br>`:''}
           Заявка отправлена через форму на сайте LuxAed.
@@ -454,8 +456,14 @@ export default async function handler(req, res){
       to: TO,
       replyTo: email,
       messageId: `<${submissionId}@luxaed.ee>`,
-      subject: `${need} — ${name || 'заявка с сайта'}`,
-      html: html.replace('</table>', (attachments.length?`<tr><td style="padding:10px 26px;background:#eef4ff;color:#1d4ed8;font-size:13px;font-weight:600">&#128206; Фото во вложении: ${attachments.length} шт.</td></tr>`:'')+'</table>'),
+      subject: `${need} — ${name || 'заявка с сайта'} · ${src.label}`,
+      text: [
+        `${need}`, '', `Имя: ${name}`, `Телефон: ${phone}`, `Email: ${email}`, addr ? `Адрес: ${addr}` : '',
+        ...fields.map(([k,v])=>`${k}: ${v}`), msg ? `\nКомментарий:\n${msg}` : '',
+        attachments.length ? `Фото: ${attachments.length} шт. во вложениях` : '', page ? `Страница: ${page}` : '', '',
+        attributionText(attrView)
+      ].filter((l,i,a)=>l!=='' || a[i-1]!=='').join('\n'),
+      html: html.replace('<!--PHOTOS-->', attachments.length?`<tr><td style="padding:0 26px 12px"><div style="background:#eef4ff;color:#1d4ed8;font-size:13px;font-weight:600;padding:10px 14px;border-radius:10px">&#128206; Фото во вложении: ${attachments.length} шт.</div></td></tr>`:''),
       attachments
     };
     // Share the in-flight SMTP promise inside one warm serverless instance. A

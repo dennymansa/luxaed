@@ -3,7 +3,7 @@
 # Prefixes internal absolute paths (/img, /assets, /uslugi, /et ...) with BASE.
 # Idempotent (won't double-prefix). SEO URLs (https://luxaed.ee) are left intact.
 # For a real root domain (luxaed.ee) deploy: set BASE="" (this becomes a no-op).
-import re, glob, os
+import html, re, glob, os
 
 BASE = ""   # root-domain deploy (luxaed.ee via Vercel); was "/luxaed" for github.io project path
 
@@ -27,7 +27,7 @@ def fix_css(s):
 _STOP = {
  'ru': {'и','в','из','на','о','с','со','для','по','к','у','от','до'},
  'et': {'ja','ning','või'},
- 'en': {'and','in','of','the','a','an','for','to','or','on','with','&'},
+ 'en': {'and','in','of','the','a','an','for','to','or','on','with','&','by','at','from','into','per','via','vs','vs.','as','near','across','over','under','between','within','without','onto'},
 }
 def _cap_first(w):
     for i,ch in enumerate(w):
@@ -39,16 +39,28 @@ def _cap_first(w):
 def _tc_part(s, lang):
     stop=_STOP.get(lang,set()); out=[]
     for i,w in enumerate(s.split(' ')):
-        if not w or '&' in w: out.append(w); continue  # leave HTML entities (&amp; &nbsp;) intact
+        if not w or w == '&': out.append(w); continue
         low=w.lower().strip('.,()')
-        out.append(w.lower() if (i>0 and low in stop) else _cap_first(w))
+        # hyphenated compounds are capitalised on both sides: Fence-Building, Chain-Link
+        out.append(w.lower() if (i>0 and low in stop) else '-'.join(_cap_first(part) for part in w.split('-')))
     return ' '.join(out)
 def title_case(title, lang):
-    # keep the "— LuxAed" brand suffix untouched
-    if ' — ' in title:
-        main, brand = title.split(' — ', 1)
-        return _tc_part(main, lang) + ' — ' + brand
-    return _tc_part(title, lang)
+    # keep the "| LuxAed" brand suffix untouched; work on unescaped text so
+    # words like won&#x27;t are cased as words, then escape again
+    text = html.unescape(title)
+    for sep in (' | ', ' — '):
+        if sep in text:
+            main, brand = text.rsplit(sep, 1)
+            return html.escape(_tc_part(main, lang) + sep + brand)
+    return html.escape(_tc_part(text, lang))
+def brand_suffix(html_text):
+    # one brand separator site-wide: "Page title | LuxAed" (no em dash in titles)
+    def fix(mm):
+        return mm.group(1) + re.sub(r'\s+(?:—|–|-)\s+LuxAed$', ' | LuxAed', mm.group(2)) + mm.group(3)
+    html_text = re.sub(r'(<title>)(.*?)(</title>)', fix, html_text, count=1, flags=re.DOTALL)
+    for prop in ('og:title', 'twitter:title', 'og:image:alt', 'twitter:image:alt'):
+        html_text = re.sub(r'(<meta (?:property|name)="' + prop + r'" content=")([^"]*)(")', fix, html_text, count=1)
+    return html_text
 def apply_titlecase(html):
     m=re.search(r'<html lang="([a-z]{2})"', html)
     lang=m.group(1) if m else 'et'
@@ -77,6 +89,11 @@ def main():
     for f in glob.glob("**/*.html", recursive=True):
         if f.startswith("reference-kit"): continue
         s=open(f,encoding="utf-8").read(); t=fix_html(s)
+        t=brand_suffix(t)
+        t=t.replace(' — LuxAed"', ' | LuxAed"')
+        if not re.search(r'class="[^"]*\bhand\b', t):
+            # the Caveat preload only helps pages that show the handwritten kicker
+            t=re.sub(r'<link rel="preload" as="font" type="font/woff2" href="/fonts/caveat-var-[a-z]+\.woff2" crossorigin>\n?', '', t)
         t=apply_titlecase(t)
         if css_inline:
             # inline the full stylesheet (removes the render-blocking request);
