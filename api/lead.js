@@ -316,7 +316,7 @@ export default async function handler(req, res){
   let submissionId = '';
   try{
     const d = (req.body && typeof req.body==='object') ? req.body : JSON.parse(req.body||'{}');
-    if(d._gotcha){ res.status(200).json({ok:true}); return; }              // honeypot → silently ok
+    if(d._gotcha){ res.status(200).json({ok:true,delivered:false}); return; } // honeypot → silently ok
     if(tooMany(req)){ res.status(429).json({error:'rate_limited'}); return; }
 
     const USER = process.env.GMAIL_USER;
@@ -473,10 +473,10 @@ export default async function handler(req, res){
       const now = Date.now();
       const existing = dedupeStore.get(submissionId);
       if(existing && now-existing.ts<30*60*1000){
-        if(existing.status==='sent'){ res.status(200).json({ok:true,duplicate:true}); return; }
+        if(existing.status==='sent'){ res.status(200).json({ok:true,delivered:true,duplicate:true}); return; }
         try{
           await existing.promise;
-          res.status(200).json({ok:true,duplicate:true});
+          res.status(200).json({ok:true,delivered:true,duplicate:true});
           return;
         }catch{
           if(dedupeStore.get(submissionId)===existing) dedupeStore.delete(submissionId);
@@ -527,7 +527,7 @@ export default async function handler(req, res){
     }catch(err){
       console.error('LuxAed customer confirmation failed:', err && err.message ? err.message : 'unknown error');
     }
-    res.status(200).json({ok:true});
+    res.status(200).json({ok:true,delivered:true});
   }catch(e){
     console.error('LuxAed lead send failed:', e && e.message ? e.message : 'unknown error');
     res.status(500).json({error:'send_failed'});

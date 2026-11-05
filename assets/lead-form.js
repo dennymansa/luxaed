@@ -326,6 +326,7 @@
 
     var button = form.querySelector('button[type="submit"]');
     var card = form.closest('.form-card');
+    if (button.disabled) return;
     button.disabled = true;
     card.classList.add('is-loading');
     var data = {};
@@ -357,14 +358,16 @@
       clearTimeout(timer);
       var responseData = {};
       try { responseData = await response.json(); } catch (_) {}
-      if (!response.ok) throw new Error(responseData.error === 'invalid_photos' ? 'photo' : (responseData.error === 'required_fields' ? 'required' : 'send'));
+      if (!response.ok || responseData.ok !== true) throw new Error(responseData.error === 'invalid_photos' ? 'photo' : (responseData.error === 'required_fields' ? 'required' : 'send'));
       form.querySelector('.form-fields').hidden = true;
       var success = form.querySelector('#formOk');
       success.style.display = 'block';
       success.focus();
       card.classList.remove('is-loading');
+      if (responseData.delivered !== true || form._reportedSubmissionId === data.submission_id) return;
+      form._reportedSubmissionId = data.submission_id;
       try { if (window.va) window.va('event', { name: 'lead', data: { form: 'lead-v2', services: data.services || '', photos: data.photos_b64.length } }); } catch (_) {}
-      (window.dataLayer = window.dataLayer || []).push({
+      try { (window.dataLayer = window.dataLayer || []).push({
         event: 'generate_lead',
         form_id: 'leadFormV2',
         form_service: data.service || '',
@@ -374,7 +377,7 @@
         value: 1,
         currency: 'EUR',
         page_path: location.pathname
-      });
+      }); } catch (_) {}
     } catch (error) {
       button.disabled = false;
       card.classList.remove('is-loading');
