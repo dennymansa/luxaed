@@ -42,6 +42,7 @@
 - Fences near roads and utilities / Aed tee kaitsevööndis ja trasside lähedal / Забор у дороги и коммуникаций: [ET](https://luxaed.ee/aed-tee-ja-trasside-lahedal/) · [RU](https://luxaed.ee/ru/zabor-u-dorogi-i-kommunikacij/) · [EN](https://luxaed.ee/en/fence-near-road-and-utilities/)
 - Fence height rules in Harju County / Lubatud aia kõrgus Harjumaal / Высота забора в Харьюмаа: [ET](https://luxaed.ee/aia-korgus-harjumaal/) · [RU](https://luxaed.ee/ru/vysota-zabora-v-harjumaa/) · [EN](https://luxaed.ee/en/fence-height-rules-harju-county/)
 - Automatic gate safety / Automaatvärava ohutus / Безопасность автоматических ворот: [ET](https://luxaed.ee/automaatvarava-ohutus/) · [RU](https://luxaed.ee/ru/bezopasnost-avtomaticheskih-vorot/) · [EN](https://luxaed.ee/en/automatic-gate-safety/)
+- 10 practical tips for fence foundations and pillars / 10 praktilist nõuannet aia vundamendi ja postide kohta / 10 секретов фундамента и столбов для забора: [ET](https://luxaed.ee/aia-vundamendi-betoonitood-10-nouannet/) · [RU](https://luxaed.ee/ru/fundament-zabora-10-sekretov/) · [EN](https://luxaed.ee/en/fence-foundation-concrete-tips/)
 
 ## Service finder by customer need
 - Privacy fence / privaatne aed / забор для приватности: close-boarded timber, profiled sheet or a dense double-sided steel-picket layout. Use solid sections towards the street and open mesh elsewhere when appropriate.
@@ -80,6 +81,16 @@
 - Intercoms: LuxAed installs audio and video intercoms, outdoor panels, indoor monitors, supported mobile access, PIN/RFID entry and electric pedestrian-gate locks in Tallinn and Harju County. A standard system releases the lock; motorised physical opening needs a separate drive and safety design.
 - Supported video-intercom systems can send call or event alerts to a phone, show live video, support two-way talk, release the electric lock, and provide snapshots, clips or call history. Recording, motion detection, storage and multi-user access depend on the selected model, network and storage. The camera should be aimed mainly at the owner's entrance and must not record a neighbour's property; continuous audio is not configured as video surveillance.
 - Indicative video-intercom budget for one pedestrian gate: about €650–1,600 for equipment, electric lock and standard installation. Cabling, power, monitors, mobile support and gate alterations affect the final quotation.
+
+## Concrete work and fence foundations
+- Scope: separate concrete work or work combined with fence and gate installation in Tallinn and Harju County. Strip foundations, concrete plinths, cast-in-place posts, and pillars using the specified Columbia or Fibo blocks.
+- ET: Betoonitööd, aia lintvundamendid, monoliitsed betoonpostid ning Columbia- ja Fibo-plokkidest postid. Ka eraldi teenusena Tallinnas ja Harjumaal.
+- RU: Бетонные работы, ленточные фундаменты под заборы, монолитные столбы и столбы из блоков Columbia и Fibo. Можно заказать отдельно в Таллинне и Харьюмаа.
+- Quotation: site-specific after inspection and agreement on scope. No universal foundation depth, reinforcement schedule, concrete class or gate-installation waiting period is specified on this site.
+- Design depends on soil, water, frost, fence and gate loads, finished levels, fixings and drainage. Structures retaining soil require a retaining-wall design. Loading follows the required concrete strength and mounting-system requirements.
+- Photos show real LuxAed projects; finished surfaces do not prove a hidden material or reinforcement detail. The service page also includes a 1:41 gate-roller installation video, with a 5x work sequence and the final 22 seconds at normal speed with Russian audio.
+- Service pages: [ET](https://luxaed.ee/betoonitood/) · [RU](https://luxaed.ee/ru/betonnye-raboty/) · [EN](https://luxaed.ee/en/concrete-works/)
+- Ten practical concrete-work tips, published 2026-11-11: [ET](https://luxaed.ee/aia-vundamendi-betoonitood-10-nouannet/) · [RU](https://luxaed.ee/ru/fundament-zabora-10-sekretov/) · [EN](https://luxaed.ee/en/fence-foundation-concrete-tips/)
 
 ## Contact
 - Phone: +372 5695 8285

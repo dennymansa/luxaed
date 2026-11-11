@@ -166,6 +166,7 @@ FEATURED_VIDEO_COPY = {
 for lang, content in CONCRETE_SERVICES.items():
     content["hero"] = "luxaed-concrete-posts-white"
     content["form_service"] = "betoon"
+    content["reading_guide"] = True
     gallery = dict(zip(GALLERY_IMAGES, content.pop("gallery_alts")))
     gallery.update({image: alts[lang] for image, alts in ADDITIONAL_GALLERY})
     gallery["luxaed-concrete-gate-posts"] = {"et": "Must metallaed ja valged aiapostid", "ru": "Чёрный металлический забор и белые столбы", "en": "Black metal fencing and white pillars"}[lang]

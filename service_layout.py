@@ -743,6 +743,9 @@ def render_service(lang, c):
 <div class="mob-bar"><a class="btn btn-accent mob-call" href="tel:{TEL}">{u["call"]}</a></div>
 {SCRIPTS}
 </body></html>'''
+    if c.get('reading_guide'):
+        from concrete_guide_page import teaser
+        body = body.replace('<section class="cta-final">', teaser(lang) + '<section class="cta-final">', 1)
     return H + "\n" + body
 
 
