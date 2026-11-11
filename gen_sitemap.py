@@ -5,12 +5,13 @@ import io
 from build_pages import PAGES, DOMAIN
 from problem_content import PROBLEM_ROWS, GUIDE_ROWS
 from seo_lastmod import update_dates
+from service_catalog import SERVICE_MATRIX
 
 # Priority by page role, independent of how many ET-only service rows exist.
 def prio(row):
     et = row.get("et", "")
     if et == "/": return "1.0"
-    if et.startswith("/aiad/") or et.startswith("/varavad/") or et in ("/varavad/", "/aia-remont/"): return "0.8"
+    if et.startswith("/aiad/") or et.startswith("/varavad/") or et in ("/varavad/", "/aia-remont/", "/betoonitood/"): return "0.8"
     if et in ("/hinnad/", "/kuidas-valida-aeda/", "/piirkonnad/harjumaa/"): return "0.7"
     if et.startswith("/aia-remont/") or any(et == row["et"] for row in GUIDE_ROWS): return "0.7"
     if et in ("/meist/", "/kkk/"): return "0.6"
@@ -26,7 +27,7 @@ def alts_xml(row):
 
 out = ['<?xml version="1.0" encoding="UTF-8"?>',
        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-EXPECTED_GROUPS = 17 + len(PROBLEM_ROWS) + len(GUIDE_ROWS)
+EXPECTED_GROUPS = 8 + len(SERVICE_MATRIX) + len(PROBLEM_ROWS) + len(GUIDE_ROWS)
 if len(PAGES) != EXPECTED_GROUPS:
     raise RuntimeError(f"Expected {EXPECTED_GROUPS} translated page groups, got {len(PAGES)}")
 

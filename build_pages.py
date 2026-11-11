@@ -411,7 +411,7 @@ def footer(lang):
     home = alt("/", lang)
     services = SVC[lang]
     fences = services[:6]
-    gates = services[6:9] + [(_foot_path(key, lang), label) for key, label in f["problems"]]
+    gates = services[6:] + [(_foot_path(key, lang), label) for key, label in f["problems"]]
     before = [(_foot_path(key, lang), label) for key, label in f["before_links"]]
     company = [(_foot_path(key, lang), label) for key, label in f["company_links"]]
     hrs = "".join(f'<div><span>{a}</span><span>{b}</span></div>' for a, b in f["hours"])

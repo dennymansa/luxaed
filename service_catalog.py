@@ -72,6 +72,13 @@ SERVICE_MATRIX = [
         "ru": {"path": "/ru/remont-zaborov/", "label": "Ремонт заборов и ворот", "badge": "Ремонт", "title": "Ремонт заборов и ворот", "desc": "Ремонт секций, столбов, ворот, фурнитуры и автоматики."},
         "en": {"path": "/en/fence-repair/", "label": "Fence & gate repair", "badge": "Repair", "title": "Fence & gate repair", "desc": "Repairs to sections, posts, gates, hardware and automation."},
     },
+    {
+        "key": "concrete",
+        "image": "luxaed-concrete-posts-white",
+        "et": {"path": "/betoonitood/", "label": "Betoonitööd ja aiavundamendid", "badge": "Betoon", "title": "Betoonitööd ja aiavundamendid", "desc": "Lintvundamendi valamine, monoliitsed betoonpostid ning Columbia- ja Fibo-plokkidest postid. Ka eraldi teenusena."},
+        "ru": {"path": "/ru/betonnye-raboty/", "label": "Бетонные работы", "badge": "Бетон", "title": "Бетонные работы и фундаменты", "desc": "Ленточный фундамент, монолитные столбы, столбы из блоков Columbia и Fibo. Можно заказать отдельно."},
+        "en": {"path": "/en/concrete-works/", "label": "Concrete work & foundations", "badge": "Concrete", "title": "Concrete work and foundations", "desc": "Fence strip foundations, cast concrete posts and Columbia or Fibo block pillars. Available separately."},
+    },
 ]
 
 

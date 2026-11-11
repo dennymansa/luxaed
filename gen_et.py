@@ -6,6 +6,7 @@ from lead_form import render_lead_form
 from service_catalog import assert_service_coverage
 from service_layout import write_service
 from intercom_service import INTERCOM_SERVICES
+from concrete_service import CONCRETE_SERVICES
 
 def form_html(default_service="", default_material=""):
     return render_lead_form("et", default_service, default_material)
@@ -365,6 +366,7 @@ for c in ETSERV:
     c.update(ET_OVERRIDES.get(c["path"],{}))
 ETSERV.extend(NEW_ETSERV)
 ETSERV.append(INTERCOM_SERVICES["et"])
+ETSERV.append(CONCRETE_SERVICES["et"])
 
 assert_service_coverage("et", [c["path"] for c in ETSERV])
 for c in ETSERV:

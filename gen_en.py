@@ -6,6 +6,7 @@ from lead_form import render_lead_form
 from service_catalog import assert_service_coverage, service_paths
 from service_layout import write_service
 from intercom_service import INTERCOM_SERVICES
+from concrete_service import CONCRETE_SERVICES
 
 def form_html(default_service="", default_material=""):
     return render_lead_form("en", default_service, default_material)
@@ -343,6 +344,7 @@ for c in ENSERV:
         })
 
 ENSERV.append(INTERCOM_SERVICES["en"])
+ENSERV.append(CONCRETE_SERVICES["en"])
 
 _LOCAL_COPY = {
     "/en/fences/wooden/": ("Wooden fences made for Tallinn and Harjumaa properties", "We build wooden fences and matching gates across Tallinn and Harjumaa. During the free measurement we check levels, exposure, access and the entrance so the timber layout, steel frame and foundations are specified for the actual property."),
@@ -358,7 +360,7 @@ for c in ENSERV:
     c.setdefault("price_lead", "The final price depends on the dimensions, materials, site conditions and any gates or removal work. After a free measurement, we provide a clear project quote.")
 
 _order = {path: index for index, path in enumerate(service_paths("en"))}
-assert len(ENSERV) == 9, f"English service list must contain 9 pages, got {len(ENSERV)}"
+assert len(ENSERV) == len(service_paths("en")), "English service list must match the service catalog"
 assert_service_coverage("en", [c["path"] for c in ENSERV])
 ENSERV.sort(key=lambda c: _order[c["path"]])
 

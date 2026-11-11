@@ -10,7 +10,7 @@ from build_pages import ADS_PHONE_CONVERSION, DOMAIN, GTM_ID, LANGS, PAGES, SOCI
 from service_catalog import SERVICE_MATRIX, service_paths
 from problem_content import ARTICLES, HUB_ROW, PROBLEM_ROWS, GUIDE_ROWS
 
-EXPECTED_GROUPS = 17 + len(PROBLEM_ROWS) + len(GUIDE_ROWS)
+EXPECTED_GROUPS = 8 + len(SERVICE_MATRIX) + len(PROBLEM_ROWS) + len(GUIDE_ROWS)
 EXPECTED_URLS = EXPECTED_GROUPS * 3
 PROBLEM_PATHS = {row[lang] for row in PROBLEM_ROWS for lang in ("et", "ru", "en")}
 
@@ -92,8 +92,8 @@ def schema_by_type(blocks, schema_type):
 
 
 def validate_catalog():
-    if len(SERVICE_MATRIX) != 9:
-        fail(f"Expected 9 services, got {len(SERVICE_MATRIX)}")
+    if len(SERVICE_MATRIX) != 10:
+        fail(f"Expected 10 services, got {len(SERVICE_MATRIX)}")
     if len(PAGES) != EXPECTED_GROUPS or any(set(row) != set(LANGS) for row in PAGES):
         fail(f"Page matrix must contain {EXPECTED_GROUPS} complete ET/RU/EN rows")
     all_paths = [row[lang] for row in PAGES for lang in LANGS]
@@ -310,8 +310,9 @@ def validate_forms():
     """Keep the PPC form identical in structure across all three languages."""
     home_by_lang = {"et": "/", "ru": "/ru/", "en": "/en/"}
     expected_paths = set(home_by_lang.values()) | {path for lang in LANGS for path in service_paths(lang)} | PROBLEM_PATHS
-    if len(expected_paths) != 30 + len(PROBLEM_PATHS):
-        fail(f"Expected {30 + len(PROBLEM_PATHS)} form pages, got {len(expected_paths)}")
+    expected_form_count = 3 * (1 + len(SERVICE_MATRIX)) + len(PROBLEM_PATHS)
+    if len(expected_paths) != expected_form_count:
+        fail(f"Expected {expected_form_count} form pages, got {len(expected_paths)}")
     expected_services = ["aed", "varav", "automaatika", "intercom"]
     contact_labels = {
         "et": ["Nimi *", "Telefon *", "E-post *", "Objekti aadress (valikuline)"],
@@ -333,7 +334,7 @@ def validate_forms():
             # Only the three home pages still ask the visitor to choose.
             choices = re.findall(r'<button\s+class="project-choice[^>]*data-service="([^"]+)"', form)
             hidden_service = one(r'<input\b[^>]*name="service"[^>]*>', form, f"{path} hidden service field")
-            known = re.search(r'value="(aed|varav|automaatika|intercom)"', hidden_service)
+            known = re.search(r'value="(aed|varav|automaatika|intercom|betoon)"', hidden_service)
             if known:
                 # The page names the service, so asking again is pure friction.
                 if choices:

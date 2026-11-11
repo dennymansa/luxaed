@@ -22,6 +22,7 @@
 - Automaatväravate paigaldus / Установка автоматических ворот / Automatic gate installation: [ET](https://luxaed.ee/varavad/) · [RU](https://luxaed.ee/ru/vorota-avtomatika/) · [EN](https://luxaed.ee/en/gates-automation/)
 - Domofonid ja videodomofonid / Домофоны и видеодомофоны / Intercoms and video intercoms: [ET](https://luxaed.ee/varavad/domofonid/) · [RU](https://luxaed.ee/ru/domofony-videodomofony/) · [EN](https://luxaed.ee/en/intercoms-video-intercoms/)
 - Aia ja värava remont / Ремонт заборов и ворот / Fence & gate repair: [ET](https://luxaed.ee/aia-remont/) · [RU](https://luxaed.ee/ru/remont-zaborov/) · [EN](https://luxaed.ee/en/fence-repair/)
+- Betoonitööd ja aiavundamendid / Бетонные работы и фундаменты / Concrete work and foundations: [ET](https://luxaed.ee/betoonitood/) · [RU](https://luxaed.ee/ru/betonnye-raboty/) · [EN](https://luxaed.ee/en/concrete-works/)
 
 ## Repair problems
 - Gate won't open or close / Värav ei avane / Не открываются ворота: [ET](https://luxaed.ee/aia-remont/varav-ei-avane/) · [RU](https://luxaed.ee/ru/remont-zaborov/vorota-ne-otkryvayutsya/) · [EN](https://luxaed.ee/en/fence-repair/gate-wont-open/)
