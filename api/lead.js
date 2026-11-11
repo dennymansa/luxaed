@@ -18,13 +18,14 @@ import { describeAttribution, attributionHtml, attributionText } from './_attrib
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
 // smart-form chip codes → readable label + "needs …" headline
-const SVC  = { aed:'Забор', varav:'Въездные ворота', jalgvarav:'Калитка', automaatika:'Автоматика', intercom:'Домофон / видеодомофон', remont:'Ремонт' };
+const SVC  = { aed:'Забор', varav:'Въездные ворота', jalgvarav:'Калитка', automaatika:'Автоматика', intercom:'Домофон / видеодомофон', remont:'Ремонт', betoon:'Бетонные работы' };
 const NEED = {
   aed:'Новая заявка: забор',
   varav:'Новая заявка: въездные ворота',
   jalgvarav:'Новая заявка: калитка',
   automaatika:'Новая заявка: автоматика',
   intercom:'Новая заявка: домофон / видеодомофон',
+  betoon:'Новая заявка: бетонные работы',
   remont:'Новая заявка: ремонт'
 };
 // Public LuxAed contacts, mirrored from build_pages.py (PHONE / TEL / EMAIL).
@@ -40,9 +41,9 @@ const CONTACT_EMAIL = 'luxaed9@gmail.com';
 // ---------------------------------------------------------------------------
 const LANGS = ['et', 'ru', 'en'];
 const SVC_L10N = {
-  et: { aed:'Aed', varav:'Väravad', jalgvarav:'Jalgvärav', automaatika:'Automaatika', intercom:'Domofon', remont:'Remont' },
-  ru: { aed:'Забор', varav:'Ворота', jalgvarav:'Калитка', automaatika:'Автоматика', intercom:'Домофон', remont:'Ремонт' },
-  en: { aed:'Fence', varav:'Gates', jalgvarav:'Pedestrian gate', automaatika:'Automation', intercom:'Intercom', remont:'Repair' }
+  et: { aed:'Aed', varav:'Väravad', jalgvarav:'Jalgvärav', automaatika:'Automaatika', intercom:'Domofon', remont:'Remont', betoon:'Betoonitööd' },
+  ru: { aed:'Забор', varav:'Ворота', jalgvarav:'Калитка', automaatika:'Автоматика', intercom:'Домофон', remont:'Ремонт', betoon:'Бетонные работы' },
+  en: { aed:'Fence', varav:'Gates', jalgvarav:'Pedestrian gate', automaatika:'Automation', intercom:'Intercom', remont:'Repair', betoon:'Concrete work' }
 };
 
 const CUSTOMER_COPY = {

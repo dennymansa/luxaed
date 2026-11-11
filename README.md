@@ -18,13 +18,26 @@
 
 Страницы генерируются из общих шаблонов:
 
-Полная сборка:
+Для обновления услуги «Бетонные работы» используйте точечную сборку (Python 3.12+):
+
+```bash
+python3 gen_concrete.py
+python3 gen_sitemap.py
+python3 validate_site.py
+python3 -m unittest test_concrete_preservation test_seo_lastmod
+node test_concrete_lead.mjs
+```
+
+Она сохраняет опубликованное содержимое других страниц и добавляет только ссылки на новую услугу. Проверка `test_concrete_preservation` сравнивает существующие HTML и ресурсы с production-коммитом `b4f86b02c1d0b42c2658f23451c3d42e09158e37` от 11.11.2026. Это исходная версия релиза, а не дата создания коммита.
+
+Полная сборка ниже на 11.11.2026 расходится с опубликованными страницами (в том числе цены и тексты). Не публикуйте её результат без отдельного согласования этих расхождений:
 
 ```bash
 python3 build_site.py
 ```
 
-- `service_catalog.py` — единая обязательная матрица 9 услуг × ET/RU/EN
+- `service_catalog.py` — единая обязательная матрица 10 услуг × ET/RU/EN
+- `concrete_service.py`, `gen_concrete.py` — бетонные работы на ET/RU/EN и точечная сборка
 - `service_layout.py` — общий layout и schema всех сервисных страниц
 - `guide_pages.py` — страницы цен, выбора забора и зоны обслуживания Harjumaa на ET/RU/EN
 - `intercom_service.py` — общий ET/RU/EN-контент для домофонов, видеодомофонов и управления калиткой
@@ -43,7 +56,7 @@ python3 -m http.server 8127
 
 hreflang ET↔RU↔EN, canonical, sitemap и JSON-LD (HomeAndConstructionBusiness, Service, FAQPage, BreadcrumbList, ItemList, VideoObject, Person).
 
-- На 28.09.2026: 96 URL, 32 группы ET/RU/EN. Карта URL находится в `build_pages.py`.
+- На 11.11.2026: 99 URL, 33 группы ET/RU/EN. Карта URL находится в `build_pages.py`.
 - Контент статей: `article_content.py`, `articles_data/`; генератор: `articles.py`.
 - Проблемные страницы ремонта: `problem_content.py`, `problem_pages.py`.
 - `seo_lastmod.py` и `seo_page_state.json` сохраняют индивидуальные даты содержательных изменений. Не удалять state и не ставить всем страницам текущую дату при каждом деплое.

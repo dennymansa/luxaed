@@ -123,7 +123,7 @@ def render_lead_form(lang="et", default_service="", default_material=""):
     material_code = MATERIAL_ALIASES.get(default_material, "unknown")
     request_context = default_service if default_service == "remont" else ""
     visible_services = {code for code, _ in c["services"]}
-    selected = {default_service} if default_service in visible_services else set()
+    selected = {default_service} if default_service in visible_services | {"betoon"} else set()
     if request_context == "remont":
         c.update(REPAIR_COPY[lang])
     elif selected:

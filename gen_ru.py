@@ -4,6 +4,7 @@
 from service_catalog import assert_service_coverage, service_paths
 from service_layout import write_service
 from intercom_service import INTERCOM_SERVICES
+from concrete_service import CONCRETE_SERVICES
 
 # ---------------- RU SERVICE CONTENT ----------------
 SERVICES=[
@@ -347,6 +348,7 @@ SERVICES.extend([
 # Keep the intercom service in the same shared ET/RU/EN catalog as every other
 # genuine service page.
 SERVICES.append(INTERCOM_SERVICES["ru"])
+SERVICES.append(CONCRETE_SERVICES["ru"])
 
 # Preserve catalog order in output and fail the build if any Russian service is
 # missing, duplicated or has an obsolete path.
