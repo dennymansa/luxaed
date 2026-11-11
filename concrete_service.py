@@ -145,7 +145,33 @@ CONCRETE_SERVICES = {
 }
 
 GALLERY_IMAGES = ["luxaed-concrete-strip-foundation", "luxaed-concrete-mesh-base", "luxaed-concrete-gate-base", "luxaed-concrete-posts-white", "luxaed-concrete-gate-posts", "luxaed-concrete-entrance", "luxaed-concrete-rendered-posts"]
-for content in CONCRETE_SERVICES.values():
+ADDITIONAL_GALLERY = [
+    ("luxaed-concrete-gate-foundation-detail", {"et": "Liugvärava raam betoonalusel heledate postide vahel", "ru": "Рама откатных ворот на бетонном основании между белыми столбами", "en": "Sliding gate frame on a concrete base between light-coloured pillars"}),
+    ("luxaed-concrete-block-pillars-wood", {"et": "Dekoratiivplokkidest postid ja sokkel puidust aiasektsioonidega", "ru": "Столбы и цоколь из декоративных блоков с деревянными секциями забора", "en": "Decorative block pillars and plinth with timber fence sections"}),
+    ("luxaed-concrete-high-plinth", {"et": "Puitaed kõrgel monoliitsel betoonsoklil", "ru": "Деревянный забор на высоком монолитном бетонном цоколе", "en": "Timber fencing on a high cast concrete plinth"}),
+    ("luxaed-concrete-white-pillars-frame", {"et": "Heledad laiad aiapostid ning värava ja jalgvärava raamid", "ru": "Белые широкие столбы и рамы ворот и калитки", "en": "Wide white pillars with vehicle and pedestrian gate frames"}),
+    ("luxaed-concrete-white-corner-pillars", {"et": "Krohvitud nurgapost ja aiapostid puidust täitega", "ru": "Оштукатуренный угловой столб и столбы с деревянным заполнением", "en": "Rendered corner pillar and fence posts with timber infill"}),
+]
+GALLERY_ORDER = [
+    "luxaed-concrete-gate-posts", "luxaed-concrete-block-pillars-wood", "luxaed-concrete-high-plinth",
+    "luxaed-concrete-white-pillars-frame", "luxaed-concrete-white-corner-pillars", "luxaed-concrete-gate-foundation-detail",
+    "luxaed-concrete-strip-foundation", "luxaed-concrete-mesh-base", "luxaed-concrete-gate-base",
+    "luxaed-concrete-posts-white", "luxaed-concrete-entrance", "luxaed-concrete-rendered-posts",
+]
+FEATURED_VIDEO_COPY = {
+    "et": {"title": "Liugvärava rullikute paigaldus betoonalusele", "description": "LuxAedi töö objektil: liugvärava rullikute paigaldus betoonalusele. Tööprotsess on kiirendatud 5 korda; viimased 22 sekundit on tavakiirusel ja heliga.", "caption": "1:41 · Tööprotsess 5× kiirendusega · Lõpukommentaar vene keeles"},
+    "ru": {"title": "Монтаж роликовых опор ворот на бетонном основании", "description": "Работа LuxAed на объекте: установка роликовых опор откатных ворот на бетонное основание. Процесс ускорен в 5 раз; последние 22 секунды оставлены на обычной скорости со звуком.", "caption": "1:41 · Процесс ускорен в 5 раз · Финал на обычной скорости со звуком"},
+    "en": {"title": "Installing sliding gate rollers on a concrete base", "description": "LuxAed on site: installing sliding gate roller supports on a concrete base. The work is shown at 5× speed; the final 22 seconds retain normal speed and sound.", "caption": "1:41 · Work shown at 5× speed · Closing commentary in Russian"},
+}
+for lang, content in CONCRETE_SERVICES.items():
     content["hero"] = "luxaed-concrete-posts-white"
     content["form_service"] = "betoon"
-    content["gallery"] = list(zip(GALLERY_IMAGES, content.pop("gallery_alts")))
+    gallery = dict(zip(GALLERY_IMAGES, content.pop("gallery_alts")))
+    gallery.update({image: alts[lang] for image, alts in ADDITIONAL_GALLERY})
+    gallery["luxaed-concrete-gate-posts"] = {"et": "Must metallaed ja valged aiapostid", "ru": "Чёрный металлический забор и белые столбы", "en": "Black metal fencing and white pillars"}[lang]
+    content["gallery"] = [(image, gallery[image]) for image in GALLERY_ORDER]
+    content["featured_video"] = {
+        **FEATURED_VIDEO_COPY[lang], "file": "luxaed-concrete-gate-supports-x5",
+        "width": 848, "height": 478, "duration": "PT101.467S",
+        "upload_date": "2026-11-11T09:04:10Z", "language": "ru",
+    }
