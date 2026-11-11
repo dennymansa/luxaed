@@ -6,6 +6,7 @@ from build_pages import (DOMAIN, PHONE, EMAIL, FB, EXPERIENCE_YEARS,
                          RECOMMEND_PERCENT, REVIEW_COUNT)
 from service_catalog import LANGS, SERVICE_MATRIX
 from problem_content import PROBLEM_ROWS, GUIDE_ROWS, ARTICLE_ORDER, _CARD_COPY
+from concrete_guide_page import llms_block
 
 L = []
 L.append("# LuxAed")
@@ -89,6 +90,8 @@ L.append("- Indicative automatic-gate budgets: an installed sliding gate with au
 L.append("- Intercoms: LuxAed installs audio and video intercoms, outdoor panels, indoor monitors, supported mobile access, PIN/RFID entry and electric pedestrian-gate locks in Tallinn and Harju County. A standard system releases the lock; motorised physical opening needs a separate drive and safety design.")
 L.append("- Supported video-intercom systems can send call or event alerts to a phone, show live video, support two-way talk, release the electric lock, and provide snapshots, clips or call history. Recording, motion detection, storage and multi-user access depend on the selected model, network and storage. The camera should be aimed mainly at the owner's entrance and must not record a neighbour's property; continuous audio is not configured as video surveillance.")
 L.append("- Indicative video-intercom budget for one pedestrian gate: about €650–1,600 for equipment, electric lock and standard installation. Cabling, power, monitors, mobile support and gate alterations affect the final quotation.")
+L.append("")
+L.append(llms_block())
 L.append("")
 L.append("## Contact")
 L.append(f"- Phone: {PHONE}")

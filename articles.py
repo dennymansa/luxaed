@@ -87,6 +87,9 @@ def _plain(html):
 
 
 def article_page(key, lang):
+    if key == 'concrete_foundations':
+        from concrete_guide_page import article_page as concrete_article_page
+        return concrete_article_page(lang)
     c = ARTICLE_CONTENT[key][lang]
     path = ARTICLES[key][lang]
     cta_h2, cta_text, cta_href, cta_button = c["cta"]
@@ -111,6 +114,7 @@ def article_page(key, lang):
 
 
 def hub_page(lang):
+    from concrete_guide_page import teaser
     c = HUB_CONTENT[lang]
     cta_h2, cta_text, cta_href, cta_button = c["cta"]
     parts = [hero(lang, c["kicker"], c["h1"], c["lead"], c["image"], cta_href=cta_href)]
@@ -123,6 +127,7 @@ def hub_page(lang):
                 cards.append((target, title, text))
         section = "section help-links section--alt" if i % 2 == 0 else "section help-links"
         parts.append(_help_cards(HUB_LEAD_TAG[lang], group, cards, section))
+    parts.append(teaser(lang))
     parts.append(_cta(cta_h2, cta_text, cta_href, cta_button))
     page(lang, HUB_ROW[lang], c["title"], c["desc"], "\n".join(parts), None, c["image"])
 

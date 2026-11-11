@@ -8,6 +8,8 @@ Only the copy and photos differ. Facts stay within what the site already states
 gates). Legal and insurance statements link to their official source.
 """
 
+from concrete_guide_content import CARDS as CONCRETE_GUIDE_CARDS, PATHS as CONCRETE_GUIDE_PATHS
+
 REPAIR_HUB = {"et": "/aia-remont/", "ru": "/ru/remont-zaborov/", "en": "/en/fence-repair/"}
 REPAIR_HUB_NAME = {"et": "Aia ja värava remont", "ru": "Ремонт заборов и ворот", "en": "Fence & gate repair"}
 GATES_HUB = {"et": "/varavad/", "ru": "/ru/vorota-avtomatika/", "en": "/en/gates-automation/"}
@@ -31,6 +33,7 @@ PERMIT_GUIDE, GATE_GUIDE = GUIDE_ROWS
 # sitemap, validator and link cards all use one registry.
 HUB_ROW = {"et": "/nouanded/", "ru": "/ru/sovety/", "en": "/en/guides/"}
 ARTICLES = {
+    "concrete_foundations": CONCRETE_GUIDE_PATHS,
     "panel_vs_mesh": {"et": "/paneelaed-voi-vorkaed/", "ru": "/ru/3d-zabor-ili-setka-rabitsa/", "en": "/en/mesh-panels-or-chain-link/"},
     "privacy_fence": {"et": "/kinnine-aed/", "ru": "/ru/gluhoj-zabor/", "en": "/en/privacy-fence/"},
     "neighbour": {"et": "/aed-naabri-piiril/", "ru": "/ru/zabor-s-sosedom/", "en": "/en/boundary-fence-neighbour/"},
@@ -40,7 +43,7 @@ ARTICLES = {
     "municipal_rules": {"et": "/aia-korgus-harjumaal/", "ru": "/ru/vysota-zabora-v-harjumaa/", "en": "/en/fence-height-rules-harju-county/"},
     "gate_safety": {"et": "/automaatvarava-ohutus/", "ru": "/ru/bezopasnost-avtomaticheskih-vorot/", "en": "/en/automatic-gate-safety/"},
 }
-ARTICLE_ORDER = ["panel_vs_mesh", "privacy_fence", "mistakes", "contractor", "neighbour", "road_utilities", "municipal_rules", "gate_safety"]
+ARTICLE_ORDER = ["panel_vs_mesh", "privacy_fence", "mistakes", "contractor", "neighbour", "road_utilities", "municipal_rules", "gate_safety", "concrete_foundations"]
 GUIDE_ROWS = GUIDE_ROWS + [HUB_ROW] + [ARTICLES[key] for key in ARTICLE_ORDER]
 
 LKF_URL = "https://www.lkf.ee/et/liiklus%C3%B5nnetus/lkf-i-h%C3%BCvitatav-kahju"
@@ -833,6 +836,7 @@ _ARTICLE_CARDS = {
 }
 for _lang in ("et", "ru", "en"):
     _CARD_COPY[_lang].update(_ARTICLE_CARDS[_lang])
+    _CARD_COPY[_lang]['concrete_foundations'] = CONCRETE_GUIDE_CARDS[_lang]
 
 _HEADINGS = {
     "repair": {"et": ("Levinud mured", "Mis teie aia või väravaga juhtus?"),

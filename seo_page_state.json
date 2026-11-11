@@ -43,6 +43,10 @@
     "digest": "481fb53c3b2962e7d86c1e195ca113cdd27143218ec38f9ac084b0866b3c1221",
     "lastmod": "2026-09-27"
   },
+  "/aia-vundamendi-betoonitood-10-nouannet/": {
+    "digest": "c0ea0b6a2937824261bc1f73fa45093209888f6cea17322015a3199625780a0f",
+    "lastmod": "2026-11-11"
+  },
   "/aiad/lippaed/": {
     "digest": "7bac61f8f2e6737def55378cbdeb715bcc004f1cef09975471629e7a94f7ad0a",
     "lastmod": "2026-10-02"
@@ -72,7 +76,7 @@
     "lastmod": "2026-09-27"
   },
   "/betoonitood/": {
-    "digest": "c88801652a02f6099c72f906589b72867bb259e10c82041ec59b558cfa5180c8",
+    "digest": "8b715d50def3244c67ca5dee2f358dafc4169ac0f9bc4dc3e3c52de87f94d1ec",
     "lastmod": "2026-11-11"
   },
   "/en/": {
@@ -96,7 +100,7 @@
     "lastmod": "2026-10-02"
   },
   "/en/concrete-works/": {
-    "digest": "114f2e1283d5b20cbf95fd377cad97fc9aa9f6ec5155c4aa107993b517083ced",
+    "digest": "40cb5234c3af2329c05cfdaf86b2d94a01f5040badc9fc73c42f5759145a99eb",
     "lastmod": "2026-11-11"
   },
   "/en/faq/": {
@@ -106,6 +110,10 @@
   "/en/fence-building-mistakes/": {
     "digest": "010f178d45b743a9d50a59042cad46ed46f4b4056a0aa072e5ffd4c01091ffd5",
     "lastmod": "2026-10-02"
+  },
+  "/en/fence-foundation-concrete-tips/": {
+    "digest": "86e62598cc7459ff100ee0cd7db17b3ad5597977deb5820346faed28b0c4ea24",
+    "lastmod": "2026-11-11"
   },
   "/en/fence-height-rules-harju-county/": {
     "digest": "45f55f422e0f71d91d9c586498dfd8214272714c5ef4ace80a4c596dad572816",
@@ -168,8 +176,8 @@
     "lastmod": "2026-09-28"
   },
   "/en/guides/": {
-    "digest": "bb4b46d0d79512e85879da472ae7ab7a2840f72a83b483c76c6b57abe9468fb4",
-    "lastmod": "2026-09-27"
+    "digest": "cec768b8c734241928a7821d08f56dd3f33b1d9087dd59561d37f67a07073f5e",
+    "lastmod": "2026-11-11"
   },
   "/en/how-to-choose-a-fence-contractor/": {
     "digest": "83eb3fa25ce3e165fee315cda180aeeda6874842b9952a4927955c1a7cbfa1d8",
@@ -236,8 +244,8 @@
     "lastmod": "2026-09-27"
   },
   "/nouanded/": {
-    "digest": "d43bcc7e88e3f3b5610ead9ae27e6d5b3836b24c9386473ad9e87e563bb4c839",
-    "lastmod": "2026-09-27"
+    "digest": "8f1cc7416576aad8867c680fda1d5af21b8d5746a2f3508b8e85ae53420f45f1",
+    "lastmod": "2026-11-11"
   },
   "/paneelaed-voi-vorkaed/": {
     "digest": "09fd789830355f97077cc37bde304a4c89b4a81c7bea5d48a83749a1ab0673c2",
@@ -260,7 +268,7 @@
     "lastmod": "2026-10-02"
   },
   "/ru/betonnye-raboty/": {
-    "digest": "5dd4e324d703499d026bc9c65862833b284954b54b24aa07f398398ea096a3cb",
+    "digest": "3b7b446b13eee5282c00c44593b0e0e1ae3f28b2a23632f285e3ba8e24ac23ae",
     "lastmod": "2026-11-11"
   },
   "/ru/bezopasnost-avtomaticheskih-vorot/": {
@@ -278,6 +286,10 @@
   "/ru/faq/": {
     "digest": "d0f5510580c0b0dfd0e9af6c5aa7bc8b3a03eaa119abbc263fa46ab99e5351e3",
     "lastmod": "2026-10-02"
+  },
+  "/ru/fundament-zabora-10-sekretov/": {
+    "digest": "16663bcdb1a4731c84ad0a929bebd18b1b9da0141f7a47501cf59ee009c277b7",
+    "lastmod": "2026-11-11"
   },
   "/ru/gluhoj-zabor/": {
     "digest": "7c47fd1ec91909543d596fc7a7bac4eba0790d5bdb0f1f64f69f4ae7b46c51de",
@@ -336,8 +348,8 @@
     "lastmod": "2026-09-27"
   },
   "/ru/sovety/": {
-    "digest": "2b3f2fd41c44b4ca26b46affea2e814b9e15cc0047acc93881206d6ae76f1be3",
-    "lastmod": "2026-09-27"
+    "digest": "43e3e1e9b3ad367c24d7540fa139dcd62d7e8dc672387a8ec22a5b26eae0a22e",
+    "lastmod": "2026-11-11"
   },
   "/ru/tingimused/": {
     "digest": "0bf093e4043d5c5ccfd0f424f40e4b93f534ac993fee9c4d275d5b0133a94189",
