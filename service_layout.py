@@ -695,8 +695,12 @@ def render_service(lang, c):
     if c.get("local_h") and c.get("local_p"):
         local_sec = f'<section class="section svc-local"><div class="wrap"><span class="tag">{u["local"]}</span><h2 class="big">{c["local_h"]}</h2><p class="lead">{c["local_p"]}</p></div></section>'
     gallery_sec = ""
+    gallery_link = ""
     if c.get("gallery"):
-        gallery_sec = f'<section class="section"><div class="wrap"><span class="tag">{u["gallery"]}</span><h2 class="big">{c.get("gallery_h", u["gallery_h"])}</h2>{_gallery(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">{u["more_photos"]}</a></div></div></section>'
+        gallery_id = ' id="photos" style="scroll-margin-top:100px"' if c.get("gallery_link") else ""
+        if c.get("gallery_link"):
+            gallery_link = f'<a class="btn btn-ghost hero-gallery-link" href="#photos">{html.escape(c["gallery_link"])} ↓</a>'
+        gallery_sec = f'<section class="section"{gallery_id}><div class="wrap"><span class="tag">{u["gallery"]}</span><h2 class="big">{c.get("gallery_h", u["gallery_h"])}</h2>{_gallery(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">{u["more_photos"]}</a></div></div></section>'
     videos = c.get("videos") or ([c["video"]] if c.get("video") else [])
     video_sec = reel_strip(videos, u["video"], c.get("video_h", u["video_h"]), lang=lang) if videos else ""
     media_sec = (_featured_video(lang, c["featured_video"]) + gallery_sec
@@ -723,7 +727,7 @@ def render_service(lang, c):
     <div class="hero-kicker hand">{c.get("hero_prompt", u["prompt"])}</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% {u["trust_verb"]}</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} {u["trust"]}</a></div>
     <div class="hero-service-kicker">{c.get("kicker", "")}</div><h1>{c["h1"]}</h1><p class="hero-service-lead">{c.get("lead", "")}</p>{hero_price}
-    <div class="hero-btns"><a class="btn btn-accent" href="#form">{u["quote"]} →</a><a class="btn btn-ghost" href="tel:{TEL}">{u["call"]} {PHONE}</a></div>
+    <div class="hero-btns"><a class="btn btn-accent" href="#form">{u["quote"]} →</a><a class="btn btn-ghost" href="tel:{TEL}">{u["call"]} {PHONE}</a>{gallery_link}</div>
   </div>{form}</div>
   <div class="hero-stats"><div class="hstat"><b>{RECOMMEND_PERCENT}%</b><span>{u["recommend"]}</span></div><div class="hstat"><b>{REVIEW_COUNT}</b><span>{u["reviews"]}</span></div><div class="hstat"><b>{EXPERIENCE_YEARS}+</b><span>{u["experience"]}</span></div></div></div>
 </section>

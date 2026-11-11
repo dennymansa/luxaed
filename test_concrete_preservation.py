@@ -28,6 +28,18 @@ def original(path):
     return subprocess.check_output(['git', 'show', f'{BASE}:{path}'], cwd=ROOT)
 
 
+def normalize_photo_navigation(source):
+    """Allow only the new shortcut and a permutation of unchanged photo cards."""
+    source = re.sub(r'<a class="btn btn-ghost hero-gallery-link" href="#photos">[^<]+</a>', '', source)
+    source = source.replace(' id="photos" style="scroll-margin-top:100px"', '')
+    def sorted_gallery(match):
+        cards = re.findall(r'<a\b.*?</a>', match[1], re.S)
+        if ''.join(cards) != match[1]:
+            raise AssertionError('Unexpected gallery markup')
+        return '<div class="gal" id="gal">' + ''.join(sorted(cards)) + '</div>'
+    return re.sub(r'<div class="gal" id="gal">(.*?)</div>', sorted_gallery, source, flags=re.S)
+
+
 class ConcretePreservation(unittest.TestCase):
     def test_all_existing_html_is_preserved(self):
         files = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE], cwd=ROOT).decode().splitlines()
@@ -79,7 +91,7 @@ class ConcretePreservation(unittest.TestCase):
                     self.assertIn(file, expected)
                     block = teaser(expected[file])
                     self.assertEqual(current.count(block), 1)
-                    self.assertEqual(current.replace(block, '', 1), before)
+                    self.assertEqual(normalize_photo_navigation(current.replace(block, '', 1)), normalize_photo_navigation(before))
                 else:
                     self.assertNotIn(file, expected)
         self.assertEqual(changed, set(expected))

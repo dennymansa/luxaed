@@ -153,10 +153,11 @@ ADDITIONAL_GALLERY = [
     ("luxaed-concrete-white-corner-pillars", {"et": "Krohvitud nurgapost ja aiapostid puidust täitega", "ru": "Оштукатуренный угловой столб и столбы с деревянным заполнением", "en": "Rendered corner pillar and fence posts with timber infill"}),
 ]
 GALLERY_ORDER = [
-    "luxaed-concrete-gate-posts", "luxaed-concrete-block-pillars-wood", "luxaed-concrete-high-plinth",
+    "luxaed-concrete-posts-white", "luxaed-concrete-gate-posts",
+    "luxaed-concrete-entrance", "luxaed-concrete-rendered-posts",
+    "luxaed-concrete-block-pillars-wood", "luxaed-concrete-high-plinth",
     "luxaed-concrete-white-pillars-frame", "luxaed-concrete-white-corner-pillars", "luxaed-concrete-gate-foundation-detail",
     "luxaed-concrete-strip-foundation", "luxaed-concrete-mesh-base", "luxaed-concrete-gate-base",
-    "luxaed-concrete-posts-white", "luxaed-concrete-entrance", "luxaed-concrete-rendered-posts",
 ]
 FEATURED_VIDEO_COPY = {
     "et": {"title": "Liugvärava rullikute paigaldus betoonalusele", "description": "LuxAedi töö objektil: liugvärava rullikute paigaldus betoonalusele. Tööprotsess on kiirendatud 5 korda; viimased 22 sekundit on tavakiirusel ja heliga.", "caption": "1:41 · Tööprotsess 5× kiirendusega · Lõpukommentaar vene keeles"},
@@ -171,6 +172,7 @@ for lang, content in CONCRETE_SERVICES.items():
     gallery.update({image: alts[lang] for image, alts in ADDITIONAL_GALLERY})
     gallery["luxaed-concrete-gate-posts"] = {"et": "Must metallaed ja valged aiapostid", "ru": "Чёрный металлический забор и белые столбы", "en": "Black metal fencing and white pillars"}[lang]
     content["gallery"] = [(image, gallery[image]) for image in GALLERY_ORDER]
+    content["gallery_link"] = {"et": "Vaata 12 tööfotot", "ru": "Смотреть 12 фото работ", "en": "View 12 project photos"}[lang]
     content["featured_video"] = {
         **FEATURED_VIDEO_COPY[lang], "file": "luxaed-concrete-gate-supports-x5",
         "width": 848, "height": 478, "duration": "PT101.467S",
