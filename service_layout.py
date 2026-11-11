@@ -495,6 +495,15 @@ def schema_blocks(lang, c):
             {"@type": "ListItem", "position": i + 1, "name": item[4], "description": item[5],
              "image": DOMAIN + image_fallback(item[0])} for i, item in enumerate(items)
         ]}))
+    if video := c.get("featured_video"):
+        blocks.append(_json({
+            "@context": "https://schema.org", "@type": "VideoObject",
+            "name": video["title"], "description": video["description"],
+            "thumbnailUrl": [DOMAIN + f'/img/{video["file"]}-poster.jpg'],
+            "uploadDate": video["upload_date"], "duration": video["duration"],
+            "contentUrl": DOMAIN + f'/img/{video["file"]}.mp4',
+            "inLanguage": video["language"], "publisher": {"@id": DOMAIN + "/#business"},
+        }))
     return blocks
 
 
@@ -529,6 +538,19 @@ def _gallery(items):
         f'<a href="{image_fallback(image)}" data-lb="1"><picture>{webp_sources(image)}<img src="{image_fallback(image)}" alt="{html.escape(alt)}" width="600" height="400" loading="lazy"></picture></a>'
         for image, alt in items
     ) + '</div>'
+
+
+def _featured_video(lang, video):
+    """A landscape project video, loaded only when the visitor presses play."""
+    title = html.escape(video["title"])
+    return (f'<section class="section section--alt" id="video"><div class="wrap">'
+            f'<span class="tag">{UI[lang]["video"]}</span><h2 class="big">{title}</h2>'
+            f'<p class="lead">{html.escape(video["description"])}</p>'
+            f'<figure class="vidcard" style="margin:24px 0 0">'
+            f'<video controls playsinline preload="none" width="{video["width"]}" height="{video["height"]}" '
+            f'poster="/img/{video["file"]}-poster.webp" aria-label="{title}" style="height:auto">'
+            f'<source src="/img/{video["file"]}.mp4" type="video/mp4"></video>'
+            f'<figcaption>{html.escape(video["caption"])}</figcaption></figure></div></section>')
 
 
 def _faq(items):
@@ -677,6 +699,8 @@ def render_service(lang, c):
         gallery_sec = f'<section class="section"><div class="wrap"><span class="tag">{u["gallery"]}</span><h2 class="big">{c.get("gallery_h", u["gallery_h"])}</h2>{_gallery(c["gallery"])}<div style="text-align:center;margin-top:30px"><a class="gal-fb" href="{FB}/photos_by" target="_blank" rel="noopener">{u["more_photos"]}</a></div></div></section>'
     videos = c.get("videos") or ([c["video"]] if c.get("video") else [])
     video_sec = reel_strip(videos, u["video"], c.get("video_h", u["video_h"]), lang=lang) if videos else ""
+    media_sec = (_featured_video(lang, c["featured_video"]) + gallery_sec
+                 if c.get("featured_video") else gallery_sec + video_sec)
     final_h = c.get("final_cta", u["default_final"])
     final_p = c.get("final_cta_text", u["default_final_text"])
     process = c.get("process") or u["process"]
@@ -709,7 +733,7 @@ def render_service(lang, c):
   <div class="honest"><div class="hon good"><h3>{u["included"]}</h3><ul>{"".join(f"<li>{item}</li>" for item in c["incl"])}<li>{u["warranty"]}</li></ul></div>
   <div class="hon bad"><h3>{u["affects"]}</h3><ul>{"".join(f"<li>{item}</li>" for item in c["factors"])}</ul></div></div>{area_line}</div></section>
 <section class="section section--alt"><div class="wrap"><span class="tag">{u["process_tag"]}</span><h2 class="big">{process_h}</h2>{_process(process)}</div></section>
-{gallery_sec}{video_sec}
+{media_sec}
 <section class="section section--alt"><div class="wrap"><span class="tag">{u["faq"]}</span><h2 class="big">{u["faq_h"]}</h2>{_faq(c["faq"])}{_sources(c, lang)}</div></section>{_link_cards_section(c["path"])}
 <section class="section"><div class="wrap"><span class="tag">{u["other"]}</span><h2 class="big">{u["other_h"]}</h2>{_related(lang, c["path"], c.get("related"))}</div></section>
 <section class="cta-final"><div class="wrap"><h2>{final_h}</h2><p>{final_p}</p><div class="hero-btns"><a class="btn btn-accent" href="#form">{u["quote"]} →</a><a class="btn btn-ghost" href="tel:{TEL}">{u["call"]} {PHONE}</a></div></div></section>
