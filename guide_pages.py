@@ -158,9 +158,9 @@ PRICE_ROWS = {
 
 PRICE_COPY = {
     "et": {
-        "title": "Aia ja värava hinnad Tallinnas ja Harjumaal | LuxAed", "kicker": "Hinnad 2026",
-        "h1": "Kui palju maksab <em>aed või värav?</em>",
-        "lead": "Siia oleme koondanud aedade ja väravate ligikaudsed hinnad Tallinnas ja Harjumaal. Pärast tasuta mõõdistust koostame teie krundi jaoks täpse pakkumise.",
+        "title": "Aia ja värava paigalduse hinnad | LuxAed", "kicker": "Hinnad 2026",
+        "h1": "Aia ja värava <em>paigalduse hinnad</em>",
+        "lead": "Rullvõrkaed koos tavapaigaldusega alates 25 €/jm, jalgvärav 550–950 €. Võrrelge aiatüüpide hindu ja vaadake 50 meetri aia näidisarvutust.",
         "direct": "Lühidalt", "direct_h": "Rullvõrk- ja 3D-paneelaed maksavad koos paigaldusega tavaliselt 25–60 €/jm, jäigem 2D-paneelaed 50–85 €/jm. Kinnine puitaed, metall-lippaed või profiilplekk-aed maksab enamasti 70–160 €/jm.",
         "note": "Tabelis on materjali ja tavapaigalduse ligikaudne hind. Kirjalikus pakkumises näitame eraldi käibemaksu, transpordi, vana aia eemaldamise, keerulise pinnase lisatööd, väravad ja elektritööd.",
         "table_h": "Ligikaudsed hinnad", "service": "Lahendus", "range": "Hind", "includes": "Mida arvestada",
@@ -176,9 +176,9 @@ PRICE_COPY = {
         ],
     },
     "ru": {
-        "title": "Цены на заборы и ворота в Таллинне и Харьюмаа | LuxAed", "kicker": "Примерные цены 2026",
-        "h1": "Сколько стоит <em>забор или ворота?</em>",
-        "lead": "Здесь собраны примерные цены на заборы и ворота в Таллинне и Харьюмаа. После бесплатного замера подготовим точный расчёт для вашего участка.",
+        "title": "Цены на заборы и ворота с установкой | LuxAed", "kicker": "Примерные цены 2026",
+        "h1": "Цены на заборы и ворота <em>с установкой</em>",
+        "lead": "Забор из рулонной сетки со стандартным монтажом — от 25 €/м, калитка — 550–950 €. Сравните цены по материалам и посмотрите расчёт для 50 метров забора.",
         "direct": "Если коротко", "direct_h": "Забор из рулонной сетки или 3D-панелей с материалом и монтажом обычно стоит 25–60 €/м, а из более жёстких 2D-панелей обойдётся в 50–85 €/м. Глухой забор из дерева, металлического штакетника или профнастила обычно стоит 70–160 €/м.",
         "note": "В таблице указана примерная стоимость материала и обычного монтажа. В письменном предложении отдельно укажем НДС, доставку, демонтаж, работу со сложным грунтом, ворота и электрику.",
         "table_h": "Примерные цены", "service": "Решение", "range": "Цена", "includes": "Что входит и влияет на цену",
@@ -194,9 +194,9 @@ PRICE_COPY = {
         ],
     },
     "en": {
-        "title": "Fence and gate prices in Tallinn and Harju County | LuxAed", "kicker": "2026 prices",
-        "h1": "How much does a <em>fence or gate cost?</em>",
-        "lead": "Here are typical fence and gate prices for Tallinn and Harju County. After a free site measurement, we prepare an exact quote for your property.",
+        "title": "Fence and gate installation prices | LuxAed", "kicker": "2026 prices",
+        "h1": "Fence and gate <em>installation prices</em>",
+        "lead": "Roll-mesh fencing starts at €25 per metre with standard installation. A pedestrian gate costs €550–950. Compare materials and see a worked example for 50 metres.",
         "direct": "In short", "direct_h": "Roll mesh and 3D panel fences usually cost €25–60/m installed, and stiffer 2D panels €50–85/m. Solid timber, steel-picket and profiled-sheet fences are more often in the €70–160/m range.",
         "note": "The table shows an approximate cost for materials and standard installation. The written quote lists VAT, transport, removal, difficult ground, gates and electrical work separately.",
         "table_h": "Typical prices", "service": "Solution", "range": "Price", "includes": "What is included and what affects the price",

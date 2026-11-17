@@ -58,8 +58,8 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Hey! Need a new fence?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% recommend</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} Facebook reviews</a></div>
-    <h1>Fences & gates</h1>
-    <p class="hero-claim"><em>turnkey</em><br>from measurement to installation</p>
+    <h1>Fence and gate installation</h1>
+    <p class="hero-claim"><em>Free site measurement</em><br>24-month installation warranty</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>{RECOMMEND_PERCENT}%</b><span>recommend on Facebook</span></div><div class="hstat"><b>{REVIEW_COUNT}</b><span>reviews</span></div><div class="hstat"><b>{EXPERIENCE_YEARS}+</b><span>years of experience</span></div></div></div>
@@ -151,15 +151,15 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Ready to discuss <em>a fence or gate</em>?</h2>
   <p>Leave a request or call. We'll come for a free measurement and give an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/","Fence and gate installation in Tallinn and Harju County — LuxAed",f"Fences and gates in Tallinn and Harju County: wood, roll mesh, 2D/3D mesh, steel picket, metal bar and profiled sheet. Free measurement, {RECOMMEND_PERCENT}% recommend on Facebook.", home_inner, sch=lb_schema+video_schema(home_video_items("en"),"en"))
+page("/en/","Fence and gate installation in Tallinn | LuxAed","We install timber, mesh and panel fences, sliding gates and swing gates in Tallinn and Harju County. Free site measurement and a 24-month installation warranty.", home_inner, sch=lb_schema+video_schema(home_video_items("en"),"en"))
 
 # ---------------- EN ABOUT ----------------
 about=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% recommend</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} Facebook reviews</a></div>
-    <h1>Who we are</h1>
-    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">We have been manufacturing and installing fences, gates and pedestrian gates in Tallinn and Harjumaa <b>for over {EXPERIENCE_YEARS} years</b>. We work with wood, roll mesh, welded 2D/3D mesh, steel picket, welded metal-bar sections and profiled sheet, fit gate automation and intercoms, and repair existing structures. Our experience helps us account for different soils, slopes and drainage conditions.</p>
+    <h1>Artur Mustafin and the LuxAed team</h1>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Artur Mustafin has built fences and gates in Tallinn and Harju County for over {EXPERIENCE_YEARS} years. See photos of completed projects and read about the workmanship warranty.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">We take the whole process off your hands: we come for a free measurement, buy the materials, install and hand over the finished job. We name the price up front. No hidden extras or surprises.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">A new fence around the cottage, a sliding gate with automation, or a full perimeter. We handle it all.</p>
   </div></div>
@@ -200,14 +200,14 @@ about=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Shall we discuss <em>your fence or gate</em>?</h2><p>Leave a request or call. We'll come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/about/","About Us: Fence and Gate Installers in Tallinn | LuxAed",f"LuxAed builds and installs fences, gates, automation and intercoms in Tallinn and Harju County. Over {EXPERIENCE_YEARS} years of experience and a free site measurement.", about, sch=[about_page_schema("/en/about/","en","About LuxAed","Fence and gate master Artur Mustafin and the LuxAed story in Tallinn and Harjumaa."),person_artur_schema("en")])
+page("/en/about/","Artur Mustafin and the fence installation team | LuxAed",f"Artur Mustafin has built fences and gates in Tallinn and Harju County for over {EXPERIENCE_YEARS} years. See photos of completed projects and read about the workmanship warranty.", about, sch=[about_page_schema("/en/about/","en","About LuxAed","Fence and gate master Artur Mustafin and the LuxAed story in Tallinn and Harjumaa."),person_artur_schema("en")])
 
 # ---------------- EN FAQ ----------------
-faq_inner=f'''{hero("FAQ","Frequently asked questions","We've gathered answers to the questions people most often ask before ordering a fence or gate.", crumb="FAQ")}
+faq_inner=f'''{hero("FAQ","Frequently asked questions","Find out how to prepare your plot, when the installation date is agreed, how payment works and which jobs carry a 24-month warranty. Includes gate automation advice.", crumb="FAQ")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">What people ask before ordering</h2>{faqx(FAQ_PAGE)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Didn't find your answer?</h2><p>Call or write.<br>We'll advise and come for a free measurement.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/en/#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/faq/","FAQ: fences, gates and automation in Tallinn — LuxAed","Frequently asked questions about fences, gates and automation in Tallinn: price, materials, timing, automation, repair. LuxAed.", faq_inner, og="/img/luxaed-wide-wood.jpg", sch=faq_page_schema)
+page("/en/faq/","Fence installation FAQ: timing, payment and warranty | LuxAed","Find out how to prepare your plot, when the installation date is agreed, how payment works and which jobs carry a 24-month warranty. Includes gate automation advice.", faq_inner, og="/img/luxaed-wide-wood.jpg", sch=faq_page_schema)
 
 # ---------------- EN CONTACT ----------------
 

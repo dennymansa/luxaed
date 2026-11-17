@@ -4,8 +4,8 @@ CONCRETE_SERVICES = {
     "et": {
         "path": "/betoonitood/",
         "name": "Betoonitööd ja aiavundamendid",
-        "title": "Betoonitööd: lintvundament ja aiapostid Tallinnas | LuxAed",
-        "desc": "Betoonitööd Tallinnas ja Harjumaal: aia lintvundamendi valamine, monoliitsed betoonpostid ning Columbia- ja Fibo-plokkidest postid. Ka eraldi teenusena.",
+        "title": "Aia lintvundamendid ja betoonpostid Tallinnas | LuxAed",
+        "desc": "Valame aia lintvundamendi ja ehitame väravapostid betoonist või Columbia ja Fibo plokkidest. Tallinnas ja Harjumaal saab vundamendi tellida ka ilma aiata.",
         "kicker": "Lintvundament · betoonpostid · plokkpostid",
         "hero_prompt": "Tugev aed algab korralikust alusest.",
         "h1": "Betoonitööd ja<br><em>aiavundamendid</em>",
@@ -51,8 +51,8 @@ CONCRETE_SERVICES = {
     "ru": {
         "path": "/ru/betonnye-raboty/",
         "name": "Бетонные работы и фундаменты для заборов",
-        "title": "Бетонные работы: фундамент и столбы в Таллинне | LuxAed",
-        "desc": "Бетонные работы в Таллинне и Харьюмаа: ленточный фундамент под забор, монолитные столбы, столбы из блоков Columbia и Fibo. Можно заказать отдельно.",
+        "title": "Ленточный фундамент и бетонные столбы для забора | LuxAed",
+        "desc": "Заливаем ленточный фундамент под забор, делаем столбы для ворот из монолитного бетона или блоков Columbia и Fibo. В Таллинне и Харьюмаа можно заказать только основание.",
         "kicker": "Ленточный фундамент · бетонные столбы · кладка блоков",
         "hero_prompt": "Прочный забор начинается с основания.",
         "h1": "Бетонные работы<br><em>для заборов и ворот</em>",
@@ -98,8 +98,8 @@ CONCRETE_SERVICES = {
     "en": {
         "path": "/en/concrete-works/",
         "name": "Concrete work and fence foundations",
-        "title": "Concrete Work & Fence Foundations in Tallinn | LuxAed",
-        "desc": "Concrete work in Tallinn and Harju County: strip foundations for fences, cast concrete posts and Columbia or Fibo block pillars. Available as a separate service.",
+        "title": "Concrete fence foundations and gate posts in Tallinn | LuxAed",
+        "desc": "We pour strip foundations and build gate posts from cast concrete, Columbia blocks or Fibo blocks. Order the foundations on their own in Tallinn and Harju County.",
         "kicker": "Strip foundations · concrete posts · block pillars",
         "hero_prompt": "A strong fence starts with its foundation.",
         "h1": "Concrete work<br><em>for fences and gates</em>",

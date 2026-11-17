@@ -1144,10 +1144,10 @@ ARTICLE_CONTENT["gate_safety"] = {
 # =====================================================================
 HUB_CONTENT = {
     "et": {
-        "title": "Nõuanded aia ja värava tellijale | LuxAed",
-        "desc": "Juhendid enne aia või värava tellimist: hinnad, valik, ehitusteatis, valdade nõuded, naabrid, trassid, automaatvärava ohutus, levinud vead ja remont.",
+        "title": "Aia planeerimine ja värava valik | LuxAed",
+        "desc": "Võrrelge puit-, võrk- ja paneelaedu ning liug- ja tiibväravaid. Juhendid aitavad hinnata eelarvet, leida krundi piiri ja kontrollida kohalikke nõudeid.",
         "kicker": "Nõuanded", "h1": "Nõuanded<br><em>enne tellimist</em>", "image": "luxaed-g1",
-        "lead": "Kogusime ühte kohta juhendid, mis aitavad aeda või väravat planeerida, hinda mõista ja levinud vigu vältida. Kõik on kirjutatud meie igapäevase töö põhjal.",
+        "lead": "Võrrelge puit-, võrk- ja paneelaedu ning liug- ja tiibväravaid. Juhendid aitavad hinnata eelarvet, leida krundi piiri ja kontrollida kohalikke nõudeid.",
         "groups": [
             ("Hind ja valik", [("/hinnad/", "Aia ja värava hinnad", "Hinnatabel ja näidisarvutused."), ("/kuidas-valida-aeda/", "Kuidas valida aeda", "Privaatsus, tuul, hooldus ja hind."), ("panel_vs_mesh", None, None), ("privacy_fence", None, None), ("gate_guide", None, None)]),
             ("Load, naabrid ja reeglid", [("permit_guide", None, None), ("municipal_rules", None, None), ("neighbour", None, None), ("road_utilities", None, None)]),
@@ -1157,10 +1157,10 @@ HUB_CONTENT = {
         "cta": ("Kas vastust ei leidnud?", "Helistage või jätke päring. Vastame ühe tööpäeva jooksul ja mõõdistame tasuta.", "/#form", "Küsi pakkumist"),
     },
     "ru": {
-        "title": "Советы перед заказом забора и ворот | LuxAed",
-        "desc": "Статьи перед заказом забора или ворот: цены, выбор, уведомление о строительстве, требования волостей, соседи, сети, безопасность ворот, ошибки и ремонт.",
+        "title": "Выбор забора и ворот для участка | LuxAed",
+        "desc": "Сравните материалы забора, откатные и распашные ворота. В руководствах — примеры цен, правила установки на границе с соседом и требования волостей.",
         "kicker": "Советы", "h1": "Советы<br><em>перед заказом</em>", "image": "luxaed-g1",
-        "lead": "Собрали в одном месте статьи, которые помогут спланировать забор или ворота, понять цену и избежать частых ошибок. Всё основано на нашем ежедневном опыте.",
+        "lead": "Сравните материалы забора, откатные и распашные ворота. В руководствах — примеры цен, правила установки на границе с соседом и требования волостей.",
         "groups": [
             ("Цена и выбор", [("/ru/ceny/", "Цены на заборы и ворота", "Прайс и примеры расчёта."), ("/ru/kak-vybrat-zabor/", "Как выбрать забор", "Приватность, ветер, уход и цена."), ("panel_vs_mesh", None, None), ("privacy_fence", None, None), ("gate_guide", None, None)]),
             ("Разрешения, соседи и правила", [("permit_guide", None, None), ("municipal_rules", None, None), ("neighbour", None, None), ("road_utilities", None, None)]),
@@ -1170,10 +1170,10 @@ HUB_CONTENT = {
         "cta": ("Не нашли ответа?", "Позвоните или оставьте заявку. Ответим в течение одного рабочего дня и бесплатно приедем на замер.", "/ru/#form", "Оставить заявку"),
     },
     "en": {
-        "title": "Fence and gate guides before you order | LuxAed",
-        "desc": "Guides before you order a fence or gate: prices, choosing, building notices, municipal rules, neighbours, utilities, gate safety, common mistakes and repairs.",
+        "title": "Planning a fence and choosing a gate | LuxAed",
+        "desc": "Compare fence materials, sliding gates and swing gates. Plan your budget, locate the boundary with your neighbour and check local requirements before building.",
         "kicker": "Guides", "h1": "Guides<br><em>before you order</em>", "image": "luxaed-g1",
-        "lead": "We have gathered the guides that help you plan a fence or gate, understand the price and avoid common mistakes. Everything is based on our day-to-day work.",
+        "lead": "Compare fence materials, sliding gates and swing gates. Plan your budget, locate the boundary with your neighbour and check local requirements before building.",
         "groups": [
             ("Price and choice", [("/en/prices/", "Fence and gate prices", "Price guide and worked examples."), ("/en/how-to-choose-a-fence/", "How to choose a fence", "Privacy, wind, upkeep and price."), ("panel_vs_mesh", None, None), ("privacy_fence", None, None), ("gate_guide", None, None)]),
             ("Permits, neighbours and rules", [("permit_guide", None, None), ("municipal_rules", None, None), ("neighbour", None, None), ("road_utilities", None, None)]),

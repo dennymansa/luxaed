@@ -74,8 +74,7 @@ sub_once(r'<!-- SERVICES -->\s*<section class="section svc-hide" id="uslugi">.*?
 # Keep the service scope, trust facts and FAQ identical to the translated site model.
 sub_once(r'<link rel="icon" href="[^"]+">',
          f'<link rel="icon" href="{build_pages.FAVICON}">', 'favicon')
-meta_desc = ("Производство и установка заборов, ворот и калиток в Таллинне и Харьюмаа. "
-             "Дерево, рабица, сварная 2D/3D-сетка, штакетник, прутковые секции, профнастил и автоматика.")
+meta_desc = "Устанавливаем деревянные, сетчатые и панельные заборы, откатные и распашные ворота в Таллинне и Харьюмаа. Замер бесплатно. Гарантия на монтаж — 24 месяца."
 sub_once(r'<meta name="description" content="[^"]*">',
          f'<meta name="description" content="{meta_desc}">', 'meta_description')
 social_url = build_pages.DOMAIN + build_pages.SOCIAL_IMAGE

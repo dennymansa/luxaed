@@ -40,8 +40,8 @@ about_inner=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% рекомендуют</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} отзыва в Facebook</a></div>
-    <h1>Кто мы</h1>
-    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Мы специализируемся на изготовлении и установке заборов, ворот и калиток в Таллинне и Харьюмаа <b>уже более {EXPERIENCE_YEARS} лет</b>. Работаем с деревом, рулонной сеткой и рабицей, сварной 2D/3D-сеткой, металлическим штакетником, прутковыми секциями и профнастилом, ставим автоматику ворот и домофоны и ремонтируем существующие конструкции. Опыт помогает учитывать тип грунта, рельеф и водоотвод.</p>
+    <h1>Артур Мустафин и команда LuxAed</h1>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Артур Мустафин строит заборы и ворота в Таллинне и Харьюмаа более {EXPERIENCE_YEARS} лет. На странице — его работы, фотографии готовых объектов и условия гарантии.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Берём весь процесс на себя: приезжаем на бесплатный замер, закупаем материалы, устанавливаем и передаём готовый объект. Стоимость называем заранее. Без скрытых доплат и сюрпризов.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Новый забор вокруг дачи, откатные ворота с автоматикой или ограждение всей территории. Поможем с любой задачей.</p>
   </div></div>
@@ -114,7 +114,7 @@ RU_FAQ_ONLY=[("Нужно ли для забора уведомление о с�
 ("Как происходит оплата?","Порядок и способ оплаты согласовываем до начала работ. Без вашего согласия к согласованной цене ничего не добавляется.")]
 FAQ=RU_HOME_FAQ[:-1]+RU_FAQ_ONLY+RU_HOME_FAQ[-1:]
 faq_schema=['<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ]},ensure_ascii=False)+'</script>']
-faq_inner=f'''{hero("Вопросы и ответы","Частые вопросы о заборах и воротах","Собрали ответы на вопросы, которые чаще всего задают перед заказом забора или ворот.", crumb="Вопросы")}
+faq_inner=f'''{hero("Вопросы и ответы","Частые вопросы о заборах и воротах","Ответы монтажников о подготовке участка, сроках установки и порядке оплаты. Узнайте, на какие работы действует гарантия 24 месяца и когда можно добавить автоматику.", crumb="Вопросы")}
 <section class="section"><div class="wrap"><span class="tag">FAQ</span><h2 class="big">Что спрашивают перед заказом</h2>{faq_html(FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Не нашли ответ?</h2><p>Позвоните или напишите.<br>Подскажем и приедем на бесплатный замер.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/ru/#form">Оставить заявку →</a><a class="btn btn-ghost" href="tel:{TEL}">Позвонить {PHONE}</a></div></div></section>'''
@@ -154,8 +154,8 @@ TERMS_BLOCKS=[
 
 
 def main():
-    page("/ru/o-nas/","О нас: заборы и ворота в Таллинне | LuxAed",f"LuxAed. Все основные типы заборов, ворота и автоматика в Таллинне и Харьюмаа. Более {EXPERIENCE_YEARS} лет опыта. {RECOMMEND_PERCENT}% рекомендуют в Facebook.", about_inner, schema=[about_page_schema("/ru/o-nas/","ru","О компании LuxAed","Мастер по заборам и воротам Артур Мустафин и история LuxAed в Таллинне и Харьюмаа."),person_artur_schema("ru")])
-    page("/ru/faq/","Вопросы и ответы о заборах и воротах — LuxAed","Частые вопросы о заборах, воротах и автоматике в Таллинне: цена, материалы, сроки, автоматика, ремонт. Ответы от LuxAed.", faq_inner, schema=faq_schema)
+    page("/ru/o-nas/","Артур Мустафин и команда по установке заборов | LuxAed",f"Артур Мустафин строит заборы и ворота в Таллинне и Харьюмаа более {EXPERIENCE_YEARS} лет. На странице — его работы, фотографии готовых объектов и условия гарантии.", about_inner, schema=[about_page_schema("/ru/o-nas/","ru","О компании LuxAed","Мастер по заборам и воротам Артур Мустафин и история LuxAed в Таллинне и Харьюмаа."),person_artur_schema("ru")])
+    page("/ru/faq/","Монтаж заборов и ворот — сроки, оплата и гарантия | LuxAed","Ответы монтажников о подготовке участка, сроках установки и порядке оплаты. Узнайте, на какие работы действует гарантия 24 месяца и когда можно добавить автоматику.", faq_inner, schema=faq_schema)
     legal_page("/ru/privaatsus/","Политика конфиденциальности — LuxAed","Политика конфиденциальности","Конфиденциальность",desc="Политика конфиденциальности LuxAed: какие данные мы получаем через форму заявки, зачем их используем и как вы можете реализовать свои права.",blocks=PRIVACY_BLOCKS)
     legal_page("/ru/tingimused/","Условия обслуживания — LuxAed","Условия обслуживания","Условия",desc="Условия обслуживания LuxAed: как согласуются заявки, предложения и работы. Заборы и ворота в Таллинне и Харьюмаа.",blocks=TERMS_BLOCKS)
     print("RU support pages done")

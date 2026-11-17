@@ -61,8 +61,8 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Hei! Vajate uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% soovitab</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis</a></div>
-    <h1>Piirdeaiad ja väravad</h1>
-    <p class="hero-claim"><em>terviklahendusena</em><br>mõõdistusest paigalduseni</p>
+    <h1>Aedade ja väravate paigaldus</h1>
+    <p class="hero-claim"><em>Tasuta mõõdistus</em><br>24-kuuline garantii paigaldusele</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>{RECOMMEND_PERCENT}%</b><span>soovitab Facebookis</span></div><div class="hstat"><b>{REVIEW_COUNT}</b><span>arvustust</span></div><div class="hstat"><b>{EXPERIENCE_YEARS}+</b><span>aastat kogemust</span></div></div></div>
@@ -154,15 +154,15 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Piirdeaedade ja väravate paigaldus Tallinnas ja Harjumaal — LuxAed","Piirdeaedade, aiaväravate ja jalgväravate valmistamine ning paigaldus Tallinnas ja Harjumaal. Puit-, võrk-, paneel-, metall- ja profiilplekk-aiad ning automaatika.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
+page("/","Aedade ja väravate paigaldus Tallinnas | LuxAed","Paigaldame puit-, võrk- ja paneelaedu ning automaatväravaid Tallinnas ja Harjumaal. Mõõdame krundi tasuta ja anname paigaldustööle 24-kuulise garantii.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">
   <div class="hero-photo-bg" style="background:url('/img/luxaed-hero.webp') center 45%/cover no-repeat"></div>
   <div class="wrap"><div class="hero-grid" style="grid-template-columns:1fr;gap:0"><div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% soovitab</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis</a></div>
-    <h1>Kes me oleme</h1>
-    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Oleme spetsialiseerunud aedade, väravate ja jalgväravate valmistamisele ning paigaldusele Tallinnas ja Harjumaal <b>juba üle {EXPERIENCE_YEARS} aasta</b>. Töötame puidu, rullvõrgu, 2D/3D-keevisvõrgu, metall-lipu, terasprofiili ja profiilplekiga, paigaldame väravaautomaatikat ning remondime olemasolevaid konstruktsioone. Kogemus aitab meil arvestada eri pinnaste, reljeefi ja vee äravooluga.</p>
+    <h1>Artur Mustafin ja LuxAedi meeskond</h1>
+    <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:16px;max-width:720px">Artur Mustafin on Tallinnas ja Harjumaal aedu ja väravaid ehitanud üle {EXPERIENCE_YEARS} aasta. Tutvuge meeskonna tööga ja vaadake fotosid valminud aedadest.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Võtame kogu protsessi enda peale: tuleme tasuta mõõdistusele, ostame materjalid, paigaldame ja anname valmis objekti üle. Ütleme hinna ette. Ilma peidetud lisatasude ja üllatusteta.</p>
     <p class="lead" style="color:#fff;font-size:16px;line-height:1.55;margin-top:12px;max-width:720px">Uus aed suvila ümber, lükandvärav automaatikaga või terve territooriumi piire: teeme kõik ära.</p>
   </div></div>
@@ -203,14 +203,14 @@ meist=f'''<section class="hero hero--compact">
 </div></div></section>
 <section class="cta-final"><div class="wrap"><h2>Arutame <em>teie aeda või väravat</em>?</h2><p>Jätke päring või helistage. Tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/meist/","Meist: aiad ja väravad Tallinnas — LuxAed","LuxAed. Aedade ja väravate tootmine ja paigaldus Tallinnas ja Harjumaal. Puit, profiilplekk, keevisvõrk, automaatika ja domofonid.", meist, sch=[about_page_schema("/meist/","et","LuxAedist","Aedade ja väravate meister Artur Mustafin ja LuxAedi lugu Tallinnas ja Harjumaal."),person_artur_schema("et")])
+page("/meist/","Aedade ja väravate ehitaja Artur Mustafin | LuxAed","Artur Mustafin on Tallinnas ja Harjumaal aedu ja väravaid ehitanud üle 15 aasta. Tutvuge meeskonna tööga ja vaadake fotosid valminud aedadest.", meist, sch=[about_page_schema("/meist/","et","LuxAedist","Aedade ja väravate meister Artur Mustafin ja LuxAedi lugu Tallinnas ja Harjumaal."),person_artur_schema("et")])
 
 # ---------------- ET KKK ----------------
-kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Kogusime vastused küsimustele, mida enne aia või värava tellimist kõige sagedamini küsitakse.", crumb="KKK")}
+kkk_inner=f'''{hero("KKK","Korduma kippuvad küsimused","Lugege, kuidas valmistada krunt paigalduseks ette, millal selgub töö tähtaeg ja millele kehtib 24-kuuline garantii. Vastame ka maksmise ja väravaautomaatika küsimustele.", crumb="KKK")}
 <section class="section"><div class="wrap"><span class="tag">KKK</span><h2 class="big">Mida enne tellimist küsitakse</h2>{faqx(KKK_FAQ)}</div></section>
 <section class="cta-final"><div class="wrap"><h2>Ei leidnud vastust?</h2><p>Helistage või kirjutage.<br>Anname nõu ja tuleme tasuta mõõdistusele.</p>
 <div class="hero-btns"><a class="btn btn-accent" href="/#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/kkk/","KKK: aiad, väravad ja automaatika Tallinnas — LuxAed","Korduma kippuvad küsimused aedade, väravate ja automaatika kohta Tallinnas: hind, materjalid, tähtajad, automaatika, remont. LuxAed.", kkk_inner, og="/img/luxaed-wide-wood.jpg", sch=kkk_faq_schema)
+page("/kkk/","Aia paigaldus, tähtajad ja garantii – KKK | LuxAed","Lugege, kuidas valmistada krunt paigalduseks ette, millal selgub töö tähtaeg ja millele kehtib 24-kuuline garantii. Vastame ka maksmise ja väravaautomaatika küsimustele.", kkk_inner, og="/img/luxaed-wide-wood.jpg", sch=kkk_faq_schema)
 
 # ---------------- ET KONTAKT ----------------
 
