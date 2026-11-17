@@ -313,7 +313,7 @@ def validate_forms():
     expected_form_count = 3 * (1 + len(SERVICE_MATRIX)) + len(PROBLEM_PATHS)
     if len(expected_paths) != expected_form_count:
         fail(f"Expected {expected_form_count} form pages, got {len(expected_paths)}")
-    expected_services = ["aed", "varav", "automaatika", "intercom"]
+    repair_choices = ["aed", "varav", "automaatika", "intercom"]
     contact_labels = {
         "et": ["Nimi *", "Telefon *", "E-post *", "Objekti aadress (valikuline)"],
         "ru": ["Имя *", "Телефон *", "Email *", "Адрес объекта (необязательно)"],
@@ -331,7 +331,7 @@ def validate_forms():
             form = one(r'<form\s+id="leadFormV2"[^>]*>.*?</form>', html, f"{path} lead form")
             # Service landing pages know the service from the page itself, so they
             # drop the "what do you want installed" chips and send it hidden instead.
-            # Only the three home pages still ask the visitor to choose.
+            # Home and repair forms let visitors choose several services.
             choices = re.findall(r'<button\s+class="project-choice[^>]*data-service="([^"]+)"', form)
             hidden_service = one(r'<input\b[^>]*name="service"[^>]*>', form, f"{path} hidden service field")
             known = re.search(r'value="(aed|varav|automaatika|intercom|betoon)"', hidden_service)
@@ -342,6 +342,7 @@ def validate_forms():
             else:
                 # Home pages and the repair page cover several services at once,
                 # so the visitor still has to say which one they mean.
+                expected_services = [*repair_choices, "betoon"] if path == home_by_lang[lang] else repair_choices
                 if choices != expected_services:
                     fail(f"{path}: form choices are {choices}, expected {expected_services}")
             labels = [re.sub(r'<[^>]+>', '', label).strip() for label in re.findall(r'<span class="form-field-label">(.*?)</span>', form)]

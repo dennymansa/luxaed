@@ -128,6 +128,13 @@ def render_lead_form(lang="et", default_service="", default_material=""):
         c.update(REPAIR_COPY[lang])
     elif selected:
         c["sub"] = c["sub_service"]
+    if not default_service:
+        question, concrete, error = {
+            "et": ("Millist teenust soovite?", "Betoonitööd", "Valige vähemalt üks teenus."),
+            "ru": ("Какие работы вам нужны?", "Бетонные работы", "Выберите хотя бы одну услугу."),
+            "en": ("Which services do you need?", "Concrete work", "Select at least one service."),
+        }[lang]
+        c.update(what=question, choose_error=error, services=[*c["services"], ("betoon", concrete)])
     buttons = "".join(
         f'<button class="project-choice{" on" if code in selected else ""}" type="button" data-service="{code}" data-label="{html.escape(label)}" aria-pressed="{"true" if code in selected else "false"}"><span class="project-choice-check" aria-hidden="true">✓</span>{html.escape(label)}</button>'
         for code, label in c["services"]

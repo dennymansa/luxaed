@@ -62,19 +62,19 @@ home_inner=f'''<section class="hero">
     <div class="hero-kicker hand">Hei! Vajate uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% soovitab</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis</a></div>
     <h1>Aia ehitus ja väravate paigaldus</h1>
-    <p class="hero-claim"><em>Tasuta mõõdistus</em><br>24-kuuline garantii paigaldusele</p>
+    <p class="hero-claim"><em>Tasuta mõõdistus</em></p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>{RECOMMEND_PERCENT}%</b><span>soovitab Facebookis</span></div><div class="hstat"><b>{REVIEW_COUNT}</b><span>arvustust</span></div><div class="hstat"><b>{EXPERIENCE_YEARS}+</b><span>aastat kogemust</span></div></div></div>
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mida aia ehitus sisaldab</h2></div>
-  <div><p>Ehitame puit-, metall-, võrk- ja paneelaedu Tallinnas ja Harjumaal. Mõõdistusel vaatame koos üle aiajoone, pinnase ja väravate asukohad. Toome materjali kohale, paigaldame postid ja aiasektsioonid ning reguleerime väravad. Meilt saate tellida ka <a href="/varavad/">automaatväravate paigalduse</a> ja <a href="/varavad/domofonid/">videodomofoni koos jalgvärava elektrilukuga</a>, et kogu sissepääs töötaks ühe süsteemina.</p></div>
+  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Piirdeaia ehitus Tallinnas ja Harjumaal</h2></div>
+  <div><p>Ehitame puit-, metall-, võrk- ja paneelaedu Tallinnas ja Harjumaal. Mõõdistusel vaatame koos üle aiajoone, pinnase ja väravate asukohad. Toome materjali kohale, paigaldame postid ja aiasektsioonid ning reguleerime väravad. Paigaldame ka automaatväravaid ja videodomofone. Eraldi saab tellida aia lintvundamendi valamise ja betoonpostide ehituse.</p></div>
 </div></div></section>
 
-<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Aiad ja väravad igale krundile</h2>
-  <p class="lead lead--lg">Valige aia või värava tüüp. Aitame valida sobiva lahenduse, tuleme tasuta mõõdistusele ja arvutame hinna.</p>
+<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Aiad, väravad ja betoonitööd</h2>
+  <p class="lead lead--lg">Valige teenus ja küsige pakkumist. Tuleme kohale, mõõdame töömahu ja arvutame hinna.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Ei tea, milline aed sobib?</span>
@@ -154,7 +154,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aia ehitus ja väravate paigaldus Tallinnas | LuxAed","Ehitame piirdeaedu ja paigaldame väravaid Tallinnas ja Harjumaal. Mõõdame krundi tasuta, teeme kirjaliku pakkumise ja anname paigaldustööle 24-kuulise garantii.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
+page("/","Aia ehitus ja väravate paigaldus Tallinnas | LuxAed","Ehitame piirdeaedu ja paigaldame väravaid Tallinnas ja Harjumaal. Valame ka aia lintvundamente. Küsige tasuta mõõdistust ja kirjalikku hinnapakkumist.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">

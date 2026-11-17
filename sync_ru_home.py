@@ -65,8 +65,8 @@ if s != before_tracking:
 sub_once(r'<header class="nav-wrap">.*?<main id="main">', build_pages.nav('ru', '/ru/') + '\n\n<main id="main">', 'nav')
 services = f'''<!-- SERVICES -->
 <section class="section svc-hide" id="uslugi"><div class="wrap">
-  <span class="tag">Наши услуги</span><h2 class="big big--xl">Заборы и ворота для любого участка</h2>
-  <p class="lead lead--lg">Выберите тип забора или ворот. Поможем подобрать решение, приедем на бесплатный замер и рассчитаем стоимость.</p>
+  <span class="tag">Наши услуги</span><h2 class="big big--xl">Заборы, ворота и бетонные работы</h2>
+  <p class="lead lead--lg">Выберите услугу и запросите расчёт. Мы приедем на бесплатный замер и подготовим предложение.</p>
   <div class="steps-ph">{build_pages.service_tiles_html('ru')}</div>
 </div></section>'''
 sub_once(r'<!-- SERVICES -->\s*<section class="section svc-hide" id="uslugi">.*?</section>', services, 'service_tiles')
@@ -74,7 +74,7 @@ sub_once(r'<!-- SERVICES -->\s*<section class="section svc-hide" id="uslugi">.*?
 # Keep the service scope, trust facts and FAQ identical to the translated site model.
 sub_once(r'<link rel="icon" href="[^"]+">',
          f'<link rel="icon" href="{build_pages.FAVICON}">', 'favicon')
-meta_desc = "Устанавливаем деревянные, сетчатые и панельные заборы, откатные и распашные ворота в Таллинне и Харьюмаа. Замер бесплатно. Гарантия на монтаж — 24 месяца."
+meta_desc = "Устанавливаем деревянные, сетчатые и панельные заборы, откатные и распашные ворота в Таллинне и Харьюмаа. Заливаем фундаменты под забор. Замер бесплатно."
 sub_once(r'<meta name="description" content="[^"]*">',
          f'<meta name="description" content="{meta_desc}">', 'meta_description')
 social_url = build_pages.DOMAIN + build_pages.SOCIAL_IMAGE
@@ -98,7 +98,7 @@ sub_once(r'<script type="application/ld\+json">(?:(?!</script>).)*?"@type"\s*:\s
 
 info = '''<section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">Что мы предлагаем</span><h2 class="info-title">Строительство и установка заборов</h2></div>
-  <div><p>LuxAed устанавливает заборы под ключ в Таллинне и Харьюмаа, от замера до готового ограждения. Работаем с деревом, профнастилом, металлическим штакетником, рулонной и 2D/3D-сеткой. Закажите у нас <a href="/ru/vorota-avtomatika/">установку автоматических ворот</a> и <a href="/ru/domofony-videodomofony/">видеодомофон с открыванием калитки</a>, чтобы весь въезд работал как одна система.</p></div>
+  <div><p>LuxAed устанавливает заборы под ключ в Таллинне и Харьюмаа, от замера до готового ограждения. Работаем с деревом, профнастилом, металлическим штакетником, рулонной и 2D/3D-сеткой. Устанавливаем также автоматические ворота и видеодомофоны. Отдельно можно заказать заливку ленточного фундамента под забор и строительство бетонных столбов.</p></div>
 </div></div></section>'''
 sub_once(r'<section class="info-strip">.*?</section>', info, 'service_scope')
 

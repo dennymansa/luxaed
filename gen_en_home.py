@@ -59,7 +59,7 @@ home_inner=f'''<section class="hero">
     <div class="hero-kicker hand">Hey! Need a new fence?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% recommend</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} Facebook reviews</a></div>
     <h1>Fence and gate installation</h1>
-    <p class="hero-claim"><em>Free site measurement</em><br>24-month installation warranty</p>
+    <p class="hero-claim"><em>Free site measurement</em></p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div>
   </div>{form_html()}</div>
   <div class="hero-stats"><div class="hstat"><b>{RECOMMEND_PERCENT}%</b><span>recommend on Facebook</span></div><div class="hstat"><b>{REVIEW_COUNT}</b><span>reviews</span></div><div class="hstat"><b>{EXPERIENCE_YEARS}+</b><span>years of experience</span></div></div></div>
@@ -67,11 +67,11 @@ home_inner=f'''<section class="hero">
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
   <div><span class="tag">What we do</span><h2 class="info-title">Fence construction and installation</h2></div>
-  <div><p>LuxAed is a fence installation company serving Tallinn and Harju County, from the first site measurement to the finished fence. Choose timber, profiled sheet, steel pickets, roll mesh or 2D/3D panels. We also provide <a href="/en/gates-automation/">automatic gate installation</a> and <a href="/en/intercoms-video-intercoms/">video intercoms with pedestrian-gate access</a>, so your whole entrance works together.</p></div>
+  <div><p>LuxAed is a fence installation company serving Tallinn and Harju County, from the first site measurement to the finished fence. Choose timber, profiled sheet, steel pickets, roll mesh or 2D/3D panels. We also install automatic gates and video intercoms. You can order concrete strip foundations and fence posts as a separate service.</p></div>
 </div></div></section>
 
-<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">Fences and gates for every plot</h2>
-  <p class="lead lead--lg">Choose a fence or gate type. We'll help you pick the right solution, come for a free measurement and calculate the price.</p>
+<section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Our services</span><h2 class="big big--xl">Fences, gates and concrete work</h2>
+  <p class="lead lead--lg">Choose a service and request a quote. We’ll measure the site free of charge and price the work.</p>
   <div class="steps-ph">{tiles_html}</div></div></section>
 
 <div class="mini-cta"><div class="wrap"><span>Not sure which fence suits you?</span>
@@ -151,7 +151,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Ready to discuss <em>a fence or gate</em>?</h2>
   <p>Leave a request or call. We'll come for a free measurement and give an exact price.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Get a quote →</a><a class="btn btn-ghost" href="tel:{TEL}">Call {PHONE}</a></div></div></section>'''
-page("/en/","Fence and gate installation in Tallinn | LuxAed","We install timber, mesh and panel fences, sliding gates and swing gates in Tallinn and Harju County. Free site measurement and a 24-month installation warranty.", home_inner, sch=lb_schema+video_schema(home_video_items("en"),"en"))
+page("/en/","Fence and gate installation in Tallinn | LuxAed","We install timber, mesh and panel fences, sliding gates and swing gates in Tallinn and Harju County. We also pour fence foundations. Request a free site measurement.", home_inner, sch=lb_schema+video_schema(home_video_items("en"),"en"))
 
 # ---------------- EN ABOUT ----------------
 about=f'''<section class="hero hero--compact">
