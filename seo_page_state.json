@@ -1,82 +1,82 @@
 {
   "/": {
-    "digest": "1a80af1d0a4e525d49748415d8308a36253ed0f71382565c64197069dfe35ae7",
+    "digest": "1d5b7c20c674ab0bbcaade4bef03b27188400c31f6d8e8fc4abe34be78a9f32c",
     "lastmod": "2026-11-17"
   },
   "/aed-naabri-piiril/": {
-    "digest": "cc8dcc045bdcbb0298c5dad3cbd1fc6c89825dcbd40018d5d26102230fde10ee",
-    "lastmod": "2026-10-02"
+    "digest": "ec53418060ac39d89883a181144fbca057fe3fa6a0f6e7b56646b0c26a14856e",
+    "lastmod": "2026-11-17"
   },
   "/aed-tee-ja-trasside-lahedal/": {
-    "digest": "ec88b2851b01c233386f7410336aada15744c7f55d4a4beee3648f04cd221837",
-    "lastmod": "2026-09-27"
+    "digest": "86b8d6f1e5a6e994646eea436595721a35c7a7d7e6c620835ba3e216d1affc6c",
+    "lastmod": "2026-11-17"
   },
   "/aia-ehituse-vead/": {
-    "digest": "6836b3d526856d840916b500c3ea425dad21bd067052a91a816ddf57bd62b160",
-    "lastmod": "2026-10-02"
+    "digest": "4cfd41c5b9ec189924011c8ac49aa3de5f9494ce0939af0a05919aec798cef70",
+    "lastmod": "2026-11-17"
   },
   "/aia-ehitusteatis/": {
-    "digest": "ea75df4f22bd6cd8d6e5cac2fa7e35ba89aff0891c6573720015c85eb5bfd0ee",
+    "digest": "a8eba6e59357b50c9dcb32f4242f00c4052e417f7aed89e6e2867d06a35bd676",
     "lastmod": "2026-11-17"
   },
   "/aia-korgus-harjumaal/": {
-    "digest": "0b8b9e3eadf8925ed9df38bbc6bd20541e5afb4a38ae95963753eab5de8c930d",
-    "lastmod": "2026-10-02"
+    "digest": "3439e96fbd3312aeaf6156c8702e9c4989db2ac3340ec175a8fe580902ddb535",
+    "lastmod": "2026-11-17"
   },
   "/aia-remont/": {
-    "digest": "0ecd573412b0c980cc52e220acf2a739b308996f8c2c1e38a97f343087946ceb",
-    "lastmod": "2026-09-28"
+    "digest": "f0619bf44ae5c149a90fd9edbf93a5074047edb3b9c59d3d27a3750ae03d872a",
+    "lastmod": "2026-11-17"
   },
   "/aia-remont/kahjustatud-aed/": {
-    "digest": "19dac2e21e6ec519e64650f4540af0c02646f6741bf71d8edb34c2bd7a76788e",
+    "digest": "6c802047eda8ae9329cd7bb8d940e297f2657d53e55dc71cb6ea7241247f0195",
     "lastmod": "2026-11-17"
   },
   "/aia-remont/liugvarava-remont/": {
-    "digest": "9950031d051def33e952c5b22af5aafdbf69a5d0ff41c9cf39f3976d0dd78b6b",
+    "digest": "6c2a952022326008aaea9a8c5288cb7c7123b760c62af7faf41466be96ffa337",
     "lastmod": "2026-11-17"
   },
   "/aia-remont/varav-ei-avane/": {
-    "digest": "7b363a59542ba7b851531ea027c3be0dc62bddf75033d46c975688a1beb5b81e",
+    "digest": "b26af509f8dd76ec8888e1f77da4a54197b84a6939076c306fe89d0e32bb4577",
     "lastmod": "2026-11-17"
   },
   "/aia-remont/viltu-aed/": {
-    "digest": "e64f67db4405e638a295ef64c58de6d1a1eafd37386c9c153c7c6133d0f583b8",
+    "digest": "bc03c596dfa7ed371af3be00a8d77624e338a795d0459a4cc4eb60895dee9182",
     "lastmod": "2026-11-17"
   },
   "/aia-vundamendi-betoonitood-10-nouannet/": {
-    "digest": "c0ea0b6a2937824261bc1f73fa45093209888f6cea17322015a3199625780a0f",
-    "lastmod": "2026-11-11"
+    "digest": "2e9c91900ac66c1de8b259520590b526a993aa7078e03b75347025cb161cc2e2",
+    "lastmod": "2026-11-17"
   },
   "/aiad/lippaed/": {
-    "digest": "7bac61f8f2e6737def55378cbdeb715bcc004f1cef09975471629e7a94f7ad0a",
-    "lastmod": "2026-10-02"
+    "digest": "36c206e304d7a308289e353ad9f706f722d4662b4d85a098a54a24180d6d45a3",
+    "lastmod": "2026-11-17"
   },
   "/aiad/metallaed/": {
-    "digest": "8e4fb9730b5709caa26ee24603a3c7ebd70ad9c6790bb903b74adfb3168d583e",
-    "lastmod": "2026-10-02"
+    "digest": "47b59ffe65266c7641edd23ce0f86a5993650cfbd2c97e339a7819f9d77df84c",
+    "lastmod": "2026-11-17"
   },
   "/aiad/paneelaed/": {
-    "digest": "b6c4ccb4a72741886749d3b2be17c69952be68a8c183b9104a15ccf0efe33689",
-    "lastmod": "2026-10-02"
+    "digest": "b3178455a50ad74a86e0829bb855a98795f16e213ed0d624f368cda399510341",
+    "lastmod": "2026-11-17"
   },
   "/aiad/profiilplekk-aed/": {
-    "digest": "d614faee43041e3b3a32e056a49ef0d1e32fbd44b4e4ab62dbd74f17365beb61",
-    "lastmod": "2026-09-28"
+    "digest": "051f77f7db2f3b9692841dae1d2e8831a9bc20ddf92228202431e75475af1e71",
+    "lastmod": "2026-11-17"
   },
   "/aiad/puitaed/": {
-    "digest": "7ba1af60cde24d0ae96b78cecf5daaf864a5feed337e3db4c4d215227f73c051",
-    "lastmod": "2026-10-02"
+    "digest": "73a8c67686044f9a4fa097787e944c3f548502104e1a2d5719cef128538d2cc0",
+    "lastmod": "2026-11-17"
   },
   "/aiad/vorkaed/": {
-    "digest": "1f89bcce749bb952252daaa9f897c01ab4e9e10b61dcce3e45f8d53f647bcfa6",
-    "lastmod": "2026-10-02"
+    "digest": "8ad990dd45448bbb4b09a6f1a80f14e0fd97af226830058f1830c50a19a53c4f",
+    "lastmod": "2026-11-17"
   },
   "/automaatvarava-ohutus/": {
-    "digest": "496d9ec4217aa74f1b0bb4228449f92bbad585c4633430d055cc4b316fd073ed",
-    "lastmod": "2026-09-27"
+    "digest": "5b8233b2bb4798685a15eba9a63021d0bc6118cd165eb9450af1a05f77f87233",
+    "lastmod": "2026-11-17"
   },
   "/betoonitood/": {
-    "digest": "063060881e8ab4a48c6d68e0a94e1140e9802b3b07f058345eac9d9d98a1cffb",
+    "digest": "aa90a35644e424917f5d83ed6a3ac75c474384ac6f9bc5afd617fa9dc4b9be10",
     "lastmod": "2026-11-17"
   },
   "/en/": {
@@ -216,183 +216,183 @@
     "lastmod": "2026-09-27"
   },
   "/hinnad/": {
-    "digest": "930ff8f24662a700e9935fa6d5f088523dbd0ab631761f264cab87e6d9900b67",
+    "digest": "1b77dea400f39273fc62b71a4152a6c32689ca0b23b1e45d50d8f251d5264538",
     "lastmod": "2026-11-17"
   },
   "/kinnine-aed/": {
-    "digest": "6fcbe5e8d350a9a9f1a41fb699ec908b3c3d9bd93ba3ae9ecb39fdff54a42855",
+    "digest": "2d380adbfefe5bb404dd11dba3ea7c21e98106b47fd22ced900d9dc175dd03ba",
     "lastmod": "2026-11-17"
   },
   "/kkk/": {
-    "digest": "a78107a5e601867f12f04d2dc18f0e729cf57d65021b56326cfcdcbc8ec59ec2",
+    "digest": "33caa32422473d80367e0c1592f1e97c0cd5027d113b998e68804e95b35c3d5c",
     "lastmod": "2026-11-17"
   },
   "/kuidas-valida-aeda/": {
-    "digest": "ac48e674987c7996c3b5b8aaa87f0d6e631acbca951e096d77526d96c6405ee8",
-    "lastmod": "2026-09-27"
+    "digest": "9ffb60227d3e15ed8c61838a888469f8079c2b8f653a3f45c085d9ee8baa677c",
+    "lastmod": "2026-11-17"
   },
   "/kuidas-valida-aiafirmat/": {
-    "digest": "60ae6d9b5498b146c978f817bfeb399377995da8a775c7f21067fa0f57135c55",
-    "lastmod": "2026-10-02"
+    "digest": "baee9ba46697720c70568df54f34552215967efc7700704dfd59ee48f8a275ef",
+    "lastmod": "2026-11-17"
   },
   "/liugvarav-voi-tiibvarav/": {
-    "digest": "81b311d7546836547fb4a005c0a96e45d01a473bb4411aafbfda332460d3f58f",
+    "digest": "040404a155933e41900a85262fe8264f50eccb5836de6ff134f678f9bb946e75",
     "lastmod": "2026-11-17"
   },
   "/meist/": {
-    "digest": "3761ce0837364fcc6558b87ecb86f3ee6db57fa76769faaaa84caba36621279e",
+    "digest": "7e9da7864c6613998a92301b5a3dee0124b2dbd71a4287aa810330de17fc3dbd",
     "lastmod": "2026-11-17"
   },
   "/nouanded/": {
-    "digest": "4d4d5541c3fb7137aa79753e41c9af1bc31918da8584b7659c39112a14ad9b9c",
+    "digest": "a22d4d6ddfda3f492dfa5902b2828fa07cbe8eebffee6b13c46e7318dcfcba27",
     "lastmod": "2026-11-17"
   },
   "/paneelaed-voi-vorkaed/": {
-    "digest": "fd51399c3006f680518d292f02fe282a31abcf49df5b3f1b3b17615639f4e473",
+    "digest": "1a4c9426a28e32e8f6ffaeb1002edb8efa626cb881dbf7809288cfbbc7591e97",
     "lastmod": "2026-11-17"
   },
   "/piirkonnad/harjumaa/": {
-    "digest": "bee1de71c6fd96cebc0639e7621fb81b883874244620cf30b374c8d0a9ee5dc3",
-    "lastmod": "2026-09-27"
+    "digest": "20ccb41ffd08029811c63c4a91e58d71b8129aa27efbeefcb63f96b208af56b3",
+    "lastmod": "2026-11-17"
   },
   "/privaatsus/": {
     "digest": "c42ff9b48dd831bb0bdbbfdd712b42771f652c63bfe7d0b8dfd5c0bfe9b4bbdb",
     "lastmod": "2026-09-27"
   },
   "/ru/": {
-    "digest": "52ca0853467a5b185df9f32856fefb43785c366418f2001badb9aea9bc6a6712",
+    "digest": "df515d2c60394ca51f02ab1113a03c62611ff8234f85081403db6ffdae7e7b0d",
     "lastmod": "2026-11-17"
   },
   "/ru/3d-zabor-ili-setka-rabitsa/": {
-    "digest": "c351234c63c57694bda322377cc838fa1d3eb368bdf4b8fd41319917f6731875",
+    "digest": "e128d507ee5a1a56b46ccfd6dddbb5286a3011717a65224d995c8c46f60d1f7c",
     "lastmod": "2026-11-17"
   },
   "/ru/betonnye-raboty/": {
-    "digest": "ed01d725bb346217a54abf6e2387666af175d2cb47989242a56f958a63858988",
+    "digest": "18ac6902a24c02b5a72606193dcc22d276187d547bd0ffbd6f4ecaf90fecd364",
     "lastmod": "2026-11-17"
   },
   "/ru/bezopasnost-avtomaticheskih-vorot/": {
-    "digest": "47a0caf7ec63b3d60a53ad0c4da1a82054b4ea88bf2288c6126b50e29eebd72c",
-    "lastmod": "2026-09-27"
+    "digest": "c617b361ab0397b4fb5268c376b245d339e23a13a5d2596ef659407cfdaa99d2",
+    "lastmod": "2026-11-17"
   },
   "/ru/ceny/": {
-    "digest": "1edc8822929c01b6494ddb119270cd8a1096ba75e1f7c0253f6a25b9cab8b106",
+    "digest": "dfa51b2e831ed37ac07db27931fcd3d4ade645860c0ccf7576acc4620862139f",
     "lastmod": "2026-11-17"
   },
   "/ru/domofony-videodomofony/": {
-    "digest": "ddbea1482cb1201023d30b97c61f0df4df029b471e5a7a9320b3c033afab0e81",
-    "lastmod": "2026-09-28"
+    "digest": "61817a42a47aa376033394c2c9ee5c491708088d89f6af74f8f15f8883daa7fb",
+    "lastmod": "2026-11-17"
   },
   "/ru/faq/": {
-    "digest": "c04aeb023c841771a135946a4e0663f439ea8afd5bbfdab460d5dd34bb59a27c",
+    "digest": "94d72af47eb3abb3e90fe485134093ff6456182f61de5251bb256cb4ef053875",
     "lastmod": "2026-11-17"
   },
   "/ru/fundament-zabora-10-sekretov/": {
-    "digest": "16663bcdb1a4731c84ad0a929bebd18b1b9da0141f7a47501cf59ee009c277b7",
-    "lastmod": "2026-11-11"
+    "digest": "6d59b04de46b5e160f8f41b2162826a6c950d1b76dbf75f873dd00bd1333da2a",
+    "lastmod": "2026-11-17"
   },
   "/ru/gluhoj-zabor/": {
-    "digest": "1aff4054f70b6c7e7c17539f31a0d06371e0d57301ed128744477d024591dc43",
+    "digest": "b27382671917ec8b343ede1161956b9edda00e1bbbfd584c7680ddf94f7f12f3",
     "lastmod": "2026-11-17"
   },
   "/ru/kak-vybrat-firmu-dlya-zabora/": {
-    "digest": "4de3ca642a06a3d6fd69bff1bf131ba55a52ecd0ec0fefbd57a1a4f359ce0375",
-    "lastmod": "2026-10-02"
+    "digest": "eac1b6b6fd4c7e5eee40eeb2c97a78d920e1f58f3d17d56ac6d6072daa4e57e5",
+    "lastmod": "2026-11-17"
   },
   "/ru/kak-vybrat-zabor/": {
-    "digest": "1baf50aae0bfe7c0735bdca43c3be58125b67c45242d2b4dfe128ac7cbd70bc3",
-    "lastmod": "2026-09-27"
+    "digest": "a9dc2b9783373c3e18fd149704a6a2f15b2111b81dbb7b5b5eeef0694679c506",
+    "lastmod": "2026-11-17"
   },
   "/ru/o-nas/": {
-    "digest": "554bbf8297a8e838e9eaed1837001a3a6debbea306b3106cbcdcc802597969fe",
+    "digest": "0dfcc2154459bedb6d3fb163860306cd6537664accc564d83ba15bf5fa4dc53d",
     "lastmod": "2026-11-17"
   },
   "/ru/oshibki-pri-ustanovke-zabora/": {
-    "digest": "f4af33ea757c352a5549cf0277174739758b0db46ca6fc12ede70d8b08fe42e2",
-    "lastmod": "2026-10-02"
+    "digest": "646416df16ec34cc12439bc4a3490f1b0f0db50ab8ba56957e6d229f87c35644",
+    "lastmod": "2026-11-17"
   },
   "/ru/otkatnye-ili-raspashnye-vorota/": {
-    "digest": "d2557839ad1135ccc975b3edfec7e1309063e36292cbd52613aa8f5386a354a1",
+    "digest": "e2deabe45cce120b0ff80e846fddbbbdca5b05fa9f96c76b3857209972fb7d1b",
     "lastmod": "2026-11-17"
   },
   "/ru/privaatsus/": {
-    "digest": "d1c86994c29d019b53198019dc1244a45b4e32386bfb851513c3bb75269e55be",
-    "lastmod": "2026-09-27"
+    "digest": "72e2bdea167ca4f144fbd5f953f031878b042ded8b571b8af25be783635098bb",
+    "lastmod": "2026-11-17"
   },
   "/ru/rajony/harjumaa/": {
-    "digest": "10bc27b2f1fda5fcbb1a0754b45868c2fbeb78d9166ce8d3ac02a34e4d299cbc",
-    "lastmod": "2026-09-27"
+    "digest": "cfff864adb060aa0a4ac8af7ac6dfd57319aade2a48cce2f6ee86f4f1890c886",
+    "lastmod": "2026-11-17"
   },
   "/ru/razreshenie-na-zabor/": {
-    "digest": "85fe7ac6e8807700321fdad19752dcab24dc0218a95dfa28f1acc246fa940b06",
+    "digest": "f51c55682da5c15a9fddd656220b8fdbb1d9c08d41619088ec9fb6e8bea0a37f",
     "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/": {
-    "digest": "b3139ded6b525362106b6574e32f0086122443f18dda0200c5b0eaf67d73d648",
-    "lastmod": "2026-09-28"
+    "digest": "8615560614265ac5aebe9fb58c7c52d67bd48397ee744ca0b813fbaef30cbef9",
+    "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/pokosilsya-zabor/": {
-    "digest": "48b138aaf809aeeb8d3c3d4a503632db6d0f1f39bc8a079622a879d0d07fbe43",
+    "digest": "f527457b7e72b109abc1b4af03e03463c08986297c9b44b91bf918f36dab3b71",
     "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/povrezhdennyj-zabor/": {
-    "digest": "c97fbaaa4b061f6508487282520229ba14204d21a1faa25e61e2e25633c33315",
+    "digest": "7bb5a00aa68f7f826fccd4acc8f9b06d4bab8928e83e2fbafe8ab87ab071f192",
     "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/remont-otkatnyh-vorot/": {
-    "digest": "04ab794d173c0c53a264267ef1f67ebd95b3ed5bcfefa4aa136f771e7b46aa0e",
+    "digest": "9ffd02839221a9f7648f44ea14c9c3f2c81ca925e304b2a5d0f50953251c7d83",
     "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/vorota-ne-otkryvayutsya/": {
-    "digest": "629465326ea4a1b1f07a464225b744048d310cf9ec89d457d10f41d962bc21b9",
+    "digest": "7c0fcee0b6a2e1577a0c1f8a0a942c415719ccddf146d0992c24e4fbc455d2a1",
     "lastmod": "2026-11-17"
   },
   "/ru/sovety/": {
-    "digest": "0d7db735d18d4469fdf7bd70c86d96f4b493db375ee8ab88a9a94729a57d7d8a",
+    "digest": "21a641f9d3ed208158270405de77052805917d0240b8aef4eb736c711b617632",
     "lastmod": "2026-11-17"
   },
   "/ru/tingimused/": {
-    "digest": "0bf093e4043d5c5ccfd0f424f40e4b93f534ac993fee9c4d275d5b0133a94189",
-    "lastmod": "2026-09-27"
+    "digest": "6e4e5c26376a5c428f5dfb596cc1d03e2061f2773a168241303952f075be33b4",
+    "lastmod": "2026-11-17"
   },
   "/ru/vorota-avtomatika/": {
-    "digest": "8dbb71e77baa6831aeed3dcb53ff8321479ed51cc48857a76ed032ee79f618d6",
-    "lastmod": "2026-09-28"
+    "digest": "00debd7c4de284d6a99012b4427fc181a28e7cd63bf6981a75a4f9194017cb9d",
+    "lastmod": "2026-11-17"
   },
   "/ru/vysota-zabora-v-harjumaa/": {
-    "digest": "c263ce7b2409557a4469d41f4c8929614588564a63f650ff42be7d7e93a2692f",
-    "lastmod": "2026-10-02"
+    "digest": "f22d03c695820b431e918798c845ed5546b75171285a90d94ca5221807bd558d",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabor-s-sosedom/": {
-    "digest": "2cf9f5078a3514ca445a888d133f7c6ea082e180105c84b95c0ce081379fa980",
-    "lastmod": "2026-10-02"
+    "digest": "20556cbf1fc696b6390332e0a16c05f9632ee090cf10da2cb183723659a8e628",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabor-u-dorogi-i-kommunikacij/": {
-    "digest": "121ab82e8590ed1f1c4b63b59bded4d75c15c202d793764f4bd02e0c9e8aa727",
-    "lastmod": "2026-09-27"
+    "digest": "f0d211b76758065352963dd3e270bb00d0fab935553d2ee961312404d1e97d12",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/2d-3d-setka/": {
-    "digest": "1cbc6843b96a36222e100e83f46a16f3c9a8323f0b76321c1459ab262209f6fe",
-    "lastmod": "2026-10-02"
+    "digest": "3e7d38652e6e74e191052b337fc8e45bb544ae52e8ecc53dc600deba741cff46",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/derevyannye/": {
-    "digest": "2d5305fd6bc85e48526d5227aad360e50ee4fae5de813e31cdd8fad564850c9c",
-    "lastmod": "2026-10-02"
+    "digest": "fcabaa6f58c390d8031b918a0df1ad96552a93ec4be28c6c94484d788d233dce",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/metallicheskie-lameli/": {
-    "digest": "366d148ac591813cbb4f635f46bf8a3341ba17b7e7b12dc34bd1435c6c768888",
+    "digest": "da913bca2f30c3a0b430b887322f301b4aa26a2859edfb097e31d17b8d5b5aef",
     "lastmod": "2026-11-17"
   },
   "/ru/zabory/profnastil/": {
-    "digest": "244a5c79356456b6c35d2ddc40c2b9acfeaa931a5cf15eaaf6b98950f54cc8b4",
-    "lastmod": "2026-09-28"
+    "digest": "b8966d8fd56ee8a0bb2feed6df2ceb024b57abe649b6f6089c99951856791788",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/prutkovye/": {
-    "digest": "b28322d8ca99340b21f7b3c99649369fe4b83a946e89e6a5f6d3e5c4b67d4618",
+    "digest": "a93c0c4ac092ceccf5fca915575b2e13a10c3944e7a24e49941413b0dd3468b3",
     "lastmod": "2026-11-17"
   },
   "/ru/zabory/setka-rabitsa/": {
-    "digest": "e7f98aa1126beb1690abb62195a4b4a9bfa94562e0ecd2b0e8ff93376817fb59",
+    "digest": "726664c7996785b310e634d5b2005c53b195b6e6f6a1232cb9fbab7c17c43253",
     "lastmod": "2026-11-17"
   },
   "/tingimused/": {
@@ -400,11 +400,11 @@
     "lastmod": "2026-09-27"
   },
   "/varavad/": {
-    "digest": "8583866c97657348a2af5645ef84a7ef52e640052226f71c8e6515e625e3b10c",
-    "lastmod": "2026-09-28"
+    "digest": "b4acf2726eed10eeba5b8a59bebedcfe3030cd730d5f888c4dbf29e2504507ee",
+    "lastmod": "2026-11-17"
   },
   "/varavad/domofonid/": {
-    "digest": "273336f5f372ce3917934aa8b22ca0027081703eecf2ad3fe0bb3031658aff28",
-    "lastmod": "2026-09-28"
+    "digest": "2827a7daa984deb3ed910476b5e95f750c797b7e8b8aa948746ccd6ee2019156",
+    "lastmod": "2026-11-17"
   }
 }

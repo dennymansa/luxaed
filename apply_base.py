@@ -25,8 +25,8 @@ def fix_css(s):
 
 # ---- Title Case for <title>/og:title/twitter:title (per language, connectors stay lowercase) ----
 _STOP = {
- 'ru': {'и','в','из','на','о','с','со','для','по','к','у','от','до'},
- 'et': {'ja','ning','või'},
+ 'ru': {'и','в','из','на','о','с','со','для','по','к','у','от','до','под','при','между'},
+ 'et': {'ja','ning','või','enne'},
  'en': {'and','in','of','the','a','an','for','to','or','on','with','&','by','at','from','into','per','via','vs','vs.','as','near','across','over','under','between','within','without','onto'},
 }
 def _cap_first(w):
@@ -41,8 +41,12 @@ def _tc_part(s, lang):
     for i,w in enumerate(s.split(' ')):
         if not w or w == '&': out.append(w); continue
         low=w.lower().strip('.,()')
-        # hyphenated compounds are capitalised on both sides: Fence-Building, Chain-Link
-        out.append(w.lower() if (i>0 and low in stop) else '-'.join(_cap_first(part) for part in w.split('-')))
+        if i > 0 and low in stop:
+            out.append(w.lower())
+        elif lang == 'en':
+            out.append('-'.join(_cap_first(part) for part in w.split('-')))
+        else:
+            out.append(_cap_first(w))
     return ' '.join(out)
 def title_case(title, lang):
     # keep the "| LuxAed" brand suffix untouched; work on unescaped text so
@@ -64,11 +68,6 @@ def brand_suffix(html_text):
 def apply_titlecase(html):
     m=re.search(r'<html lang="([a-z]{2})"', html)
     lang=m.group(1) if m else 'et'
-    # English marketing titles conventionally use title case. Estonian and
-    # Russian titles use sentence case, so preserve the wording supplied by
-    # their generators instead of applying English capitalisation rules.
-    if lang != 'en':
-        return html
     def sub_title(mm): return '<title>'+title_case(mm.group(1), lang)+'</title>'
     html=re.sub(r'<title>(.*?)</title>', sub_title, html, count=1, flags=re.DOTALL)
     for prop in ('og:title','twitter:title'):
