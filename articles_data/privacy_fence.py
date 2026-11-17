@@ -17,7 +17,7 @@ NEW_SRC = {}
 
 ARTICLE = {
     "et": {
-        "title": "Kinnine aed: profiilplekk-, puit- või lippaed? | LuxAed",
+        "title": "Kinnise aia materjalid: profiilplekk, puit ja lipid | LuxAed",
         "desc": "Kinnine aed koos paigaldusega: profiilplekk 70–135 €/jm, metall-lippaed 85–155 €/jm, puit 90–160 €/jm. Võrdleme privaatsust, tuult, hooldust ja valla reegleid.",
         "short": "Kinnine aed",
         "image": "luxaed-svc-wood",
@@ -110,7 +110,7 @@ ARTICLE = {
         "cta": ("Aitame valida kinnise aia", "Tasuta mõõdistusel kontrollime tuult, pinnast ja planeeringut ning pakume teie krundile sobiva lahenduse.", "/#form", "Küsi pakkumist"),
     },
     "ru": {
-        "title": "Глухой забор: профнастил, дерево или штакетник? | LuxAed",
+        "title": "Глухие заборы из профнастила, дерева и штакетника | LuxAed",
         "desc": "Глухой забор с установкой: профнастил 70–135 €/м, металлический штакетник 85–155 €/м, дерево 90–160 €/м. Сравниваем приватность, ветер, уход и правила волостей.",
         "short": "Глухой забор",
         "image": "luxaed-svc-wood",
@@ -203,7 +203,7 @@ ARTICLE = {
         "cta": ("Поможем выбрать глухой забор", "На бесплатном замере проверим ветер, грунт и планировку и предложим решение для вашего участка.", "/ru/#form", "Оставить заявку"),
     },
     "en": {
-        "title": "Privacy fence: profiled sheet, timber or picket? | LuxAed",
+        "title": "Privacy fencing: profiled sheet, timber and pickets | LuxAed",
         "desc": "Privacy fences installed: profiled sheet €70–135/m, steel picket €85–155/m, timber €90–160/m. We compare privacy, wind, upkeep and municipal rules.",
         "short": "Privacy fence",
         "image": "luxaed-svc-wood",

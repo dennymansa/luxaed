@@ -241,7 +241,7 @@ OUTCOME_COPY = {
         },
         "profiled_sheet": {
             "name": "Profiled-sheet fence supply and installation",
-            "title": "Corrugated & Profiled-Sheet Fences in Tallinn | LuxAed",
+            "title": "Profiled-sheet fence installation in Tallinn | LuxAed",
             "desc": "Complete corrugated or profiled-sheet fence installation in Tallinn and Harju County: measurement, steel frame, posts, coated sheets and matching gates.",
             "kicker": "Profiled sheet · fence supply and installation",
             "h1": "Profiled-sheet fence<br><em>supplied and installed</em>",

@@ -13,7 +13,7 @@ NEW_SRC = {}
 
 ARTICLE = {
     "et": {
-        "title": "Võrkaed või 3D paneelaed: mis vahe ja kumb valida? | LuxAed",
+        "title": "Rullvõrkaia ja 3D paneelaia võrdlus | LuxAed",
         "desc": "Rullvõrkaed maksab koos paigaldusega 25–45 €/jm, 3D paneelaed 35–60 €/jm. Võrdleme jäikust, välimust, sobivust kaldele ja koerale ning väravaid.",
         "short": "Võrkaed või 3D paneelaed",
         "image": "luxaed-3d-mesh-fence-1",
@@ -106,7 +106,7 @@ ARTICLE = {
         "cta": ("Mõõdame ja arvutame mõlemad variandid", "Tasuta mõõdistusel vaatame piiri, kalde ja pinnase üle ning anname kirjaliku pakkumise nii rullvõrgule kui ka 3D paneelaiale.", "/#form", "Küsi pakkumist"),
     },
     "ru": {
-        "title": "Сетка-рабица или 3D-панели: что выбрать для участка | LuxAed",
+        "title": "Сравнение заборов из сетки-рабицы и 3D-панелей | LuxAed",
         "desc": "Сетка-рабица с установкой стоит 25–45 €/м, 3D-забор 35–60 €/м. Сравниваем жёсткость, внешний вид, работу на склоне, защиту от собаки и ворота.",
         "short": "Сетка-рабица или 3D-панели",
         "image": "luxaed-3d-mesh-fence-1",
@@ -199,7 +199,7 @@ ARTICLE = {
         "cta": ("Измерим и посчитаем оба варианта", "На бесплатном замере посмотрим границу, склон и грунт и дадим письменное предложение и на сетку, и на 3D-панели.", "/ru/#form", "Узнать цену"),
     },
     "en": {
-        "title": "Chain-link vs 3D mesh panel fence: which to choose? | LuxAed",
+        "title": "Chain-link and 3D mesh panel fences compared | LuxAed",
         "desc": "Roll mesh costs €25–45/m installed and 3D mesh panels €35–60/m. We compare stiffness, looks, slopes, dogs, wind and gates so you can choose the right fence.",
         "short": "Chain-link or 3D mesh panels",
         "image": "luxaed-3d-mesh-fence-1",

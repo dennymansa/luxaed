@@ -62,7 +62,7 @@ def _cta(h2, text, href, button):
 # ------------------------------------------------------------------ permit guide
 PERMIT = {
     "et": {
-        "title": "Kas aia ehitamiseks on vaja luba? Ehitusteatis 2026 — LuxAed",
+        "title": "Aia ehitusteatis ja projekt Eestis 2026 — LuxAed",
         "desc": "Aed või värav, mille ehitamisel kaevatakse sügavamale kui 30 cm, vajab ehitusteatist ja ehitusprojekti. Mida nõuab seadus, mida vald ja mida leppida kokku naabriga.",
         "advice_tag": "Meie soovitus", "advice_h": "Mis on tegelikult oluline",
         "advice": [("Esmalt teatis, siis materjal", "Esitage ehitusteatis enne materjali tellimist. Kui vald küsib täiendusi, ei jää tellitud paneelid ootele."), ("Piir enne poste", "Kõige kallim viga on aed, mis jääb paar sentimeetrit naabri maale. Kui piirimärke pole näha, laske maamõõtjal piir taastada."), ("Planeering enne aiatüüpi", "Detailplaneering võib keelata kinnise plankaia või piirata kõrgust. Kontrollige see üle enne, kui aiatüübi valite."), ("Naabriga kirjalikult", "Lühike kiri asukoha, kõrguse ja kulude jagamise kohta hoiab ära hilisema vaidluse.")],
@@ -115,7 +115,7 @@ PERMIT = {
         "cta": ("Planeerime teie aia koos", "Mõõdistame tasuta ja anname aia tehnilised andmed teatise jaoks.", "Küsi tasuta mõõdistust"),
     },
     "ru": {
-        "title": "Нужно ли разрешение на забор в Эстонии в 2026 году? — LuxAed",
+        "title": "Уведомление о строительстве забора в Эстонии в 2026 году — LuxAed",
         "desc": "Для забора или ворот, при установке которых копают глубже 30 см, нужны ehitusteatis и проект. Что требует закон, что добавляет волость и что согласовать с соседом.",
         "advice_tag": "Наш совет", "advice_h": "Что на самом деле важно",
         "advice": [("Сначала уведомление, потом материал", "Подайте ehitusteatis до заказа материала. Если волость попросит дополнений, вам не придётся ждать с уже купленными панелями."), ("Граница до столбов", "Дороже всего обходится забор, вставший на пару сантиметров на участок соседа. Если межевых знаков не видно, пусть землемер восстановит границу."), ("Планировка до выбора забора", "Детальная планировка может запретить глухой дощатый забор или ограничить высоту. Проверьте это до выбора типа забора."), ("С соседом письменно", "Короткое письмо о месте, высоте и разделе расходов избавит от споров потом.")],
@@ -168,7 +168,7 @@ PERMIT = {
         "cta": ("Спланируем ваш забор вместе", "Бесплатно измерим участок и дадим технические данные забора для уведомления.", "Заказать бесплатный замер"),
     },
     "en": {
-        "title": "Do you need a permit for a fence in Estonia? — LuxAed",
+        "title": "Fence permits and building notices in Estonia — LuxAed",
         "desc": "Digging deeper than 30 cm for a fence or gate means a building notice and a design. What the law requires, what municipalities add and what to agree with neighbours.",
         "advice_tag": "Our advice", "advice_h": "What really matters",
         "advice": [("Notice first, materials second", "File the building notice before ordering materials. If the municipality asks for more information, you are not left waiting with panels already bought."), ("Boundary before posts", "The costliest mistake is a fence that ends up a few centimetres on your neighbour's land. If you cannot see the boundary markers, have a surveyor restore them."), ("Check the plan before choosing", "A detailed plan may ban solid plank fences or limit the height. Check it before you choose the fence type."), ("Agree in writing", "A short note on position, height and cost sharing saves arguments later.")],
@@ -243,7 +243,7 @@ def permit_page(lang):
 # ------------------------------------------------------------------ gate guide
 GATES = {
     "et": {
-        "title": "Liugvärav või tiibvärav: kumb sobib teie sissesõidule? — LuxAed",
+        "title": "Liugvärava ja tiibvärava võrdlus — LuxAed",
         "desc": "Liugvärav säästab ruumi sissesõidu ees, tiibvärav on lihtsam, kui tiibadel on ruumi. Võrdlus: külgruum, kalle, talv, automaatika ja hinnad Tallinnas.",
         "kicker": "Juhend · väravad", "h1": "Liugvärav või<br><em>tiibvärav?</em>",
         "lead": "Valik sõltub eelkõige ruumist: kas aia kõrval on ruumi liugvärava jaoks või värava ees ruumi tiibade avanemiseks. See võrdlus aitab otsustada juba enne mõõdistust.",
@@ -290,7 +290,7 @@ GATES = {
         "cta": ("Mõõdame teie sissesõidu", "Tuleme tasuta mõõdistusele ja ütleme, kumb värav teie krundile sobib.", "Küsi väravate pakkumist"),
     },
     "ru": {
-        "title": "Откатные или распашные ворота: что выбрать для въезда — LuxAed",
+        "title": "Сравнение откатных и распашных ворот для въезда — LuxAed",
         "desc": "Откатные ворота экономят место перед въездом, распашные проще, если створкам есть куда открываться. Сравнение: место сбоку, уклон, зима, автоматика и цены.",
         "kicker": "Руководство · ворота", "h1": "Откатные или<br><em>распашные ворота?</em>",
         "lead": "Выбор зависит прежде всего от места: есть ли сбоку место для откатных ворот или перед воротами место, чтобы открывались створки. Это сравнение поможет решить ещё до замера.",
@@ -337,7 +337,7 @@ GATES = {
         "cta": ("Измерим ваш въезд", "Приедем на бесплатный замер и скажем, какие ворота подойдут вашему участку.", "Рассчитать ворота"),
     },
     "en": {
-        "title": "Sliding or swing gate: which suits your driveway? — LuxAed",
+        "title": "Sliding and swing gates: a driveway comparison — LuxAed",
         "desc": "Sliding gates save space in front of the entrance; swing gates are simpler where the leaves have room. Compare side space, slopes, winter use, automation and prices.",
         "kicker": "Guide · gates", "h1": "Sliding or<br><em>swing gate?</em>",
         "lead": "The choice depends mainly on space: is there room beside the fence for a sliding gate, or room in front of the entrance for the leaves to swing? This comparison helps you decide before the site visit.",

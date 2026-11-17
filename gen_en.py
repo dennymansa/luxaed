@@ -302,7 +302,7 @@ for c in ENSERV:
     if c["path"] == "/en/fences/metal/":
         c.update({
             "path":"/en/fences/profiled-sheet/","name":"Profiled-sheet fences",
-            "title":"Corrugated & Profiled-Sheet Fences in Tallinn | LuxAed",
+            "title":"Profiled-sheet fence installation in Tallinn | LuxAed",
             "desc":"Profiled-sheet fence installation in Tallinn and Harjumaa. A solid coated-steel boundary with matching gates, selected profile and colour. Free measurement.",
             "kicker":"Profiled sheet · solid boundary · steel frame",
             "h1":"<em>Profiled-sheet fence</em><br>installation",
@@ -328,7 +328,7 @@ for c in ENSERV:
     elif c["path"] == "/en/fences/steel-picket/":
         c.update({
             "name":"Steel picket and metal-slat fences",
-            "title":"Steel picket & metal-slat fences in Tallinn — LuxAed",
+            "title":"Steel picket and metal-slat fence installation in Tallinn — LuxAed",
             "desc":"Vertical steel picket and horizontal metal-slat fences in Tallinn and Harjumaa. Adjustable spacing, coated steel and matching gates. Free measurement.",
             "kicker":"Vertical steel picket · horizontal metal slats",
             "lead":"A clean, durable metal fence with either vertical steel pickets or horizontal metal slats. We select the orientation, spacing, colour and gate infill for the privacy and look you want.",

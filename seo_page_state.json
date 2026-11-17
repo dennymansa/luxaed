@@ -16,8 +16,8 @@
     "lastmod": "2026-10-02"
   },
   "/aia-ehitusteatis/": {
-    "digest": "ac3e913d187d8f832addabd51a4b76691a797702ccd2beb7eae42eb054ddfb1d",
-    "lastmod": "2026-09-27"
+    "digest": "ea75df4f22bd6cd8d6e5cac2fa7e35ba89aff0891c6573720015c85eb5bfd0ee",
+    "lastmod": "2026-11-17"
   },
   "/aia-korgus-harjumaal/": {
     "digest": "0b8b9e3eadf8925ed9df38bbc6bd20541e5afb4a38ae95963753eab5de8c930d",
@@ -28,20 +28,20 @@
     "lastmod": "2026-09-28"
   },
   "/aia-remont/kahjustatud-aed/": {
-    "digest": "ab49d7b6b325103982281f16f5de5e00e43d67661cccabc1ea23041d12df3f27",
-    "lastmod": "2026-09-27"
+    "digest": "19dac2e21e6ec519e64650f4540af0c02646f6741bf71d8edb34c2bd7a76788e",
+    "lastmod": "2026-11-17"
   },
   "/aia-remont/liugvarava-remont/": {
-    "digest": "dcaba05f647e04566612c7898ca31329d7a9e957c6302de685a0059e97a23782",
-    "lastmod": "2026-09-27"
+    "digest": "9950031d051def33e952c5b22af5aafdbf69a5d0ff41c9cf39f3976d0dd78b6b",
+    "lastmod": "2026-11-17"
   },
   "/aia-remont/varav-ei-avane/": {
-    "digest": "b2f47b5f0883fea37ba12ee0c312939e70e0dacb535e8bc565b625df9b5eacae",
-    "lastmod": "2026-09-27"
+    "digest": "7b363a59542ba7b851531ea027c3be0dc62bddf75033d46c975688a1beb5b81e",
+    "lastmod": "2026-11-17"
   },
   "/aia-remont/viltu-aed/": {
-    "digest": "481fb53c3b2962e7d86c1e195ca113cdd27143218ec38f9ac084b0866b3c1221",
-    "lastmod": "2026-09-27"
+    "digest": "e64f67db4405e638a295ef64c58de6d1a1eafd37386c9c153c7c6133d0f583b8",
+    "lastmod": "2026-11-17"
   },
   "/aia-vundamendi-betoonitood-10-nouannet/": {
     "digest": "c0ea0b6a2937824261bc1f73fa45093209888f6cea17322015a3199625780a0f",
@@ -124,28 +124,28 @@
     "lastmod": "2026-09-27"
   },
   "/en/fence-permit/": {
-    "digest": "aadadcd594859f5ec5da9311069ba8c0480f9ae1b0e26319fef3db7efab94370",
-    "lastmod": "2026-09-27"
+    "digest": "d64429fc1dd6d01ea0f80465d84f3a260082ed6f095f6a9d49af190d82de975d",
+    "lastmod": "2026-11-17"
   },
   "/en/fence-repair/": {
     "digest": "02e9085aa0e0a04977cc7859047048f3590d473aa84a1bff930d0c7571fc9e14",
     "lastmod": "2026-09-28"
   },
   "/en/fence-repair/damaged-fence/": {
-    "digest": "ccd5c05b8faba4901e4e81823ee47215f9ec6fd8eea3532cdf68f49d57c576d9",
-    "lastmod": "2026-09-27"
+    "digest": "80ea77a3f3714d33a5f05c391b30652bdaf0d6bf776ac5c934e4484e39c2f85f",
+    "lastmod": "2026-11-17"
   },
   "/en/fence-repair/gate-wont-open/": {
-    "digest": "1de9169d163126f1a0bb486555963518bb5fcefa6c46221129980fb7fc09a9ae",
-    "lastmod": "2026-09-27"
+    "digest": "73ede867bf27d1c7a65282d34bbb9725e61bebb45daef770e14c94d470558a83",
+    "lastmod": "2026-11-17"
   },
   "/en/fence-repair/leaning-fence/": {
-    "digest": "33527a6b712debc1cf953b3eec1bf94c4779912cc78a58779f8e1db8bf20125a",
-    "lastmod": "2026-09-27"
+    "digest": "dd3a1783511f80a24baa3f23243ee88187374976e572b7807aead0cf7e39dd97",
+    "lastmod": "2026-11-17"
   },
   "/en/fence-repair/sliding-gate-repair/": {
-    "digest": "11d47f54dc88a81857695e559fa31e80dc402bd639f0b15bf5bd58c817c2c6c0",
-    "lastmod": "2026-09-27"
+    "digest": "381ee85bce02b7d9ee5d6cd97e78854184517cdba28428fb31d4d429e0ecd65e",
+    "lastmod": "2026-11-17"
   },
   "/en/fences/mesh/": {
     "digest": "0bfdb3a86ab1893fb9e152822584a6db46ad2341ba57cf267b2d8e69bcc0e641",
@@ -156,16 +156,16 @@
     "lastmod": "2026-10-02"
   },
   "/en/fences/profiled-sheet/": {
-    "digest": "fc8e88f73f56d3e8d2568039984523e8553a2c2032ab10b69b66a78fa085595a",
-    "lastmod": "2026-09-28"
+    "digest": "8518a3e9883221689663199f5d3d5b8af1b2f059cc71812656adfed947ddcaf8",
+    "lastmod": "2026-11-17"
   },
   "/en/fences/roll-mesh/": {
     "digest": "3100ebe3bfca6148d0ebb5cfd6971853a75f9165394725db94721ad13c6b6593",
     "lastmod": "2026-10-02"
   },
   "/en/fences/steel-picket/": {
-    "digest": "5e41f7f0db96982bfc4455c2b1977b7975fe15d5a43d62ea51ec8f60d2de197d",
-    "lastmod": "2026-10-02"
+    "digest": "bc15b151f8da2b11f0c05a87c0decdf1a1ec23ca3bddbd6086078a63576cb1a6",
+    "lastmod": "2026-11-17"
   },
   "/en/fences/wooden/": {
     "digest": "0836119d0bc1ab49c9a5c60426e577d3f7bfe60aa0945eddf7dbdabc1be346c1",
@@ -192,24 +192,24 @@
     "lastmod": "2026-09-28"
   },
   "/en/mesh-panels-or-chain-link/": {
-    "digest": "fa07a14057a37f49937fd4b0b7fbe7b1fba58e15cf7b7030ac3c44d558ddf8db",
-    "lastmod": "2026-10-02"
+    "digest": "b812bbe117caacc9d1a75117027d91320e69255c819eaa59088179d12de4a017",
+    "lastmod": "2026-11-17"
   },
   "/en/prices/": {
     "digest": "8288c15bc81761e169db9dec8207223041874839ba3b72c4c7e30c26e9ad4d02",
     "lastmod": "2026-10-02"
   },
   "/en/privacy-fence/": {
-    "digest": "8d6d846d674df8ba3e3f2bd5add3baa3586458dba319e7451facbffcb030572b",
-    "lastmod": "2026-10-02"
+    "digest": "9f7ff2211f8bed0fe793d78ca34477d2a540bb437eae726085795b6a07578af1",
+    "lastmod": "2026-11-17"
   },
   "/en/privacy/": {
     "digest": "c9f374fb140f851dde510b9de03a29c127f553ff2e12a7186f6a12170685690c",
     "lastmod": "2026-09-27"
   },
   "/en/sliding-or-swing-gate/": {
-    "digest": "1a8dac42e0aca5ceaada5ff9eb6ad6eb2d3c95b14ef55a565d902587ac296f6b",
-    "lastmod": "2026-09-27"
+    "digest": "dd3c2c14d003ad4324f912592d0c4210c8b58a2af3c0ba671de01d8396a151d9",
+    "lastmod": "2026-11-17"
   },
   "/en/terms/": {
     "digest": "928bd19989019793cdf5709cf061df5041d34b4502c925fba77ff6a4165b1552",
@@ -220,8 +220,8 @@
     "lastmod": "2026-10-02"
   },
   "/kinnine-aed/": {
-    "digest": "e55be8c195d314e2e65746c252c4117231ae5f6a1d35b1db8ba7ee3fda1067a6",
-    "lastmod": "2026-10-02"
+    "digest": "6fcbe5e8d350a9a9f1a41fb699ec908b3c3d9bd93ba3ae9ecb39fdff54a42855",
+    "lastmod": "2026-11-17"
   },
   "/kkk/": {
     "digest": "8cf0da105ccb80314dbda58d2ff5e853724f60e08283cd11a1f55b1ccb389915",
@@ -236,8 +236,8 @@
     "lastmod": "2026-10-02"
   },
   "/liugvarav-voi-tiibvarav/": {
-    "digest": "b8cbe390f39c51ea41c29ef4c19c2efcb78247d7f60458343112192e3800003d",
-    "lastmod": "2026-09-27"
+    "digest": "81b311d7546836547fb4a005c0a96e45d01a473bb4411aafbfda332460d3f58f",
+    "lastmod": "2026-11-17"
   },
   "/meist/": {
     "digest": "42306b8267e7a94a31abbed2dd55286016250850f19484f13983c23ae6f99cbe",
@@ -248,8 +248,8 @@
     "lastmod": "2026-11-11"
   },
   "/paneelaed-voi-vorkaed/": {
-    "digest": "09fd789830355f97077cc37bde304a4c89b4a81c7bea5d48a83749a1ab0673c2",
-    "lastmod": "2026-10-02"
+    "digest": "fd51399c3006f680518d292f02fe282a31abcf49df5b3f1b3b17615639f4e473",
+    "lastmod": "2026-11-17"
   },
   "/piirkonnad/harjumaa/": {
     "digest": "bee1de71c6fd96cebc0639e7621fb81b883874244620cf30b374c8d0a9ee5dc3",
@@ -264,8 +264,8 @@
     "lastmod": "2026-11-11"
   },
   "/ru/3d-zabor-ili-setka-rabitsa/": {
-    "digest": "251cfe77a3bc5c374003b04dc8bc1d01b6e5e46871b5dbb406c1bc580ba08776",
-    "lastmod": "2026-10-02"
+    "digest": "c351234c63c57694bda322377cc838fa1d3eb368bdf4b8fd41319917f6731875",
+    "lastmod": "2026-11-17"
   },
   "/ru/betonnye-raboty/": {
     "digest": "a356daee82634ab19cce584c97a8da8a8385b70db9641884da4eea06451f1a5f",
@@ -292,8 +292,8 @@
     "lastmod": "2026-11-11"
   },
   "/ru/gluhoj-zabor/": {
-    "digest": "7c47fd1ec91909543d596fc7a7bac4eba0790d5bdb0f1f64f69f4ae7b46c51de",
-    "lastmod": "2026-10-02"
+    "digest": "1aff4054f70b6c7e7c17539f31a0d06371e0d57301ed128744477d024591dc43",
+    "lastmod": "2026-11-17"
   },
   "/ru/kak-vybrat-firmu-dlya-zabora/": {
     "digest": "4de3ca642a06a3d6fd69bff1bf131ba55a52ecd0ec0fefbd57a1a4f359ce0375",
@@ -312,8 +312,8 @@
     "lastmod": "2026-10-02"
   },
   "/ru/otkatnye-ili-raspashnye-vorota/": {
-    "digest": "b069053cc09b4703490a921ab75bdab8838d5116116a7f4e0491505f0d036bf6",
-    "lastmod": "2026-09-27"
+    "digest": "d2557839ad1135ccc975b3edfec7e1309063e36292cbd52613aa8f5386a354a1",
+    "lastmod": "2026-11-17"
   },
   "/ru/privaatsus/": {
     "digest": "d1c86994c29d019b53198019dc1244a45b4e32386bfb851513c3bb75269e55be",
@@ -324,28 +324,28 @@
     "lastmod": "2026-09-27"
   },
   "/ru/razreshenie-na-zabor/": {
-    "digest": "9b6832f2c9adbf462297a50cfac7c1dd61e0d9e95643032af68d4b0d5155dd60",
-    "lastmod": "2026-09-27"
+    "digest": "85fe7ac6e8807700321fdad19752dcab24dc0218a95dfa28f1acc246fa940b06",
+    "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/": {
     "digest": "b3139ded6b525362106b6574e32f0086122443f18dda0200c5b0eaf67d73d648",
     "lastmod": "2026-09-28"
   },
   "/ru/remont-zaborov/pokosilsya-zabor/": {
-    "digest": "cee5f6e1a36a87bd6629a471883acd03669064412a6fe915f01955e583e0dafa",
-    "lastmod": "2026-09-27"
+    "digest": "48b138aaf809aeeb8d3c3d4a503632db6d0f1f39bc8a079622a879d0d07fbe43",
+    "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/povrezhdennyj-zabor/": {
-    "digest": "307b65eb4690ac0e606c57683c690883c7086f374043b56a5ba34f521bf88cd0",
-    "lastmod": "2026-09-27"
+    "digest": "c97fbaaa4b061f6508487282520229ba14204d21a1faa25e61e2e25633c33315",
+    "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/remont-otkatnyh-vorot/": {
-    "digest": "94c528c8f1290e83b10f4f90788e7e450014212fe024ca03af21f57a26cc1313",
-    "lastmod": "2026-09-27"
+    "digest": "04ab794d173c0c53a264267ef1f67ebd95b3ed5bcfefa4aa136f771e7b46aa0e",
+    "lastmod": "2026-11-17"
   },
   "/ru/remont-zaborov/vorota-ne-otkryvayutsya/": {
-    "digest": "4936be9a780c10486df62289546ec7036d726fd8bde4c223e6af8cffbe178417",
-    "lastmod": "2026-09-27"
+    "digest": "629465326ea4a1b1f07a464225b744048d310cf9ec89d457d10f41d962bc21b9",
+    "lastmod": "2026-11-17"
   },
   "/ru/sovety/": {
     "digest": "43e3e1e9b3ad367c24d7540fa139dcd62d7e8dc672387a8ec22a5b26eae0a22e",
@@ -380,20 +380,20 @@
     "lastmod": "2026-10-02"
   },
   "/ru/zabory/metallicheskie-lameli/": {
-    "digest": "341f0793e6f9dd9873c48ce59a1feb34dd56dad67b6bacbc8a765e4b893cd49f",
-    "lastmod": "2026-10-02"
+    "digest": "366d148ac591813cbb4f635f46bf8a3341ba17b7e7b12dc34bd1435c6c768888",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/profnastil/": {
     "digest": "244a5c79356456b6c35d2ddc40c2b9acfeaa931a5cf15eaaf6b98950f54cc8b4",
     "lastmod": "2026-09-28"
   },
   "/ru/zabory/prutkovye/": {
-    "digest": "199deb90b694fc2eddf9e5dd933a64c6ea5e71bec64deb6a156372becedabaa9",
-    "lastmod": "2026-10-02"
+    "digest": "b28322d8ca99340b21f7b3c99649369fe4b83a946e89e6a5f6d3e5c4b67d4618",
+    "lastmod": "2026-11-17"
   },
   "/ru/zabory/setka-rabitsa/": {
-    "digest": "310c834fe3b03195250bd294dfb4126356019b6624f13ebffa4cccd08bae5469",
-    "lastmod": "2026-10-02"
+    "digest": "e7f98aa1126beb1690abb62195a4b4a9bfa94562e0ecd2b0e8ff93376817fb59",
+    "lastmod": "2026-11-17"
   },
   "/tingimused/": {
     "digest": "9774630c9692de2f74f464549b8a3fc03d989e231e2d1761f5513725a22c9c5c",
