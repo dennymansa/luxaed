@@ -61,7 +61,7 @@ home_inner=f'''<section class="hero">
   <div class="wrap"><div class="hero-grid"><div>
     <div class="hero-kicker hand">Hei! Vajate uut aeda?</div>
     <div class="hero-trust"><span class="ht-stars">★★★★★</span><span class="ht-score">{RECOMMEND_PERCENT}% soovitab</span><span class="ht-sep">·</span><a class="ht-label" href="{FB}" target="_blank" rel="noopener">{REVIEW_COUNT} arvustust Facebookis</a></div>
-    <h1>Aedade ja väravate paigaldus</h1>
+    <h1>Aia ehitus ja väravate paigaldus</h1>
     <p class="hero-claim"><em>Tasuta mõõdistus</em><br>24-kuuline garantii paigaldusele</p>
     <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div>
   </div>{form_html()}</div>
@@ -69,8 +69,8 @@ home_inner=f'''<section class="hero">
 </section>
 
 <section class="info-strip"><div class="wrap"><div class="info-inner">
-  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Aedade ehitus ja paigaldus</h2></div>
-  <div><p>LuxAed ehitab ja paigaldab aedu Tallinnas ning Harjumaal, alates mõõdistusest kuni valmis aiani. Valikus on puit, profiilplekk, metall-lipid, rullvõrk ja 2D/3D-paneelid. Meilt saate tellida ka <a href="/varavad/">automaatväravate paigalduse</a> ja <a href="/varavad/domofonid/">videodomofoni koos jalgvärava elektrilukuga</a>, et kogu sissepääs töötaks ühe süsteemina.</p></div>
+  <div><span class="tag">Mida me teeme</span><h2 class="info-title">Mida aia ehitus sisaldab</h2></div>
+  <div><p>Ehitame puit-, metall-, võrk- ja paneelaedu Tallinnas ja Harjumaal. Mõõdistusel vaatame koos üle aiajoone, pinnase ja väravate asukohad. Toome materjali kohale, paigaldame postid ja aiasektsioonid ning reguleerime väravad. Meilt saate tellida ka <a href="/varavad/">automaatväravate paigalduse</a> ja <a href="/varavad/domofonid/">videodomofoni koos jalgvärava elektrilukuga</a>, et kogu sissepääs töötaks ühe süsteemina.</p></div>
 </div></div></section>
 
 <section class="section svc-hide" id="teenused"><div class="wrap"><span class="tag">Meie teenused</span><h2 class="big big--xl">Aiad ja väravad igale krundile</h2>
@@ -108,7 +108,7 @@ home_inner=f'''<section class="hero">
 
 <section class="section section--alt"><div class="wrap"><span class="tag">Kuidas töötame</span><h2 class="big">Aia paigaldus: neli lihtsat sammu</h2>{PROCESS}</div></section>
 <section class="section"><div class="wrap"><span class="tag">Ausalt hindadest</span><h2 class="big">Aia ja värava hind: mis kuulub sisse ja mis sõltub projektist</h2>
-<p class="lead">Aia ehitus algab krundi mõõdistusest. Lõplik hind sõltub materjalist, aia pikkusest, reljeefist ja väravatest. Orienteeruvad hinnad leiate <a href="/hinnad/">hinnalehelt</a>, täpse hinna ütleme pärast tasuta mõõdistust.</p>
+<p class="lead">Näiteks 50 meetrit profiilplekk-aeda koos tavapaigaldusega maksab ligikaudu 3 500–6 750 €. Väravad arvestame eraldi. Võrrelge <a href="/hinnad/">aiatüüpide hindu koos paigaldusega</a>. Teie krundi kohta teeme kirjaliku pakkumise pärast tasuta mõõdistust.</p>
 <div class="honest">
   <div class="hon good"><h3>Alati hinna sees</h3><ul><li>Krundi mõõdistamine</li><li>Materjali ja konstruktsiooni konsultatsioon</li><li>Hinnaarvestus enne tööde algust</li><li>Postide ja sektsioonide paigaldus</li><li>Furnituuri paigaldus ja tellitud automaatika seadistamine</li><li>Väravate kontroll pärast paigaldust</li></ul></div>
   <div class="hon bad"><h3>Sõltub projektist</h3><ul><li>Materjali valik (puit, rullvõrk, 2D/3D-keevisvõrk, metall-lipp, varbaed või profiilplekk)</li><li>Aia pikkus ja kõrgus, väravate arv</li><li>Reljeefi keerukus ja aluse ettevalmistus</li><li>Väravaautomaatika ja läbipääsulahendus</li><li>Vana aia lammutus</li></ul></div>
@@ -154,7 +154,7 @@ home_inner=f'''<section class="hero">
 <section class="cta-final"><div class="wrap"><h2>Valmis arutama <em>aeda või väravat</em>?</h2>
   <p>Jätke päring või helistage. Tuleme tasuta mõõdistusele ja ütleme täpse hinna.</p>
   <div class="hero-btns"><a class="btn btn-accent" href="#form">Küsi pakkumist →</a><a class="btn btn-ghost" href="tel:{TEL}">Helista {PHONE}</a></div></div></section>'''
-page("/","Aedade ja väravate paigaldus Tallinnas | LuxAed","Paigaldame puit-, võrk- ja paneelaedu ning automaatväravaid Tallinnas ja Harjumaal. Mõõdame krundi tasuta ja anname paigaldustööle 24-kuulise garantii.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
+page("/","Aia ehitus ja väravate paigaldus Tallinnas | LuxAed","Ehitame piirdeaedu ja paigaldame väravaid Tallinnas ja Harjumaal. Mõõdame krundi tasuta, teeme kirjaliku pakkumise ja anname paigaldustööle 24-kuulise garantii.", home_inner, sch=lb_schema+video_schema(home_video_items("et"),"et"))
 
 # ---------------- ET MEIST ----------------
 meist=f'''<section class="hero hero--compact">

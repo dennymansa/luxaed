@@ -35,7 +35,7 @@ ARTICLE = {
         "h1": "Aia ehitamise vead<br><em>ja kuidas neid vältida</em>",
         "lead": "Enamik aia probleeme saab alguse enne esimest posti: planeerimisel, piiri määramisel ja postide valikul. Allpool on kümme levinud viga koos selgitusega, mis juhtub, miks ja kuidas seda vältida.",
         "direct": ("Kõige kallimad vead on vale piir, esitamata ehitusteatis ja nõrgad postid: nende parandamiseks tuleb aed osaliselt uuesti ehitada.",
-                   "Kontrollige enne tellimist piirimärke, planeeringu nõudeid ja trasse ning laske postid valida pinnase ja tuule järgi. Väravad ja automaatikakaabel planeerige koos aiajoonega, mitte pärast seda."),
+                   "Kontrollige enne tellimist piirimärke, planeeringu nõudeid ja trasse ning laske postid valida pinnase ja tuule järgi. Planeerige väravate asukohad ja automaatikakaabel koos aiajoonega. Kui otsite ehitajat, vaadake, mida hõlmab meie <a href=\"/\">aia ehitus Tallinnas ja Harjumaal</a>."),
         "blocks": [
             {"type": "sections", "tag": "Enne tööd", "h": "Viis viga enne esimest posti",
              "intro": "Need vead tekivad planeerimisel ja neid on hiljem kõige raskem parandada.",
