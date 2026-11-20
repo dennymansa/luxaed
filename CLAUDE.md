@@ -35,18 +35,6 @@ competitor's whole site leaking on our domain. Fixed by: renaming to `reference-
   (adds path prefix + CSS cache-bust). `BASE=""` for the root-domain deploy.
 - Push to `main` → Vercel auto-deploys. Static files + `api/lead.js` (serverless) go live.
 
-## Deployments cost storage (Vercel Pro since 2026-11-19)
-
-The Vercel team is on Pro; every kept deployment of this site is stored whole (about 150 MB,
-half of it the 12 videos in `img/`) and is paid for while it is kept.
-- **One push per work session.** Collect the edits and push once; four deployments in one day
-  (17 Nov) kept 600 MB for a month.
-- `vercel.json` has an `ignoreCommand`: a push that changes no published file (only `*.py`,
-  `*.md`, `docs/`, `reference-kit/`, `demo-colors/`, `*.csv`) is skipped by Vercel. Keep its
-  exclusion list in step with `.vercelignore`; never exclude a file that is served.
-- Do not add large files to `img/` without need; new videos should be compressed first.
-- Deployment retention for this project is set in Vercel (Settings, Build and Deployment).
-
 ## Lead form email
 - `api/lead.js` = Vercel serverless: nodemailer → **Gmail SMTP (port 465) + App Password**.
   This mirrors how moving24 does it (PHPMailer + Gmail SMTP + App Password in `config.php`) —
