@@ -2,6 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
   "cleanUrls": true,
+  "ignoreCommand": "if [ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git cat-file -e \"$VERCEL_GIT_PREVIOUS_SHA^{commit}\" 2>/dev/null && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- . ':(exclude)reference-kit' ':(exclude)demo-colors' ':(exclude)docs' ':(exclude,glob)**/*.py' ':(exclude,glob)**/*.md' ':(exclude,glob)**/*.csv' ':(exclude).gitignore' ':(exclude)seo_page_state.json'; then echo 'No published file changed since the last deployment: skipped.'; exit 0; else exit 1; fi",
   "redirects": [
     { "source": "/aiad", "destination": "/", "permanent": true },
     { "source": "/aiad/", "destination": "/", "permanent": true },
