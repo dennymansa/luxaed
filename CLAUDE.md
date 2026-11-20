@@ -45,8 +45,6 @@ half of it the 12 videos in `img/`) and is paid for while it is kept.
   `*.md`, `docs/`, `reference-kit/`, `demo-colors/`, `*.csv`) is skipped by Vercel. Keep its
   exclusion list in step with `.vercelignore`; never exclude a file that is served.
 - Do not add large files to `img/` without need; new videos should be compressed first.
-- After changing a Vercel environment variable, redeploy with the dashboard option "Use project's
-  Ignore Build Step" unticked (or from the CLI): a redeploy of the same commit is otherwise skipped.
 - Deployment retention for this project is set in Vercel (Settings, Build and Deployment).
 
 ## Lead form email
